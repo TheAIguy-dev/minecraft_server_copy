@@ -1,0 +1,42 @@
+[package]
+name = "minecraft_protocol"
+version = "0.1.0"
+edition = "2021"
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+base64 = "0.21.7"
+byteorder = "1.5.0"
+chrono = "0.4.33"
+confy = "0.6.0"
+enum_stringify = "0.3.0"
+env_logger = "0.11.1"
+fastnbt = "2.4.4"
+lazy_static = "1.4.0"
+leb128 = "0.2.5"
+log = "0.4.20"
+md5 = "0.7.0"
+rand = "0.8.5"
+serde = "1.0.193"
+serde_derive = "1.0.195"
+serde_json = "1.0.108"
+serde_with = "3.6.0"
+sha256 = "1.5.0"
+tokio = {version="1.34.0", features=["full"]}
+tokio-util = {version="0.7.10", features=["full"]}
+uuid = { version = "1.6.1", features = ["v3"] }
+
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
+opt-level = 3
+panic = "abort"
+
+[profile.size]
+inherits = "release"
+build-override.opt-level = "z"
+opt-level = "z"

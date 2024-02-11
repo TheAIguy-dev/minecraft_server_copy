@@ -1,0 +1,17 @@
+port = 25565
+
+[status]
+enforcesSecureChat = false
+previewsChat = false
+favicon = "favicon.png"
+
+[status.version]
+name = "Unnamed Server Software in Rust 1.20.1"
+protocol = 763
+
+[status.players]
+max = 20
+online = 0
+
+[status.description]
+text = "A Minecraft Server"
