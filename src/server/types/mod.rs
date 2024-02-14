@@ -3,6 +3,8 @@
 pub mod angle;
 pub mod chunk;
 pub mod chunk_section;
+pub mod entity_metadata;
+mod entity_metadata_field;
 pub mod gamemode;
 pub mod palette;
 pub mod paletted_container;
@@ -16,6 +18,8 @@ pub mod varlong;
 pub use angle::*;
 pub use chunk::*;
 pub use chunk_section::*;
+pub use entity_metadata::*;
+pub use entity_metadata_field::*;
 pub use gamemode::*;
 pub use palette::*;
 pub use paletted_container::*;

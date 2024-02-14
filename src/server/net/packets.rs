@@ -4,12 +4,12 @@ use std::{fmt::Display, string::String};
 
 use fastnbt::Value;
 use tokio::io::{AsyncRead, AsyncReadExt, AsyncWrite, AsyncWriteExt};
-use uuid::Uuid;
 
 use crate::server::{
     state::ConnectionState,
     types::{
-        self, Angle, Gamemode, PlayerActions, Position, ReadString, ReadVarInt, VarInt, WriteVarInt,
+        self, Angle, EntityMetadata, Gamemode, PlayerActions, Position, ReadString, ReadVarInt,
+        Uuid, VarInt, WriteVarInt,
     },
 };
 
@@ -92,20 +92,20 @@ impl Display for IncomingPacket {
 
 pub trait ReadPacket: AsyncRead + Unpin + Sized {
     async fn read_packet(&mut self, state: &ConnectionState) -> IncomingPacket {
-        let length: i32 = self.read_var_int().await;
+        let length: i32 = self.read_varint().await;
         if length == 0 {
             return IncomingPacket::Unknown { data: vec![] };
         }
-        let id: i32 = self.read_var_int().await;
+        let id: i32 = self.read_varint().await;
 
         {
             use IncomingPacket::*;
             match (state, id) {
                 (ConnectionState::Handshake, 0x00) => Handshake {
-                    protocol_version: self.read_var_int().await,
+                    protocol_version: self.read_varint().await,
                     server_address: self.read_string().await,
                     server_port: self.read_u16().await.unwrap_or_default(),
-                    next_state: self.read_var_int().await,
+                    next_state: self.read_varint().await,
                 },
                 (ConnectionState::Status, 0x00) => StatusRequest,
                 (ConnectionState::Ping | ConnectionState::Status, 0x01) => PingRequest {
@@ -149,7 +149,7 @@ pub trait ReadPacket: AsyncRead + Unpin + Sized {
                 },
                 (_, _) => {
                     let mut data: Vec<u8> =
-                        vec![0; length as usize - vec![0; 5].write_var_int(id).await];
+                        vec![0; length as usize - vec![0; 5].write_varint(id).await];
                     self.read_exact(&mut data).await.unwrap_or_default();
                     Unknown { data }
                 }
@@ -169,12 +169,28 @@ pub enum OutgoingPacket {
     BundleDelimiter,
     /// Packet ID: 0x01
     PingResponse { payload: i64 },
+    /// Packet ID: 0x01
+    SpawnEntity {
+        entity_id: i32,
+        entity_uuid: Uuid,
+        entity_type: i32,
+        x: f64,
+        y: f64,
+        z: f64,
+        pitch: f32,
+        yaw: f32,
+        head_yaw: f32,
+        data: i32,
+        velocity_x: u16,
+        velocity_y: u16,
+        velocity_z: u16,
+    },
     /// Packet ID: 0x02
-    LoginSuccess { uuid: u128, username: String },
+    LoginSuccess { uuid: Uuid, username: String },
     /// Packet ID: 0x03
     SpawnPlayer {
         entity_id: i32,
-        player_uuid: u128,
+        player_uuid: Uuid,
         x: f64,
         y: f64,
         z: f64,
@@ -253,7 +269,7 @@ pub enum OutgoingPacket {
     /// Packet ID: 0x3A
     PlayerInfoUpdate {
         actions: u8,
-        players: Vec<(u128, Vec<PlayerActions>)>,
+        players: Vec<(Uuid, Vec<PlayerActions>)>,
     },
     /// Packet ID: 0x3C
     SynchronizePlayerPosition {
@@ -265,12 +281,24 @@ pub enum OutgoingPacket {
         flags: i8,
         teleport_id: i32,
     },
+    /// Packet ID: 0x3E
+    RemoveEntities { entity_ids: Vec<i32> },
     /// Packet ID: 0x42
     SetHeadRotation { entity_id: i32, head_yaw: f32 },
     /// Packet ID: 0x4E
     SetCenterChunk { chunk_x: i32, chunk_z: i32 },
     /// Packet ID: 0x50
     SetDefaultSpawnPosition { location: Position, angle: f32 },
+    /// Packet ID: 0x52
+    SetEntityMetadata {
+        entity_id: i32,
+        metadata: EntityMetadata,
+    },
+    /// Packet ID: 0x55
+    SetEquipment {
+        entity_id: i32,
+        equipment: Vec<(u8, Option<(i32, u8, Value)>)>,
+    },
     /// Packet ID: 0x65
     SetTabListHeaderAndFooter { header: String, footer: String },
     /// Packet ID: 0x6A
@@ -299,10 +327,48 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
             DisconnectLogin { reason } => (0x00, types::String(reason).to_bytes().await),
             BundleDelimiter => (0x00, vec![]),
             PingResponse { payload } => (0x01, payload.to_be_bytes().into()),
+            SpawnEntity {
+                entity_id,
+                entity_uuid,
+                entity_type,
+                x,
+                y,
+                z,
+                pitch,
+                yaw,
+                head_yaw,
+                data,
+                velocity_x,
+                velocity_y,
+                velocity_z,
+            } => (
+                0x01,
+                [
+                    &VarInt(entity_id).to_bytes().await[..],
+                    &entity_uuid.to_bytes(),
+                    &VarInt(entity_type).to_bytes().await,
+                    &x.to_be_bytes(),
+                    &y.to_be_bytes(),
+                    &z.to_be_bytes(),
+                    &[
+                        Angle::from_deg(pitch).to_angle(),
+                        Angle::from_deg(yaw).to_angle(),
+                        Angle::from_deg(head_yaw).to_angle(),
+                    ],
+                    &VarInt(data).to_bytes().await,
+                    &[
+                        velocity_x.to_be_bytes(),
+                        velocity_y.to_be_bytes(),
+                        velocity_z.to_be_bytes(),
+                    ]
+                    .concat(),
+                ]
+                .concat(),
+            ),
             LoginSuccess { uuid, username } => (
                 0x02,
                 [
-                    &uuid.to_be_bytes()[..],
+                    &uuid.to_bytes()[..],
                     &VarInt(username.len() as i32).to_bytes().await,
                     username.as_bytes(),
                     &[0], // Some unknown properties
@@ -321,7 +387,7 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 0x03,
                 [
                     &VarInt(entity_id).to_bytes().await[..],
-                    &player_uuid.to_be_bytes(),
+                    &player_uuid.to_bytes(),
                     &x.to_be_bytes(),
                     &y.to_be_bytes(),
                     &z.to_be_bytes(),
@@ -373,9 +439,9 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                     &data,
                     &VarInt(block_entities.len() as i32).to_bytes().await,
                     {
-                        let mut buf: Vec<Vec<u8>> = Vec::new();
+                        let mut buf: Vec<u8> = vec![];
                         for (xz, y, t, d) in block_entities {
-                            buf.push(
+                            buf.extend(
                                 [
                                     &[xz][..],
                                     &y.to_be_bytes(),
@@ -385,7 +451,7 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                                 .concat(),
                             );
                         }
-                        &buf.concat()
+                        &buf.to_vec()
                     },
                     &VarInt(sky_light_mask.len() as i32).to_bytes().await,
                     &sky_light_mask
@@ -450,11 +516,11 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                     ],
                     &VarInt(dimension_names.len() as i32).to_bytes().await,
                     {
-                        let mut buf: Vec<Vec<u8>> = vec![];
+                        let mut buf: Vec<u8> = vec![];
                         for dimension_name in dimension_names {
-                            buf.push(types::String(dimension_name).to_bytes().await)
+                            buf.extend(types::String(dimension_name).to_bytes().await)
                         }
-                        &buf.concat()
+                        &buf.to_vec()
                     },
                     &registry_codec,
                     &types::String(dimension_type).to_bytes().await,
@@ -479,7 +545,7 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                             .concat(),
                             None => vec![],
                         };
-                        &buf.clone()
+                        &buf.to_vec()
                     },
                     &VarInt(portal_cooldown).to_bytes().await,
                 ]
@@ -519,7 +585,6 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                     &dz.to_be_bytes(),
                     &[
                         Angle::from_deg(yaw).to_angle(),
-                        // Angle(pitch).to_angle(),
                         Angle::from_deg(pitch).to_angle(),
                         on_ground as u8,
                     ],
@@ -564,6 +629,17 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 ]
                 .concat(),
             ),
+            RemoveEntities { entity_ids } => (
+                0x3E,
+                [&VarInt(entity_ids.len() as i32).to_bytes().await[..], {
+                    let mut buf: Vec<u8> = vec![];
+                    for entity_id in entity_ids {
+                        buf.extend(VarInt(entity_id).to_bytes().await)
+                    }
+                    &buf.to_vec()
+                }]
+                .concat(),
+            ),
             SetHeadRotation {
                 entity_id,
                 head_yaw,
@@ -581,20 +657,20 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                     &[actions][..],
                     &VarInt(players.len() as i32).to_bytes().await,
                     {
-                        let mut buf: Vec<Vec<u8>> = vec![];
+                        let mut buf: Vec<u8> = vec![];
                         for player in players {
-                            buf.push(
-                                [&player.0.to_be_bytes()[..], {
-                                    let mut buf: Vec<Vec<u8>> = vec![];
+                            buf.extend(
+                                [&player.0.to_bytes()[..], {
+                                    let mut buf: Vec<u8> = vec![];
                                     for player_actions in player.1 {
-                                        buf.push(player_actions.to_bytes().await);
+                                        buf.extend(player_actions.to_bytes().await);
                                     }
-                                    &buf.concat()
+                                    &buf.to_vec()
                                 }]
                                 .concat(),
                             );
                         }
-                        &buf.concat()
+                        &buf.to_vec()
                     },
                 ]
                 .concat(),
@@ -610,6 +686,47 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
             SetDefaultSpawnPosition { location, angle } => (
                 0x50,
                 [&location.to_bytes()[..], &angle.to_be_bytes()[..]].concat(),
+            ),
+            SetEntityMetadata {
+                entity_id,
+                metadata,
+            } => (
+                0x52,
+                [&VarInt(entity_id).to_bytes().await[..], {
+                    let mut buf: Vec<u8> = vec![];
+                    for field in metadata.0 {
+                        buf.push(field.0);
+                        buf.extend(field.1.to_bytes().await);
+                    }
+                    buf.push(0xFF);
+                    &buf.to_vec()
+                }]
+                .concat(),
+            ),
+            SetEquipment {
+                entity_id,
+                equipment,
+            } => (
+                0x55,
+                [&VarInt(entity_id).to_bytes().await[..], {
+                    let mut buf: Vec<u8> = vec![];
+                    for (slot, item) in equipment {
+                        // ! Also has the top bit set if another entry follows, and otherwise unset if this is the last item in the array.
+                        buf.push(slot);
+                        buf.extend(match item {
+                            Some((item_id, count, nbt)) => [
+                                &[true as u8][..],
+                                &VarInt(item_id).to_bytes().await,
+                                &[count],
+                                &fastnbt::to_bytes(&nbt).unwrap_or_default(),
+                            ]
+                            .concat(),
+                            None => vec![false as u8],
+                        });
+                    }
+                    &buf.to_vec()
+                }]
+                .concat(),
             ),
             SetTabListHeaderAndFooter { header, footer } => (
                 0x65,
@@ -628,32 +745,32 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                     &VarInt(entity_id).to_bytes().await[..],
                     &VarInt(properties.len() as i32).to_bytes().await,
                     {
-                        let mut buf: Vec<Vec<u8>> = vec![];
+                        let mut buf: Vec<u8> = vec![];
                         for (key, value, modifiers) in properties {
-                            buf.push(
+                            buf.extend(
                                 [
                                     &key.to_bytes().await[..],
                                     &value.to_be_bytes(),
                                     &VarInt(modifiers.len() as i32).to_bytes().await,
                                     {
-                                        let mut buf: Vec<Vec<u8>> = vec![];
+                                        let mut buf: Vec<u8> = vec![];
                                         for (uuid, amount, operation) in modifiers {
-                                            buf.push(
+                                            buf.extend(
                                                 [
-                                                    &uuid.as_bytes()[..],
+                                                    &uuid.to_bytes()[..],
                                                     &amount.to_be_bytes(),
                                                     &[operation],
                                                 ]
                                                 .concat(),
                                             );
                                         }
-                                        &buf.concat()
+                                        &buf.to_vec()
                                     },
                                 ]
                                 .concat(),
                             );
                         }
-                        &buf.concat()
+                        &buf.to_vec()
                     },
                 ]
                 .concat(),
@@ -681,7 +798,7 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
             ),
         };
         let id: Vec<u8> = VarInt(id).to_bytes().await;
-        self.write_var_int((id.len() + data.len()) as i32).await;
+        self.write_varint((id.len() + data.len()) as i32).await;
         self.write_all(&id).await.unwrap_or_default();
         self.write_all(&data).await.unwrap_or_default();
     }
@@ -699,6 +816,6 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
 impl<T: AsyncWrite + Unpin + Sized> WritePacket for T {}
 
 pub async fn prefix_with_length(packet: &mut Vec<u8>) {
-    let len_bytes: usize = packet.write_var_int(packet.len() as i32).await;
+    let len_bytes: usize = packet.write_varint(packet.len() as i32).await;
     packet.rotate_right(len_bytes);
 }

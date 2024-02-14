@@ -34,7 +34,7 @@ async fn test_varint() {
     ];
     for i in 0..values.len() {
         let mut buf: Vec<u8> = vec![];
-        buf.write_var_int(values[i]).await;
+        buf.write_varint(values[i]).await;
         assert_eq!(buf, results[i], "test #{}", i);
     }
 }
@@ -69,7 +69,7 @@ async fn test_varlong() {
     ];
     for i in 0..values.len() {
         let mut buf: Vec<u8> = vec![];
-        buf.write_var_long(values[i]).await;
+        buf.write_varlong(values[i]).await;
         assert_eq!(buf, results[i], "test #{}", i);
     }
 }

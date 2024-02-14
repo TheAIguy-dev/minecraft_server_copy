@@ -33,16 +33,16 @@ async fn client() {
     info!("Client connected");
 
     let mut handshake_packet: Vec<u8> = vec![];
-    handshake_packet.write_var_int(0).await;
-    handshake_packet.write_var_int(763).await;
+    handshake_packet.write_varint(0).await;
+    handshake_packet.write_varint(763).await;
     handshake_packet.write_string(address).await;
     handshake_packet.write_u16(port).await.unwrap_or_default();
-    handshake_packet.write_var_int(2).await;
+    handshake_packet.write_varint(2).await;
     prefix_with_length(&mut handshake_packet).await;
     connection.write_all(&handshake_packet).await.unwrap();
 
     let mut login_start_packet: Vec<u8> = vec![];
-    handshake_packet.write_var_int(0).await;
+    handshake_packet.write_varint(0).await;
     handshake_packet.write_string("tester").await;
     handshake_packet
         .write_u8(false as u8)
@@ -54,7 +54,7 @@ async fn client() {
     info!("All packets sent");
 
     loop {
-        let packet_length: i32 = connection.read_var_int().await;
+        let packet_length: i32 = connection.read_varint().await;
         // let packet_id = VarInt::decode(&mut connection).await;
 
         // if packet_id == 0x03 {
@@ -80,24 +80,24 @@ async fn client() {
 
 // Config
 lazy_static! {
-    pub static ref CONFIG: Config = {
-        let mut config: Config =
-            confy::load_path("config.toml").expect("Something went wrong when loading config.");
-
-        if let Some(favicon_file) = config.status.favicon {
-            if let Ok(favicon_binary) = &fs::read(favicon_file) {
-                let favicon_base64 = general_purpose::STANDARD.encode(favicon_binary);
-                config.status.favicon =
-                    Some("data:image/png;base64,".to_string() + &favicon_base64);
-            } else {
-                warn!("Could not load favicon!");
-                config.status.favicon = None;
-            }
-        }
-
-        config
-    };
     pub static ref PROTOCOL_VERSION: i32 = 763;
+}
+
+pub fn get_config() -> Config {
+    let mut config: Config =
+        confy::load_path("config.toml").expect("Something went wrong when loading config.");
+
+    if let Some(favicon_file) = config.status.favicon {
+        if let Ok(favicon_binary) = &fs::read(favicon_file) {
+            let favicon_base64 = general_purpose::STANDARD.encode(favicon_binary);
+            config.status.favicon = Some("data:image/png;base64,".to_string() + &favicon_base64);
+        } else {
+            warn!("Could not load favicon!");
+            config.status.favicon = None;
+        }
+    }
+
+    config
 }
 
 #[tokio::main]

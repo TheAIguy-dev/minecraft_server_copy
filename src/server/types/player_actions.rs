@@ -2,7 +2,7 @@ use std::string;
 
 use crate::server::types::VarInt;
 
-use super::String;
+use super::{String, Uuid};
 
 #[derive(Debug)]
 pub enum PlayerActions {
@@ -11,7 +11,7 @@ pub enum PlayerActions {
         properties: Vec<(string::String, string::String, Option<string::String>)>,
     },
     InitializeChat {
-        signature: Option<(u128, i64, Vec<u8>, Vec<u8>)>,
+        signature: Option<(Uuid, i64, Vec<u8>, Vec<u8>)>,
     },
     UpdateGamemode {
         gamemode: i32,
@@ -64,7 +64,7 @@ impl PlayerActions {
                         encoded_public_key,
                         public_key_signature,
                     )) => [
-                        &chat_session_id.to_be_bytes()[..],
+                        &chat_session_id.to_bytes()[..],
                         &public_key_expiry_time.to_be_bytes(),
                         &VarInt(encoded_public_key.len() as i32).to_bytes().await,
                         &encoded_public_key,
