@@ -119,6 +119,8 @@ async fn handle_connection(
     };
     let mut event_index: usize = events.lock().await.len();
 
+    let mut frame: u32 = 0;
+
     // Infinite connection
     'conn: loop {
         tick_interval.tick().await;
@@ -433,22 +435,24 @@ async fn handle_connection(
             Err(_) => (),
         }
 
-        if playstate_tick >= 1000 && playstate_tick < (1000 + 360 * 5) {
-            if playstate_tick % 5 == 0 {
+        const START: u128 = 2000;
+        if playstate_tick >= START && playstate_tick % 5 == 0 {
+            frame += 1;
+            frame %= 360 * 2 - 1;
+
+            if frame < 360 {
                 let mut packets: Vec<OutgoingPacket> = vec![];
 
-                let x: f64 = 8.0;
-                let y: f64 = 5.0;
+                const SCALE: f64 = 0.3;
 
-                // for t in 0..360 {
-                let t: f64 = ((playstate_tick / 5) as f64).to_radians();
-                let x: f64 = (16.0 * t.sin().powi(3)) * 0.3 + x;
+                let t: f64 = (frame as f64).to_radians();
+                let x: f64 = (16.0 * t.sin().powi(3)) * SCALE + 8.0;
                 let y: f64 = (13.0 * t.cos()
                     - 5.0 * (2.0 * t).cos()
                     - 2.0 * (3.0 * t).cos()
                     - (4.0 * t).cos())
-                    * 0.3
-                    + y;
+                    * SCALE
+                    + 5.0;
 
                 use EntityMetadataField::*;
                 use OutgoingPacket::*;
@@ -476,7 +480,16 @@ async fn handle_connection(
                     entity_id: eid,
                     equipment: vec![(5, Some((637, 1, nbt!({}))))],
                 });
-                // }
+
+                connection.write_packets(packets).await;
+            } else {
+                let mut packets: Vec<OutgoingPacket> = vec![];
+
+                use OutgoingPacket::*;
+                let eid: i32 = entity_ids.lock().await.remove(1);
+                packets.push(RemoveEntities {
+                    entity_ids: vec![eid],
+                });
 
                 connection.write_packets(packets).await;
             }
