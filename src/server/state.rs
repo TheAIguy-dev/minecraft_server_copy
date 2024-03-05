@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum ConnectionState {
     Handshake,
     Status,

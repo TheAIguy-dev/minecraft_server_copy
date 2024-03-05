@@ -1,18 +1,20 @@
-#![allow(dead_code)]
-
-use std::{fmt::Display, string::String};
+use std::time::{Duration, Instant};
+use std::{collections::VecDeque, fmt::Display};
 
 use fastnbt::Value;
+use log::debug;
 use tokio::io::{AsyncRead, AsyncReadExt, AsyncWrite, AsyncWriteExt};
 
+use crate::server::types::WriteString;
 use crate::server::{
     state::ConnectionState,
     types::{
         self, Angle, EntityMetadata, Gamemode, PlayerActions, Position, ReadString, ReadVarInt,
-        Uuid, VarInt, WriteVarInt,
+        Uuid, WriteVarInt,
     },
 };
 
+#[allow(dead_code)]
 pub enum IncomingPacket {
     Unknown {
         data: Vec<u8>,
@@ -68,6 +70,7 @@ pub enum IncomingPacket {
         on_ground: bool,
     },
 }
+
 impl Display for IncomingPacket {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         use IncomingPacket::*;
@@ -157,9 +160,11 @@ pub trait ReadPacket: AsyncRead + Unpin + Sized {
         }
     }
 }
+
 impl<T: AsyncRead + Unpin> ReadPacket for T {}
 
 #[derive(Debug)]
+#[allow(dead_code)]
 pub enum OutgoingPacket {
     /// Packet ID: 0x00
     StatusResponse { json_response: String },
@@ -297,14 +302,14 @@ pub enum OutgoingPacket {
     /// Packet ID: 0x55
     SetEquipment {
         entity_id: i32,
-        equipment: Vec<(u8, Option<(i32, u8, Value)>)>,
+        equipment: Vec<(u8, Option<(i32, i8, Value)>)>,
     },
     /// Packet ID: 0x65
     SetTabListHeaderAndFooter { header: String, footer: String },
     /// Packet ID: 0x6A
     UpdateAttributes {
         entity_id: i32,
-        properties: Vec<(types::String, f64, Vec<(Uuid, f64, u8)>)>,
+        properties: Vec<(String, f64, Vec<(Uuid, f64, u8)>)>,
     },
     /// Packet ID: 0x6C
     EntityEffect {
@@ -319,6 +324,10 @@ pub enum OutgoingPacket {
 
 pub trait WritePacket: AsyncWrite + Unpin + Sized {
     async fn write_packet(&mut self, packet: OutgoingPacket) {
+        // TODO: double check the code (can be improved)
+
+        // let start: Instant = Instant::now();
+
         use OutgoingPacket::*;
         let (id, data) = match packet {
             StatusResponse { json_response } => {
@@ -326,7 +335,7 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
             }
             DisconnectLogin { reason } => (0x00, types::String(reason).to_bytes().await),
             BundleDelimiter => (0x00, vec![]),
-            PingResponse { payload } => (0x01, payload.to_be_bytes().into()),
+            PingResponse { payload } => (0x01, payload.to_be_bytes().to_vec()),
             SpawnEntity {
                 entity_id,
                 entity_uuid,
@@ -341,40 +350,31 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 velocity_x,
                 velocity_y,
                 velocity_z,
-            } => (
-                0x01,
-                [
-                    &VarInt(entity_id).to_bytes().await[..],
-                    &entity_uuid.to_bytes(),
-                    &VarInt(entity_type).to_bytes().await,
-                    &x.to_be_bytes(),
-                    &y.to_be_bytes(),
-                    &z.to_be_bytes(),
-                    &[
-                        Angle::from_deg(pitch).to_angle(),
-                        Angle::from_deg(yaw).to_angle(),
-                        Angle::from_deg(head_yaw).to_angle(),
-                    ],
-                    &VarInt(data).to_bytes().await,
-                    &[
-                        velocity_x.to_be_bytes(),
-                        velocity_y.to_be_bytes(),
-                        velocity_z.to_be_bytes(),
-                    ]
-                    .concat(),
-                ]
-                .concat(),
-            ),
-            LoginSuccess { uuid, username } => (
-                0x02,
-                [
-                    &uuid.to_bytes()[..],
-                    &VarInt(username.len() as i32).to_bytes().await,
-                    username.as_bytes(),
-                    &[0], // Some unknown properties
-                ]
-                .concat(),
-            ),
+            } => (0x01, {
+                let mut d: Vec<u8> =
+                    Vec::with_capacity(5 + 16 + 5 + 8 + 8 + 8 + 1 + 1 + 1 + 5 + 2 + 2 + 2);
+                d.write_varint(entity_id).await;
+                d.extend_from_slice(&entity_uuid.to_bytes());
+                d.write_varint(entity_type).await;
+                d.extend_from_slice(&x.to_be_bytes());
+                d.extend_from_slice(&y.to_be_bytes());
+                d.extend_from_slice(&z.to_be_bytes());
+                d.push(Angle::from_deg(pitch).to_angle());
+                d.push(Angle::from_deg(yaw).to_angle());
+                d.push(Angle::from_deg(head_yaw).to_angle());
+                d.write_varint(data).await;
+                d.extend_from_slice(&velocity_x.to_be_bytes());
+                d.extend_from_slice(&velocity_y.to_be_bytes());
+                d.extend_from_slice(&velocity_z.to_be_bytes());
+                d
+            }),
+            LoginSuccess { uuid, username } => (0x02, {
+                let mut d: Vec<u8> = Vec::with_capacity(16 + (16 + 1) + 1);
+                d.extend_from_slice(&uuid.to_bytes());
+                d.write_string(&username).await;
+                d.push(0);
+                d
+            }),
             SpawnPlayer {
                 entity_id,
                 player_uuid,
@@ -383,40 +383,43 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 z,
                 yaw,
                 pitch,
-            } => (
-                0x03,
-                [
-                    &VarInt(entity_id).to_bytes().await[..],
-                    &player_uuid.to_bytes(),
-                    &x.to_be_bytes(),
-                    &y.to_be_bytes(),
-                    &z.to_be_bytes(),
-                    &[
-                        Angle::from_deg(yaw).to_angle(),
-                        Angle::from_deg(pitch).to_angle(),
-                    ],
-                ]
-                .concat(),
-            ),
+            } => (0x03, {
+                let mut d: Vec<u8> = Vec::with_capacity(5 + 16 + 8 + 8 + 8 + 1 + 1);
+                d.write_varint(entity_id).await;
+                d.extend_from_slice(&player_uuid.to_bytes());
+                d.extend_from_slice(&x.to_be_bytes());
+                d.extend_from_slice(&y.to_be_bytes());
+                d.extend_from_slice(&z.to_be_bytes());
+                d.push(Angle::from_deg(yaw).to_angle());
+                d.push(Angle::from_deg(pitch).to_angle());
+                d
+            }),
             DisguisedChatMessage {
                 message,
                 chat_type,
                 chat_type_name,
                 target_name,
-            } => (
-                0x1B,
-                [
-                    message.as_bytes(),
-                    &VarInt(chat_type).to_bytes().await,
-                    chat_type_name.as_bytes(),
-                    &[target_name.is_some() as u8],
-                    &target_name
-                        .map(|tn| tn.as_bytes().to_vec())
-                        .unwrap_or_default(),
-                ]
-                .concat(),
-            ),
-            KeepAlive { keep_alive_id } => (0x23, keep_alive_id.to_be_bytes().into()),
+            } => (0x1B, {
+                let mut d: Vec<u8> = Vec::with_capacity(
+                    (message.len() + 5)
+                        + 5
+                        + (chat_type_name.len() + 5)
+                        + 1
+                        + (target_name
+                            .as_ref()
+                            .map(|tn| tn.len() + 5)
+                            .unwrap_or_default()),
+                );
+                d.write_string(&message).await;
+                d.write_varint(chat_type).await;
+                d.write_string(&chat_type_name).await;
+                d.push(target_name.is_some() as u8);
+                if let Some(tn) = target_name {
+                    d.write_string(&tn).await;
+                }
+                d
+            }),
+            KeepAlive { keep_alive_id } => (0x23, keep_alive_id.to_be_bytes().to_vec()),
             ChunkDataAndUpdateLight {
                 chunk_x,
                 chunk_z,
@@ -429,61 +432,66 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 empty_block_light_mask,
                 sky_light_arrays,
                 block_light_arrays,
-            } => (
-                0x24,
-                [
-                    &chunk_x.to_be_bytes()[..],
-                    &chunk_z.to_be_bytes(),
-                    &fastnbt::to_bytes(&heightmaps).unwrap_or_default(),
-                    &VarInt(data.len() as i32).to_bytes().await,
-                    &data,
-                    &VarInt(block_entities.len() as i32).to_bytes().await,
-                    {
-                        let mut buf: Vec<u8> = vec![];
-                        for (xz, y, t, d) in block_entities {
-                            buf.extend(
-                                [
-                                    &[xz][..],
-                                    &y.to_be_bytes(),
-                                    &VarInt(t).to_bytes().await,
-                                    &fastnbt::to_bytes(&d).unwrap_or_default(),
-                                ]
-                                .concat(),
-                            );
-                        }
-                        &buf.to_vec()
-                    },
-                    &VarInt(sky_light_mask.len() as i32).to_bytes().await,
-                    &sky_light_mask
-                        .iter()
-                        .map(|l| l.to_be_bytes())
-                        .collect::<Vec<[u8; 8]>>()
-                        .concat(),
-                    &VarInt(block_light_mask.len() as i32).to_bytes().await,
-                    &block_light_mask
-                        .iter()
-                        .map(|l| l.to_be_bytes())
-                        .collect::<Vec<[u8; 8]>>()
-                        .concat(),
-                    &VarInt(empty_sky_light_mask.len() as i32).to_bytes().await,
-                    &empty_sky_light_mask
-                        .iter()
-                        .map(|l| l.to_be_bytes())
-                        .collect::<Vec<[u8; 8]>>()
-                        .concat(),
-                    &VarInt(empty_block_light_mask.len() as i32).to_bytes().await,
-                    &empty_block_light_mask
-                        .iter()
-                        .map(|l| l.to_be_bytes())
-                        .collect::<Vec<[u8; 8]>>()
-                        .concat(),
-                    &VarInt(sky_light_arrays.len() as i32).to_bytes().await,
-                    &sky_light_arrays.concat(),
-                    &VarInt(block_light_arrays.len() as i32).to_bytes().await,
-                    &block_light_arrays.concat(),
-                ]
-                .concat(),
-            ),
+            } => (0x24, {
+                let heightmaps: Vec<u8> = fastnbt::to_bytes(&heightmaps).unwrap_or_default();
+                let block_entities: Vec<u8> = {
+                    let mut d: Vec<Vec<u8>> = Vec::with_capacity(block_entities.len());
+                    for (xz, y, t, data) in block_entities {
+                        let data: Vec<u8> = fastnbt::to_bytes(&data).unwrap_or_default();
+                        let mut d_: Vec<u8> = Vec::with_capacity(1 + 2 + 5 + data.len());
+                        d_.push(xz);
+                        d_.extend_from_slice(&y.to_be_bytes());
+                        d_.write_varint(t).await;
+                        d_.extend_from_slice(&data);
+                        d.push(d_);
+                    }
+                    d.concat()
+                };
+                let mut d: Vec<u8> = Vec::with_capacity(
+                    4 + 4
+                        + heightmaps.len()
+                        + (5 + data.len())
+                        + (5 + block_entities.len())
+                        + (5 + sky_light_mask.len() * 8)
+                        + (5 + block_light_mask.len() * 8)
+                        + (5 + empty_sky_light_mask.len() * 8)
+                        + (5 + empty_block_light_mask.len() * 8)
+                        + (5 + sky_light_arrays.len() * 1024)
+                        + (5 + 1024),
+                );
+                d.extend_from_slice(&chunk_x.to_be_bytes());
+                d.extend_from_slice(&chunk_z.to_be_bytes());
+                d.extend_from_slice(&heightmaps);
+                d.write_varint(data.len() as i32).await;
+                d.extend_from_slice(&data);
+                d.write_varint(block_entities.len() as i32).await;
+                d.extend_from_slice(&block_entities);
+                d.write_varint(sky_light_mask.len() as i32).await;
+                for i in sky_light_mask {
+                    d.extend_from_slice(&i.to_be_bytes());
+                }
+                d.write_varint(block_light_mask.len() as i32).await;
+                for i in block_light_mask {
+                    d.extend_from_slice(&i.to_be_bytes());
+                }
+                d.write_varint(empty_sky_light_mask.len() as i32).await;
+                for i in empty_sky_light_mask {
+                    d.extend_from_slice(&i.to_be_bytes());
+                }
+                d.write_varint(empty_block_light_mask.len() as i32).await;
+                for i in empty_block_light_mask {
+                    d.extend_from_slice(&i.to_be_bytes());
+                }
+                d.write_varint(sky_light_arrays.len() as i32).await;
+                for i in sky_light_arrays {
+                    d.extend_from_slice(&i);
+                }
+                d.write_varint(block_light_arrays.len() as i32).await;
+                for i in block_light_arrays {
+                    d.extend_from_slice(&i);
+                }
+                d
+            }),
             LoginPlay {
                 entity_id,
                 is_hardcore,
@@ -503,71 +511,80 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 is_flat,
                 death_location,
                 portal_cooldown,
-            } => (
-                0x28,
-                [
-                    &entity_id.to_be_bytes()[..],
-                    &[
-                        is_hardcore as u8,
-                        gamemode as u8,
-                        previous_gamemode
-                            .map(|gm: Gamemode| gm as u8)
-                            .unwrap_or(255),
-                    ],
-                    &VarInt(dimension_names.len() as i32).to_bytes().await,
-                    {
-                        let mut buf: Vec<u8> = vec![];
-                        for dimension_name in dimension_names {
-                            buf.extend(types::String(dimension_name).to_bytes().await)
-                        }
-                        &buf.to_vec()
-                    },
-                    &registry_codec,
-                    &types::String(dimension_type).to_bytes().await,
-                    &types::String(dimension_name).to_bytes().await,
-                    &hashed_seed.to_be_bytes(),
-                    &VarInt(max_players).to_bytes().await,
-                    &VarInt(view_distance).to_bytes().await,
-                    &VarInt(simulation_distance).to_bytes().await,
-                    &[
-                        reduced_debug_info as u8,
-                        enable_respawn_screen as u8,
-                        is_debug as u8,
-                        is_flat as u8,
-                        death_location.is_some() as u8,
-                    ],
-                    {
-                        let buf: Vec<u8> = match death_location {
-                            Some(death_location) => [
-                                &types::String(death_location.0).to_bytes().await[..],
-                                &death_location.1.to_bytes(),
-                            ]
-                            .concat(),
-                            None => vec![],
-                        };
-                        &buf.to_vec()
-                    },
-                    &VarInt(portal_cooldown).to_bytes().await,
-                ]
-                .concat(),
-            ),
+            } => (0x28, {
+                let dimension_names: Vec<u8> = {
+                    let mut d: Vec<u8> = Vec::with_capacity(5);
+                    d.write_varint(dimension_names.len() as i32).await;
+                    for dn in dimension_names {
+                        d.reserve(5 + dn.len());
+                        d.write_string(&dn).await;
+                    }
+                    d
+                };
+                let mut d: Vec<u8> = Vec::with_capacity(
+                    5 + 1
+                        + 1
+                        + 1
+                        + (5 + dimension_names.len())
+                        + registry_codec.len()
+                        + (5 + dimension_type.len())
+                        + (5 + dimension_name.len())
+                        + 8
+                        + 5
+                        + 5
+                        + 5
+                        + 1
+                        + 1
+                        + 1
+                        + 1
+                        + 1
+                        + (death_location
+                            .as_ref()
+                            .map(|(ddn, _)| (5 + ddn.len()) + 8)
+                            .unwrap_or_default())
+                        + 5,
+                );
+                d.extend_from_slice(&entity_id.to_be_bytes());
+                d.push(is_hardcore as u8);
+                d.push(gamemode as u8);
+                d.push(previous_gamemode.map_or(255, |gm: Gamemode| gm as u8));
+                d.extend_from_slice(&dimension_names);
+                d.extend_from_slice(&registry_codec);
+                d.write_string(&dimension_type).await;
+                d.write_string(&dimension_name).await;
+                d.extend_from_slice(&hashed_seed.to_be_bytes());
+                d.write_varint(max_players).await;
+                d.write_varint(view_distance).await;
+                d.write_varint(simulation_distance).await;
+                d.extend_from_slice(&[
+                    reduced_debug_info as u8,
+                    enable_respawn_screen as u8,
+                    is_debug as u8,
+                    is_flat as u8,
+                    death_location.is_some() as u8,
+                ]);
+                if let Some((ddn, dl)) = death_location {
+                    d.write_string(&ddn).await;
+                    d.extend_from_slice(&dl.to_bytes());
+                }
+                d.write_varint(portal_cooldown).await;
+                d
+            }),
             UpdateEntityPosition {
                 entity_id,
                 dx,
                 dy,
                 dz,
                 on_ground,
-            } => (
-                0x2B,
-                [
-                    &VarInt(entity_id).to_bytes().await[..],
-                    &dx.to_be_bytes(),
-                    &dy.to_be_bytes(),
-                    &dz.to_be_bytes(),
-                    &[on_ground as u8],
-                ]
-                .concat(),
-            ),
+            } => (0x2B, {
+                let mut d: Vec<u8> = Vec::with_capacity(5 + 2 + 2 + 2 + 1);
+                d.write_varint(entity_id).await;
+                d.extend_from_slice(&dx.to_be_bytes());
+                d.extend_from_slice(&dy.to_be_bytes());
+                d.extend_from_slice(&dz.to_be_bytes());
+                d.push(on_ground as u8);
+                d
+            }),
             UpdateEntityPositionAndRotation {
                 entity_id,
                 dx,
@@ -576,38 +593,30 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 yaw,
                 pitch,
                 on_ground,
-            } => (
-                0x2C,
-                [
-                    &VarInt(entity_id).to_bytes().await[..],
-                    &dx.to_be_bytes(),
-                    &dy.to_be_bytes(),
-                    &dz.to_be_bytes(),
-                    &[
-                        Angle::from_deg(yaw).to_angle(),
-                        Angle::from_deg(pitch).to_angle(),
-                        on_ground as u8,
-                    ],
-                ]
-                .concat(),
-            ),
+            } => (0x2C, {
+                let mut d: Vec<u8> = Vec::with_capacity(5 + 2 + 2 + 2 + 1 + 1 + 1);
+                d.write_varint(entity_id).await;
+                d.extend_from_slice(&dx.to_be_bytes());
+                d.extend_from_slice(&dy.to_be_bytes());
+                d.extend_from_slice(&dz.to_be_bytes());
+                d.push(Angle::from_deg(yaw).to_angle());
+                d.push(Angle::from_deg(pitch).to_angle());
+                d.push(on_ground as u8);
+                d
+            }),
             UpdateEntityRotation {
                 entity_id,
                 yaw,
                 pitch,
                 on_ground,
-            } => (
-                0x2D,
-                [
-                    &VarInt(entity_id).to_bytes().await[..],
-                    &[
-                        Angle::from_deg(yaw).to_angle(),
-                        Angle::from_deg(pitch).to_angle(),
-                        on_ground as u8,
-                    ],
-                ]
-                .concat(),
-            ),
+            } => (0x2D, {
+                let mut d: Vec<u8> = Vec::with_capacity(5 + 1 + 1 + 1);
+                d.write_varint(entity_id).await;
+                d.push(Angle::from_deg(yaw).to_angle());
+                d.push(Angle::from_deg(pitch).to_angle());
+                d.push(on_ground as u8);
+                d
+            }),
             SynchronizePlayerPosition {
                 x,
                 y,
@@ -616,165 +625,135 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 pitch,
                 flags,
                 teleport_id,
-            } => (
-                0x3C,
-                [
-                    &x.to_be_bytes()[..],
-                    &y.to_be_bytes(),
-                    &z.to_be_bytes(),
-                    &yaw.to_be_bytes(),
-                    &pitch.to_be_bytes(),
-                    &[flags as u8],
-                    &VarInt(teleport_id).to_bytes().await,
-                ]
-                .concat(),
-            ),
-            RemoveEntities { entity_ids } => (
-                0x3E,
-                [&VarInt(entity_ids.len() as i32).to_bytes().await[..], {
-                    let mut buf: Vec<u8> = vec![];
-                    for entity_id in entity_ids {
-                        buf.extend(VarInt(entity_id).to_bytes().await)
-                    }
-                    &buf.to_vec()
-                }]
-                .concat(),
-            ),
+            } => (0x3C, {
+                let mut d: Vec<u8> = Vec::with_capacity(8 + 8 + 8 + 4 + 4 + 1 + 5);
+                d.extend_from_slice(&x.to_be_bytes());
+                d.extend_from_slice(&y.to_be_bytes());
+                d.extend_from_slice(&z.to_be_bytes());
+                d.extend_from_slice(&yaw.to_be_bytes());
+                d.extend_from_slice(&pitch.to_be_bytes());
+                d.push(flags as u8);
+                d.write_varint(teleport_id).await;
+                d
+            }),
+            RemoveEntities { entity_ids } => (0x3E, {
+                let mut d: Vec<u8> = Vec::with_capacity(5 + entity_ids.len() * 5);
+                d.write_varint(entity_ids.len() as i32).await;
+                for entity_id in entity_ids {
+                    d.write_varint(entity_id).await;
+                }
+                d
+            }),
             SetHeadRotation {
                 entity_id,
                 head_yaw,
-            } => (
-                0x42,
-                [
-                    &VarInt(entity_id).to_bytes().await[..],
-                    &[Angle::from_deg(head_yaw).to_angle()],
-                ]
-                .concat(),
-            ),
-            PlayerInfoUpdate { actions, players } => (
-                0x3A,
-                [
-                    &[actions][..],
-                    &VarInt(players.len() as i32).to_bytes().await,
-                    {
-                        let mut buf: Vec<u8> = vec![];
-                        for player in players {
-                            buf.extend(
-                                [&player.0.to_bytes()[..], {
-                                    let mut buf: Vec<u8> = vec![];
-                                    for player_actions in player.1 {
-                                        buf.extend(player_actions.to_bytes().await);
-                                    }
-                                    &buf.to_vec()
-                                }]
-                                .concat(),
-                            );
+            } => (0x42, {
+                let mut d: Vec<u8> = Vec::with_capacity(5 + 1);
+                d.write_varint(entity_id).await;
+                d.push(Angle::from_deg(head_yaw).to_angle());
+                d
+            }),
+            PlayerInfoUpdate { actions, players } => (0x3A, {
+                let players: Vec<u8> = {
+                    let mut d: Vec<u8> = Vec::with_capacity(5);
+                    d.write_varint(players.len() as i32).await;
+                    for (uuid, pas) in players {
+                        d.reserve(16);
+                        d.extend_from_slice(&uuid.to_bytes());
+                        for pa in pas {
+                            let d_: Vec<u8> = pa.to_bytes().await;
+                            d.reserve(d_.len());
+                            d.extend_from_slice(&d_);
                         }
-                        &buf.to_vec()
-                    },
-                ]
-                .concat(),
-            ),
-            SetCenterChunk { chunk_x, chunk_z } => (
-                0x4E,
-                [
-                    VarInt(chunk_x).to_bytes().await,
-                    VarInt(chunk_z).to_bytes().await,
-                ]
-                .concat(),
-            ),
-            SetDefaultSpawnPosition { location, angle } => (
-                0x50,
-                [&location.to_bytes()[..], &angle.to_be_bytes()[..]].concat(),
-            ),
+                    }
+                    d
+                };
+                let mut d: Vec<u8> = Vec::with_capacity(1 + (5 + players.len()));
+                d.push(actions);
+                d.extend_from_slice(&players);
+                d
+            }),
+            SetCenterChunk { chunk_x, chunk_z } => (0x4E, {
+                let mut d: Vec<u8> = Vec::with_capacity(5 + 5);
+                d.write_varint(chunk_x).await;
+                d.write_varint(chunk_z).await;
+                d
+            }),
+            SetDefaultSpawnPosition { location, angle } => (0x50, {
+                let mut d: Vec<u8> = Vec::with_capacity(8 + 4);
+                d.extend_from_slice(&location.to_bytes());
+                d.extend_from_slice(&angle.to_be_bytes());
+                d
+            }),
             SetEntityMetadata {
                 entity_id,
                 metadata,
-            } => (
-                0x52,
-                [&VarInt(entity_id).to_bytes().await[..], {
-                    let mut buf: Vec<u8> = vec![];
-                    for field in metadata.0 {
-                        buf.push(field.0);
-                        buf.extend(field.1.to_bytes().await);
-                    }
-                    buf.push(0xFF);
-                    &buf.to_vec()
-                }]
-                .concat(),
-            ),
+            } => (0x52, {
+                let mut d: Vec<u8> = Vec::with_capacity(5);
+                d.write_varint(entity_id).await;
+                for (index, field) in metadata.0 {
+                    let field: Vec<u8> = field.to_bytes().await;
+                    d.reserve(1 + field.len());
+                    d.push(index);
+                    d.extend_from_slice(&field);
+                }
+                d.reserve(1);
+                d.push(0xFF);
+                d
+            }),
             SetEquipment {
                 entity_id,
                 equipment,
-            } => (
-                0x55,
-                [&VarInt(entity_id).to_bytes().await[..], {
-                    let mut buf: Vec<u8> = vec![];
-                    for (slot, item) in equipment {
-                        // ! Also has the top bit set if another entry follows, and otherwise unset if this is the last item in the array.
-                        buf.push(slot);
-                        buf.extend(match item {
-                            Some((item_id, count, nbt)) => [
-                                &[true as u8][..],
-                                &VarInt(item_id).to_bytes().await,
-                                &[count],
-                                &fastnbt::to_bytes(&nbt).unwrap_or_default(),
-                            ]
-                            .concat(),
-                            None => vec![false as u8],
-                        });
+            } => (0x55, {
+                let mut d: Vec<u8> = Vec::with_capacity(6);
+                d.write_varint(entity_id).await;
+                for (slot, item) in equipment {
+                    d.reserve(1);
+                    d.push(slot);
+                    if let Some((id, count, nbt)) = item {
+                        let nbt: Vec<u8> = fastnbt::to_bytes(&nbt).unwrap_or_default();
+                        d.reserve(5 + 1 + nbt.len());
+                        d.push(1);
+                        d.write_varint(id).await;
+                        d.push(count as u8);
+                        d.extend_from_slice(&nbt);
+                    } else {
+                        d.push(0);
                     }
-                    &buf.to_vec()
-                }]
-                .concat(),
-            ),
-            SetTabListHeaderAndFooter { header, footer } => (
-                0x65,
-                [
-                    &types::String(header).to_bytes().await[..],
-                    &types::String(footer).to_bytes().await,
-                ]
-                .concat(),
-            ),
+                }
+                d
+            }),
+            SetTabListHeaderAndFooter { header, footer } => (0x65, {
+                let mut d: Vec<u8> = Vec::with_capacity((5 + header.len()) + (5 + footer.len()));
+                d.write_string(&header).await;
+                d.write_string(&footer).await;
+                d
+            }),
             UpdateAttributes {
                 entity_id,
                 properties,
-            } => (
-                0x6A,
-                [
-                    &VarInt(entity_id).to_bytes().await[..],
-                    &VarInt(properties.len() as i32).to_bytes().await,
-                    {
-                        let mut buf: Vec<u8> = vec![];
-                        for (key, value, modifiers) in properties {
-                            buf.extend(
-                                [
-                                    &key.to_bytes().await[..],
-                                    &value.to_be_bytes(),
-                                    &VarInt(modifiers.len() as i32).to_bytes().await,
-                                    {
-                                        let mut buf: Vec<u8> = vec![];
-                                        for (uuid, amount, operation) in modifiers {
-                                            buf.extend(
-                                                [
-                                                    &uuid.to_bytes()[..],
-                                                    &amount.to_be_bytes(),
-                                                    &[operation],
-                                                ]
-                                                .concat(),
-                                            );
-                                        }
-                                        &buf.to_vec()
-                                    },
-                                ]
-                                .concat(),
-                            );
+            } => (0x6A, {
+                let properties: Vec<u8> = {
+                    let mut d: Vec<u8> = Vec::with_capacity(5);
+                    d.write_varint(properties.len() as i32).await;
+                    for (key, value, modifiers) in properties {
+                        d.reserve((5 + key.len()) + 8 + 5 + modifiers.len() * (16 + 8 + 1));
+                        d.write_string(&key).await;
+                        d.extend_from_slice(&value.to_be_bytes());
+                        d.write_varint(modifiers.len() as i32).await;
+                        for (uuid, amount, operation) in modifiers {
+                            d.extend_from_slice(&uuid.to_bytes());
+                            d.extend_from_slice(&amount.to_be_bytes());
+                            d.push(operation);
                         }
-                        &buf.to_vec()
-                    },
-                ]
-                .concat(),
-            ),
+                    }
+                    d
+                };
+                let mut d: Vec<u8> = Vec::with_capacity(5 + (5 + properties.len()));
+                d.write_varint(entity_id).await;
+                d.extend_from_slice(&properties);
+                d
+            }),
             EntityEffect {
                 entity_id,
                 effect_id,
@@ -782,37 +761,80 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 duration,
                 flags,
                 factor_codec,
-            } => (
-                0x6C,
-                [
-                    &VarInt(entity_id).to_bytes().await[..],
-                    &VarInt(effect_id).to_bytes().await,
-                    &[amplifier],
-                    &VarInt(duration).to_bytes().await,
-                    &[flags, factor_codec.is_some() as u8],
-                    &factor_codec
-                        .map(|fc| fastnbt::to_bytes(&fc).unwrap_or_default())
-                        .unwrap_or_default(),
-                ]
-                .concat(),
-            ),
+            } => (0x6C, {
+                let factor_codec: Option<Vec<u8>> =
+                    factor_codec.map(|fc: Value| fastnbt::to_bytes(&fc).unwrap_or_default());
+                let mut d: Vec<u8> = Vec::with_capacity(
+                    5 + 5
+                        + 1
+                        + 5
+                        + 1
+                        + (1 + factor_codec.as_ref().map_or(0, |fc: &Vec<u8>| fc.len())),
+                );
+                d.write_varint(entity_id).await;
+                d.write_varint(effect_id).await;
+                d.push(amplifier);
+                d.write_varint(duration).await;
+                d.push(flags);
+                d.push(factor_codec.is_some() as u8);
+                if let Some(factor_codec) = factor_codec {
+                    d.extend_from_slice(&factor_codec);
+                }
+                d
+            }),
         };
-        let id: Vec<u8> = VarInt(id).to_bytes().await;
-        self.write_varint((id.len() + data.len()) as i32).await;
-        self.write_all(&id).await.unwrap_or_default();
-        self.write_all(&data).await.unwrap_or_default();
+
+        // debug!(
+        //     "Packet serialization time: {:?}ns",
+        //     start.elapsed().as_nanos()
+        // );
+
+        // let start: Instant = Instant::now();
+
+        // NOTE: this is a performance hack and it will break if packet id can be more than 127
+        // let id: Vec<u8> = {
+        //     let mut d: Vec<u8> = Vec::with_capacity(5);
+        //     d.write_varint(id).await;
+        //     d
+        // };
+        self.write_varint((1 + data.len()) as i32).await;
+        // self.write_all(&id).await.unwrap_or_default();
+        self.write_u8(id as u8).await.unwrap_or_default();
+        self.write(&data).await.unwrap_or_default();
+
+        // debug!("Packet write time: {:?}ns", start.elapsed().as_nanos());
     }
 
-    async fn write_packets(&mut self, mut packets: Vec<OutgoingPacket>) {
-        if packets.len() > 1 {
-            self.write_packet(OutgoingPacket::BundleDelimiter).await;
-            packets.push(OutgoingPacket::BundleDelimiter);
+    async fn write_packets(&mut self, packets: Vec<OutgoingPacket>) {
+        if packets.is_empty() {
+            return;
         }
+
+        let mut times: Vec<Duration> = vec![];
+        let mut packets: VecDeque<OutgoingPacket> = VecDeque::from(packets);
+        for _ in 0..packets.len().div_ceil(4096) {
+            self.write_packet(OutgoingPacket::BundleDelimiter).await;
+            for _ in 0..4096.min(packets.len()) {
+                let start: Instant = Instant::now();
+                self.write_packet(packets.pop_front().unwrap()).await;
+                times.push(start.elapsed());
+            }
+            self.write_packet(OutgoingPacket::BundleDelimiter).await;
+        }
+        debug!(
+            "Average packet send time: {:?}ns",
+            // "Average packet write time: {:?}µs",
+            times.iter().map(|d| d.as_nanos()).sum::<u128>() as f64 / times.len() as f64
+        );
+    }
+
+    async fn write_packets_nonbundling(&mut self, packets: Vec<OutgoingPacket>) {
         for packet in packets {
-            self.write_packet(packet).await;
+            self.write_packet(packet);
         }
     }
 }
+
 impl<T: AsyncWrite + Unpin + Sized> WritePacket for T {}
 
 pub async fn prefix_with_length(packet: &mut Vec<u8>) {

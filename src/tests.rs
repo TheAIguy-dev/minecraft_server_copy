@@ -1,7 +1,3 @@
-#![allow(unused_imports)]
-use byteorder::WriteBytesExt;
-use serde::Serialize;
-
 use crate::server::types::{WriteVarInt, WriteVarLong};
 
 #[tokio::test]

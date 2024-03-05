@@ -1,0 +1,5022 @@
+[
+  {
+    "name": "Acacia Boat",
+    "id": 744
+  },
+  {
+    "name": "Acacia Button",
+    "id": 666
+  },
+  {
+    "name": "Acacia Boat with Chest",
+    "id": 745
+  },
+  {
+    "name": "Acacia Door",
+    "id": 693
+  },
+  {
+    "name": "Acacia Fence",
+    "id": 293
+  },
+  {
+    "name": "Acacia Fence Gate",
+    "id": 716
+  },
+  {
+    "name": "Acacia Hanging Sign",
+    "id": 861
+  },
+  {
+    "name": "Acacia Leaves",
+    "id": 158
+  },
+  {
+    "name": "Acacia Log",
+    "id": 114
+  },
+  {
+    "name": "Acacia Planks",
+    "id": 27
+  },
+  {
+    "name": "Acacia Pressure Plate",
+    "id": 681
+  },
+  {
+    "name": "Acacia Sapling",
+    "id": 39
+  },
+  {
+    "name": "Acacia Sign",
+    "id": 850
+  },
+  {
+    "name": "Acacia Slab",
+    "id": 234
+  },
+  {
+    "name": "Acacia Stairs",
+    "id": 365
+  },
+  {
+    "name": "Acacia Trapdoor",
+    "id": 705
+  },
+  {
+    "name": "Acacia Wood",
+    "id": 148
+  },
+  {
+    "name": "Activator Rail",
+    "id": 726
+  },
+  {
+    "name": "Air",
+    "id": 0
+  },
+  {
+    "name": "Allay Spawn Egg",
+    "id": 967
+  },
+  {
+    "name": "Allium",
+    "id": 199
+  },
+  {
+    "name": "Block of Amethyst",
+    "id": 72
+  },
+  {
+    "name": "Amethyst Cluster",
+    "id": 1210
+  },
+  {
+    "name": "Amethyst Shard",
+    "id": 768
+  },
+  {
+    "name": "Ancient Debris",
+    "id": 67
+  },
+  {
+    "name": "Andesite",
+    "id": 6
+  },
+  {
+    "name": "Andesite Slab",
+    "id": 626
+  },
+  {
+    "name": "Andesite Stairs",
+    "id": 609
+  },
+  {
+    "name": "Andesite Wall",
+    "id": 385
+  },
+  {
+    "name": "Angler Pottery Sherd",
+    "id": 1235
+  },
+  {
+    "name": "Anvil",
+    "id": 397
+  },
+  {
+    "name": "Apple",
+    "id": 759
+  },
+  {
+    "name": "Archer Pottery Sherd",
+    "id": 1236
+  },
+  {
+    "name": "Armor Stand",
+    "id": 1077
+  },
+  {
+    "name": "Arms Up Pottery Sherd",
+    "id": 1237
+  },
+  {
+    "name": "Arrow",
+    "id": 761
+  },
+  {
+    "name": "Bucket of Axolotl",
+    "id": 879
+  },
+  {
+    "name": "Axolotl Spawn Egg",
+    "id": 968
+  },
+  {
+    "name": "Azalea",
+    "id": 175
+  },
+  {
+    "name": "Azalea Leaves",
+    "id": 162
+  },
+  {
+    "name": "Azure Bluet",
+    "id": 200
+  },
+  {
+    "name": "Baked Potato",
+    "id": 1053
+  },
+  {
+    "name": "Bamboo",
+    "id": 229
+  },
+  {
+    "name": "Block of Bamboo",
+    "id": 122
+  },
+  {
+    "name": "Bamboo Button",
+    "id": 670
+  },
+  {
+    "name": "Bamboo Raft with Chest",
+    "id": 753
+  },
+  {
+    "name": "Bamboo Door",
+    "id": 697
+  },
+  {
+    "name": "Bamboo Fence",
+    "id": 297
+  },
+  {
+    "name": "Bamboo Fence Gate",
+    "id": 720
+  },
+  {
+    "name": "Bamboo Hanging Sign",
+    "id": 865
+  },
+  {
+    "name": "Bamboo Mosaic",
+    "id": 34
+  },
+  {
+    "name": "Bamboo Mosaic Slab",
+    "id": 239
+  },
+  {
+    "name": "Bamboo Mosaic Stairs",
+    "id": 370
+  },
+  {
+    "name": "Bamboo Planks",
+    "id": 31
+  },
+  {
+    "name": "Bamboo Pressure Plate",
+    "id": 685
+  },
+  {
+    "name": "Bamboo Raft",
+    "id": 752
+  },
+  {
+    "name": "Bamboo Sign",
+    "id": 854
+  },
+  {
+    "name": "Bamboo Slab",
+    "id": 238
+  },
+  {
+    "name": "Bamboo Stairs",
+    "id": 369
+  },
+  {
+    "name": "Bamboo Trapdoor",
+    "id": 709
+  },
+  {
+    "name": "Barrel",
+    "id": 1154
+  },
+  {
+    "name": "Barrier",
+    "id": 421
+  },
+  {
+    "name": "Basalt",
+    "id": 306
+  },
+  {
+    "name": "Bat Spawn Egg",
+    "id": 969
+  },
+  {
+    "name": "Beacon",
+    "id": 374
+  },
+  {
+    "name": "Bedrock",
+    "id": 43
+  },
+  {
+    "name": "Bee Nest",
+    "id": 1171
+  },
+  {
+    "name": "Bee Spawn Egg",
+    "id": 970
+  },
+  {
+    "name": "Raw Beef",
+    "id": 947
+  },
+  {
+    "name": "Beehive",
+    "id": 1172
+  },
+  {
+    "name": "Beetroot",
+    "id": 1108
+  },
+  {
+    "name": "Beetroot Seeds",
+    "id": 1109
+  },
+  {
+    "name": "Beetroot Soup",
+    "id": 1110
+  },
+  {
+    "name": "Bell",
+    "id": 1162
+  },
+  {
+    "name": "Big Dripleaf",
+    "id": 227
+  },
+  {
+    "name": "Birch Boat",
+    "id": 740
+  },
+  {
+    "name": "Birch Button",
+    "id": 664
+  },
+  {
+    "name": "Birch Boat with Chest",
+    "id": 741
+  },
+  {
+    "name": "Birch Door",
+    "id": 691
+  },
+  {
+    "name": "Birch Fence",
+    "id": 291
+  },
+  {
+    "name": "Birch Fence Gate",
+    "id": 714
+  },
+  {
+    "name": "Birch Hanging Sign",
+    "id": 859
+  },
+  {
+    "name": "Birch Leaves",
+    "id": 156
+  },
+  {
+    "name": "Birch Log",
+    "id": 112
+  },
+  {
+    "name": "Birch Planks",
+    "id": 25
+  },
+  {
+    "name": "Birch Pressure Plate",
+    "id": 679
+  },
+  {
+    "name": "Birch Sapling",
+    "id": 37
+  },
+  {
+    "name": "Birch Sign",
+    "id": 848
+  },
+  {
+    "name": "Birch Slab",
+    "id": 232
+  },
+  {
+    "name": "Birch Stairs",
+    "id": 363
+  },
+  {
+    "name": "Birch Trapdoor",
+    "id": 703
+  },
+  {
+    "name": "Birch Wood",
+    "id": 146
+  },
+  {
+    "name": "Black Banner",
+    "id": 1102
+  },
+  {
+    "name": "Black Bed",
+    "id": 939
+  },
+  {
+    "name": "Black Candle",
+    "id": 1206
+  },
+  {
+    "name": "Black Carpet",
+    "id": 439
+  },
+  {
+    "name": "Black Concrete",
+    "id": 548
+  },
+  {
+    "name": "Black Concrete Powder",
+    "id": 564
+  },
+  {
+    "name": "Black Dye",
+    "id": 919
+  },
+  {
+    "name": "Black Glazed Terracotta",
+    "id": 532
+  },
+  {
+    "name": "Black Shulker Box",
+    "id": 516
+  },
+  {
+    "name": "Black Stained Glass",
+    "id": 464
+  },
+  {
+    "name": "Black Stained Glass Pane",
+    "id": 480
+  },
+  {
+    "name": "Black Terracotta",
+    "id": 420
+  },
+  {
+    "name": "Black Wool",
+    "id": 195
+  },
+  {
+    "name": "Blackstone",
+    "id": 1177
+  },
+  {
+    "name": "Blackstone Slab",
+    "id": 1178
+  },
+  {
+    "name": "Blackstone Stairs",
+    "id": 1179
+  },
+  {
+    "name": "Blackstone Wall",
+    "id": 390
+  },
+  {
+    "name": "Blade Pottery Sherd",
+    "id": 1238
+  },
+  {
+    "name": "Blast Furnace",
+    "id": 1156
+  },
+  {
+    "name": "Blaze Powder",
+    "id": 961
+  },
+  {
+    "name": "Blaze Rod",
+    "id": 953
+  },
+  {
+    "name": "Blaze Spawn Egg",
+    "id": 971
+  },
+  {
+    "name": "Blue Banner",
+    "id": 1098
+  },
+  {
+    "name": "Blue Bed",
+    "id": 935
+  },
+  {
+    "name": "Blue Candle",
+    "id": 1202
+  },
+  {
+    "name": "Blue Carpet",
+    "id": 435
+  },
+  {
+    "name": "Blue Concrete",
+    "id": 544
+  },
+  {
+    "name": "Blue Concrete Powder",
+    "id": 560
+  },
+  {
+    "name": "Blue Dye",
+    "id": 915
+  },
+  {
+    "name": "Blue Glazed Terracotta",
+    "id": 528
+  },
+  {
+    "name": "Blue Ice",
+    "id": 597
+  },
+  {
+    "name": "Blue Orchid",
+    "id": 198
+  },
+  {
+    "name": "Blue Shulker Box",
+    "id": 512
+  },
+  {
+    "name": "Blue Stained Glass",
+    "id": 460
+  },
+  {
+    "name": "Blue Stained Glass Pane",
+    "id": 476
+  },
+  {
+    "name": "Blue Terracotta",
+    "id": 416
+  },
+  {
+    "name": "Blue Wool",
+    "id": 191
+  },
+  {
+    "name": "Bone",
+    "id": 921
+  },
+  {
+    "name": "Bone Block",
+    "id": 498
+  },
+  {
+    "name": "Bone Meal",
+    "id": 920
+  },
+  {
+    "name": "Book",
+    "id": 885
+  },
+  {
+    "name": "Bookshelf",
+    "id": 264
+  },
+  {
+    "name": "Bow",
+    "id": 760
+  },
+  {
+    "name": "Bowl",
+    "id": 808
+  },
+  {
+    "name": "Brain Coral",
+    "id": 578
+  },
+  {
+    "name": "Brain Coral Block",
+    "id": 573
+  },
+  {
+    "name": "Brain Coral Fan",
+    "id": 588
+  },
+  {
+    "name": "Bread",
+    "id": 815
+  },
+  {
+    "name": "Brewer Pottery Sherd",
+    "id": 1239
+  },
+  {
+    "name": "Brewing Stand",
+    "id": 963
+  },
+  {
+    "name": "Brick",
+    "id": 881
+  },
+  {
+    "name": "Brick Slab",
+    "id": 248
+  },
+  {
+    "name": "Brick Stairs",
+    "id": 339
+  },
+  {
+    "name": "Brick Wall",
+    "id": 377
+  },
+  {
+    "name": "Bricks",
+    "id": 263
+  },
+  {
+    "name": "Brown Banner",
+    "id": 1099
+  },
+  {
+    "name": "Brown Bed",
+    "id": 936
+  },
+  {
+    "name": "Brown Candle",
+    "id": 1203
+  },
+  {
+    "name": "Brown Carpet",
+    "id": 436
+  },
+  {
+    "name": "Brown Concrete",
+    "id": 545
+  },
+  {
+    "name": "Brown Concrete Powder",
+    "id": 561
+  },
+  {
+    "name": "Brown Dye",
+    "id": 916
+  },
+  {
+    "name": "Brown Glazed Terracotta",
+    "id": 529
+  },
+  {
+    "name": "Brown Mushroom",
+    "id": 212
+  },
+  {
+    "name": "Brown Mushroom Block",
+    "id": 330
+  },
+  {
+    "name": "Brown Shulker Box",
+    "id": 513
+  },
+  {
+    "name": "Brown Stained Glass",
+    "id": 461
+  },
+  {
+    "name": "Brown Stained Glass Pane",
+    "id": 477
+  },
+  {
+    "name": "Brown Terracotta",
+    "id": 417
+  },
+  {
+    "name": "Brown Wool",
+    "id": 192
+  },
+  {
+    "name": "Brush",
+    "id": 1217
+  },
+  {
+    "name": "Bubble Coral",
+    "id": 579
+  },
+  {
+    "name": "Bubble Coral Block",
+    "id": 574
+  },
+  {
+    "name": "Bubble Coral Fan",
+    "id": 589
+  },
+  {
+    "name": "Bucket",
+    "id": 868
+  },
+  {
+    "name": "Budding Amethyst",
+    "id": 73
+  },
+  {
+    "name": "Bundle",
+    "id": 890
+  },
+  {
+    "name": "Burn Pottery Sherd",
+    "id": 1240
+  },
+  {
+    "name": "Cactus",
+    "id": 286
+  },
+  {
+    "name": "Cake",
+    "id": 923
+  },
+  {
+    "name": "Calcite",
+    "id": 11
+  },
+  {
+    "name": "Calibrated Sculk Sensor",
+    "id": 654
+  },
+  {
+    "name": "Camel Spawn Egg",
+    "id": 973
+  },
+  {
+    "name": "Campfire",
+    "id": 1167
+  },
+  {
+    "name": "Candle",
+    "id": 1190
+  },
+  {
+    "name": "Carrot",
+    "id": 1051
+  },
+  {
+    "name": "Carrot on a Stick",
+    "id": 733
+  },
+  {
+    "name": "Cartography Table",
+    "id": 1157
+  },
+  {
+    "name": "Carved Pumpkin",
+    "id": 301
+  },
+  {
+    "name": "Cat Spawn Egg",
+    "id": 972
+  },
+  {
+    "name": "Cauldron",
+    "id": 964
+  },
+  {
+    "name": "Cave Spider Spawn Egg",
+    "id": 974
+  },
+  {
+    "name": "Chain",
+    "id": 334
+  },
+  {
+    "name": "Chain Command Block",
+    "id": 493
+  },
+  {
+    "name": "Chainmail Boots",
+    "id": 823
+  },
+  {
+    "name": "Chainmail Chestplate",
+    "id": 821
+  },
+  {
+    "name": "Chainmail Helmet",
+    "id": 820
+  },
+  {
+    "name": "Chainmail Leggings",
+    "id": 822
+  },
+  {
+    "name": "Charcoal",
+    "id": 763
+  },
+  {
+    "name": "Cherry Boat",
+    "id": 746
+  },
+  {
+    "name": "Cherry Button",
+    "id": 667
+  },
+  {
+    "name": "Cherry Boat with Chest",
+    "id": 747
+  },
+  {
+    "name": "Cherry Door",
+    "id": 694
+  },
+  {
+    "name": "Cherry Fence",
+    "id": 294
+  },
+  {
+    "name": "Cherry Fence Gate",
+    "id": 717
+  },
+  {
+    "name": "Cherry Hanging Sign",
+    "id": 862
+  },
+  {
+    "name": "Cherry Leaves",
+    "id": 159
+  },
+  {
+    "name": "Cherry Log",
+    "id": 115
+  },
+  {
+    "name": "Cherry Planks",
+    "id": 28
+  },
+  {
+    "name": "Cherry Pressure Plate",
+    "id": 682
+  },
+  {
+    "name": "Cherry Sapling",
+    "id": 40
+  },
+  {
+    "name": "Cherry Sign",
+    "id": 851
+  },
+  {
+    "name": "Cherry Slab",
+    "id": 235
+  },
+  {
+    "name": "Cherry Stairs",
+    "id": 366
+  },
+  {
+    "name": "Cherry Trapdoor",
+    "id": 706
+  },
+  {
+    "name": "Cherry Wood",
+    "id": 149
+  },
+  {
+    "name": "Chest",
+    "id": 277
+  },
+  {
+    "name": "Minecart with Chest",
+    "id": 729
+  },
+  {
+    "name": "Raw Chicken",
+    "id": 949
+  },
+  {
+    "name": "Chicken Spawn Egg",
+    "id": 975
+  },
+  {
+    "name": "Chipped Anvil",
+    "id": 398
+  },
+  {
+    "name": "Chiseled Bookshelf",
+    "id": 265
+  },
+  {
+    "name": "Chiseled Deepslate",
+    "id": 328
+  },
+  {
+    "name": "Chiseled Nether Bricks",
+    "id": 346
+  },
+  {
+    "name": "Chiseled Polished Blackstone",
+    "id": 1184
+  },
+  {
+    "name": "Chiseled Quartz Block",
+    "id": 400
+  },
+  {
+    "name": "Chiseled Red Sandstone",
+    "id": 489
+  },
+  {
+    "name": "Chiseled Sandstone",
+    "id": 170
+  },
+  {
+    "name": "Chiseled Stone Bricks",
+    "id": 321
+  },
+  {
+    "name": "Chorus Flower",
+    "id": 272
+  },
+  {
+    "name": "Chorus Fruit",
+    "id": 1104
+  },
+  {
+    "name": "Chorus Plant",
+    "id": 271
+  },
+  {
+    "name": "Clay",
+    "id": 287
+  },
+  {
+    "name": "Clay Ball",
+    "id": 882
+  },
+  {
+    "name": "Clock",
+    "id": 892
+  },
+  {
+    "name": "Coal",
+    "id": 762
+  },
+  {
+    "name": "Block of Coal",
+    "id": 68
+  },
+  {
+    "name": "Coal Ore",
+    "id": 49
+  },
+  {
+    "name": "Coarse Dirt",
+    "id": 16
+  },
+  {
+    "name": null,
+    "id": 1221
+  },
+  {
+    "name": "Cobbled Deepslate",
+    "id": 9
+  },
+  {
+    "name": "Cobbled Deepslate Slab",
+    "id": 630
+  },
+  {
+    "name": "Cobbled Deepslate Stairs",
+    "id": 613
+  },
+  {
+    "name": "Cobbled Deepslate Wall",
+    "id": 393
+  },
+  {
+    "name": "Cobblestone",
+    "id": 22
+  },
+  {
+    "name": "Cobblestone Slab",
+    "id": 247
+  },
+  {
+    "name": "Cobblestone Stairs",
+    "id": 282
+  },
+  {
+    "name": "Cobblestone Wall",
+    "id": 375
+  },
+  {
+    "name": "Cobweb",
+    "id": 172
+  },
+  {
+    "name": "Cocoa Beans",
+    "id": 903
+  },
+  {
+    "name": "Raw Cod",
+    "id": 895
+  },
+  {
+    "name": "Bucket of Cod",
+    "id": 877
+  },
+  {
+    "name": "Cod Spawn Egg",
+    "id": 976
+  },
+  {
+    "name": "Command Block",
+    "id": 373
+  },
+  {
+    "name": "Minecart with Command Block",
+    "id": 1084
+  },
+  {
+    "name": "Redstone Comparator",
+    "id": 639
+  },
+  {
+    "name": "Compass",
+    "id": 888
+  },
+  {
+    "name": "Composter",
+    "id": 1153
+  },
+  {
+    "name": "Conduit",
+    "id": 598
+  },
+  {
+    "name": "Steak",
+    "id": 948
+  },
+  {
+    "name": "Cooked Chicken",
+    "id": 950
+  },
+  {
+    "name": "Cooked Cod",
+    "id": 899
+  },
+  {
+    "name": "Cooked Mutton",
+    "id": 1086
+  },
+  {
+    "name": "Cooked Porkchop",
+    "id": 842
+  },
+  {
+    "name": "Cooked Rabbit",
+    "id": 1073
+  },
+  {
+    "name": "Cooked Salmon",
+    "id": 900
+  },
+  {
+    "name": "Cookie",
+    "id": 940
+  },
+  {
+    "name": "Block of Copper",
+    "id": 75
+  },
+  {
+    "name": "Copper Ingot",
+    "id": 772
+  },
+  {
+    "name": "Copper Ore",
+    "id": 53
+  },
+  {
+    "name": "Cornflower",
+    "id": 206
+  },
+  {
+    "name": "Cow Spawn Egg",
+    "id": 977
+  },
+  {
+    "name": "Cracked Deepslate Bricks",
+    "id": 325
+  },
+  {
+    "name": "Cracked Deepslate Tiles",
+    "id": 327
+  },
+  {
+    "name": "Cracked Nether Bricks",
+    "id": 345
+  },
+  {
+    "name": "Cracked Polished Blackstone Bricks",
+    "id": 1188
+  },
+  {
+    "name": "Cracked Stone Bricks",
+    "id": 320
+  },
+  {
+    "name": "Crafting Table",
+    "id": 278
+  },
+  {
+    "name": "Banner Pattern",
+    "id": 1147
+  },
+  {
+    "name": "Creeper Head",
+    "id": 1061
+  },
+  {
+    "name": "Creeper Spawn Egg",
+    "id": 978
+  },
+  {
+    "name": "Crimson Button",
+    "id": 671
+  },
+  {
+    "name": "Crimson Door",
+    "id": 698
+  },
+  {
+    "name": "Crimson Fence",
+    "id": 298
+  },
+  {
+    "name": "Crimson Fence Gate",
+    "id": 721
+  },
+  {
+    "name": "Crimson Fungus",
+    "id": 214
+  },
+  {
+    "name": "Crimson Hanging Sign",
+    "id": 866
+  },
+  {
+    "name": "Crimson Hyphae",
+    "id": 152
+  },
+  {
+    "name": "Crimson Nylium",
+    "id": 20
+  },
+  {
+    "name": "Crimson Planks",
+    "id": 32
+  },
+  {
+    "name": "Crimson Pressure Plate",
+    "id": 686
+  },
+  {
+    "name": "Crimson Roots",
+    "id": 216
+  },
+  {
+    "name": "Crimson Sign",
+    "id": 855
+  },
+  {
+    "name": "Crimson Slab",
+    "id": 240
+  },
+  {
+    "name": "Crimson Stairs",
+    "id": 371
+  },
+  {
+    "name": "Crimson Stem",
+    "id": 120
+  },
+  {
+    "name": "Crimson Trapdoor",
+    "id": 710
+  },
+  {
+    "name": "Crossbow",
+    "id": 1143
+  },
+  {
+    "name": "Crying Obsidian",
+    "id": 1176
+  },
+  {
+    "name": "Cut Copper",
+    "id": 82
+  },
+  {
+    "name": "Cut Copper Slab",
+    "id": 90
+  },
+  {
+    "name": "Cut Copper Stairs",
+    "id": 86
+  },
+  {
+    "name": "Cut Red Sandstone",
+    "id": 490
+  },
+  {
+    "name": "Cut Red Sandstone Slab",
+    "id": 254
+  },
+  {
+    "name": "Cut Sandstone",
+    "id": 171
+  },
+  {
+    "name": "Cut Sandstone Slab",
+    "id": 245
+  },
+  {
+    "name": "Cyan Banner",
+    "id": 1096
+  },
+  {
+    "name": "Cyan Bed",
+    "id": 933
+  },
+  {
+    "name": "Cyan Candle",
+    "id": 1200
+  },
+  {
+    "name": "Cyan Carpet",
+    "id": 433
+  },
+  {
+    "name": "Cyan Concrete",
+    "id": 542
+  },
+  {
+    "name": "Cyan Concrete Powder",
+    "id": 558
+  },
+  {
+    "name": "Cyan Dye",
+    "id": 913
+  },
+  {
+    "name": "Cyan Glazed Terracotta",
+    "id": 526
+  },
+  {
+    "name": "Cyan Shulker Box",
+    "id": 510
+  },
+  {
+    "name": "Cyan Stained Glass",
+    "id": 458
+  },
+  {
+    "name": "Cyan Stained Glass Pane",
+    "id": 474
+  },
+  {
+    "name": "Cyan Terracotta",
+    "id": 414
+  },
+  {
+    "name": "Cyan Wool",
+    "id": 189
+  },
+  {
+    "name": "Damaged Anvil",
+    "id": 399
+  },
+  {
+    "name": "Dandelion",
+    "id": 196
+  },
+  {
+    "name": "Danger Pottery Sherd",
+    "id": 1241
+  },
+  {
+    "name": "Dark Oak Boat",
+    "id": 748
+  },
+  {
+    "name": "Dark Oak Button",
+    "id": 668
+  },
+  {
+    "name": "Dark Oak Boat with Chest",
+    "id": 749
+  },
+  {
+    "name": "Dark Oak Door",
+    "id": 695
+  },
+  {
+    "name": "Dark Oak Fence",
+    "id": 295
+  },
+  {
+    "name": "Dark Oak Fence Gate",
+    "id": 718
+  },
+  {
+    "name": "Dark Oak Hanging Sign",
+    "id": 863
+  },
+  {
+    "name": "Dark Oak Leaves",
+    "id": 160
+  },
+  {
+    "name": "Dark Oak Log",
+    "id": 116
+  },
+  {
+    "name": "Dark Oak Planks",
+    "id": 29
+  },
+  {
+    "name": "Dark Oak Pressure Plate",
+    "id": 683
+  },
+  {
+    "name": "Dark Oak Sapling",
+    "id": 41
+  },
+  {
+    "name": "Dark Oak Sign",
+    "id": 852
+  },
+  {
+    "name": "Dark Oak Slab",
+    "id": 236
+  },
+  {
+    "name": "Dark Oak Stairs",
+    "id": 367
+  },
+  {
+    "name": "Dark Oak Trapdoor",
+    "id": 707
+  },
+  {
+    "name": "Dark Oak Wood",
+    "id": 150
+  },
+  {
+    "name": "Dark Prismarine",
+    "id": 483
+  },
+  {
+    "name": "Dark Prismarine Slab",
+    "id": 258
+  },
+  {
+    "name": "Dark Prismarine Stairs",
+    "id": 486
+  },
+  {
+    "name": "Daylight Detector",
+    "id": 652
+  },
+  {
+    "name": "Dead Brain Coral",
+    "id": 582
+  },
+  {
+    "name": "Dead Brain Coral Block",
+    "id": 568
+  },
+  {
+    "name": "Dead Brain Coral Fan",
+    "id": 593
+  },
+  {
+    "name": "Dead Bubble Coral",
+    "id": 583
+  },
+  {
+    "name": "Dead Bubble Coral Block",
+    "id": 569
+  },
+  {
+    "name": "Dead Bubble Coral Fan",
+    "id": 594
+  },
+  {
+    "name": "Dead Bush",
+    "id": 177
+  },
+  {
+    "name": "Dead Fire Coral",
+    "id": 584
+  },
+  {
+    "name": "Dead Fire Coral Block",
+    "id": 570
+  },
+  {
+    "name": "Dead Fire Coral Fan",
+    "id": 595
+  },
+  {
+    "name": "Dead Horn Coral",
+    "id": 585
+  },
+  {
+    "name": "Dead Horn Coral Block",
+    "id": 571
+  },
+  {
+    "name": "Dead Horn Coral Fan",
+    "id": 596
+  },
+  {
+    "name": "Dead Tube Coral",
+    "id": 586
+  },
+  {
+    "name": "Dead Tube Coral Block",
+    "id": 567
+  },
+  {
+    "name": "Dead Tube Coral Fan",
+    "id": 592
+  },
+  {
+    "name": "Debug Stick",
+    "id": 1121
+  },
+  {
+    "name": "Decorated Pot",
+    "id": 266
+  },
+  {
+    "name": "Deepslate",
+    "id": 8
+  },
+  {
+    "name": "Deepslate Brick Slab",
+    "id": 632
+  },
+  {
+    "name": "Deepslate Brick Stairs",
+    "id": 615
+  },
+  {
+    "name": "Deepslate Brick Wall",
+    "id": 395
+  },
+  {
+    "name": "Deepslate Bricks",
+    "id": 324
+  },
+  {
+    "name": "Deepslate Coal Ore",
+    "id": 50
+  },
+  {
+    "name": "Deepslate Copper Ore",
+    "id": 54
+  },
+  {
+    "name": "Deepslate Diamond Ore",
+    "id": 64
+  },
+  {
+    "name": "Deepslate Emerald Ore",
+    "id": 60
+  },
+  {
+    "name": "Deepslate Gold Ore",
+    "id": 56
+  },
+  {
+    "name": "Deepslate Iron Ore",
+    "id": 52
+  },
+  {
+    "name": "Deepslate Lapis Lazuli Ore",
+    "id": 62
+  },
+  {
+    "name": "Deepslate Redstone Ore",
+    "id": 58
+  },
+  {
+    "name": "Deepslate Tile Slab",
+    "id": 633
+  },
+  {
+    "name": "Deepslate Tile Stairs",
+    "id": 616
+  },
+  {
+    "name": "Deepslate Tile Wall",
+    "id": 396
+  },
+  {
+    "name": "Deepslate Tiles",
+    "id": 326
+  },
+  {
+    "name": "Detector Rail",
+    "id": 724
+  },
+  {
+    "name": "Diamond",
+    "id": 764
+  },
+  {
+    "name": "Diamond Axe",
+    "id": 800
+  },
+  {
+    "name": "Block of Diamond",
+    "id": 77
+  },
+  {
+    "name": "Diamond Boots",
+    "id": 831
+  },
+  {
+    "name": "Diamond Chestplate",
+    "id": 829
+  },
+  {
+    "name": "Diamond Helmet",
+    "id": 828
+  },
+  {
+    "name": "Diamond Hoe",
+    "id": 801
+  },
+  {
+    "name": "Diamond Horse Armor",
+    "id": 1080
+  },
+  {
+    "name": "Diamond Leggings",
+    "id": 830
+  },
+  {
+    "name": "Diamond Ore",
+    "id": 63
+  },
+  {
+    "name": "Diamond Pickaxe",
+    "id": 799
+  },
+  {
+    "name": "Diamond Shovel",
+    "id": 798
+  },
+  {
+    "name": "Diamond Sword",
+    "id": 797
+  },
+  {
+    "name": "Diorite",
+    "id": 4
+  },
+  {
+    "name": "Diorite Slab",
+    "id": 629
+  },
+  {
+    "name": "Diorite Stairs",
+    "id": 612
+  },
+  {
+    "name": "Diorite Wall",
+    "id": 389
+  },
+  {
+    "name": "Dirt",
+    "id": 15
+  },
+  {
+    "name": "Dirt Path",
+    "id": 442
+  },
+  {
+    "name": "Disc Fragment",
+    "id": 1138
+  },
+  {
+    "name": "Dispenser",
+    "id": 646
+  },
+  {
+    "name": "Dolphin Spawn Egg",
+    "id": 979
+  },
+  {
+    "name": "Donkey Spawn Egg",
+    "id": 980
+  },
+  {
+    "name": "Dragon's Breath",
+    "id": 1111
+  },
+  {
+    "name": "Dragon Egg",
+    "id": 357
+  },
+  {
+    "name": "Dragon Head",
+    "id": 1062
+  },
+  {
+    "name": "Dried Kelp",
+    "id": 944
+  },
+  {
+    "name": "Dried Kelp Block",
+    "id": 883
+  },
+  {
+    "name": "Dripstone Block",
+    "id": 13
+  },
+  {
+    "name": "Dropper",
+    "id": 647
+  },
+  {
+    "name": "Drowned Spawn Egg",
+    "id": 981
+  },
+  {
+    "name": null,
+    "id": 1220
+  },
+  {
+    "name": "Echo Shard",
+    "id": 1216
+  },
+  {
+    "name": "Egg",
+    "id": 887
+  },
+  {
+    "name": "Elder Guardian Spawn Egg",
+    "id": 982
+  },
+  {
+    "name": "Elytra",
+    "id": 735
+  },
+  {
+    "name": "Emerald",
+    "id": 765
+  },
+  {
+    "name": "Block of Emerald",
+    "id": 360
+  },
+  {
+    "name": "Emerald Ore",
+    "id": 59
+  },
+  {
+    "name": "Enchanted Book",
+    "id": 1068
+  },
+  {
+    "name": "Enchanted Golden Apple",
+    "id": 845
+  },
+  {
+    "name": "Enchanting Table",
+    "id": 353
+  },
+  {
+    "name": "End Crystal",
+    "id": 1103
+  },
+  {
+    "name": "End Portal Frame",
+    "id": 354
+  },
+  {
+    "name": "End Rod",
+    "id": 270
+  },
+  {
+    "name": "End Stone",
+    "id": 355
+  },
+  {
+    "name": "End Stone Brick Slab",
+    "id": 622
+  },
+  {
+    "name": "End Stone Brick Stairs",
+    "id": 604
+  },
+  {
+    "name": "End Stone Brick Wall",
+    "id": 388
+  },
+  {
+    "name": "End Stone Bricks",
+    "id": 356
+  },
+  {
+    "name": "Ender Chest",
+    "id": 359
+  },
+  {
+    "name": "Ender Dragon Spawn Egg",
+    "id": 983
+  },
+  {
+    "name": "Eye of Ender",
+    "id": 965
+  },
+  {
+    "name": "Ender Pearl",
+    "id": 952
+  },
+  {
+    "name": "Enderman Spawn Egg",
+    "id": 984
+  },
+  {
+    "name": "Endermite Spawn Egg",
+    "id": 985
+  },
+  {
+    "name": "Evoker Spawn Egg",
+    "id": 986
+  },
+  {
+    "name": "Bottle o' Enchanting",
+    "id": 1044
+  },
+  {
+    "name": "Explorer Pottery Sherd",
+    "id": 1242
+  },
+  {
+    "name": "Exposed Copper",
+    "id": 79
+  },
+  {
+    "name": "Exposed Cut Copper",
+    "id": 83
+  },
+  {
+    "name": "Exposed Cut Copper Slab",
+    "id": 91
+  },
+  {
+    "name": "Exposed Cut Copper Stairs",
+    "id": 87
+  },
+  {
+    "name": null,
+    "id": 1224
+  },
+  {
+    "name": "Farmland",
+    "id": 279
+  },
+  {
+    "name": "Feather",
+    "id": 811
+  },
+  {
+    "name": "Fermented Spider Eye",
+    "id": 960
+  },
+  {
+    "name": "Fern",
+    "id": 174
+  },
+  {
+    "name": "Map",
+    "id": 941
+  },
+  {
+    "name": "Fire Charge",
+    "id": 1045
+  },
+  {
+    "name": "Fire Coral",
+    "id": 580
+  },
+  {
+    "name": "Fire Coral Block",
+    "id": 575
+  },
+  {
+    "name": "Fire Coral Fan",
+    "id": 590
+  },
+  {
+    "name": "Firework Rocket",
+    "id": 1066
+  },
+  {
+    "name": "Firework Star",
+    "id": 1067
+  },
+  {
+    "name": "Fishing Rod",
+    "id": 891
+  },
+  {
+    "name": "Fletching Table",
+    "id": 1158
+  },
+  {
+    "name": "Flint",
+    "id": 840
+  },
+  {
+    "name": "Flint and Steel",
+    "id": 758
+  },
+  {
+    "name": "Banner Pattern",
+    "id": 1146
+  },
+  {
+    "name": "Flower Pot",
+    "id": 1050
+  },
+  {
+    "name": "Flowering Azalea",
+    "id": 176
+  },
+  {
+    "name": "Flowering Azalea Leaves",
+    "id": 163
+  },
+  {
+    "name": "Fox Spawn Egg",
+    "id": 987
+  },
+  {
+    "name": "Friend Pottery Sherd",
+    "id": 1243
+  },
+  {
+    "name": "Frog Spawn Egg",
+    "id": 988
+  },
+  {
+    "name": "Frogspawn",
+    "id": 1215
+  },
+  {
+    "name": "Furnace",
+    "id": 280
+  },
+  {
+    "name": "Minecart with Furnace",
+    "id": 730
+  },
+  {
+    "name": "Ghast Spawn Egg",
+    "id": 989
+  },
+  {
+    "name": "Ghast Tear",
+    "id": 954
+  },
+  {
+    "name": "Gilded Blackstone",
+    "id": 1180
+  },
+  {
+    "name": "Glass",
+    "id": 166
+  },
+  {
+    "name": "Glass Bottle",
+    "id": 958
+  },
+  {
+    "name": "Glass Pane",
+    "id": 335
+  },
+  {
+    "name": "Glistering Melon Slice",
+    "id": 966
+  },
+  {
+    "name": "Banner Pattern",
+    "id": 1150
+  },
+  {
+    "name": "Glow Berries",
+    "id": 1166
+  },
+  {
+    "name": "Glow Ink Sac",
+    "id": 902
+  },
+  {
+    "name": "Glow Item Frame",
+    "id": 1049
+  },
+  {
+    "name": "Glow Lichen",
+    "id": 338
+  },
+  {
+    "name": "Glow Squid Spawn Egg",
+    "id": 990
+  },
+  {
+    "name": "Glowstone",
+    "id": 310
+  },
+  {
+    "name": "Glowstone Dust",
+    "id": 894
+  },
+  {
+    "name": "Goat Horn",
+    "id": 1152
+  },
+  {
+    "name": "Goat Spawn Egg",
+    "id": 991
+  },
+  {
+    "name": "Block of Gold",
+    "id": 76
+  },
+  {
+    "name": "Gold Ingot",
+    "id": 774
+  },
+  {
+    "name": "Gold Nugget",
+    "id": 955
+  },
+  {
+    "name": "Gold Ore",
+    "id": 55
+  },
+  {
+    "name": "Golden Apple",
+    "id": 844
+  },
+  {
+    "name": "Golden Axe",
+    "id": 790
+  },
+  {
+    "name": "Golden Boots",
+    "id": 835
+  },
+  {
+    "name": "Golden Carrot",
+    "id": 1056
+  },
+  {
+    "name": "Golden Chestplate",
+    "id": 833
+  },
+  {
+    "name": "Golden Helmet",
+    "id": 832
+  },
+  {
+    "name": "Golden Hoe",
+    "id": 791
+  },
+  {
+    "name": "Golden Horse Armor",
+    "id": 1079
+  },
+  {
+    "name": "Golden Leggings",
+    "id": 834
+  },
+  {
+    "name": "Golden Pickaxe",
+    "id": 789
+  },
+  {
+    "name": "Golden Shovel",
+    "id": 788
+  },
+  {
+    "name": "Golden Sword",
+    "id": 787
+  },
+  {
+    "name": "Granite",
+    "id": 2
+  },
+  {
+    "name": "Granite Slab",
+    "id": 625
+  },
+  {
+    "name": "Granite Stairs",
+    "id": 608
+  },
+  {
+    "name": "Granite Wall",
+    "id": 381
+  },
+  {
+    "name": "Grass",
+    "id": 173
+  },
+  {
+    "name": "Grass Block",
+    "id": 14
+  },
+  {
+    "name": "Gravel",
+    "id": 48
+  },
+  {
+    "name": "Gray Banner",
+    "id": 1094
+  },
+  {
+    "name": "Gray Bed",
+    "id": 931
+  },
+  {
+    "name": "Gray Candle",
+    "id": 1198
+  },
+  {
+    "name": "Gray Carpet",
+    "id": 431
+  },
+  {
+    "name": "Gray Concrete",
+    "id": 540
+  },
+  {
+    "name": "Gray Concrete Powder",
+    "id": 556
+  },
+  {
+    "name": "Gray Dye",
+    "id": 911
+  },
+  {
+    "name": "Gray Glazed Terracotta",
+    "id": 524
+  },
+  {
+    "name": "Gray Shulker Box",
+    "id": 508
+  },
+  {
+    "name": "Gray Stained Glass",
+    "id": 456
+  },
+  {
+    "name": "Gray Stained Glass Pane",
+    "id": 472
+  },
+  {
+    "name": "Gray Terracotta",
+    "id": 412
+  },
+  {
+    "name": "Gray Wool",
+    "id": 187
+  },
+  {
+    "name": "Green Banner",
+    "id": 1100
+  },
+  {
+    "name": "Green Bed",
+    "id": 937
+  },
+  {
+    "name": "Green Candle",
+    "id": 1204
+  },
+  {
+    "name": "Green Carpet",
+    "id": 437
+  },
+  {
+    "name": "Green Concrete",
+    "id": 546
+  },
+  {
+    "name": "Green Concrete Powder",
+    "id": 562
+  },
+  {
+    "name": "Green Dye",
+    "id": 917
+  },
+  {
+    "name": "Green Glazed Terracotta",
+    "id": 530
+  },
+  {
+    "name": "Green Shulker Box",
+    "id": 514
+  },
+  {
+    "name": "Green Stained Glass",
+    "id": 462
+  },
+  {
+    "name": "Green Stained Glass Pane",
+    "id": 478
+  },
+  {
+    "name": "Green Terracotta",
+    "id": 418
+  },
+  {
+    "name": "Green Wool",
+    "id": 193
+  },
+  {
+    "name": "Grindstone",
+    "id": 1159
+  },
+  {
+    "name": "Guardian Spawn Egg",
+    "id": 992
+  },
+  {
+    "name": "Gunpowder",
+    "id": 812
+  },
+  {
+    "name": "Hanging Roots",
+    "id": 226
+  },
+  {
+    "name": "Hay Bale",
+    "id": 423
+  },
+  {
+    "name": "Heart of the Sea",
+    "id": 1142
+  },
+  {
+    "name": "Heart Pottery Sherd",
+    "id": 1244
+  },
+  {
+    "name": "Heartbreak Pottery Sherd",
+    "id": 1245
+  },
+  {
+    "name": "Heavy Weighted Pressure Plate",
+    "id": 676
+  },
+  {
+    "name": "Hoglin Spawn Egg",
+    "id": 993
+  },
+  {
+    "name": "Honey Block",
+    "id": 643
+  },
+  {
+    "name": "Honey Bottle",
+    "id": 1173
+  },
+  {
+    "name": "Honeycomb",
+    "id": 1170
+  },
+  {
+    "name": "Honeycomb Block",
+    "id": 1174
+  },
+  {
+    "name": "Hopper",
+    "id": 645
+  },
+  {
+    "name": "Minecart with Hopper",
+    "id": 732
+  },
+  {
+    "name": "Horn Coral",
+    "id": 581
+  },
+  {
+    "name": "Horn Coral Block",
+    "id": 576
+  },
+  {
+    "name": "Horn Coral Fan",
+    "id": 591
+  },
+  {
+    "name": "Horse Spawn Egg",
+    "id": 994
+  },
+  {
+    "name": null,
+    "id": 1234
+  },
+  {
+    "name": "Howl Pottery Sherd",
+    "id": 1246
+  },
+  {
+    "name": "Husk Spawn Egg",
+    "id": 995
+  },
+  {
+    "name": "Ice",
+    "id": 284
+  },
+  {
+    "name": "Infested Chiseled Stone Bricks",
+    "id": 316
+  },
+  {
+    "name": "Infested Cobblestone",
+    "id": 312
+  },
+  {
+    "name": "Infested Cracked Stone Bricks",
+    "id": 315
+  },
+  {
+    "name": "Infested Deepslate",
+    "id": 317
+  },
+  {
+    "name": "Infested Mossy Stone Bricks",
+    "id": 314
+  },
+  {
+    "name": "Infested Stone",
+    "id": 311
+  },
+  {
+    "name": "Infested Stone Bricks",
+    "id": 313
+  },
+  {
+    "name": "Ink Sac",
+    "id": 901
+  },
+  {
+    "name": "Iron Axe",
+    "id": 795
+  },
+  {
+    "name": "Iron Bars",
+    "id": 333
+  },
+  {
+    "name": "Block of Iron",
+    "id": 74
+  },
+  {
+    "name": "Iron Boots",
+    "id": 827
+  },
+  {
+    "name": "Iron Chestplate",
+    "id": 825
+  },
+  {
+    "name": "Iron Door",
+    "id": 688
+  },
+  {
+    "name": "Iron Golem Spawn Egg",
+    "id": 996
+  },
+  {
+    "name": "Iron Helmet",
+    "id": 824
+  },
+  {
+    "name": "Iron Hoe",
+    "id": 796
+  },
+  {
+    "name": "Iron Horse Armor",
+    "id": 1078
+  },
+  {
+    "name": "Iron Ingot",
+    "id": 770
+  },
+  {
+    "name": "Iron Leggings",
+    "id": 826
+  },
+  {
+    "name": "Iron Nugget",
+    "id": 1119
+  },
+  {
+    "name": "Iron Ore",
+    "id": 51
+  },
+  {
+    "name": "Iron Pickaxe",
+    "id": 794
+  },
+  {
+    "name": "Iron Shovel",
+    "id": 793
+  },
+  {
+    "name": "Iron Sword",
+    "id": 792
+  },
+  {
+    "name": "Iron Trapdoor",
+    "id": 700
+  },
+  {
+    "name": "Item Frame",
+    "id": 1048
+  },
+  {
+    "name": "Jack o'Lantern",
+    "id": 302
+  },
+  {
+    "name": "Jigsaw Block",
+    "id": 755
+  },
+  {
+    "name": "Jukebox",
+    "id": 288
+  },
+  {
+    "name": "Jungle Boat",
+    "id": 742
+  },
+  {
+    "name": "Jungle Button",
+    "id": 665
+  },
+  {
+    "name": "Jungle Boat with Chest",
+    "id": 743
+  },
+  {
+    "name": "Jungle Door",
+    "id": 692
+  },
+  {
+    "name": "Jungle Fence",
+    "id": 292
+  },
+  {
+    "name": "Jungle Fence Gate",
+    "id": 715
+  },
+  {
+    "name": "Jungle Hanging Sign",
+    "id": 860
+  },
+  {
+    "name": "Jungle Leaves",
+    "id": 157
+  },
+  {
+    "name": "Jungle Log",
+    "id": 113
+  },
+  {
+    "name": "Jungle Planks",
+    "id": 26
+  },
+  {
+    "name": "Jungle Pressure Plate",
+    "id": 680
+  },
+  {
+    "name": "Jungle Sapling",
+    "id": 38
+  },
+  {
+    "name": "Jungle Sign",
+    "id": 849
+  },
+  {
+    "name": "Jungle Slab",
+    "id": 233
+  },
+  {
+    "name": "Jungle Stairs",
+    "id": 364
+  },
+  {
+    "name": "Jungle Trapdoor",
+    "id": 704
+  },
+  {
+    "name": "Jungle Wood",
+    "id": 147
+  },
+  {
+    "name": "Kelp",
+    "id": 222
+  },
+  {
+    "name": "Knowledge Book",
+    "id": 1120
+  },
+  {
+    "name": "Ladder",
+    "id": 281
+  },
+  {
+    "name": "Lantern",
+    "id": 1163
+  },
+  {
+    "name": "Block of Lapis Lazuli",
+    "id": 168
+  },
+  {
+    "name": "Lapis Lazuli",
+    "id": 766
+  },
+  {
+    "name": "Lapis Lazuli Ore",
+    "id": 61
+  },
+  {
+    "name": "Large Amethyst Bud",
+    "id": 1209
+  },
+  {
+    "name": "Large Fern",
+    "id": 448
+  },
+  {
+    "name": "Lava Bucket",
+    "id": 870
+  },
+  {
+    "name": "Lead",
+    "id": 1082
+  },
+  {
+    "name": "Leather",
+    "id": 873
+  },
+  {
+    "name": "Leather Boots",
+    "id": 819
+  },
+  {
+    "name": "Leather Tunic",
+    "id": 817
+  },
+  {
+    "name": "Leather Cap",
+    "id": 816
+  },
+  {
+    "name": "Leather Horse Armor",
+    "id": 1081
+  },
+  {
+    "name": "Leather Pants",
+    "id": 818
+  },
+  {
+    "name": "Lectern",
+    "id": 648
+  },
+  {
+    "name": "Lever",
+    "id": 650
+  },
+  {
+    "name": "Light",
+    "id": 422
+  },
+  {
+    "name": "Light Blue Banner",
+    "id": 1090
+  },
+  {
+    "name": "Light Blue Bed",
+    "id": 927
+  },
+  {
+    "name": "Light Blue Candle",
+    "id": 1194
+  },
+  {
+    "name": "Light Blue Carpet",
+    "id": 427
+  },
+  {
+    "name": "Light Blue Concrete",
+    "id": 536
+  },
+  {
+    "name": "Light Blue Concrete Powder",
+    "id": 552
+  },
+  {
+    "name": "Light Blue Dye",
+    "id": 907
+  },
+  {
+    "name": "Light Blue Glazed Terracotta",
+    "id": 520
+  },
+  {
+    "name": "Light Blue Shulker Box",
+    "id": 504
+  },
+  {
+    "name": "Light Blue Stained Glass",
+    "id": 452
+  },
+  {
+    "name": "Light Blue Stained Glass Pane",
+    "id": 468
+  },
+  {
+    "name": "Light Blue Terracotta",
+    "id": 408
+  },
+  {
+    "name": "Light Blue Wool",
+    "id": 183
+  },
+  {
+    "name": "Light Gray Banner",
+    "id": 1095
+  },
+  {
+    "name": "Light Gray Bed",
+    "id": 932
+  },
+  {
+    "name": "Light Gray Candle",
+    "id": 1199
+  },
+  {
+    "name": "Light Gray Carpet",
+    "id": 432
+  },
+  {
+    "name": "Light Gray Concrete",
+    "id": 541
+  },
+  {
+    "name": "Light Gray Concrete Powder",
+    "id": 557
+  },
+  {
+    "name": "Light Gray Dye",
+    "id": 912
+  },
+  {
+    "name": "Light Gray Glazed Terracotta",
+    "id": 525
+  },
+  {
+    "name": "Light Gray Shulker Box",
+    "id": 509
+  },
+  {
+    "name": "Light Gray Stained Glass",
+    "id": 457
+  },
+  {
+    "name": "Light Gray Stained Glass Pane",
+    "id": 473
+  },
+  {
+    "name": "Light Gray Terracotta",
+    "id": 413
+  },
+  {
+    "name": "Light Gray Wool",
+    "id": 188
+  },
+  {
+    "name": "Light Weighted Pressure Plate",
+    "id": 675
+  },
+  {
+    "name": "Lightning Rod",
+    "id": 651
+  },
+  {
+    "name": "Lilac",
+    "id": 444
+  },
+  {
+    "name": "Lily of the Valley",
+    "id": 207
+  },
+  {
+    "name": "Lily Pad",
+    "id": 343
+  },
+  {
+    "name": "Lime Banner",
+    "id": 1092
+  },
+  {
+    "name": "Lime Bed",
+    "id": 929
+  },
+  {
+    "name": "Lime Candle",
+    "id": 1196
+  },
+  {
+    "name": "Lime Carpet",
+    "id": 429
+  },
+  {
+    "name": "Lime Concrete",
+    "id": 538
+  },
+  {
+    "name": "Lime Concrete Powder",
+    "id": 554
+  },
+  {
+    "name": "Lime Dye",
+    "id": 909
+  },
+  {
+    "name": "Lime Glazed Terracotta",
+    "id": 522
+  },
+  {
+    "name": "Lime Shulker Box",
+    "id": 506
+  },
+  {
+    "name": "Lime Stained Glass",
+    "id": 454
+  },
+  {
+    "name": "Lime Stained Glass Pane",
+    "id": 470
+  },
+  {
+    "name": "Lime Terracotta",
+    "id": 410
+  },
+  {
+    "name": "Lime Wool",
+    "id": 185
+  },
+  {
+    "name": "Lingering Potion",
+    "id": 1115
+  },
+  {
+    "name": "Llama Spawn Egg",
+    "id": 997
+  },
+  {
+    "name": "Lodestone",
+    "id": 1175
+  },
+  {
+    "name": "Loom",
+    "id": 1145
+  },
+  {
+    "name": "Magenta Banner",
+    "id": 1089
+  },
+  {
+    "name": "Magenta Bed",
+    "id": 926
+  },
+  {
+    "name": "Magenta Candle",
+    "id": 1193
+  },
+  {
+    "name": "Magenta Carpet",
+    "id": 426
+  },
+  {
+    "name": "Magenta Concrete",
+    "id": 535
+  },
+  {
+    "name": "Magenta Concrete Powder",
+    "id": 551
+  },
+  {
+    "name": "Magenta Dye",
+    "id": 906
+  },
+  {
+    "name": "Magenta Glazed Terracotta",
+    "id": 519
+  },
+  {
+    "name": "Magenta Shulker Box",
+    "id": 503
+  },
+  {
+    "name": "Magenta Stained Glass",
+    "id": 451
+  },
+  {
+    "name": "Magenta Stained Glass Pane",
+    "id": 467
+  },
+  {
+    "name": "Magenta Terracotta",
+    "id": 407
+  },
+  {
+    "name": "Magenta Wool",
+    "id": 182
+  },
+  {
+    "name": "Magma Block",
+    "id": 494
+  },
+  {
+    "name": "Magma Cream",
+    "id": 962
+  },
+  {
+    "name": "Magma Cube Spawn Egg",
+    "id": 998
+  },
+  {
+    "name": "Mangrove Boat",
+    "id": 750
+  },
+  {
+    "name": "Mangrove Button",
+    "id": 669
+  },
+  {
+    "name": "Mangrove Boat with Chest",
+    "id": 751
+  },
+  {
+    "name": "Mangrove Door",
+    "id": 696
+  },
+  {
+    "name": "Mangrove Fence",
+    "id": 296
+  },
+  {
+    "name": "Mangrove Fence Gate",
+    "id": 719
+  },
+  {
+    "name": "Mangrove Hanging Sign",
+    "id": 864
+  },
+  {
+    "name": "Mangrove Leaves",
+    "id": 161
+  },
+  {
+    "name": "Mangrove Log",
+    "id": 117
+  },
+  {
+    "name": "Mangrove Planks",
+    "id": 30
+  },
+  {
+    "name": "Mangrove Pressure Plate",
+    "id": 684
+  },
+  {
+    "name": "Mangrove Propagule",
+    "id": 42
+  },
+  {
+    "name": "Mangrove Roots",
+    "id": 118
+  },
+  {
+    "name": "Mangrove Sign",
+    "id": 853
+  },
+  {
+    "name": "Mangrove Slab",
+    "id": 237
+  },
+  {
+    "name": "Mangrove Stairs",
+    "id": 368
+  },
+  {
+    "name": "Mangrove Trapdoor",
+    "id": 708
+  },
+  {
+    "name": "Mangrove Wood",
+    "id": 151
+  },
+  {
+    "name": "Empty Map",
+    "id": 1055
+  },
+  {
+    "name": "Medium Amethyst Bud",
+    "id": 1208
+  },
+  {
+    "name": "Melon",
+    "id": 336
+  },
+  {
+    "name": "Melon Seeds",
+    "id": 946
+  },
+  {
+    "name": "Melon Slice",
+    "id": 943
+  },
+  {
+    "name": "Milk Bucket",
+    "id": 874
+  },
+  {
+    "name": "Minecart",
+    "id": 728
+  },
+  {
+    "name": "Miner Pottery Sherd",
+    "id": 1247
+  },
+  {
+    "name": "Banner Pattern",
+    "id": 1149
+  },
+  {
+    "name": "Mooshroom Spawn Egg",
+    "id": 999
+  },
+  {
+    "name": "Moss Block",
+    "id": 225
+  },
+  {
+    "name": "Moss Carpet",
+    "id": 223
+  },
+  {
+    "name": "Mossy Cobblestone",
+    "id": 267
+  },
+  {
+    "name": "Mossy Cobblestone Slab",
+    "id": 621
+  },
+  {
+    "name": "Mossy Cobblestone Stairs",
+    "id": 603
+  },
+  {
+    "name": "Mossy Cobblestone Wall",
+    "id": 376
+  },
+  {
+    "name": "Mossy Stone Brick Slab",
+    "id": 619
+  },
+  {
+    "name": "Mossy Stone Brick Stairs",
+    "id": 601
+  },
+  {
+    "name": "Mossy Stone Brick Wall",
+    "id": 380
+  },
+  {
+    "name": "Mossy Stone Bricks",
+    "id": 319
+  },
+  {
+    "name": "Mourner Pottery Sherd",
+    "id": 1248
+  },
+  {
+    "name": "Mud",
+    "id": 19
+  },
+  {
+    "name": "Mud Brick Slab",
+    "id": 250
+  },
+  {
+    "name": "Mud Brick Stairs",
+    "id": 341
+  },
+  {
+    "name": "Mud Brick Wall",
+    "id": 383
+  },
+  {
+    "name": "Mud Bricks",
+    "id": 323
+  },
+  {
+    "name": "Muddy Mangrove Roots",
+    "id": 119
+  },
+  {
+    "name": "Mule Spawn Egg",
+    "id": 1000
+  },
+  {
+    "name": "Mushroom Stem",
+    "id": 332
+  },
+  {
+    "name": "Mushroom Stew",
+    "id": 809
+  },
+  {
+    "name": "Music Disc",
+    "id": 1132
+  },
+  {
+    "name": "Music Disc",
+    "id": 1122
+  },
+  {
+    "name": "Music Disc",
+    "id": 1136
+  },
+  {
+    "name": "Music Disc",
+    "id": 1124
+  },
+  {
+    "name": "Music Disc",
+    "id": 1123
+  },
+  {
+    "name": "Music Disc",
+    "id": 1125
+  },
+  {
+    "name": "Music Disc",
+    "id": 1126
+  },
+  {
+    "name": "Music Disc",
+    "id": 1127
+  },
+  {
+    "name": "Music Disc",
+    "id": 1128
+  },
+  {
+    "name": "Music Disc",
+    "id": 1134
+  },
+  {
+    "name": "Music Disc",
+    "id": 1137
+  },
+  {
+    "name": "Music Disc",
+    "id": 1135
+  },
+  {
+    "name": "Music Disc",
+    "id": 1129
+  },
+  {
+    "name": "Music Disc",
+    "id": 1130
+  },
+  {
+    "name": "Music Disc",
+    "id": 1133
+  },
+  {
+    "name": "Music Disc",
+    "id": 1131
+  },
+  {
+    "name": "Raw Mutton",
+    "id": 1085
+  },
+  {
+    "name": "Mycelium",
+    "id": 342
+  },
+  {
+    "name": "Name Tag",
+    "id": 1083
+  },
+  {
+    "name": "Nautilus Shell",
+    "id": 1141
+  },
+  {
+    "name": "Nether Brick",
+    "id": 1069
+  },
+  {
+    "name": "Nether Brick Fence",
+    "id": 347
+  },
+  {
+    "name": "Nether Brick Slab",
+    "id": 251
+  },
+  {
+    "name": "Nether Brick Stairs",
+    "id": 348
+  },
+  {
+    "name": "Nether Brick Wall",
+    "id": 384
+  },
+  {
+    "name": "Nether Bricks",
+    "id": 344
+  },
+  {
+    "name": "Nether Gold Ore",
+    "id": 65
+  },
+  {
+    "name": "Nether Quartz Ore",
+    "id": 66
+  },
+  {
+    "name": "Nether Sprouts",
+    "id": 218
+  },
+  {
+    "name": "Nether Star",
+    "id": 1064
+  },
+  {
+    "name": "Nether Wart",
+    "id": 956
+  },
+  {
+    "name": "Nether Wart Block",
+    "id": 495
+  },
+  {
+    "name": "Netherite Axe",
+    "id": 805
+  },
+  {
+    "name": "Block of Netherite",
+    "id": 78
+  },
+  {
+    "name": "Netherite Boots",
+    "id": 839
+  },
+  {
+    "name": "Netherite Chestplate",
+    "id": 837
+  },
+  {
+    "name": "Netherite Helmet",
+    "id": 836
+  },
+  {
+    "name": "Netherite Hoe",
+    "id": 806
+  },
+  {
+    "name": "Netherite Ingot",
+    "id": 775
+  },
+  {
+    "name": "Netherite Leggings",
+    "id": 838
+  },
+  {
+    "name": "Netherite Pickaxe",
+    "id": 804
+  },
+  {
+    "name": "Netherite Scrap",
+    "id": 776
+  },
+  {
+    "name": "Netherite Shovel",
+    "id": 803
+  },
+  {
+    "name": "Netherite Sword",
+    "id": 802
+  },
+  {
+    "name": null,
+    "id": 1218
+  },
+  {
+    "name": "Netherrack",
+    "id": 303
+  },
+  {
+    "name": "Note Block",
+    "id": 659
+  },
+  {
+    "name": "Oak Boat",
+    "id": 736
+  },
+  {
+    "name": "Oak Button",
+    "id": 662
+  },
+  {
+    "name": "Oak Boat with Chest",
+    "id": 737
+  },
+  {
+    "name": "Oak Door",
+    "id": 689
+  },
+  {
+    "name": "Oak Fence",
+    "id": 289
+  },
+  {
+    "name": "Oak Fence Gate",
+    "id": 712
+  },
+  {
+    "name": "Oak Hanging Sign",
+    "id": 857
+  },
+  {
+    "name": "Oak Leaves",
+    "id": 154
+  },
+  {
+    "name": "Oak Log",
+    "id": 110
+  },
+  {
+    "name": "Oak Planks",
+    "id": 23
+  },
+  {
+    "name": "Oak Pressure Plate",
+    "id": 677
+  },
+  {
+    "name": "Oak Sapling",
+    "id": 35
+  },
+  {
+    "name": "Oak Sign",
+    "id": 846
+  },
+  {
+    "name": "Oak Slab",
+    "id": 230
+  },
+  {
+    "name": "Oak Stairs",
+    "id": 361
+  },
+  {
+    "name": "Oak Trapdoor",
+    "id": 701
+  },
+  {
+    "name": "Oak Wood",
+    "id": 144
+  },
+  {
+    "name": "Observer",
+    "id": 644
+  },
+  {
+    "name": "Obsidian",
+    "id": 268
+  },
+  {
+    "name": "Ocelot Spawn Egg",
+    "id": 1001
+  },
+  {
+    "name": "Ochre Froglight",
+    "id": 1212
+  },
+  {
+    "name": "Orange Banner",
+    "id": 1088
+  },
+  {
+    "name": "Orange Bed",
+    "id": 925
+  },
+  {
+    "name": "Orange Candle",
+    "id": 1192
+  },
+  {
+    "name": "Orange Carpet",
+    "id": 425
+  },
+  {
+    "name": "Orange Concrete",
+    "id": 534
+  },
+  {
+    "name": "Orange Concrete Powder",
+    "id": 550
+  },
+  {
+    "name": "Orange Dye",
+    "id": 905
+  },
+  {
+    "name": "Orange Glazed Terracotta",
+    "id": 518
+  },
+  {
+    "name": "Orange Shulker Box",
+    "id": 502
+  },
+  {
+    "name": "Orange Stained Glass",
+    "id": 450
+  },
+  {
+    "name": "Orange Stained Glass Pane",
+    "id": 466
+  },
+  {
+    "name": "Orange Terracotta",
+    "id": 406
+  },
+  {
+    "name": "Orange Tulip",
+    "id": 202
+  },
+  {
+    "name": "Orange Wool",
+    "id": 181
+  },
+  {
+    "name": "Oxeye Daisy",
+    "id": 205
+  },
+  {
+    "name": "Oxidized Copper",
+    "id": 81
+  },
+  {
+    "name": "Oxidized Cut Copper",
+    "id": 85
+  },
+  {
+    "name": "Oxidized Cut Copper Slab",
+    "id": 93
+  },
+  {
+    "name": "Oxidized Cut Copper Stairs",
+    "id": 89
+  },
+  {
+    "name": "Packed Ice",
+    "id": 441
+  },
+  {
+    "name": "Packed Mud",
+    "id": 322
+  },
+  {
+    "name": "Painting",
+    "id": 843
+  },
+  {
+    "name": "Panda Spawn Egg",
+    "id": 1002
+  },
+  {
+    "name": "Paper",
+    "id": 884
+  },
+  {
+    "name": "Parrot Spawn Egg",
+    "id": 1003
+  },
+  {
+    "name": "Pearlescent Froglight",
+    "id": 1214
+  },
+  {
+    "name": "Peony",
+    "id": 446
+  },
+  {
+    "name": "Petrified Oak Slab",
+    "id": 246
+  },
+  {
+    "name": "Phantom Membrane",
+    "id": 1140
+  },
+  {
+    "name": "Phantom Spawn Egg",
+    "id": 1004
+  },
+  {
+    "name": "Pig Spawn Egg",
+    "id": 1005
+  },
+  {
+    "name": "Banner Pattern",
+    "id": 1151
+  },
+  {
+    "name": "Piglin Brute Spawn Egg",
+    "id": 1007
+  },
+  {
+    "name": "Piglin Head",
+    "id": 1063
+  },
+  {
+    "name": "Piglin Spawn Egg",
+    "id": 1006
+  },
+  {
+    "name": "Pillager Spawn Egg",
+    "id": 1008
+  },
+  {
+    "name": "Pink Banner",
+    "id": 1093
+  },
+  {
+    "name": "Pink Bed",
+    "id": 930
+  },
+  {
+    "name": "Pink Candle",
+    "id": 1197
+  },
+  {
+    "name": "Pink Carpet",
+    "id": 430
+  },
+  {
+    "name": "Pink Concrete",
+    "id": 539
+  },
+  {
+    "name": "Pink Concrete Powder",
+    "id": 555
+  },
+  {
+    "name": "Pink Dye",
+    "id": 910
+  },
+  {
+    "name": "Pink Glazed Terracotta",
+    "id": 523
+  },
+  {
+    "name": "Pink Petals",
+    "id": 224
+  },
+  {
+    "name": "Pink Shulker Box",
+    "id": 507
+  },
+  {
+    "name": "Pink Stained Glass",
+    "id": 455
+  },
+  {
+    "name": "Pink Stained Glass Pane",
+    "id": 471
+  },
+  {
+    "name": "Pink Terracotta",
+    "id": 411
+  },
+  {
+    "name": "Pink Tulip",
+    "id": 204
+  },
+  {
+    "name": "Pink Wool",
+    "id": 186
+  },
+  {
+    "name": "Piston",
+    "id": 640
+  },
+  {
+    "name": "Pitcher Plant",
+    "id": 210
+  },
+  {
+    "name": "Pitcher Pod",
+    "id": 1107
+  },
+  {
+    "name": "Player Head",
+    "id": 1059
+  },
+  {
+    "name": "Plenty Pottery Sherd",
+    "id": 1249
+  },
+  {
+    "name": "Podzol",
+    "id": 17
+  },
+  {
+    "name": "Pointed Dripstone",
+    "id": 1211
+  },
+  {
+    "name": "Poisonous Potato",
+    "id": 1054
+  },
+  {
+    "name": "Polar Bear Spawn Egg",
+    "id": 1009
+  },
+  {
+    "name": "Polished Andesite",
+    "id": 7
+  },
+  {
+    "name": "Polished Andesite Slab",
+    "id": 628
+  },
+  {
+    "name": "Polished Andesite Stairs",
+    "id": 611
+  },
+  {
+    "name": "Polished Basalt",
+    "id": 307
+  },
+  {
+    "name": "Polished Blackstone",
+    "id": 1181
+  },
+  {
+    "name": "Polished Blackstone Brick Slab",
+    "id": 1186
+  },
+  {
+    "name": "Polished Blackstone Brick Stairs",
+    "id": 1187
+  },
+  {
+    "name": "Polished Blackstone Brick Wall",
+    "id": 392
+  },
+  {
+    "name": "Polished Blackstone Bricks",
+    "id": 1185
+  },
+  {
+    "name": "Polished Blackstone Button",
+    "id": 661
+  },
+  {
+    "name": "Polished Blackstone Pressure Plate",
+    "id": 674
+  },
+  {
+    "name": "Polished Blackstone Slab",
+    "id": 1182
+  },
+  {
+    "name": "Polished Blackstone Stairs",
+    "id": 1183
+  },
+  {
+    "name": "Polished Blackstone Wall",
+    "id": 391
+  },
+  {
+    "name": "Polished Deepslate",
+    "id": 10
+  },
+  {
+    "name": "Polished Deepslate Slab",
+    "id": 631
+  },
+  {
+    "name": "Polished Deepslate Stairs",
+    "id": 614
+  },
+  {
+    "name": "Polished Deepslate Wall",
+    "id": 394
+  },
+  {
+    "name": "Polished Diorite",
+    "id": 5
+  },
+  {
+    "name": "Polished Diorite Slab",
+    "id": 620
+  },
+  {
+    "name": "Polished Diorite Stairs",
+    "id": 602
+  },
+  {
+    "name": "Polished Granite",
+    "id": 3
+  },
+  {
+    "name": "Polished Granite Slab",
+    "id": 617
+  },
+  {
+    "name": "Polished Granite Stairs",
+    "id": 599
+  },
+  {
+    "name": "Popped Chorus Fruit",
+    "id": 1105
+  },
+  {
+    "name": "Poppy",
+    "id": 197
+  },
+  {
+    "name": "Raw Porkchop",
+    "id": 841
+  },
+  {
+    "name": "Potato",
+    "id": 1052
+  },
+  {
+    "name": "Potion",
+    "id": 957
+  },
+  {
+    "name": "Powder Snow Bucket",
+    "id": 871
+  },
+  {
+    "name": "Powered Rail",
+    "id": 723
+  },
+  {
+    "name": "Prismarine",
+    "id": 481
+  },
+  {
+    "name": "Prismarine Brick Slab",
+    "id": 257
+  },
+  {
+    "name": "Prismarine Brick Stairs",
+    "id": 485
+  },
+  {
+    "name": "Prismarine Bricks",
+    "id": 482
+  },
+  {
+    "name": "Prismarine Crystals",
+    "id": 1071
+  },
+  {
+    "name": "Prismarine Shard",
+    "id": 1070
+  },
+  {
+    "name": "Prismarine Slab",
+    "id": 256
+  },
+  {
+    "name": "Prismarine Stairs",
+    "id": 484
+  },
+  {
+    "name": "Prismarine Wall",
+    "id": 378
+  },
+  {
+    "name": "Prize Pottery Sherd",
+    "id": 1250
+  },
+  {
+    "name": "Pufferfish",
+    "id": 898
+  },
+  {
+    "name": "Bucket of Pufferfish",
+    "id": 875
+  },
+  {
+    "name": "Pufferfish Spawn Egg",
+    "id": 1010
+  },
+  {
+    "name": "Pumpkin",
+    "id": 300
+  },
+  {
+    "name": "Pumpkin Pie",
+    "id": 1065
+  },
+  {
+    "name": "Pumpkin Seeds",
+    "id": 945
+  },
+  {
+    "name": "Purple Banner",
+    "id": 1097
+  },
+  {
+    "name": "Purple Bed",
+    "id": 934
+  },
+  {
+    "name": "Purple Candle",
+    "id": 1201
+  },
+  {
+    "name": "Purple Carpet",
+    "id": 434
+  },
+  {
+    "name": "Purple Concrete",
+    "id": 543
+  },
+  {
+    "name": "Purple Concrete Powder",
+    "id": 559
+  },
+  {
+    "name": "Purple Dye",
+    "id": 914
+  },
+  {
+    "name": "Purple Glazed Terracotta",
+    "id": 527
+  },
+  {
+    "name": "Purple Shulker Box",
+    "id": 511
+  },
+  {
+    "name": "Purple Stained Glass",
+    "id": 459
+  },
+  {
+    "name": "Purple Stained Glass Pane",
+    "id": 475
+  },
+  {
+    "name": "Purple Terracotta",
+    "id": 415
+  },
+  {
+    "name": "Purple Wool",
+    "id": 190
+  },
+  {
+    "name": "Purpur Block",
+    "id": 273
+  },
+  {
+    "name": "Purpur Pillar",
+    "id": 274
+  },
+  {
+    "name": "Purpur Slab",
+    "id": 255
+  },
+  {
+    "name": "Purpur Stairs",
+    "id": 275
+  },
+  {
+    "name": "Nether Quartz",
+    "id": 767
+  },
+  {
+    "name": "Block of Quartz",
+    "id": 401
+  },
+  {
+    "name": "Quartz Bricks",
+    "id": 402
+  },
+  {
+    "name": "Quartz Pillar",
+    "id": 403
+  },
+  {
+    "name": "Quartz Slab",
+    "id": 252
+  },
+  {
+    "name": "Quartz Stairs",
+    "id": 404
+  },
+  {
+    "name": "Raw Rabbit",
+    "id": 1072
+  },
+  {
+    "name": "Rabbit's Foot",
+    "id": 1075
+  },
+  {
+    "name": "Rabbit Hide",
+    "id": 1076
+  },
+  {
+    "name": "Rabbit Spawn Egg",
+    "id": 1011
+  },
+  {
+    "name": "Rabbit Stew",
+    "id": 1074
+  },
+  {
+    "name": "Rail",
+    "id": 725
+  },
+  {
+    "name": null,
+    "id": 1233
+  },
+  {
+    "name": "Ravager Spawn Egg",
+    "id": 1012
+  },
+  {
+    "name": "Raw Copper",
+    "id": 771
+  },
+  {
+    "name": "Block of Raw Copper",
+    "id": 70
+  },
+  {
+    "name": "Raw Gold",
+    "id": 773
+  },
+  {
+    "name": "Block of Raw Gold",
+    "id": 71
+  },
+  {
+    "name": "Raw Iron",
+    "id": 769
+  },
+  {
+    "name": "Block of Raw Iron",
+    "id": 69
+  },
+  {
+    "name": "Recovery Compass",
+    "id": 889
+  },
+  {
+    "name": "Red Banner",
+    "id": 1101
+  },
+  {
+    "name": "Red Bed",
+    "id": 938
+  },
+  {
+    "name": "Red Candle",
+    "id": 1205
+  },
+  {
+    "name": "Red Carpet",
+    "id": 438
+  },
+  {
+    "name": "Red Concrete",
+    "id": 547
+  },
+  {
+    "name": "Red Concrete Powder",
+    "id": 563
+  },
+  {
+    "name": "Red Dye",
+    "id": 918
+  },
+  {
+    "name": "Red Glazed Terracotta",
+    "id": 531
+  },
+  {
+    "name": "Red Mushroom",
+    "id": 213
+  },
+  {
+    "name": "Red Mushroom Block",
+    "id": 331
+  },
+  {
+    "name": "Red Nether Brick Slab",
+    "id": 627
+  },
+  {
+    "name": "Red Nether Brick Stairs",
+    "id": 610
+  },
+  {
+    "name": "Red Nether Brick Wall",
+    "id": 386
+  },
+  {
+    "name": "Red Nether Bricks",
+    "id": 497
+  },
+  {
+    "name": "Red Sand",
+    "id": 47
+  },
+  {
+    "name": "Red Sandstone",
+    "id": 488
+  },
+  {
+    "name": "Red Sandstone Slab",
+    "id": 253
+  },
+  {
+    "name": "Red Sandstone Stairs",
+    "id": 491
+  },
+  {
+    "name": "Red Sandstone Wall",
+    "id": 379
+  },
+  {
+    "name": "Red Shulker Box",
+    "id": 515
+  },
+  {
+    "name": "Red Stained Glass",
+    "id": 463
+  },
+  {
+    "name": "Red Stained Glass Pane",
+    "id": 479
+  },
+  {
+    "name": "Red Terracotta",
+    "id": 419
+  },
+  {
+    "name": "Red Tulip",
+    "id": 201
+  },
+  {
+    "name": "Red Wool",
+    "id": 194
+  },
+  {
+    "name": "Redstone Dust",
+    "id": 635
+  },
+  {
+    "name": "Block of Redstone",
+    "id": 637
+  },
+  {
+    "name": "Redstone Lamp",
+    "id": 658
+  },
+  {
+    "name": "Redstone Ore",
+    "id": 57
+  },
+  {
+    "name": "Redstone Torch",
+    "id": 636
+  },
+  {
+    "name": "Reinforced Deepslate",
+    "id": 329
+  },
+  {
+    "name": "Redstone Repeater",
+    "id": 638
+  },
+  {
+    "name": "Repeating Command Block",
+    "id": 492
+  },
+  {
+    "name": "Respawn Anchor",
+    "id": 1189
+  },
+  {
+    "name": null,
+    "id": 1228
+  },
+  {
+    "name": "Rooted Dirt",
+    "id": 18
+  },
+  {
+    "name": "Rose Bush",
+    "id": 445
+  },
+  {
+    "name": "Rotten Flesh",
+    "id": 951
+  },
+  {
+    "name": "Saddle",
+    "id": 727
+  },
+  {
+    "name": "Raw Salmon",
+    "id": 896
+  },
+  {
+    "name": "Bucket of Salmon",
+    "id": 876
+  },
+  {
+    "name": "Salmon Spawn Egg",
+    "id": 1013
+  },
+  {
+    "name": "Sand",
+    "id": 44
+  },
+  {
+    "name": "Sandstone",
+    "id": 169
+  },
+  {
+    "name": "Sandstone Slab",
+    "id": 244
+  },
+  {
+    "name": "Sandstone Stairs",
+    "id": 358
+  },
+  {
+    "name": "Sandstone Wall",
+    "id": 387
+  },
+  {
+    "name": "Scaffolding",
+    "id": 634
+  },
+  {
+    "name": "Sculk",
+    "id": 349
+  },
+  {
+    "name": "Sculk Catalyst",
+    "id": 351
+  },
+  {
+    "name": "Sculk Sensor",
+    "id": 653
+  },
+  {
+    "name": "Sculk Shrieker",
+    "id": 352
+  },
+  {
+    "name": "Sculk Vein",
+    "id": 350
+  },
+  {
+    "name": "Scute",
+    "id": 757
+  },
+  {
+    "name": "Sea Lantern",
+    "id": 487
+  },
+  {
+    "name": "Sea Pickle",
+    "id": 179
+  },
+  {
+    "name": "Seagrass",
+    "id": 178
+  },
+  {
+    "name": null,
+    "id": 1219
+  },
+  {
+    "name": null,
+    "id": 1231
+  },
+  {
+    "name": "Sheaf Pottery Sherd",
+    "id": 1251
+  },
+  {
+    "name": "Shears",
+    "id": 942
+  },
+  {
+    "name": "Sheep Spawn Egg",
+    "id": 1014
+  },
+  {
+    "name": "Shelter Pottery Sherd",
+    "id": 1252
+  },
+  {
+    "name": "Shield",
+    "id": 1116
+  },
+  {
+    "name": "Shroomlight",
+    "id": 1169
+  },
+  {
+    "name": "Shulker Box",
+    "id": 500
+  },
+  {
+    "name": "Shulker Shell",
+    "id": 1118
+  },
+  {
+    "name": "Shulker Spawn Egg",
+    "id": 1015
+  },
+  {
+    "name": null,
+    "id": 1232
+  },
+  {
+    "name": "Silverfish Spawn Egg",
+    "id": 1016
+  },
+  {
+    "name": "Skeleton Horse Spawn Egg",
+    "id": 1018
+  },
+  {
+    "name": "Skeleton Skull",
+    "id": 1057
+  },
+  {
+    "name": "Skeleton Spawn Egg",
+    "id": 1017
+  },
+  {
+    "name": "Banner Pattern",
+    "id": 1148
+  },
+  {
+    "name": "Skull Pottery Sherd",
+    "id": 1253
+  },
+  {
+    "name": "Slimeball",
+    "id": 886
+  },
+  {
+    "name": "Slime Block",
+    "id": 642
+  },
+  {
+    "name": "Slime Spawn Egg",
+    "id": 1019
+  },
+  {
+    "name": "Small Amethyst Bud",
+    "id": 1207
+  },
+  {
+    "name": "Small Dripleaf",
+    "id": 228
+  },
+  {
+    "name": "Smithing Table",
+    "id": 1160
+  },
+  {
+    "name": "Smoker",
+    "id": 1155
+  },
+  {
+    "name": "Smooth Basalt",
+    "id": 308
+  },
+  {
+    "name": "Smooth Quartz Block",
+    "id": 259
+  },
+  {
+    "name": "Smooth Quartz Slab",
+    "id": 624
+  },
+  {
+    "name": "Smooth Quartz Stairs",
+    "id": 607
+  },
+  {
+    "name": "Smooth Red Sandstone",
+    "id": 260
+  },
+  {
+    "name": "Smooth Red Sandstone Slab",
+    "id": 618
+  },
+  {
+    "name": "Smooth Red Sandstone Stairs",
+    "id": 600
+  },
+  {
+    "name": "Smooth Sandstone",
+    "id": 261
+  },
+  {
+    "name": "Smooth Sandstone Slab",
+    "id": 623
+  },
+  {
+    "name": "Smooth Sandstone Stairs",
+    "id": 606
+  },
+  {
+    "name": "Smooth Stone",
+    "id": 262
+  },
+  {
+    "name": "Smooth Stone Slab",
+    "id": 243
+  },
+  {
+    "name": "Sniffer Egg",
+    "id": 566
+  },
+  {
+    "name": "Sniffer Spawn Egg",
+    "id": 1020
+  },
+  {
+    "name": "Snort Pottery Sherd",
+    "id": 1254
+  },
+  {
+    "name": null,
+    "id": 1227
+  },
+  {
+    "name": "Snow",
+    "id": 283
+  },
+  {
+    "name": "Snow Block",
+    "id": 285
+  },
+  {
+    "name": "Snow Golem Spawn Egg",
+    "id": 1021
+  },
+  {
+    "name": "Snowball",
+    "id": 872
+  },
+  {
+    "name": "Soul Campfire",
+    "id": 1168
+  },
+  {
+    "name": "Soul Lantern",
+    "id": 1164
+  },
+  {
+    "name": "Soul Sand",
+    "id": 304
+  },
+  {
+    "name": "Soul Soil",
+    "id": 305
+  },
+  {
+    "name": "Soul Torch",
+    "id": 309
+  },
+  {
+    "name": "Monster Spawner",
+    "id": 276
+  },
+  {
+    "name": "Spectral Arrow",
+    "id": 1113
+  },
+  {
+    "name": "Spider Eye",
+    "id": 959
+  },
+  {
+    "name": "Spider Spawn Egg",
+    "id": 1022
+  },
+  {
+    "name": null,
+    "id": 1229
+  },
+  {
+    "name": "Splash Potion",
+    "id": 1112
+  },
+  {
+    "name": "Sponge",
+    "id": 164
+  },
+  {
+    "name": "Spore Blossom",
+    "id": 211
+  },
+  {
+    "name": "Spruce Boat",
+    "id": 738
+  },
+  {
+    "name": "Spruce Button",
+    "id": 663
+  },
+  {
+    "name": "Spruce Boat with Chest",
+    "id": 739
+  },
+  {
+    "name": "Spruce Door",
+    "id": 690
+  },
+  {
+    "name": "Spruce Fence",
+    "id": 290
+  },
+  {
+    "name": "Spruce Fence Gate",
+    "id": 713
+  },
+  {
+    "name": "Spruce Hanging Sign",
+    "id": 858
+  },
+  {
+    "name": "Spruce Leaves",
+    "id": 155
+  },
+  {
+    "name": "Spruce Log",
+    "id": 111
+  },
+  {
+    "name": "Spruce Planks",
+    "id": 24
+  },
+  {
+    "name": "Spruce Pressure Plate",
+    "id": 678
+  },
+  {
+    "name": "Spruce Sapling",
+    "id": 36
+  },
+  {
+    "name": "Spruce Sign",
+    "id": 847
+  },
+  {
+    "name": "Spruce Slab",
+    "id": 231
+  },
+  {
+    "name": "Spruce Stairs",
+    "id": 362
+  },
+  {
+    "name": "Spruce Trapdoor",
+    "id": 702
+  },
+  {
+    "name": "Spruce Wood",
+    "id": 145
+  },
+  {
+    "name": "Spyglass",
+    "id": 893
+  },
+  {
+    "name": "Squid Spawn Egg",
+    "id": 1023
+  },
+  {
+    "name": "Stick",
+    "id": 807
+  },
+  {
+    "name": "Sticky Piston",
+    "id": 641
+  },
+  {
+    "name": "Stone",
+    "id": 1
+  },
+  {
+    "name": "Stone Axe",
+    "id": 785
+  },
+  {
+    "name": "Stone Brick Slab",
+    "id": 249
+  },
+  {
+    "name": "Stone Brick Stairs",
+    "id": 340
+  },
+  {
+    "name": "Stone Brick Wall",
+    "id": 382
+  },
+  {
+    "name": "Stone Bricks",
+    "id": 318
+  },
+  {
+    "name": "Stone Button",
+    "id": 660
+  },
+  {
+    "name": "Stone Hoe",
+    "id": 786
+  },
+  {
+    "name": "Stone Pickaxe",
+    "id": 784
+  },
+  {
+    "name": "Stone Pressure Plate",
+    "id": 673
+  },
+  {
+    "name": "Stone Shovel",
+    "id": 783
+  },
+  {
+    "name": "Stone Slab",
+    "id": 242
+  },
+  {
+    "name": "Stone Stairs",
+    "id": 605
+  },
+  {
+    "name": "Stone Sword",
+    "id": 782
+  },
+  {
+    "name": "Stonecutter",
+    "id": 1161
+  },
+  {
+    "name": "Stray Spawn Egg",
+    "id": 1024
+  },
+  {
+    "name": "Strider Spawn Egg",
+    "id": 1025
+  },
+  {
+    "name": "String",
+    "id": 810
+  },
+  {
+    "name": "Stripped Acacia Log",
+    "id": 127
+  },
+  {
+    "name": "Stripped Acacia Wood",
+    "id": 137
+  },
+  {
+    "name": "Block of Stripped Bamboo",
+    "id": 143
+  },
+  {
+    "name": "Stripped Birch Log",
+    "id": 125
+  },
+  {
+    "name": "Stripped Birch Wood",
+    "id": 135
+  },
+  {
+    "name": "Stripped Cherry Log",
+    "id": 128
+  },
+  {
+    "name": "Stripped Cherry Wood",
+    "id": 138
+  },
+  {
+    "name": "Stripped Crimson Hyphae",
+    "id": 141
+  },
+  {
+    "name": "Stripped Crimson Stem",
+    "id": 131
+  },
+  {
+    "name": "Stripped Dark Oak Log",
+    "id": 129
+  },
+  {
+    "name": "Stripped Dark Oak Wood",
+    "id": 139
+  },
+  {
+    "name": "Stripped Jungle Log",
+    "id": 126
+  },
+  {
+    "name": "Stripped Jungle Wood",
+    "id": 136
+  },
+  {
+    "name": "Stripped Mangrove Log",
+    "id": 130
+  },
+  {
+    "name": "Stripped Mangrove Wood",
+    "id": 140
+  },
+  {
+    "name": "Stripped Oak Log",
+    "id": 123
+  },
+  {
+    "name": "Stripped Oak Wood",
+    "id": 133
+  },
+  {
+    "name": "Stripped Spruce Log",
+    "id": 124
+  },
+  {
+    "name": "Stripped Spruce Wood",
+    "id": 134
+  },
+  {
+    "name": "Stripped Warped Hyphae",
+    "id": 142
+  },
+  {
+    "name": "Stripped Warped Stem",
+    "id": 132
+  },
+  {
+    "name": "Structure Block",
+    "id": 754
+  },
+  {
+    "name": "Structure Void",
+    "id": 499
+  },
+  {
+    "name": "Sugar",
+    "id": 922
+  },
+  {
+    "name": "Sugar Cane",
+    "id": 221
+  },
+  {
+    "name": "Sunflower",
+    "id": 443
+  },
+  {
+    "name": "Suspicious Gravel",
+    "id": 46
+  },
+  {
+    "name": "Suspicious Sand",
+    "id": 45
+  },
+  {
+    "name": "Suspicious Stew",
+    "id": 1144
+  },
+  {
+    "name": "Sweet Berries",
+    "id": 1165
+  },
+  {
+    "name": "Bucket of Tadpole",
+    "id": 880
+  },
+  {
+    "name": "Tadpole Spawn Egg",
+    "id": 1026
+  },
+  {
+    "name": "Tall Grass",
+    "id": 447
+  },
+  {
+    "name": "Target",
+    "id": 649
+  },
+  {
+    "name": "Terracotta",
+    "id": 440
+  },
+  {
+    "name": null,
+    "id": 1226
+  },
+  {
+    "name": "Tinted Glass",
+    "id": 167
+  },
+  {
+    "name": "Tipped Arrow",
+    "id": 1114
+  },
+  {
+    "name": "TNT",
+    "id": 657
+  },
+  {
+    "name": "Minecart with TNT",
+    "id": 731
+  },
+  {
+    "name": "Torch",
+    "id": 269
+  },
+  {
+    "name": "Torchflower",
+    "id": 209
+  },
+  {
+    "name": "Torchflower Seeds",
+    "id": 1106
+  },
+  {
+    "name": "Totem of Undying",
+    "id": 1117
+  },
+  {
+    "name": "Trader Llama Spawn Egg",
+    "id": 1027
+  },
+  {
+    "name": "Trapped Chest",
+    "id": 656
+  },
+  {
+    "name": "Trident",
+    "id": 1139
+  },
+  {
+    "name": "Tripwire Hook",
+    "id": 655
+  },
+  {
+    "name": "Tropical Fish",
+    "id": 897
+  },
+  {
+    "name": "Bucket of Tropical Fish",
+    "id": 878
+  },
+  {
+    "name": "Tropical Fish Spawn Egg",
+    "id": 1028
+  },
+  {
+    "name": "Tube Coral",
+    "id": 577
+  },
+  {
+    "name": "Tube Coral Block",
+    "id": 572
+  },
+  {
+    "name": "Tube Coral Fan",
+    "id": 587
+  },
+  {
+    "name": "Tuff",
+    "id": 12
+  },
+  {
+    "name": "Turtle Egg",
+    "id": 565
+  },
+  {
+    "name": "Turtle Shell",
+    "id": 756
+  },
+  {
+    "name": "Turtle Spawn Egg",
+    "id": 1029
+  },
+  {
+    "name": "Twisting Vines",
+    "id": 220
+  },
+  {
+    "name": "Verdant Froglight",
+    "id": 1213
+  },
+  {
+    "name": null,
+    "id": 1225
+  },
+  {
+    "name": "Vex Spawn Egg",
+    "id": 1030
+  },
+  {
+    "name": "Villager Spawn Egg",
+    "id": 1031
+  },
+  {
+    "name": "Vindicator Spawn Egg",
+    "id": 1032
+  },
+  {
+    "name": "Vines",
+    "id": 337
+  },
+  {
+    "name": "Wandering Trader Spawn Egg",
+    "id": 1033
+  },
+  {
+    "name": null,
+    "id": 1223
+  },
+  {
+    "name": "Warden Spawn Egg",
+    "id": 1034
+  },
+  {
+    "name": "Warped Button",
+    "id": 672
+  },
+  {
+    "name": "Warped Door",
+    "id": 699
+  },
+  {
+    "name": "Warped Fence",
+    "id": 299
+  },
+  {
+    "name": "Warped Fence Gate",
+    "id": 722
+  },
+  {
+    "name": "Warped Fungus",
+    "id": 215
+  },
+  {
+    "name": "Warped Fungus on a Stick",
+    "id": 734
+  },
+  {
+    "name": "Warped Hanging Sign",
+    "id": 867
+  },
+  {
+    "name": "Warped Hyphae",
+    "id": 153
+  },
+  {
+    "name": "Warped Nylium",
+    "id": 21
+  },
+  {
+    "name": "Warped Planks",
+    "id": 33
+  },
+  {
+    "name": "Warped Pressure Plate",
+    "id": 687
+  },
+  {
+    "name": "Warped Roots",
+    "id": 217
+  },
+  {
+    "name": "Warped Sign",
+    "id": 856
+  },
+  {
+    "name": "Warped Slab",
+    "id": 241
+  },
+  {
+    "name": "Warped Stairs",
+    "id": 372
+  },
+  {
+    "name": "Warped Stem",
+    "id": 121
+  },
+  {
+    "name": "Warped Trapdoor",
+    "id": 711
+  },
+  {
+    "name": "Warped Wart Block",
+    "id": 496
+  },
+  {
+    "name": "Water Bucket",
+    "id": 869
+  },
+  {
+    "name": "Waxed Block of Copper",
+    "id": 94
+  },
+  {
+    "name": "Waxed Cut Copper",
+    "id": 98
+  },
+  {
+    "name": "Waxed Cut Copper Slab",
+    "id": 106
+  },
+  {
+    "name": "Waxed Cut Copper Stairs",
+    "id": 102
+  },
+  {
+    "name": "Waxed Exposed Copper",
+    "id": 95
+  },
+  {
+    "name": "Waxed Exposed Cut Copper",
+    "id": 99
+  },
+  {
+    "name": "Waxed Exposed Cut Copper Slab",
+    "id": 107
+  },
+  {
+    "name": "Waxed Exposed Cut Copper Stairs",
+    "id": 103
+  },
+  {
+    "name": "Waxed Oxidized Copper",
+    "id": 97
+  },
+  {
+    "name": "Waxed Oxidized Cut Copper",
+    "id": 101
+  },
+  {
+    "name": "Waxed Oxidized Cut Copper Slab",
+    "id": 109
+  },
+  {
+    "name": "Waxed Oxidized Cut Copper Stairs",
+    "id": 105
+  },
+  {
+    "name": "Waxed Weathered Copper",
+    "id": 96
+  },
+  {
+    "name": "Waxed Weathered Cut Copper",
+    "id": 100
+  },
+  {
+    "name": "Waxed Weathered Cut Copper Slab",
+    "id": 108
+  },
+  {
+    "name": "Waxed Weathered Cut Copper Stairs",
+    "id": 104
+  },
+  {
+    "name": null,
+    "id": 1230
+  },
+  {
+    "name": "Weathered Copper",
+    "id": 80
+  },
+  {
+    "name": "Weathered Cut Copper",
+    "id": 84
+  },
+  {
+    "name": "Weathered Cut Copper Slab",
+    "id": 92
+  },
+  {
+    "name": "Weathered Cut Copper Stairs",
+    "id": 88
+  },
+  {
+    "name": "Weeping Vines",
+    "id": 219
+  },
+  {
+    "name": "Wet Sponge",
+    "id": 165
+  },
+  {
+    "name": "Wheat",
+    "id": 814
+  },
+  {
+    "name": "Wheat Seeds",
+    "id": 813
+  },
+  {
+    "name": "White Banner",
+    "id": 1087
+  },
+  {
+    "name": "White Bed",
+    "id": 924
+  },
+  {
+    "name": "White Candle",
+    "id": 1191
+  },
+  {
+    "name": "White Carpet",
+    "id": 424
+  },
+  {
+    "name": "White Concrete",
+    "id": 533
+  },
+  {
+    "name": "White Concrete Powder",
+    "id": 549
+  },
+  {
+    "name": "White Dye",
+    "id": 904
+  },
+  {
+    "name": "White Glazed Terracotta",
+    "id": 517
+  },
+  {
+    "name": "White Shulker Box",
+    "id": 501
+  },
+  {
+    "name": "White Stained Glass",
+    "id": 449
+  },
+  {
+    "name": "White Stained Glass Pane",
+    "id": 465
+  },
+  {
+    "name": "White Terracotta",
+    "id": 405
+  },
+  {
+    "name": "White Tulip",
+    "id": 203
+  },
+  {
+    "name": "White Wool",
+    "id": 180
+  },
+  {
+    "name": null,
+    "id": 1222
+  },
+  {
+    "name": "Witch Spawn Egg",
+    "id": 1035
+  },
+  {
+    "name": "Wither Rose",
+    "id": 208
+  },
+  {
+    "name": "Wither Skeleton Skull",
+    "id": 1058
+  },
+  {
+    "name": "Wither Skeleton Spawn Egg",
+    "id": 1037
+  },
+  {
+    "name": "Wither Spawn Egg",
+    "id": 1036
+  },
+  {
+    "name": "Wolf Spawn Egg",
+    "id": 1038
+  },
+  {
+    "name": "Wooden Axe",
+    "id": 780
+  },
+  {
+    "name": "Wooden Hoe",
+    "id": 781
+  },
+  {
+    "name": "Wooden Pickaxe",
+    "id": 779
+  },
+  {
+    "name": "Wooden Shovel",
+    "id": 778
+  },
+  {
+    "name": "Wooden Sword",
+    "id": 777
+  },
+  {
+    "name": "Book and Quill",
+    "id": 1046
+  },
+  {
+    "name": "Written Book",
+    "id": 1047
+  },
+  {
+    "name": "Yellow Banner",
+    "id": 1091
+  },
+  {
+    "name": "Yellow Bed",
+    "id": 928
+  },
+  {
+    "name": "Yellow Candle",
+    "id": 1195
+  },
+  {
+    "name": "Yellow Carpet",
+    "id": 428
+  },
+  {
+    "name": "Yellow Concrete",
+    "id": 537
+  },
+  {
+    "name": "Yellow Concrete Powder",
+    "id": 553
+  },
+  {
+    "name": "Yellow Dye",
+    "id": 908
+  },
+  {
+    "name": "Yellow Glazed Terracotta",
+    "id": 521
+  },
+  {
+    "name": "Yellow Shulker Box",
+    "id": 505
+  },
+  {
+    "name": "Yellow Stained Glass",
+    "id": 453
+  },
+  {
+    "name": "Yellow Stained Glass Pane",
+    "id": 469
+  },
+  {
+    "name": "Yellow Terracotta",
+    "id": 409
+  },
+  {
+    "name": "Yellow Wool",
+    "id": 184
+  },
+  {
+    "name": "Zoglin Spawn Egg",
+    "id": 1039
+  },
+  {
+    "name": "Zombie Head",
+    "id": 1060
+  },
+  {
+    "name": "Zombie Horse Spawn Egg",
+    "id": 1041
+  },
+  {
+    "name": "Zombie Spawn Egg",
+    "id": 1040
+  },
+  {
+    "name": "Zombie Villager Spawn Egg",
+    "id": 1042
+  },
+  {
+    "name": "Zombified Piglin Spawn Egg",
+    "id": 1043
+  }
+]

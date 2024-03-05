@@ -1,25 +1,28 @@
 #![recursion_limit = "256"]
 // #![allow(dead_code)]
 
-mod config;
-mod leb128_async;
-mod server;
-mod tests;
+use std::io::Write;
+use std::{env, fs};
 
 use base64::{engine::general_purpose, Engine};
-use config::Config;
-//use debug_print::debug_println;
 use chrono::Local;
 use env_logger::Builder;
 use lazy_static::lazy_static;
 use log::{debug, info, warn, LevelFilter};
+use tokio::io::{AsyncReadExt, AsyncWriteExt};
+use tokio::net::TcpStream;
+
+use config::Config;
 use net::packets::prefix_with_length;
 use server::net;
 use server::types::{ReadVarInt, WriteString, WriteVarInt};
-use std::io::Write;
-use std::{env, fs};
-use tokio::io::{AsyncReadExt, AsyncWriteExt};
-use tokio::net::TcpStream;
+
+mod config;
+mod leb128_async;
+mod server;
+
+#[cfg(test)]
+mod tests;
 
 async fn client() {
     info!("Starting client");
@@ -44,10 +47,7 @@ async fn client() {
     let mut login_start_packet: Vec<u8> = vec![];
     handshake_packet.write_varint(0).await;
     handshake_packet.write_string("tester").await;
-    handshake_packet
-        .write_u8(false as u8)
-        .await
-        .unwrap_or_default();
+    handshake_packet.push(false as u8);
     prefix_with_length(&mut login_start_packet).await;
     connection.write_all(&login_start_packet).await.unwrap();
 

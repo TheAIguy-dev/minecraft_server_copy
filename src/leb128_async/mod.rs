@@ -1,11 +1,5 @@
-const CONTINUATION_BIT: u8 = 1 << 7;
-fn low_bits_of_byte(byte: u8) -> u8 {
-    byte & !CONTINUATION_BIT
-}
-fn low_bits_of_u64(val: u64) -> u8 {
-    let byte: u64 = val & (std::u8::MAX as u64);
-    low_bits_of_byte(byte as u8)
-}
+const CONTINUATION_BIT: u8 = 0x80;
+const NOT_CONTINUATION_BIT: u8 = 0x7F;
 
 #[derive(Debug)]
 pub enum Error {
@@ -14,11 +8,13 @@ pub enum Error {
     /// The number being read is larger than can be represented.
     Overflow,
 }
+
 impl From<std::io::Error> for Error {
     fn from(e: std::io::Error) -> Self {
         Error::IoError(e)
     }
 }
+
 impl std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
         match *self {
@@ -29,6 +25,7 @@ impl std::fmt::Display for Error {
         }
     }
 }
+
 impl std::error::Error for Error {
     fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
         match *self {
@@ -39,29 +36,32 @@ impl std::error::Error for Error {
 }
 
 pub mod write {
-    use super::Error;
-    use super::{low_bits_of_u64, CONTINUATION_BIT};
     use std::marker::Unpin;
+
     use tokio::io::{AsyncWrite, AsyncWriteExt};
+
+    use super::Error;
+    use super::CONTINUATION_BIT;
 
     pub async fn unsigned<W>(w: &mut W, mut val: u64) -> Result<usize, Error>
     where
         W: Unpin + AsyncWrite + ?Sized,
     {
         let mut bytes_written: usize = 0;
+        let mut buf: Vec<u8> = Vec::with_capacity(5);
+
         loop {
-            let mut byte: u8 = low_bits_of_u64(val);
+            let mut byte: u8 = (val & 255) as u8;
             val >>= 7;
             if val != 0 {
-                // More bytes to come, so set the continuation bit.
                 byte |= CONTINUATION_BIT;
             }
 
-            let buf: [u8; 1] = [byte];
-            w.write_all(&buf).await?;
+            buf.push(byte);
             bytes_written += 1;
 
             if val == 0 {
+                w.write_all(&buf).await?;
                 return Ok(bytes_written);
             }
         }
@@ -69,10 +69,12 @@ pub mod write {
 }
 
 pub mod read {
-    use super::Error;
-    use super::{low_bits_of_byte, CONTINUATION_BIT};
     use std::marker::Unpin;
+
     use tokio::io::{AsyncRead, AsyncReadExt};
+
+    use super::Error;
+    use super::{CONTINUATION_BIT, NOT_CONTINUATION_BIT};
 
     pub async fn unsigned<R>(r: &mut R) -> Result<u64, Error>
     where
@@ -92,7 +94,7 @@ pub mod read {
                 return Err(Error::Overflow);
             }
 
-            let low_bits: u64 = low_bits_of_byte(buf[0]) as u64;
+            let low_bits: u64 = (buf[0] & NOT_CONTINUATION_BIT) as u64;
             result |= low_bits << shift;
 
             if buf[0] & CONTINUATION_BIT == 0 {
