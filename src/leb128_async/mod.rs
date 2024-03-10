@@ -1,7 +1,8 @@
+// TODO: Rewrite this fully (prob don't use async and writing tbh, using vecs should be faster; also should do this separately for i32/i64)
+
 const CONTINUATION_BIT: u8 = 0x80;
 const NOT_CONTINUATION_BIT: u8 = 0x7F;
 
-#[derive(Debug)]
 pub enum Error {
     /// There was an underlying IO error.
     IoError(std::io::Error),
@@ -12,26 +13,6 @@ pub enum Error {
 impl From<std::io::Error> for Error {
     fn from(e: std::io::Error) -> Self {
         Error::IoError(e)
-    }
-}
-
-impl std::fmt::Display for Error {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
-        match *self {
-            Error::IoError(ref e) => e.fmt(f),
-            Error::Overflow => {
-                write!(f, "The number being read is larger than can be represented")
-            }
-        }
-    }
-}
-
-impl std::error::Error for Error {
-    fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
-        match *self {
-            Error::IoError(ref e) => Some(e),
-            Error::Overflow => None,
-        }
     }
 }
 
@@ -48,7 +29,7 @@ pub mod write {
         W: Unpin + AsyncWrite + ?Sized,
     {
         let mut bytes_written: usize = 0;
-        let mut buf: Vec<u8> = Vec::with_capacity(5);
+        let mut buf: Vec<u8> = Vec::with_capacity(10);
 
         loop {
             let mut byte: u8 = (val & 255) as u8;

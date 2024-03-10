@@ -1,6020 +1,5017 @@
-[
-  {
-    "name": "Acacia Button",
+{
+  "acacia_button": {
+    "display_name": "Acacia Button",
     "min_state_id": 8707,
-    "max_state_id": 8730,
     "num_states": 24
   },
-  {
-    "name": "Acacia Door",
+  "acacia_door": {
+    "display_name": "Acacia Door",
     "min_state_id": 11873,
-    "max_state_id": 11936,
     "num_states": 64
   },
-  {
-    "name": "Acacia Fence",
+  "acacia_fence": {
+    "display_name": "Acacia Fence",
     "min_state_id": 11521,
-    "max_state_id": 11552,
     "num_states": 32
   },
-  {
-    "name": "Acacia Fence Gate",
+  "acacia_fence_gate": {
+    "display_name": "Acacia Fence Gate",
     "min_state_id": 11265,
-    "max_state_id": 11296,
     "num_states": 32
   },
-  {
-    "name": "Acacia Hanging Sign",
+  "acacia_hanging_sign": {
+    "display_name": "Acacia Hanging Sign",
     "min_state_id": 5026,
-    "max_state_id": 5089,
     "num_states": 64
   },
-  {
-    "name": "Acacia Leaves",
+  "acacia_leaves": {
+    "display_name": "Acacia Leaves",
     "min_state_id": 349,
-    "max_state_id": 376,
     "num_states": 28
   },
-  {
-    "name": "Acacia Log",
+  "acacia_log": {
+    "display_name": "Acacia Log",
     "min_state_id": 142,
-    "max_state_id": 144,
     "num_states": 3
   },
-  {
-    "name": "Acacia Planks",
+  "acacia_planks": {
+    "display_name": "Acacia Planks",
     "min_state_id": 19,
-    "max_state_id": 19,
     "num_states": 1
   },
-  {
-    "name": "Acacia Pressure Plate",
+  "acacia_pressure_plate": {
+    "display_name": "Acacia Pressure Plate",
     "min_state_id": 5724,
-    "max_state_id": 5725,
     "num_states": 2
   },
-  {
-    "name": "Acacia Sapling",
+  "acacia_sapling": {
+    "display_name": "Acacia Sapling",
     "min_state_id": 33,
-    "max_state_id": 34,
     "num_states": 2
   },
-  {
-    "name": "Acacia Sign",
+  "acacia_sign": {
+    "display_name": "Acacia Sign",
     "min_state_id": 4398,
-    "max_state_id": 4429,
     "num_states": 32
   },
-  {
-    "name": "Acacia Slab",
+  "acacia_slab": {
+    "display_name": "Acacia Slab",
     "min_state_id": 11045,
-    "max_state_id": 11050,
     "num_states": 6
   },
-  {
-    "name": "Acacia Stairs",
+  "acacia_stairs": {
+    "display_name": "Acacia Stairs",
     "min_state_id": 9744,
-    "max_state_id": 9823,
     "num_states": 80
   },
-  {
-    "name": "Acacia Trapdoor",
+  "acacia_trapdoor": {
+    "display_name": "Acacia Trapdoor",
     "min_state_id": 6218,
-    "max_state_id": 6281,
     "num_states": 64
   },
-  {
-    "name": "Acacia Wall Hanging Sign",
+  "acacia_wall_hanging_sign": {
+    "display_name": "Acacia Wall Hanging Sign",
     "min_state_id": 5562,
-    "max_state_id": 5569,
     "num_states": 8
   },
-  {
-    "name": "Acacia Wall Sign",
+  "acacia_wall_sign": {
+    "display_name": "Acacia Wall Sign",
     "min_state_id": 4786,
-    "max_state_id": 4793,
     "num_states": 8
   },
-  {
-    "name": "Acacia Wood",
+  "acacia_wood": {
+    "display_name": "Acacia Wood",
     "min_state_id": 201,
-    "max_state_id": 203,
     "num_states": 3
   },
-  {
-    "name": "Activator Rail",
+  "activator_rail": {
+    "display_name": "Activator Rail",
     "min_state_id": 9180,
-    "max_state_id": 9203,
     "num_states": 24
   },
-  {
-    "name": "Air",
+  "air": {
+    "display_name": "Air",
     "min_state_id": 0,
-    "max_state_id": 0,
     "num_states": 1
   },
-  {
-    "name": "Allium",
+  "allium": {
+    "display_name": "Allium",
     "min_state_id": 2079,
-    "max_state_id": 2079,
     "num_states": 1
   },
-  {
-    "name": "Block of Amethyst",
+  "amethyst_block": {
+    "display_name": "Block of Amethyst",
     "min_state_id": 20881,
-    "max_state_id": 20881,
     "num_states": 1
   },
-  {
-    "name": "Amethyst Cluster",
+  "amethyst_cluster": {
+    "display_name": "Amethyst Cluster",
     "min_state_id": 20883,
-    "max_state_id": 20894,
     "num_states": 12
   },
-  {
-    "name": "Ancient Debris",
+  "ancient_debris": {
+    "display_name": "Ancient Debris",
     "min_state_id": 19298,
-    "max_state_id": 19298,
     "num_states": 1
   },
-  {
-    "name": "Andesite",
+  "andesite": {
+    "display_name": "Andesite",
     "min_state_id": 6,
-    "max_state_id": 6,
     "num_states": 1
   },
-  {
-    "name": "Andesite Slab",
+  "andesite_slab": {
+    "display_name": "Andesite Slab",
     "min_state_id": 13986,
-    "max_state_id": 13991,
     "num_states": 6
   },
-  {
-    "name": "Andesite Stairs",
+  "andesite_stairs": {
+    "display_name": "Andesite Stairs",
     "min_state_id": 13612,
-    "max_state_id": 13691,
     "num_states": 80
   },
-  {
-    "name": "Andesite Wall",
+  "andesite_wall": {
+    "display_name": "Andesite Wall",
     "min_state_id": 16602,
-    "max_state_id": 16925,
     "num_states": 324
   },
-  {
-    "name": "Anvil",
+  "anvil": {
+    "display_name": "Anvil",
     "min_state_id": 8967,
-    "max_state_id": 8970,
     "num_states": 4
   },
-  {
-    "name": "Attached Melon Stem",
+  "attached_melon_stem": {
+    "display_name": "Attached Melon Stem",
     "min_state_id": 6817,
-    "max_state_id": 6820,
     "num_states": 4
   },
-  {
-    "name": "Attached Pumpkin Stem",
+  "attached_pumpkin_stem": {
+    "display_name": "Attached Pumpkin Stem",
     "min_state_id": 6813,
-    "max_state_id": 6816,
     "num_states": 4
   },
-  {
-    "name": "Azalea",
+  "azalea": {
+    "display_name": "Azalea",
     "min_state_id": 22360,
-    "max_state_id": 22360,
     "num_states": 1
   },
-  {
-    "name": "Azalea Leaves",
+  "azalea_leaves": {
+    "display_name": "Azalea Leaves",
     "min_state_id": 461,
-    "max_state_id": 488,
     "num_states": 28
   },
-  {
-    "name": "Azure Bluet",
+  "azure_bluet": {
+    "display_name": "Azure Bluet",
     "min_state_id": 2080,
-    "max_state_id": 2080,
     "num_states": 1
   },
-  {
-    "name": "Bamboo",
+  "bamboo": {
+    "display_name": "Bamboo",
     "min_state_id": 12795,
-    "max_state_id": 12806,
     "num_states": 12
   },
-  {
-    "name": "Block of Bamboo",
+  "bamboo_block": {
+    "display_name": "Block of Bamboo",
     "min_state_id": 159,
-    "max_state_id": 161,
     "num_states": 3
   },
-  {
-    "name": "Bamboo Button",
+  "bamboo_button": {
+    "display_name": "Bamboo Button",
     "min_state_id": 8803,
-    "max_state_id": 8826,
     "num_states": 24
   },
-  {
-    "name": "Bamboo Door",
+  "bamboo_door": {
+    "display_name": "Bamboo Door",
     "min_state_id": 12129,
-    "max_state_id": 12192,
     "num_states": 64
   },
-  {
-    "name": "Bamboo Fence",
+  "bamboo_fence": {
+    "display_name": "Bamboo Fence",
     "min_state_id": 11649,
-    "max_state_id": 11680,
     "num_states": 32
   },
-  {
-    "name": "Bamboo Fence Gate",
+  "bamboo_fence_gate": {
+    "display_name": "Bamboo Fence Gate",
     "min_state_id": 11393,
-    "max_state_id": 11424,
     "num_states": 32
   },
-  {
-    "name": "Bamboo Hanging Sign",
+  "bamboo_hanging_sign": {
+    "display_name": "Bamboo Hanging Sign",
     "min_state_id": 5474,
-    "max_state_id": 5537,
     "num_states": 64
   },
-  {
-    "name": "Bamboo Mosaic",
+  "bamboo_mosaic": {
+    "display_name": "Bamboo Mosaic",
     "min_state_id": 24,
-    "max_state_id": 24,
     "num_states": 1
   },
-  {
-    "name": "Bamboo Mosaic Slab",
+  "bamboo_mosaic_slab": {
+    "display_name": "Bamboo Mosaic Slab",
     "min_state_id": 11075,
-    "max_state_id": 11080,
     "num_states": 6
   },
-  {
-    "name": "Bamboo Mosaic Stairs",
+  "bamboo_mosaic_stairs": {
+    "display_name": "Bamboo Mosaic Stairs",
     "min_state_id": 10144,
-    "max_state_id": 10223,
     "num_states": 80
   },
-  {
-    "name": "Bamboo Planks",
+  "bamboo_planks": {
+    "display_name": "Bamboo Planks",
     "min_state_id": 23,
-    "max_state_id": 23,
     "num_states": 1
   },
-  {
-    "name": "Bamboo Pressure Plate",
+  "bamboo_pressure_plate": {
+    "display_name": "Bamboo Pressure Plate",
     "min_state_id": 5732,
-    "max_state_id": 5733,
     "num_states": 2
   },
-  {
-    "name": "Bamboo Shoot",
+  "bamboo_sapling": {
+    "display_name": "Bamboo Shoot",
     "min_state_id": 12794,
-    "max_state_id": 12794,
     "num_states": 1
   },
-  {
-    "name": "Bamboo Sign",
+  "bamboo_sign": {
+    "display_name": "Bamboo Sign",
     "min_state_id": 4558,
-    "max_state_id": 4589,
     "num_states": 32
   },
-  {
-    "name": "Bamboo Slab",
+  "bamboo_slab": {
+    "display_name": "Bamboo Slab",
     "min_state_id": 11069,
-    "max_state_id": 11074,
     "num_states": 6
   },
-  {
-    "name": "Bamboo Stairs",
+  "bamboo_stairs": {
+    "display_name": "Bamboo Stairs",
     "min_state_id": 10064,
-    "max_state_id": 10143,
     "num_states": 80
   },
-  {
-    "name": "Bamboo Trapdoor",
+  "bamboo_trapdoor": {
+    "display_name": "Bamboo Trapdoor",
     "min_state_id": 6474,
-    "max_state_id": 6537,
     "num_states": 64
   },
-  {
-    "name": "Bamboo Wall Hanging Sign",
+  "bamboo_wall_hanging_sign": {
+    "display_name": "Bamboo Wall Hanging Sign",
     "min_state_id": 5618,
-    "max_state_id": 5625,
     "num_states": 8
   },
-  {
-    "name": "Bamboo Wall Sign",
+  "bamboo_wall_sign": {
+    "display_name": "Bamboo Wall Sign",
     "min_state_id": 4826,
-    "max_state_id": 4833,
     "num_states": 8
   },
-  {
-    "name": "Barrel",
+  "barrel": {
+    "display_name": "Barrel",
     "min_state_id": 18258,
-    "max_state_id": 18269,
     "num_states": 12
   },
-  {
-    "name": "Barrier",
+  "barrier": {
+    "display_name": "Barrier",
     "min_state_id": 10225,
-    "max_state_id": 10225,
     "num_states": 1
   },
-  {
-    "name": "Basalt",
+  "basalt": {
+    "display_name": "Basalt",
     "min_state_id": 5853,
-    "max_state_id": 5855,
     "num_states": 3
   },
-  {
-    "name": "Beacon",
+  "beacon": {
+    "display_name": "Beacon",
     "min_state_id": 7918,
-    "max_state_id": 7918,
     "num_states": 1
   },
-  {
-    "name": "Bedrock",
+  "bedrock": {
+    "display_name": "Bedrock",
     "min_state_id": 79,
-    "max_state_id": 79,
     "num_states": 1
   },
-  {
-    "name": "Bee Nest",
+  "bee_nest": {
+    "display_name": "Bee Nest",
     "min_state_id": 19247,
-    "max_state_id": 19270,
     "num_states": 24
   },
-  {
-    "name": "Beehive",
+  "beehive": {
+    "display_name": "Beehive",
     "min_state_id": 19271,
-    "max_state_id": 19294,
     "num_states": 24
   },
-  {
-    "name": "Beetroots",
+  "beetroots": {
+    "display_name": "Beetroots",
     "min_state_id": 12359,
-    "max_state_id": 12362,
     "num_states": 4
   },
-  {
-    "name": "Bell",
+  "bell": {
+    "display_name": "Bell",
     "min_state_id": 18321,
-    "max_state_id": 18352,
     "num_states": 32
   },
-  {
-    "name": "Big Dripleaf",
+  "big_dripleaf": {
+    "display_name": "Big Dripleaf",
     "min_state_id": 22380,
-    "max_state_id": 22411,
     "num_states": 32
   },
-  {
-    "name": "Big Dripleaf Stem",
+  "big_dripleaf_stem": {
+    "display_name": "Big Dripleaf Stem",
     "min_state_id": 22412,
-    "max_state_id": 22419,
     "num_states": 8
   },
-  {
-    "name": "Birch Button",
+  "birch_button": {
+    "display_name": "Birch Button",
     "min_state_id": 8659,
-    "max_state_id": 8682,
     "num_states": 24
   },
-  {
-    "name": "Birch Door",
+  "birch_door": {
+    "display_name": "Birch Door",
     "min_state_id": 11745,
-    "max_state_id": 11808,
     "num_states": 64
   },
-  {
-    "name": "Birch Fence",
+  "birch_fence": {
+    "display_name": "Birch Fence",
     "min_state_id": 11457,
-    "max_state_id": 11488,
     "num_states": 32
   },
-  {
-    "name": "Birch Fence Gate",
+  "birch_fence_gate": {
+    "display_name": "Birch Fence Gate",
     "min_state_id": 11201,
-    "max_state_id": 11232,
     "num_states": 32
   },
-  {
-    "name": "Birch Hanging Sign",
+  "birch_hanging_sign": {
+    "display_name": "Birch Hanging Sign",
     "min_state_id": 4962,
-    "max_state_id": 5025,
     "num_states": 64
   },
-  {
-    "name": "Birch Leaves",
+  "birch_leaves": {
+    "display_name": "Birch Leaves",
     "min_state_id": 293,
-    "max_state_id": 320,
     "num_states": 28
   },
-  {
-    "name": "Birch Log",
+  "birch_log": {
+    "display_name": "Birch Log",
     "min_state_id": 136,
-    "max_state_id": 138,
     "num_states": 3
   },
-  {
-    "name": "Birch Planks",
+  "birch_planks": {
+    "display_name": "Birch Planks",
     "min_state_id": 17,
-    "max_state_id": 17,
     "num_states": 1
   },
-  {
-    "name": "Birch Pressure Plate",
+  "birch_pressure_plate": {
+    "display_name": "Birch Pressure Plate",
     "min_state_id": 5720,
-    "max_state_id": 5721,
     "num_states": 2
   },
-  {
-    "name": "Birch Sapling",
+  "birch_sapling": {
+    "display_name": "Birch Sapling",
     "min_state_id": 29,
-    "max_state_id": 30,
     "num_states": 2
   },
-  {
-    "name": "Birch Sign",
+  "birch_sign": {
+    "display_name": "Birch Sign",
     "min_state_id": 4366,
-    "max_state_id": 4397,
     "num_states": 32
   },
-  {
-    "name": "Birch Slab",
+  "birch_slab": {
+    "display_name": "Birch Slab",
     "min_state_id": 11033,
-    "max_state_id": 11038,
     "num_states": 6
   },
-  {
-    "name": "Birch Stairs",
+  "birch_stairs": {
+    "display_name": "Birch Stairs",
     "min_state_id": 7746,
-    "max_state_id": 7825,
     "num_states": 80
   },
-  {
-    "name": "Birch Trapdoor",
+  "birch_trapdoor": {
+    "display_name": "Birch Trapdoor",
     "min_state_id": 6090,
-    "max_state_id": 6153,
     "num_states": 64
   },
-  {
-    "name": "Birch Wall Hanging Sign",
+  "birch_wall_hanging_sign": {
+    "display_name": "Birch Wall Hanging Sign",
     "min_state_id": 5554,
-    "max_state_id": 5561,
     "num_states": 8
   },
-  {
-    "name": "Birch Wall Sign",
+  "birch_wall_sign": {
+    "display_name": "Birch Wall Sign",
     "min_state_id": 4778,
-    "max_state_id": 4785,
     "num_states": 8
   },
-  {
-    "name": "Birch Wood",
+  "birch_wood": {
+    "display_name": "Birch Wood",
     "min_state_id": 195,
-    "max_state_id": 197,
     "num_states": 3
   },
-  {
-    "name": "Black Banner",
+  "black_banner": {
+    "display_name": "Black Banner",
     "min_state_id": 10858,
-    "max_state_id": 10873,
     "num_states": 16
   },
-  {
-    "name": "Black Bed",
+  "black_bed": {
+    "display_name": "Black Bed",
     "min_state_id": 1928,
-    "max_state_id": 1943,
     "num_states": 16
   },
-  {
-    "name": "Black Candle",
+  "black_candle": {
+    "display_name": "Black Candle",
     "min_state_id": 20831,
-    "max_state_id": 20846,
     "num_states": 16
   },
-  {
-    "name": "Cake with Black Candle",
+  "black_candle_cake": {
+    "display_name": "Cake with Black Candle",
     "min_state_id": 20879,
-    "max_state_id": 20880,
     "num_states": 2
   },
-  {
-    "name": "Black Carpet",
+  "black_carpet": {
+    "display_name": "Black Carpet",
     "min_state_id": 10602,
-    "max_state_id": 10602,
     "num_states": 1
   },
-  {
-    "name": "Black Concrete",
+  "black_concrete": {
+    "display_name": "Black Concrete",
     "min_state_id": 12593,
-    "max_state_id": 12593,
     "num_states": 1
   },
-  {
-    "name": "Black Concrete Powder",
+  "black_concrete_powder": {
+    "display_name": "Black Concrete Powder",
     "min_state_id": 12609,
-    "max_state_id": 12609,
     "num_states": 1
   },
-  {
-    "name": "Black Glazed Terracotta",
+  "black_glazed_terracotta": {
+    "display_name": "Black Glazed Terracotta",
     "min_state_id": 12574,
-    "max_state_id": 12577,
     "num_states": 4
   },
-  {
-    "name": "Black Shulker Box",
+  "black_shulker_box": {
+    "display_name": "Black Shulker Box",
     "min_state_id": 12508,
-    "max_state_id": 12513,
     "num_states": 6
   },
-  {
-    "name": "Black Stained Glass",
+  "black_stained_glass": {
+    "display_name": "Black Stained Glass",
     "min_state_id": 5961,
-    "max_state_id": 5961,
     "num_states": 1
   },
-  {
-    "name": "Black Stained Glass Pane",
+  "black_stained_glass_pane": {
+    "display_name": "Black Stained Glass Pane",
     "min_state_id": 9712,
-    "max_state_id": 9743,
     "num_states": 32
   },
-  {
-    "name": "Black Terracotta",
+  "black_terracotta": {
+    "display_name": "Black Terracotta",
     "min_state_id": 9231,
-    "max_state_id": 9231,
     "num_states": 1
   },
-  {
-    "name": null,
+  "black_wall_banner": {
+    "display_name": null,
     "min_state_id": 10934,
-    "max_state_id": 10937,
     "num_states": 4
   },
-  {
-    "name": "Black Wool",
+  "black_wool": {
+    "display_name": "Black Wool",
     "min_state_id": 2062,
-    "max_state_id": 2062,
     "num_states": 1
   },
-  {
-    "name": "Blackstone",
+  "blackstone": {
+    "display_name": "Blackstone",
     "min_state_id": 19310,
-    "max_state_id": 19310,
     "num_states": 1
   },
-  {
-    "name": "Blackstone Slab",
+  "blackstone_slab": {
+    "display_name": "Blackstone Slab",
     "min_state_id": 19715,
-    "max_state_id": 19720,
     "num_states": 6
   },
-  {
-    "name": "Blackstone Stairs",
+  "blackstone_stairs": {
+    "display_name": "Blackstone Stairs",
     "min_state_id": 19311,
-    "max_state_id": 19390,
     "num_states": 80
   },
-  {
-    "name": "Blackstone Wall",
+  "blackstone_wall": {
+    "display_name": "Blackstone Wall",
     "min_state_id": 19391,
-    "max_state_id": 19714,
     "num_states": 324
   },
-  {
-    "name": "Blast Furnace",
+  "blast_furnace": {
+    "display_name": "Blast Furnace",
     "min_state_id": 18278,
-    "max_state_id": 18285,
     "num_states": 8
   },
-  {
-    "name": "Blue Banner",
+  "blue_banner": {
+    "display_name": "Blue Banner",
     "min_state_id": 10794,
-    "max_state_id": 10809,
     "num_states": 16
   },
-  {
-    "name": "Blue Bed",
+  "blue_bed": {
+    "display_name": "Blue Bed",
     "min_state_id": 1864,
-    "max_state_id": 1879,
     "num_states": 16
   },
-  {
-    "name": "Blue Candle",
+  "blue_candle": {
+    "display_name": "Blue Candle",
     "min_state_id": 20767,
-    "max_state_id": 20782,
     "num_states": 16
   },
-  {
-    "name": "Cake with Blue Candle",
+  "blue_candle_cake": {
+    "display_name": "Cake with Blue Candle",
     "min_state_id": 20871,
-    "max_state_id": 20872,
     "num_states": 2
   },
-  {
-    "name": "Blue Carpet",
+  "blue_carpet": {
+    "display_name": "Blue Carpet",
     "min_state_id": 10598,
-    "max_state_id": 10598,
     "num_states": 1
   },
-  {
-    "name": "Blue Concrete",
+  "blue_concrete": {
+    "display_name": "Blue Concrete",
     "min_state_id": 12589,
-    "max_state_id": 12589,
     "num_states": 1
   },
-  {
-    "name": "Blue Concrete Powder",
+  "blue_concrete_powder": {
+    "display_name": "Blue Concrete Powder",
     "min_state_id": 12605,
-    "max_state_id": 12605,
     "num_states": 1
   },
-  {
-    "name": "Blue Glazed Terracotta",
+  "blue_glazed_terracotta": {
+    "display_name": "Blue Glazed Terracotta",
     "min_state_id": 12558,
-    "max_state_id": 12561,
     "num_states": 4
   },
-  {
-    "name": "Blue Ice",
+  "blue_ice": {
+    "display_name": "Blue Ice",
     "min_state_id": 12791,
-    "max_state_id": 12791,
     "num_states": 1
   },
-  {
-    "name": "Blue Orchid",
+  "blue_orchid": {
+    "display_name": "Blue Orchid",
     "min_state_id": 2078,
-    "max_state_id": 2078,
     "num_states": 1
   },
-  {
-    "name": "Blue Shulker Box",
+  "blue_shulker_box": {
+    "display_name": "Blue Shulker Box",
     "min_state_id": 12484,
-    "max_state_id": 12489,
     "num_states": 6
   },
-  {
-    "name": "Blue Stained Glass",
+  "blue_stained_glass": {
+    "display_name": "Blue Stained Glass",
     "min_state_id": 5957,
-    "max_state_id": 5957,
     "num_states": 1
   },
-  {
-    "name": "Blue Stained Glass Pane",
+  "blue_stained_glass_pane": {
+    "display_name": "Blue Stained Glass Pane",
     "min_state_id": 9584,
-    "max_state_id": 9615,
     "num_states": 32
   },
-  {
-    "name": "Blue Terracotta",
+  "blue_terracotta": {
+    "display_name": "Blue Terracotta",
     "min_state_id": 9227,
-    "max_state_id": 9227,
     "num_states": 1
   },
-  {
-    "name": null,
+  "blue_wall_banner": {
+    "display_name": null,
     "min_state_id": 10918,
-    "max_state_id": 10921,
     "num_states": 4
   },
-  {
-    "name": "Blue Wool",
+  "blue_wool": {
+    "display_name": "Blue Wool",
     "min_state_id": 2058,
-    "max_state_id": 2058,
     "num_states": 1
   },
-  {
-    "name": "Bone Block",
+  "bone_block": {
+    "display_name": "Bone Block",
     "min_state_id": 12396,
-    "max_state_id": 12398,
     "num_states": 3
   },
-  {
-    "name": "Bookshelf",
+  "bookshelf": {
+    "display_name": "Bookshelf",
     "min_state_id": 2096,
-    "max_state_id": 2096,
     "num_states": 1
   },
-  {
-    "name": "Brain Coral",
+  "brain_coral": {
+    "display_name": "Brain Coral",
     "min_state_id": 12675,
-    "max_state_id": 12676,
     "num_states": 2
   },
-  {
-    "name": "Brain Coral Block",
+  "brain_coral_block": {
+    "display_name": "Brain Coral Block",
     "min_state_id": 12659,
-    "max_state_id": 12659,
     "num_states": 1
   },
-  {
-    "name": "Brain Coral Fan",
+  "brain_coral_fan": {
+    "display_name": "Brain Coral Fan",
     "min_state_id": 12695,
-    "max_state_id": 12696,
     "num_states": 2
   },
-  {
-    "name": "Brain Coral Wall Fan",
+  "brain_coral_wall_fan": {
+    "display_name": "Brain Coral Wall Fan",
     "min_state_id": 12751,
-    "max_state_id": 12758,
     "num_states": 8
   },
-  {
-    "name": "Brewing Stand",
+  "brewing_stand": {
+    "display_name": "Brewing Stand",
     "min_state_id": 7390,
-    "max_state_id": 7397,
     "num_states": 8
   },
-  {
-    "name": "Brick Slab",
+  "brick_slab": {
+    "display_name": "Brick Slab",
     "min_state_id": 11117,
-    "max_state_id": 11122,
     "num_states": 6
   },
-  {
-    "name": "Brick Stairs",
+  "brick_stairs": {
+    "display_name": "Brick Stairs",
     "min_state_id": 7029,
-    "max_state_id": 7108,
     "num_states": 80
   },
-  {
-    "name": "Brick Wall",
+  "brick_wall": {
+    "display_name": "Brick Wall",
     "min_state_id": 14010,
-    "max_state_id": 14333,
     "num_states": 324
   },
-  {
-    "name": "Bricks",
+  "bricks": {
+    "display_name": "Bricks",
     "min_state_id": 2093,
-    "max_state_id": 2093,
     "num_states": 1
   },
-  {
-    "name": "Brown Banner",
+  "brown_banner": {
+    "display_name": "Brown Banner",
     "min_state_id": 10810,
-    "max_state_id": 10825,
     "num_states": 16
   },
-  {
-    "name": "Brown Bed",
+  "brown_bed": {
+    "display_name": "Brown Bed",
     "min_state_id": 1880,
-    "max_state_id": 1895,
     "num_states": 16
   },
-  {
-    "name": "Brown Candle",
+  "brown_candle": {
+    "display_name": "Brown Candle",
     "min_state_id": 20783,
-    "max_state_id": 20798,
     "num_states": 16
   },
-  {
-    "name": "Cake with Brown Candle",
+  "brown_candle_cake": {
+    "display_name": "Cake with Brown Candle",
     "min_state_id": 20873,
-    "max_state_id": 20874,
     "num_states": 2
   },
-  {
-    "name": "Brown Carpet",
+  "brown_carpet": {
+    "display_name": "Brown Carpet",
     "min_state_id": 10599,
-    "max_state_id": 10599,
     "num_states": 1
   },
-  {
-    "name": "Brown Concrete",
+  "brown_concrete": {
+    "display_name": "Brown Concrete",
     "min_state_id": 12590,
-    "max_state_id": 12590,
     "num_states": 1
   },
-  {
-    "name": "Brown Concrete Powder",
+  "brown_concrete_powder": {
+    "display_name": "Brown Concrete Powder",
     "min_state_id": 12606,
-    "max_state_id": 12606,
     "num_states": 1
   },
-  {
-    "name": "Brown Glazed Terracotta",
+  "brown_glazed_terracotta": {
+    "display_name": "Brown Glazed Terracotta",
     "min_state_id": 12562,
-    "max_state_id": 12565,
     "num_states": 4
   },
-  {
-    "name": "Brown Mushroom",
+  "brown_mushroom": {
+    "display_name": "Brown Mushroom",
     "min_state_id": 2089,
-    "max_state_id": 2089,
     "num_states": 1
   },
-  {
-    "name": "Brown Mushroom Block",
+  "brown_mushroom_block": {
+    "display_name": "Brown Mushroom Block",
     "min_state_id": 6550,
-    "max_state_id": 6613,
     "num_states": 64
   },
-  {
-    "name": "Brown Shulker Box",
+  "brown_shulker_box": {
+    "display_name": "Brown Shulker Box",
     "min_state_id": 12490,
-    "max_state_id": 12495,
     "num_states": 6
   },
-  {
-    "name": "Brown Stained Glass",
+  "brown_stained_glass": {
+    "display_name": "Brown Stained Glass",
     "min_state_id": 5958,
-    "max_state_id": 5958,
     "num_states": 1
   },
-  {
-    "name": "Brown Stained Glass Pane",
+  "brown_stained_glass_pane": {
+    "display_name": "Brown Stained Glass Pane",
     "min_state_id": 9616,
-    "max_state_id": 9647,
     "num_states": 32
   },
-  {
-    "name": "Brown Terracotta",
+  "brown_terracotta": {
+    "display_name": "Brown Terracotta",
     "min_state_id": 9228,
-    "max_state_id": 9228,
     "num_states": 1
   },
-  {
-    "name": null,
+  "brown_wall_banner": {
+    "display_name": null,
     "min_state_id": 10922,
-    "max_state_id": 10925,
     "num_states": 4
   },
-  {
-    "name": "Brown Wool",
+  "brown_wool": {
+    "display_name": "Brown Wool",
     "min_state_id": 2059,
-    "max_state_id": 2059,
     "num_states": 1
   },
-  {
-    "name": "Bubble Column",
+  "bubble_column": {
+    "display_name": "Bubble Column",
     "min_state_id": 12810,
-    "max_state_id": 12811,
     "num_states": 2
   },
-  {
-    "name": "Bubble Coral",
+  "bubble_coral": {
+    "display_name": "Bubble Coral",
     "min_state_id": 12677,
-    "max_state_id": 12678,
     "num_states": 2
   },
-  {
-    "name": "Bubble Coral Block",
+  "bubble_coral_block": {
+    "display_name": "Bubble Coral Block",
     "min_state_id": 12660,
-    "max_state_id": 12660,
     "num_states": 1
   },
-  {
-    "name": "Bubble Coral Fan",
+  "bubble_coral_fan": {
+    "display_name": "Bubble Coral Fan",
     "min_state_id": 12697,
-    "max_state_id": 12698,
     "num_states": 2
   },
-  {
-    "name": "Bubble Coral Wall Fan",
+  "bubble_coral_wall_fan": {
+    "display_name": "Bubble Coral Wall Fan",
     "min_state_id": 12759,
-    "max_state_id": 12766,
     "num_states": 8
   },
-  {
-    "name": "Budding Amethyst",
+  "budding_amethyst": {
+    "display_name": "Budding Amethyst",
     "min_state_id": 20882,
-    "max_state_id": 20882,
     "num_states": 1
   },
-  {
-    "name": "Cactus",
+  "cactus": {
+    "display_name": "Cactus",
     "min_state_id": 5782,
-    "max_state_id": 5797,
     "num_states": 16
   },
-  {
-    "name": "Cake",
+  "cake": {
+    "display_name": "Cake",
     "min_state_id": 5875,
-    "max_state_id": 5881,
     "num_states": 7
   },
-  {
-    "name": "Calcite",
+  "calcite": {
+    "display_name": "Calcite",
     "min_state_id": 20932,
-    "max_state_id": 20932,
     "num_states": 1
   },
-  {
-    "name": "Calibrated Sculk Sensor",
+  "calibrated_sculk_sensor": {
+    "display_name": "Calibrated Sculk Sensor",
     "min_state_id": 21031,
-    "max_state_id": 21414,
     "num_states": 384
   },
-  {
-    "name": "Campfire",
+  "campfire": {
+    "display_name": "Campfire",
     "min_state_id": 18361,
-    "max_state_id": 18392,
     "num_states": 32
   },
-  {
-    "name": "Candle",
+  "candle": {
+    "display_name": "Candle",
     "min_state_id": 20575,
-    "max_state_id": 20590,
     "num_states": 16
   },
-  {
-    "name": "Cake with Candle",
+  "candle_cake": {
+    "display_name": "Cake with Candle",
     "min_state_id": 20847,
-    "max_state_id": 20848,
     "num_states": 2
   },
-  {
-    "name": "Carrots",
+  "carrots": {
+    "display_name": "Carrots",
     "min_state_id": 8595,
-    "max_state_id": 8602,
     "num_states": 8
   },
-  {
-    "name": "Cartography Table",
+  "cartography_table": {
+    "display_name": "Cartography Table",
     "min_state_id": 18286,
-    "max_state_id": 18286,
     "num_states": 1
   },
-  {
-    "name": "Carved Pumpkin",
+  "carved_pumpkin": {
+    "display_name": "Carved Pumpkin",
     "min_state_id": 5867,
-    "max_state_id": 5870,
     "num_states": 4
   },
-  {
-    "name": "Cauldron",
+  "cauldron": {
+    "display_name": "Cauldron",
     "min_state_id": 7398,
-    "max_state_id": 7398,
     "num_states": 1
   },
-  {
-    "name": "Cave Air",
+  "cave_air": {
+    "display_name": "Cave Air",
     "min_state_id": 12809,
-    "max_state_id": 12809,
     "num_states": 1
   },
-  {
-    "name": "Cave Vines",
+  "cave_vines": {
+    "display_name": "Cave Vines",
     "min_state_id": 22305,
-    "max_state_id": 22356,
     "num_states": 52
   },
-  {
-    "name": "Cave Vines Plant",
+  "cave_vines_plant": {
+    "display_name": "Cave Vines Plant",
     "min_state_id": 22357,
-    "max_state_id": 22358,
     "num_states": 2
   },
-  {
-    "name": "Chain",
+  "chain": {
+    "display_name": "Chain",
     "min_state_id": 6774,
-    "max_state_id": 6779,
     "num_states": 6
   },
-  {
-    "name": "Chain Command Block",
+  "chain_command_block": {
+    "display_name": "Chain Command Block",
     "min_state_id": 12377,
-    "max_state_id": 12388,
     "num_states": 12
   },
-  {
-    "name": "Cherry Button",
+  "cherry_button": {
+    "display_name": "Cherry Button",
     "min_state_id": 8731,
-    "max_state_id": 8754,
     "num_states": 24
   },
-  {
-    "name": "Cherry Door",
+  "cherry_door": {
+    "display_name": "Cherry Door",
     "min_state_id": 11937,
-    "max_state_id": 12000,
     "num_states": 64
   },
-  {
-    "name": "Cherry Fence",
+  "cherry_fence": {
+    "display_name": "Cherry Fence",
     "min_state_id": 11553,
-    "max_state_id": 11584,
     "num_states": 32
   },
-  {
-    "name": "Cherry Fence Gate",
+  "cherry_fence_gate": {
+    "display_name": "Cherry Fence Gate",
     "min_state_id": 11297,
-    "max_state_id": 11328,
     "num_states": 32
   },
-  {
-    "name": "Cherry Hanging Sign",
+  "cherry_hanging_sign": {
+    "display_name": "Cherry Hanging Sign",
     "min_state_id": 5090,
-    "max_state_id": 5153,
     "num_states": 64
   },
-  {
-    "name": "Cherry Leaves",
+  "cherry_leaves": {
+    "display_name": "Cherry Leaves",
     "min_state_id": 377,
-    "max_state_id": 404,
     "num_states": 28
   },
-  {
-    "name": "Cherry Log",
+  "cherry_log": {
+    "display_name": "Cherry Log",
     "min_state_id": 145,
-    "max_state_id": 147,
     "num_states": 3
   },
-  {
-    "name": "Cherry Planks",
+  "cherry_planks": {
+    "display_name": "Cherry Planks",
     "min_state_id": 20,
-    "max_state_id": 20,
     "num_states": 1
   },
-  {
-    "name": "Cherry Pressure Plate",
+  "cherry_pressure_plate": {
+    "display_name": "Cherry Pressure Plate",
     "min_state_id": 5726,
-    "max_state_id": 5727,
     "num_states": 2
   },
-  {
-    "name": "Cherry Sapling",
+  "cherry_sapling": {
+    "display_name": "Cherry Sapling",
     "min_state_id": 35,
-    "max_state_id": 36,
     "num_states": 2
   },
-  {
-    "name": "Cherry Sign",
+  "cherry_sign": {
+    "display_name": "Cherry Sign",
     "min_state_id": 4430,
-    "max_state_id": 4461,
     "num_states": 32
   },
-  {
-    "name": "Cherry Slab",
+  "cherry_slab": {
+    "display_name": "Cherry Slab",
     "min_state_id": 11051,
-    "max_state_id": 11056,
     "num_states": 6
   },
-  {
-    "name": "Cherry Stairs",
+  "cherry_stairs": {
+    "display_name": "Cherry Stairs",
     "min_state_id": 9824,
-    "max_state_id": 9903,
     "num_states": 80
   },
-  {
-    "name": "Cherry Trapdoor",
+  "cherry_trapdoor": {
+    "display_name": "Cherry Trapdoor",
     "min_state_id": 6282,
-    "max_state_id": 6345,
     "num_states": 64
   },
-  {
-    "name": "Cherry Wall Hanging Sign",
+  "cherry_wall_hanging_sign": {
+    "display_name": "Cherry Wall Hanging Sign",
     "min_state_id": 5570,
-    "max_state_id": 5577,
     "num_states": 8
   },
-  {
-    "name": "Cherry Wall Sign",
+  "cherry_wall_sign": {
+    "display_name": "Cherry Wall Sign",
     "min_state_id": 4794,
-    "max_state_id": 4801,
     "num_states": 8
   },
-  {
-    "name": "Cherry Wood",
+  "cherry_wood": {
+    "display_name": "Cherry Wood",
     "min_state_id": 204,
-    "max_state_id": 206,
     "num_states": 3
   },
-  {
-    "name": "Chest",
+  "chest": {
+    "display_name": "Chest",
     "min_state_id": 2954,
-    "max_state_id": 2977,
     "num_states": 24
   },
-  {
-    "name": "Chipped Anvil",
+  "chipped_anvil": {
+    "display_name": "Chipped Anvil",
     "min_state_id": 8971,
-    "max_state_id": 8974,
     "num_states": 4
   },
-  {
-    "name": "Chiseled Bookshelf",
+  "chiseled_bookshelf": {
+    "display_name": "Chiseled Bookshelf",
     "min_state_id": 2097,
-    "max_state_id": 2352,
     "num_states": 256
   },
-  {
-    "name": "Chiseled Deepslate",
+  "chiseled_deepslate": {
+    "display_name": "Chiseled Deepslate",
     "min_state_id": 24087,
-    "max_state_id": 24087,
     "num_states": 1
   },
-  {
-    "name": "Chiseled Nether Bricks",
+  "chiseled_nether_bricks": {
+    "display_name": "Chiseled Nether Bricks",
     "min_state_id": 20572,
-    "max_state_id": 20572,
     "num_states": 1
   },
-  {
-    "name": "Chiseled Polished Blackstone",
+  "chiseled_polished_blackstone": {
+    "display_name": "Chiseled Polished Blackstone",
     "min_state_id": 19724,
-    "max_state_id": 19724,
     "num_states": 1
   },
-  {
-    "name": "Chiseled Quartz Block",
+  "chiseled_quartz_block": {
+    "display_name": "Chiseled Quartz Block",
     "min_state_id": 9096,
-    "max_state_id": 9096,
     "num_states": 1
   },
-  {
-    "name": "Chiseled Red Sandstone",
+  "chiseled_red_sandstone": {
+    "display_name": "Chiseled Red Sandstone",
     "min_state_id": 10939,
-    "max_state_id": 10939,
     "num_states": 1
   },
-  {
-    "name": "Chiseled Sandstone",
+  "chiseled_sandstone": {
+    "display_name": "Chiseled Sandstone",
     "min_state_id": 536,
-    "max_state_id": 536,
     "num_states": 1
   },
-  {
-    "name": "Chiseled Stone Bricks",
+  "chiseled_stone_bricks": {
+    "display_name": "Chiseled Stone Bricks",
     "min_state_id": 6541,
-    "max_state_id": 6541,
     "num_states": 1
   },
-  {
-    "name": "Chorus Flower",
+  "chorus_flower": {
+    "display_name": "Chorus Flower",
     "min_state_id": 12263,
-    "max_state_id": 12268,
     "num_states": 6
   },
-  {
-    "name": "Chorus Plant",
+  "chorus_plant": {
+    "display_name": "Chorus Plant",
     "min_state_id": 12199,
-    "max_state_id": 12262,
     "num_states": 64
   },
-  {
-    "name": "Clay",
+  "clay": {
+    "display_name": "Clay",
     "min_state_id": 5798,
-    "max_state_id": 5798,
     "num_states": 1
   },
-  {
-    "name": "Block of Coal",
+  "coal_block": {
+    "display_name": "Block of Coal",
     "min_state_id": 10604,
-    "max_state_id": 10604,
     "num_states": 1
   },
-  {
-    "name": "Coal Ore",
+  "coal_ore": {
+    "display_name": "Coal Ore",
     "min_state_id": 127,
-    "max_state_id": 127,
     "num_states": 1
   },
-  {
-    "name": "Coarse Dirt",
+  "coarse_dirt": {
+    "display_name": "Coarse Dirt",
     "min_state_id": 11,
-    "max_state_id": 11,
     "num_states": 1
   },
-  {
-    "name": "Cobbled Deepslate",
+  "cobbled_deepslate": {
+    "display_name": "Cobbled Deepslate",
     "min_state_id": 22443,
-    "max_state_id": 22443,
     "num_states": 1
   },
-  {
-    "name": "Cobbled Deepslate Slab",
+  "cobbled_deepslate_slab": {
+    "display_name": "Cobbled Deepslate Slab",
     "min_state_id": 22524,
-    "max_state_id": 22529,
     "num_states": 6
   },
-  {
-    "name": "Cobbled Deepslate Stairs",
+  "cobbled_deepslate_stairs": {
+    "display_name": "Cobbled Deepslate Stairs",
     "min_state_id": 22444,
-    "max_state_id": 22523,
     "num_states": 80
   },
-  {
-    "name": "Cobbled Deepslate Wall",
+  "cobbled_deepslate_wall": {
+    "display_name": "Cobbled Deepslate Wall",
     "min_state_id": 22530,
-    "max_state_id": 22853,
     "num_states": 324
   },
-  {
-    "name": "Cobblestone",
+  "cobblestone": {
+    "display_name": "Cobblestone",
     "min_state_id": 14,
-    "max_state_id": 14,
     "num_states": 1
   },
-  {
-    "name": "Cobblestone Slab",
+  "cobblestone_slab": {
+    "display_name": "Cobblestone Slab",
     "min_state_id": 11111,
-    "max_state_id": 11116,
     "num_states": 6
   },
-  {
-    "name": "Cobblestone Stairs",
+  "cobblestone_stairs": {
+    "display_name": "Cobblestone Stairs",
     "min_state_id": 4682,
-    "max_state_id": 4761,
     "num_states": 80
   },
-  {
-    "name": "Cobblestone Wall",
+  "cobblestone_wall": {
+    "display_name": "Cobblestone Wall",
     "min_state_id": 7919,
-    "max_state_id": 8242,
     "num_states": 324
   },
-  {
-    "name": "Cobweb",
+  "cobweb": {
+    "display_name": "Cobweb",
     "min_state_id": 2004,
-    "max_state_id": 2004,
     "num_states": 1
   },
-  {
-    "name": "Cocoa",
+  "cocoa": {
+    "display_name": "Cocoa",
     "min_state_id": 7419,
-    "max_state_id": 7430,
     "num_states": 12
   },
-  {
-    "name": "Command Block",
+  "command_block": {
+    "display_name": "Command Block",
     "min_state_id": 7906,
-    "max_state_id": 7917,
     "num_states": 12
   },
-  {
-    "name": "Redstone Comparator",
+  "comparator": {
+    "display_name": "Redstone Comparator",
     "min_state_id": 9035,
-    "max_state_id": 9050,
     "num_states": 16
   },
-  {
-    "name": "Composter",
+  "composter": {
+    "display_name": "Composter",
     "min_state_id": 19222,
-    "max_state_id": 19230,
     "num_states": 9
   },
-  {
-    "name": "Conduit",
+  "conduit": {
+    "display_name": "Conduit",
     "min_state_id": 12792,
-    "max_state_id": 12793,
     "num_states": 2
   },
-  {
-    "name": "Block of Copper",
+  "copper_block": {
+    "display_name": "Block of Copper",
     "min_state_id": 21557,
-    "max_state_id": 21557,
     "num_states": 1
   },
-  {
-    "name": "Copper Ore",
+  "copper_ore": {
+    "display_name": "Copper Ore",
     "min_state_id": 21558,
-    "max_state_id": 21558,
     "num_states": 1
   },
-  {
-    "name": "Cornflower",
+  "cornflower": {
+    "display_name": "Cornflower",
     "min_state_id": 2086,
-    "max_state_id": 2086,
     "num_states": 1
   },
-  {
-    "name": "Cracked Deepslate Bricks",
+  "cracked_deepslate_bricks": {
+    "display_name": "Cracked Deepslate Bricks",
     "min_state_id": 24088,
-    "max_state_id": 24088,
     "num_states": 1
   },
-  {
-    "name": "Cracked Deepslate Tiles",
+  "cracked_deepslate_tiles": {
+    "display_name": "Cracked Deepslate Tiles",
     "min_state_id": 24089,
-    "max_state_id": 24089,
     "num_states": 1
   },
-  {
-    "name": "Cracked Nether Bricks",
+  "cracked_nether_bricks": {
+    "display_name": "Cracked Nether Bricks",
     "min_state_id": 20573,
-    "max_state_id": 20573,
     "num_states": 1
   },
-  {
-    "name": "Cracked Polished Blackstone Bricks",
+  "cracked_polished_blackstone_bricks": {
+    "display_name": "Cracked Polished Blackstone Bricks",
     "min_state_id": 19723,
-    "max_state_id": 19723,
     "num_states": 1
   },
-  {
-    "name": "Cracked Stone Bricks",
+  "cracked_stone_bricks": {
+    "display_name": "Cracked Stone Bricks",
     "min_state_id": 6540,
-    "max_state_id": 6540,
     "num_states": 1
   },
-  {
-    "name": "Crafting Table",
+  "crafting_table": {
+    "display_name": "Crafting Table",
     "min_state_id": 4277,
-    "max_state_id": 4277,
     "num_states": 1
   },
-  {
-    "name": "Creeper Head",
+  "creeper_head": {
+    "display_name": "Creeper Head",
     "min_state_id": 8907,
-    "max_state_id": 8922,
     "num_states": 16
   },
-  {
-    "name": "Creeper Wall Head",
+  "creeper_wall_head": {
+    "display_name": "Creeper Wall Head",
     "min_state_id": 8923,
-    "max_state_id": 8926,
     "num_states": 4
   },
-  {
-    "name": "Crimson Button",
+  "crimson_button": {
+    "display_name": "Crimson Button",
     "min_state_id": 18950,
-    "max_state_id": 18973,
     "num_states": 24
   },
-  {
-    "name": "Crimson Door",
+  "crimson_door": {
+    "display_name": "Crimson Door",
     "min_state_id": 18998,
-    "max_state_id": 19061,
     "num_states": 64
   },
-  {
-    "name": "Crimson Fence",
+  "crimson_fence": {
+    "display_name": "Crimson Fence",
     "min_state_id": 18534,
-    "max_state_id": 18565,
     "num_states": 32
   },
-  {
-    "name": "Crimson Fence Gate",
+  "crimson_fence_gate": {
+    "display_name": "Crimson Fence Gate",
     "min_state_id": 18726,
-    "max_state_id": 18757,
     "num_states": 32
   },
-  {
-    "name": "Crimson Fungus",
+  "crimson_fungus": {
+    "display_name": "Crimson Fungus",
     "min_state_id": 18459,
-    "max_state_id": 18459,
     "num_states": 1
   },
-  {
-    "name": "Crimson Hanging Sign",
+  "crimson_hanging_sign": {
+    "display_name": "Crimson Hanging Sign",
     "min_state_id": 5282,
-    "max_state_id": 5345,
     "num_states": 64
   },
-  {
-    "name": "Crimson Hyphae",
+  "crimson_hyphae": {
+    "display_name": "Crimson Hyphae",
     "min_state_id": 18452,
-    "max_state_id": 18454,
     "num_states": 3
   },
-  {
-    "name": "Crimson Nylium",
+  "crimson_nylium": {
+    "display_name": "Crimson Nylium",
     "min_state_id": 18458,
-    "max_state_id": 18458,
     "num_states": 1
   },
-  {
-    "name": "Crimson Planks",
+  "crimson_planks": {
+    "display_name": "Crimson Planks",
     "min_state_id": 18516,
-    "max_state_id": 18516,
     "num_states": 1
   },
-  {
-    "name": "Crimson Pressure Plate",
+  "crimson_pressure_plate": {
+    "display_name": "Crimson Pressure Plate",
     "min_state_id": 18530,
-    "max_state_id": 18531,
     "num_states": 2
   },
-  {
-    "name": "Crimson Roots",
+  "crimson_roots": {
+    "display_name": "Crimson Roots",
     "min_state_id": 18515,
-    "max_state_id": 18515,
     "num_states": 1
   },
-  {
-    "name": "Crimson Sign",
+  "crimson_sign": {
+    "display_name": "Crimson Sign",
     "min_state_id": 19126,
-    "max_state_id": 19157,
     "num_states": 32
   },
-  {
-    "name": "Crimson Slab",
+  "crimson_slab": {
+    "display_name": "Crimson Slab",
     "min_state_id": 18518,
-    "max_state_id": 18523,
     "num_states": 6
   },
-  {
-    "name": "Crimson Stairs",
+  "crimson_stairs": {
+    "display_name": "Crimson Stairs",
     "min_state_id": 18790,
-    "max_state_id": 18869,
     "num_states": 80
   },
-  {
-    "name": "Crimson Stem",
+  "crimson_stem": {
+    "display_name": "Crimson Stem",
     "min_state_id": 18446,
-    "max_state_id": 18448,
     "num_states": 3
   },
-  {
-    "name": "Crimson Trapdoor",
+  "crimson_trapdoor": {
+    "display_name": "Crimson Trapdoor",
     "min_state_id": 18598,
-    "max_state_id": 18661,
     "num_states": 64
   },
-  {
-    "name": "Crimson Wall Hanging Sign",
+  "crimson_wall_hanging_sign": {
+    "display_name": "Crimson Wall Hanging Sign",
     "min_state_id": 5602,
-    "max_state_id": 5609,
     "num_states": 8
   },
-  {
-    "name": "Crimson Wall Sign",
+  "crimson_wall_sign": {
+    "display_name": "Crimson Wall Sign",
     "min_state_id": 19190,
-    "max_state_id": 19197,
     "num_states": 8
   },
-  {
-    "name": "Crying Obsidian",
+  "crying_obsidian": {
+    "display_name": "Crying Obsidian",
     "min_state_id": 19299,
-    "max_state_id": 19299,
     "num_states": 1
   },
-  {
-    "name": "Cut Copper",
+  "cut_copper": {
+    "display_name": "Cut Copper",
     "min_state_id": 21563,
-    "max_state_id": 21563,
     "num_states": 1
   },
-  {
-    "name": "Cut Copper Slab",
+  "cut_copper_slab": {
+    "display_name": "Cut Copper Slab",
     "min_state_id": 21902,
-    "max_state_id": 21907,
     "num_states": 6
   },
-  {
-    "name": "Cut Copper Stairs",
+  "cut_copper_stairs": {
+    "display_name": "Cut Copper Stairs",
     "min_state_id": 21804,
-    "max_state_id": 21883,
     "num_states": 80
   },
-  {
-    "name": "Cut Red Sandstone",
+  "cut_red_sandstone": {
+    "display_name": "Cut Red Sandstone",
     "min_state_id": 10940,
-    "max_state_id": 10940,
     "num_states": 1
   },
-  {
-    "name": "Cut Red Sandstone Slab",
+  "cut_red_sandstone_slab": {
+    "display_name": "Cut Red Sandstone Slab",
     "min_state_id": 11153,
-    "max_state_id": 11158,
     "num_states": 6
   },
-  {
-    "name": "Cut Sandstone",
+  "cut_sandstone": {
+    "display_name": "Cut Sandstone",
     "min_state_id": 537,
-    "max_state_id": 537,
     "num_states": 1
   },
-  {
-    "name": "Cut Sandstone Slab",
+  "cut_sandstone_slab": {
+    "display_name": "Cut Sandstone Slab",
     "min_state_id": 11099,
-    "max_state_id": 11104,
     "num_states": 6
   },
-  {
-    "name": "Cyan Banner",
+  "cyan_banner": {
+    "display_name": "Cyan Banner",
     "min_state_id": 10762,
-    "max_state_id": 10777,
     "num_states": 16
   },
-  {
-    "name": "Cyan Bed",
+  "cyan_bed": {
+    "display_name": "Cyan Bed",
     "min_state_id": 1832,
-    "max_state_id": 1847,
     "num_states": 16
   },
-  {
-    "name": "Cyan Candle",
+  "cyan_candle": {
+    "display_name": "Cyan Candle",
     "min_state_id": 20735,
-    "max_state_id": 20750,
     "num_states": 16
   },
-  {
-    "name": "Cake with Cyan Candle",
+  "cyan_candle_cake": {
+    "display_name": "Cake with Cyan Candle",
     "min_state_id": 20867,
-    "max_state_id": 20868,
     "num_states": 2
   },
-  {
-    "name": "Cyan Carpet",
+  "cyan_carpet": {
+    "display_name": "Cyan Carpet",
     "min_state_id": 10596,
-    "max_state_id": 10596,
     "num_states": 1
   },
-  {
-    "name": "Cyan Concrete",
+  "cyan_concrete": {
+    "display_name": "Cyan Concrete",
     "min_state_id": 12587,
-    "max_state_id": 12587,
     "num_states": 1
   },
-  {
-    "name": "Cyan Concrete Powder",
+  "cyan_concrete_powder": {
+    "display_name": "Cyan Concrete Powder",
     "min_state_id": 12603,
-    "max_state_id": 12603,
     "num_states": 1
   },
-  {
-    "name": "Cyan Glazed Terracotta",
+  "cyan_glazed_terracotta": {
+    "display_name": "Cyan Glazed Terracotta",
     "min_state_id": 12550,
-    "max_state_id": 12553,
     "num_states": 4
   },
-  {
-    "name": "Cyan Shulker Box",
+  "cyan_shulker_box": {
+    "display_name": "Cyan Shulker Box",
     "min_state_id": 12472,
-    "max_state_id": 12477,
     "num_states": 6
   },
-  {
-    "name": "Cyan Stained Glass",
+  "cyan_stained_glass": {
+    "display_name": "Cyan Stained Glass",
     "min_state_id": 5955,
-    "max_state_id": 5955,
     "num_states": 1
   },
-  {
-    "name": "Cyan Stained Glass Pane",
+  "cyan_stained_glass_pane": {
+    "display_name": "Cyan Stained Glass Pane",
     "min_state_id": 9520,
-    "max_state_id": 9551,
     "num_states": 32
   },
-  {
-    "name": "Cyan Terracotta",
+  "cyan_terracotta": {
+    "display_name": "Cyan Terracotta",
     "min_state_id": 9225,
-    "max_state_id": 9225,
     "num_states": 1
   },
-  {
-    "name": null,
+  "cyan_wall_banner": {
+    "display_name": null,
     "min_state_id": 10910,
-    "max_state_id": 10913,
     "num_states": 4
   },
-  {
-    "name": "Cyan Wool",
+  "cyan_wool": {
+    "display_name": "Cyan Wool",
     "min_state_id": 2056,
-    "max_state_id": 2056,
     "num_states": 1
   },
-  {
-    "name": "Damaged Anvil",
+  "damaged_anvil": {
+    "display_name": "Damaged Anvil",
     "min_state_id": 8975,
-    "max_state_id": 8978,
     "num_states": 4
   },
-  {
-    "name": "Dandelion",
+  "dandelion": {
+    "display_name": "Dandelion",
     "min_state_id": 2075,
-    "max_state_id": 2075,
     "num_states": 1
   },
-  {
-    "name": "Dark Oak Button",
+  "dark_oak_button": {
+    "display_name": "Dark Oak Button",
     "min_state_id": 8755,
-    "max_state_id": 8778,
     "num_states": 24
   },
-  {
-    "name": "Dark Oak Door",
+  "dark_oak_door": {
+    "display_name": "Dark Oak Door",
     "min_state_id": 12001,
-    "max_state_id": 12064,
     "num_states": 64
   },
-  {
-    "name": "Dark Oak Fence",
+  "dark_oak_fence": {
+    "display_name": "Dark Oak Fence",
     "min_state_id": 11585,
-    "max_state_id": 11616,
     "num_states": 32
   },
-  {
-    "name": "Dark Oak Fence Gate",
+  "dark_oak_fence_gate": {
+    "display_name": "Dark Oak Fence Gate",
     "min_state_id": 11329,
-    "max_state_id": 11360,
     "num_states": 32
   },
-  {
-    "name": "Dark Oak Hanging Sign",
+  "dark_oak_hanging_sign": {
+    "display_name": "Dark Oak Hanging Sign",
     "min_state_id": 5218,
-    "max_state_id": 5281,
     "num_states": 64
   },
-  {
-    "name": "Dark Oak Leaves",
+  "dark_oak_leaves": {
+    "display_name": "Dark Oak Leaves",
     "min_state_id": 405,
-    "max_state_id": 432,
     "num_states": 28
   },
-  {
-    "name": "Dark Oak Log",
+  "dark_oak_log": {
+    "display_name": "Dark Oak Log",
     "min_state_id": 148,
-    "max_state_id": 150,
     "num_states": 3
   },
-  {
-    "name": "Dark Oak Planks",
+  "dark_oak_planks": {
+    "display_name": "Dark Oak Planks",
     "min_state_id": 21,
-    "max_state_id": 21,
     "num_states": 1
   },
-  {
-    "name": "Dark Oak Pressure Plate",
+  "dark_oak_pressure_plate": {
+    "display_name": "Dark Oak Pressure Plate",
     "min_state_id": 5728,
-    "max_state_id": 5729,
     "num_states": 2
   },
-  {
-    "name": "Dark Oak Sapling",
+  "dark_oak_sapling": {
+    "display_name": "Dark Oak Sapling",
     "min_state_id": 37,
-    "max_state_id": 38,
     "num_states": 2
   },
-  {
-    "name": "Dark Oak Sign",
+  "dark_oak_sign": {
+    "display_name": "Dark Oak Sign",
     "min_state_id": 4494,
-    "max_state_id": 4525,
     "num_states": 32
   },
-  {
-    "name": "Dark Oak Slab",
+  "dark_oak_slab": {
+    "display_name": "Dark Oak Slab",
     "min_state_id": 11057,
-    "max_state_id": 11062,
     "num_states": 6
   },
-  {
-    "name": "Dark Oak Stairs",
+  "dark_oak_stairs": {
+    "display_name": "Dark Oak Stairs",
     "min_state_id": 9904,
-    "max_state_id": 9983,
     "num_states": 80
   },
-  {
-    "name": "Dark Oak Trapdoor",
+  "dark_oak_trapdoor": {
+    "display_name": "Dark Oak Trapdoor",
     "min_state_id": 6346,
-    "max_state_id": 6409,
     "num_states": 64
   },
-  {
-    "name": "Dark Oak Wall Hanging Sign",
+  "dark_oak_wall_hanging_sign": {
+    "display_name": "Dark Oak Wall Hanging Sign",
     "min_state_id": 5586,
-    "max_state_id": 5593,
     "num_states": 8
   },
-  {
-    "name": "Dark Oak Wall Sign",
+  "dark_oak_wall_sign": {
+    "display_name": "Dark Oak Wall Sign",
     "min_state_id": 4810,
-    "max_state_id": 4817,
     "num_states": 8
   },
-  {
-    "name": "Dark Oak Wood",
+  "dark_oak_wood": {
+    "display_name": "Dark Oak Wood",
     "min_state_id": 207,
-    "max_state_id": 209,
     "num_states": 3
   },
-  {
-    "name": "Dark Prismarine",
+  "dark_prismarine": {
+    "display_name": "Dark Prismarine",
     "min_state_id": 10324,
-    "max_state_id": 10324,
     "num_states": 1
   },
-  {
-    "name": "Dark Prismarine Slab",
+  "dark_prismarine_slab": {
+    "display_name": "Dark Prismarine Slab",
     "min_state_id": 10577,
-    "max_state_id": 10582,
     "num_states": 6
   },
-  {
-    "name": "Dark Prismarine Stairs",
+  "dark_prismarine_stairs": {
+    "display_name": "Dark Prismarine Stairs",
     "min_state_id": 10485,
-    "max_state_id": 10564,
     "num_states": 80
   },
-  {
-    "name": "Daylight Detector",
+  "daylight_detector": {
+    "display_name": "Daylight Detector",
     "min_state_id": 9051,
-    "max_state_id": 9082,
     "num_states": 32
   },
-  {
-    "name": "Dead Brain Coral",
+  "dead_brain_coral": {
+    "display_name": "Dead Brain Coral",
     "min_state_id": 12665,
-    "max_state_id": 12666,
     "num_states": 2
   },
-  {
-    "name": "Dead Brain Coral Block",
+  "dead_brain_coral_block": {
+    "display_name": "Dead Brain Coral Block",
     "min_state_id": 12654,
-    "max_state_id": 12654,
     "num_states": 1
   },
-  {
-    "name": "Dead Brain Coral Fan",
+  "dead_brain_coral_fan": {
+    "display_name": "Dead Brain Coral Fan",
     "min_state_id": 12685,
-    "max_state_id": 12686,
     "num_states": 2
   },
-  {
-    "name": "Dead Brain Coral Wall Fan",
+  "dead_brain_coral_wall_fan": {
+    "display_name": "Dead Brain Coral Wall Fan",
     "min_state_id": 12711,
-    "max_state_id": 12718,
     "num_states": 8
   },
-  {
-    "name": "Dead Bubble Coral",
+  "dead_bubble_coral": {
+    "display_name": "Dead Bubble Coral",
     "min_state_id": 12667,
-    "max_state_id": 12668,
     "num_states": 2
   },
-  {
-    "name": "Dead Bubble Coral Block",
+  "dead_bubble_coral_block": {
+    "display_name": "Dead Bubble Coral Block",
     "min_state_id": 12655,
-    "max_state_id": 12655,
     "num_states": 1
   },
-  {
-    "name": "Dead Bubble Coral Fan",
+  "dead_bubble_coral_fan": {
+    "display_name": "Dead Bubble Coral Fan",
     "min_state_id": 12687,
-    "max_state_id": 12688,
     "num_states": 2
   },
-  {
-    "name": "Dead Bubble Coral Wall Fan",
+  "dead_bubble_coral_wall_fan": {
+    "display_name": "Dead Bubble Coral Wall Fan",
     "min_state_id": 12719,
-    "max_state_id": 12726,
     "num_states": 8
   },
-  {
-    "name": "Dead Bush",
+  "dead_bush": {
+    "display_name": "Dead Bush",
     "min_state_id": 2007,
-    "max_state_id": 2007,
     "num_states": 1
   },
-  {
-    "name": "Dead Fire Coral",
+  "dead_fire_coral": {
+    "display_name": "Dead Fire Coral",
     "min_state_id": 12669,
-    "max_state_id": 12670,
     "num_states": 2
   },
-  {
-    "name": "Dead Fire Coral Block",
+  "dead_fire_coral_block": {
+    "display_name": "Dead Fire Coral Block",
     "min_state_id": 12656,
-    "max_state_id": 12656,
     "num_states": 1
   },
-  {
-    "name": "Dead Fire Coral Fan",
+  "dead_fire_coral_fan": {
+    "display_name": "Dead Fire Coral Fan",
     "min_state_id": 12689,
-    "max_state_id": 12690,
     "num_states": 2
   },
-  {
-    "name": "Dead Fire Coral Wall Fan",
+  "dead_fire_coral_wall_fan": {
+    "display_name": "Dead Fire Coral Wall Fan",
     "min_state_id": 12727,
-    "max_state_id": 12734,
     "num_states": 8
   },
-  {
-    "name": "Dead Horn Coral",
+  "dead_horn_coral": {
+    "display_name": "Dead Horn Coral",
     "min_state_id": 12671,
-    "max_state_id": 12672,
     "num_states": 2
   },
-  {
-    "name": "Dead Horn Coral Block",
+  "dead_horn_coral_block": {
+    "display_name": "Dead Horn Coral Block",
     "min_state_id": 12657,
-    "max_state_id": 12657,
     "num_states": 1
   },
-  {
-    "name": "Dead Horn Coral Fan",
+  "dead_horn_coral_fan": {
+    "display_name": "Dead Horn Coral Fan",
     "min_state_id": 12691,
-    "max_state_id": 12692,
     "num_states": 2
   },
-  {
-    "name": "Dead Horn Coral Wall Fan",
+  "dead_horn_coral_wall_fan": {
+    "display_name": "Dead Horn Coral Wall Fan",
     "min_state_id": 12735,
-    "max_state_id": 12742,
     "num_states": 8
   },
-  {
-    "name": "Dead Tube Coral",
+  "dead_tube_coral": {
+    "display_name": "Dead Tube Coral",
     "min_state_id": 12663,
-    "max_state_id": 12664,
     "num_states": 2
   },
-  {
-    "name": "Dead Tube Coral Block",
+  "dead_tube_coral_block": {
+    "display_name": "Dead Tube Coral Block",
     "min_state_id": 12653,
-    "max_state_id": 12653,
     "num_states": 1
   },
-  {
-    "name": "Dead Tube Coral Fan",
+  "dead_tube_coral_fan": {
+    "display_name": "Dead Tube Coral Fan",
     "min_state_id": 12683,
-    "max_state_id": 12684,
     "num_states": 2
   },
-  {
-    "name": "Dead Tube Coral Wall Fan",
+  "dead_tube_coral_wall_fan": {
+    "display_name": "Dead Tube Coral Wall Fan",
     "min_state_id": 12703,
-    "max_state_id": 12710,
     "num_states": 8
   },
-  {
-    "name": "Decorated Pot",
+  "decorated_pot": {
+    "display_name": "Decorated Pot",
     "min_state_id": 24110,
-    "max_state_id": 24125,
     "num_states": 16
   },
-  {
-    "name": "Deepslate",
+  "deepslate": {
+    "display_name": "Deepslate",
     "min_state_id": 22440,
-    "max_state_id": 22442,
     "num_states": 3
   },
-  {
-    "name": "Deepslate Brick Slab",
+  "deepslate_brick_slab": {
+    "display_name": "Deepslate Brick Slab",
     "min_state_id": 23757,
-    "max_state_id": 23762,
     "num_states": 6
   },
-  {
-    "name": "Deepslate Brick Stairs",
+  "deepslate_brick_stairs": {
+    "display_name": "Deepslate Brick Stairs",
     "min_state_id": 23677,
-    "max_state_id": 23756,
     "num_states": 80
   },
-  {
-    "name": "Deepslate Brick Wall",
+  "deepslate_brick_wall": {
+    "display_name": "Deepslate Brick Wall",
     "min_state_id": 23763,
-    "max_state_id": 24086,
     "num_states": 324
   },
-  {
-    "name": "Deepslate Bricks",
+  "deepslate_bricks": {
+    "display_name": "Deepslate Bricks",
     "min_state_id": 23676,
-    "max_state_id": 23676,
     "num_states": 1
   },
-  {
-    "name": "Deepslate Coal Ore",
+  "deepslate_coal_ore": {
+    "display_name": "Deepslate Coal Ore",
     "min_state_id": 128,
-    "max_state_id": 128,
     "num_states": 1
   },
-  {
-    "name": "Deepslate Copper Ore",
+  "deepslate_copper_ore": {
+    "display_name": "Deepslate Copper Ore",
     "min_state_id": 21559,
-    "max_state_id": 21559,
     "num_states": 1
   },
-  {
-    "name": "Deepslate Diamond Ore",
+  "deepslate_diamond_ore": {
+    "display_name": "Deepslate Diamond Ore",
     "min_state_id": 4275,
-    "max_state_id": 4275,
     "num_states": 1
   },
-  {
-    "name": "Deepslate Emerald Ore",
+  "deepslate_emerald_ore": {
+    "display_name": "Deepslate Emerald Ore",
     "min_state_id": 7512,
-    "max_state_id": 7512,
     "num_states": 1
   },
-  {
-    "name": "Deepslate Gold Ore",
+  "deepslate_gold_ore": {
+    "display_name": "Deepslate Gold Ore",
     "min_state_id": 124,
-    "max_state_id": 124,
     "num_states": 1
   },
-  {
-    "name": "Deepslate Iron Ore",
+  "deepslate_iron_ore": {
+    "display_name": "Deepslate Iron Ore",
     "min_state_id": 126,
-    "max_state_id": 126,
     "num_states": 1
   },
-  {
-    "name": "Deepslate Lapis Lazuli Ore",
+  "deepslate_lapis_ore": {
+    "display_name": "Deepslate Lapis Lazuli Ore",
     "min_state_id": 521,
-    "max_state_id": 521,
     "num_states": 1
   },
-  {
-    "name": "Deepslate Redstone Ore",
+  "deepslate_redstone_ore": {
+    "display_name": "Deepslate Redstone Ore",
     "min_state_id": 5736,
-    "max_state_id": 5737,
     "num_states": 2
   },
-  {
-    "name": "Deepslate Tile Slab",
+  "deepslate_tile_slab": {
+    "display_name": "Deepslate Tile Slab",
     "min_state_id": 23346,
-    "max_state_id": 23351,
     "num_states": 6
   },
-  {
-    "name": "Deepslate Tile Stairs",
+  "deepslate_tile_stairs": {
+    "display_name": "Deepslate Tile Stairs",
     "min_state_id": 23266,
-    "max_state_id": 23345,
     "num_states": 80
   },
-  {
-    "name": "Deepslate Tile Wall",
+  "deepslate_tile_wall": {
+    "display_name": "Deepslate Tile Wall",
     "min_state_id": 23352,
-    "max_state_id": 23675,
     "num_states": 324
   },
-  {
-    "name": "Deepslate Tiles",
+  "deepslate_tiles": {
+    "display_name": "Deepslate Tiles",
     "min_state_id": 23265,
-    "max_state_id": 23265,
     "num_states": 1
   },
-  {
-    "name": "Detector Rail",
+  "detector_rail": {
+    "display_name": "Detector Rail",
     "min_state_id": 1968,
-    "max_state_id": 1991,
     "num_states": 24
   },
-  {
-    "name": "Block of Diamond",
+  "diamond_block": {
+    "display_name": "Block of Diamond",
     "min_state_id": 4276,
-    "max_state_id": 4276,
     "num_states": 1
   },
-  {
-    "name": "Diamond Ore",
+  "diamond_ore": {
+    "display_name": "Diamond Ore",
     "min_state_id": 4274,
-    "max_state_id": 4274,
     "num_states": 1
   },
-  {
-    "name": "Diorite",
+  "diorite": {
+    "display_name": "Diorite",
     "min_state_id": 4,
-    "max_state_id": 4,
     "num_states": 1
   },
-  {
-    "name": "Diorite Slab",
+  "diorite_slab": {
+    "display_name": "Diorite Slab",
     "min_state_id": 14004,
-    "max_state_id": 14009,
     "num_states": 6
   },
-  {
-    "name": "Diorite Stairs",
+  "diorite_stairs": {
+    "display_name": "Diorite Stairs",
     "min_state_id": 13852,
-    "max_state_id": 13931,
     "num_states": 80
   },
-  {
-    "name": "Diorite Wall",
+  "diorite_wall": {
+    "display_name": "Diorite Wall",
     "min_state_id": 17898,
-    "max_state_id": 18221,
     "num_states": 324
   },
-  {
-    "name": "Dirt",
+  "dirt": {
+    "display_name": "Dirt",
     "min_state_id": 10,
-    "max_state_id": 10,
     "num_states": 1
   },
-  {
-    "name": "Dirt Path",
+  "dirt_path": {
+    "display_name": "Dirt Path",
     "min_state_id": 12363,
-    "max_state_id": 12363,
     "num_states": 1
   },
-  {
-    "name": "Dispenser",
+  "dispenser": {
+    "display_name": "Dispenser",
     "min_state_id": 523,
-    "max_state_id": 534,
     "num_states": 12
   },
-  {
-    "name": "Dragon Egg",
+  "dragon_egg": {
+    "display_name": "Dragon Egg",
     "min_state_id": 7416,
-    "max_state_id": 7416,
     "num_states": 1
   },
-  {
-    "name": "Dragon Head",
+  "dragon_head": {
+    "display_name": "Dragon Head",
     "min_state_id": 8927,
-    "max_state_id": 8942,
     "num_states": 16
   },
-  {
-    "name": "Dragon Wall Head",
+  "dragon_wall_head": {
+    "display_name": "Dragon Wall Head",
     "min_state_id": 8943,
-    "max_state_id": 8946,
     "num_states": 4
   },
-  {
-    "name": "Dried Kelp Block",
+  "dried_kelp_block": {
+    "display_name": "Dried Kelp Block",
     "min_state_id": 12637,
-    "max_state_id": 12637,
     "num_states": 1
   },
-  {
-    "name": "Dripstone Block",
+  "dripstone_block": {
+    "display_name": "Dripstone Block",
     "min_state_id": 22304,
-    "max_state_id": 22304,
     "num_states": 1
   },
-  {
-    "name": "Dropper",
+  "dropper": {
+    "display_name": "Dropper",
     "min_state_id": 9204,
-    "max_state_id": 9215,
     "num_states": 12
   },
-  {
-    "name": "Block of Emerald",
+  "emerald_block": {
+    "display_name": "Block of Emerald",
     "min_state_id": 7665,
-    "max_state_id": 7665,
     "num_states": 1
   },
-  {
-    "name": "Emerald Ore",
+  "emerald_ore": {
+    "display_name": "Emerald Ore",
     "min_state_id": 7511,
-    "max_state_id": 7511,
     "num_states": 1
   },
-  {
-    "name": "Enchanting Table",
+  "enchanting_table": {
+    "display_name": "Enchanting Table",
     "min_state_id": 7389,
-    "max_state_id": 7389,
     "num_states": 1
   },
-  {
-    "name": "End Gateway",
+  "end_gateway": {
+    "display_name": "End Gateway",
     "min_state_id": 12364,
-    "max_state_id": 12364,
     "num_states": 1
   },
-  {
-    "name": "End Portal",
+  "end_portal": {
+    "display_name": "End Portal",
     "min_state_id": 7406,
-    "max_state_id": 7406,
     "num_states": 1
   },
-  {
-    "name": "End Portal Frame",
+  "end_portal_frame": {
+    "display_name": "End Portal Frame",
     "min_state_id": 7407,
-    "max_state_id": 7414,
     "num_states": 8
   },
-  {
-    "name": "End Rod",
+  "end_rod": {
+    "display_name": "End Rod",
     "min_state_id": 12193,
-    "max_state_id": 12198,
     "num_states": 6
   },
-  {
-    "name": "End Stone",
+  "end_stone": {
+    "display_name": "End Stone",
     "min_state_id": 7415,
-    "max_state_id": 7415,
     "num_states": 1
   },
-  {
-    "name": "End Stone Brick Slab",
+  "end_stone_brick_slab": {
+    "display_name": "End Stone Brick Slab",
     "min_state_id": 13962,
-    "max_state_id": 13967,
     "num_states": 6
   },
-  {
-    "name": "End Stone Brick Stairs",
+  "end_stone_brick_stairs": {
+    "display_name": "End Stone Brick Stairs",
     "min_state_id": 13212,
-    "max_state_id": 13291,
     "num_states": 80
   },
-  {
-    "name": "End Stone Brick Wall",
+  "end_stone_brick_wall": {
+    "display_name": "End Stone Brick Wall",
     "min_state_id": 17574,
-    "max_state_id": 17897,
     "num_states": 324
   },
-  {
-    "name": "End Stone Bricks",
+  "end_stone_bricks": {
+    "display_name": "End Stone Bricks",
     "min_state_id": 12353,
-    "max_state_id": 12353,
     "num_states": 1
   },
-  {
-    "name": "Ender Chest",
+  "ender_chest": {
+    "display_name": "Ender Chest",
     "min_state_id": 7513,
-    "max_state_id": 7520,
     "num_states": 8
   },
-  {
-    "name": "Exposed Copper",
+  "exposed_copper": {
+    "display_name": "Exposed Copper",
     "min_state_id": 21556,
-    "max_state_id": 21556,
     "num_states": 1
   },
-  {
-    "name": "Exposed Cut Copper",
+  "exposed_cut_copper": {
+    "display_name": "Exposed Cut Copper",
     "min_state_id": 21562,
-    "max_state_id": 21562,
     "num_states": 1
   },
-  {
-    "name": "Exposed Cut Copper Slab",
+  "exposed_cut_copper_slab": {
+    "display_name": "Exposed Cut Copper Slab",
     "min_state_id": 21896,
-    "max_state_id": 21901,
     "num_states": 6
   },
-  {
-    "name": "Exposed Cut Copper Stairs",
+  "exposed_cut_copper_stairs": {
+    "display_name": "Exposed Cut Copper Stairs",
     "min_state_id": 21724,
-    "max_state_id": 21803,
     "num_states": 80
   },
-  {
-    "name": "Farmland",
+  "farmland": {
+    "display_name": "Farmland",
     "min_state_id": 4286,
-    "max_state_id": 4293,
     "num_states": 8
   },
-  {
-    "name": "Fern",
+  "fern": {
+    "display_name": "Fern",
     "min_state_id": 2006,
-    "max_state_id": 2006,
     "num_states": 1
   },
-  {
-    "name": "Fire",
+  "fire": {
+    "display_name": "Fire",
     "min_state_id": 2360,
-    "max_state_id": 2871,
     "num_states": 512
   },
-  {
-    "name": "Fire Coral",
+  "fire_coral": {
+    "display_name": "Fire Coral",
     "min_state_id": 12679,
-    "max_state_id": 12680,
     "num_states": 2
   },
-  {
-    "name": "Fire Coral Block",
+  "fire_coral_block": {
+    "display_name": "Fire Coral Block",
     "min_state_id": 12661,
-    "max_state_id": 12661,
     "num_states": 1
   },
-  {
-    "name": "Fire Coral Fan",
+  "fire_coral_fan": {
+    "display_name": "Fire Coral Fan",
     "min_state_id": 12699,
-    "max_state_id": 12700,
     "num_states": 2
   },
-  {
-    "name": "Fire Coral Wall Fan",
+  "fire_coral_wall_fan": {
+    "display_name": "Fire Coral Wall Fan",
     "min_state_id": 12767,
-    "max_state_id": 12774,
     "num_states": 8
   },
-  {
-    "name": "Fletching Table",
+  "fletching_table": {
+    "display_name": "Fletching Table",
     "min_state_id": 18287,
-    "max_state_id": 18287,
     "num_states": 1
   },
-  {
-    "name": "Flower Pot",
+  "flower_pot": {
+    "display_name": "Flower Pot",
     "min_state_id": 8567,
-    "max_state_id": 8567,
     "num_states": 1
   },
-  {
-    "name": "Flowering Azalea",
+  "flowering_azalea": {
+    "display_name": "Flowering Azalea",
     "min_state_id": 22361,
-    "max_state_id": 22361,
     "num_states": 1
   },
-  {
-    "name": "Flowering Azalea Leaves",
+  "flowering_azalea_leaves": {
+    "display_name": "Flowering Azalea Leaves",
     "min_state_id": 489,
-    "max_state_id": 516,
     "num_states": 28
   },
-  {
-    "name": "Frogspawn",
+  "frogspawn": {
+    "display_name": "Frogspawn",
     "min_state_id": 24108,
-    "max_state_id": 24108,
     "num_states": 1
   },
-  {
-    "name": "Frosted Ice",
+  "frosted_ice": {
+    "display_name": "Frosted Ice",
     "min_state_id": 12389,
-    "max_state_id": 12392,
     "num_states": 4
   },
-  {
-    "name": "Furnace",
+  "furnace": {
+    "display_name": "Furnace",
     "min_state_id": 4294,
-    "max_state_id": 4301,
     "num_states": 8
   },
-  {
-    "name": "Gilded Blackstone",
+  "gilded_blackstone": {
+    "display_name": "Gilded Blackstone",
     "min_state_id": 20135,
-    "max_state_id": 20135,
     "num_states": 1
   },
-  {
-    "name": "Glass",
+  "glass": {
+    "display_name": "Glass",
     "min_state_id": 519,
-    "max_state_id": 519,
     "num_states": 1
   },
-  {
-    "name": "Glass Pane",
+  "glass_pane": {
+    "display_name": "Glass Pane",
     "min_state_id": 6780,
-    "max_state_id": 6811,
     "num_states": 32
   },
-  {
-    "name": "Glow Lichen",
+  "glow_lichen": {
+    "display_name": "Glow Lichen",
     "min_state_id": 6869,
-    "max_state_id": 6996,
     "num_states": 128
   },
-  {
-    "name": "Glowstone",
+  "glowstone": {
+    "display_name": "Glowstone",
     "min_state_id": 5864,
-    "max_state_id": 5864,
     "num_states": 1
   },
-  {
-    "name": "Block of Gold",
+  "gold_block": {
+    "display_name": "Block of Gold",
     "min_state_id": 2091,
-    "max_state_id": 2091,
     "num_states": 1
   },
-  {
-    "name": "Gold Ore",
+  "gold_ore": {
+    "display_name": "Gold Ore",
     "min_state_id": 123,
-    "max_state_id": 123,
     "num_states": 1
   },
-  {
-    "name": "Granite",
+  "granite": {
+    "display_name": "Granite",
     "min_state_id": 2,
-    "max_state_id": 2,
     "num_states": 1
   },
-  {
-    "name": "Granite Slab",
+  "granite_slab": {
+    "display_name": "Granite Slab",
     "min_state_id": 13980,
-    "max_state_id": 13985,
     "num_states": 6
   },
-  {
-    "name": "Granite Stairs",
+  "granite_stairs": {
+    "display_name": "Granite Stairs",
     "min_state_id": 13532,
-    "max_state_id": 13611,
     "num_states": 80
   },
-  {
-    "name": "Granite Wall",
+  "granite_wall": {
+    "display_name": "Granite Wall",
     "min_state_id": 15306,
-    "max_state_id": 15629,
     "num_states": 324
   },
-  {
-    "name": "Grass",
+  "grass": {
+    "display_name": "Grass",
     "min_state_id": 2005,
-    "max_state_id": 2005,
     "num_states": 1
   },
-  {
-    "name": "Grass Block",
+  "grass_block": {
+    "display_name": "Grass Block",
     "min_state_id": 8,
-    "max_state_id": 9,
     "num_states": 2
   },
-  {
-    "name": "Gravel",
+  "gravel": {
+    "display_name": "Gravel",
     "min_state_id": 118,
-    "max_state_id": 118,
     "num_states": 1
   },
-  {
-    "name": "Gray Banner",
+  "gray_banner": {
+    "display_name": "Gray Banner",
     "min_state_id": 10730,
-    "max_state_id": 10745,
     "num_states": 16
   },
-  {
-    "name": "Gray Bed",
+  "gray_bed": {
+    "display_name": "Gray Bed",
     "min_state_id": 1800,
-    "max_state_id": 1815,
     "num_states": 16
   },
-  {
-    "name": "Gray Candle",
+  "gray_candle": {
+    "display_name": "Gray Candle",
     "min_state_id": 20703,
-    "max_state_id": 20718,
     "num_states": 16
   },
-  {
-    "name": "Cake with Gray Candle",
+  "gray_candle_cake": {
+    "display_name": "Cake with Gray Candle",
     "min_state_id": 20863,
-    "max_state_id": 20864,
     "num_states": 2
   },
-  {
-    "name": "Gray Carpet",
+  "gray_carpet": {
+    "display_name": "Gray Carpet",
     "min_state_id": 10594,
-    "max_state_id": 10594,
     "num_states": 1
   },
-  {
-    "name": "Gray Concrete",
+  "gray_concrete": {
+    "display_name": "Gray Concrete",
     "min_state_id": 12585,
-    "max_state_id": 12585,
     "num_states": 1
   },
-  {
-    "name": "Gray Concrete Powder",
+  "gray_concrete_powder": {
+    "display_name": "Gray Concrete Powder",
     "min_state_id": 12601,
-    "max_state_id": 12601,
     "num_states": 1
   },
-  {
-    "name": "Gray Glazed Terracotta",
+  "gray_glazed_terracotta": {
+    "display_name": "Gray Glazed Terracotta",
     "min_state_id": 12542,
-    "max_state_id": 12545,
     "num_states": 4
   },
-  {
-    "name": "Gray Shulker Box",
+  "gray_shulker_box": {
+    "display_name": "Gray Shulker Box",
     "min_state_id": 12460,
-    "max_state_id": 12465,
     "num_states": 6
   },
-  {
-    "name": "Gray Stained Glass",
+  "gray_stained_glass": {
+    "display_name": "Gray Stained Glass",
     "min_state_id": 5953,
-    "max_state_id": 5953,
     "num_states": 1
   },
-  {
-    "name": "Gray Stained Glass Pane",
+  "gray_stained_glass_pane": {
+    "display_name": "Gray Stained Glass Pane",
     "min_state_id": 9456,
-    "max_state_id": 9487,
     "num_states": 32
   },
-  {
-    "name": "Gray Terracotta",
+  "gray_terracotta": {
+    "display_name": "Gray Terracotta",
     "min_state_id": 9223,
-    "max_state_id": 9223,
     "num_states": 1
   },
-  {
-    "name": null,
+  "gray_wall_banner": {
+    "display_name": null,
     "min_state_id": 10902,
-    "max_state_id": 10905,
     "num_states": 4
   },
-  {
-    "name": "Gray Wool",
+  "gray_wool": {
+    "display_name": "Gray Wool",
     "min_state_id": 2054,
-    "max_state_id": 2054,
     "num_states": 1
   },
-  {
-    "name": "Green Banner",
+  "green_banner": {
+    "display_name": "Green Banner",
     "min_state_id": 10826,
-    "max_state_id": 10841,
     "num_states": 16
   },
-  {
-    "name": "Green Bed",
+  "green_bed": {
+    "display_name": "Green Bed",
     "min_state_id": 1896,
-    "max_state_id": 1911,
     "num_states": 16
   },
-  {
-    "name": "Green Candle",
+  "green_candle": {
+    "display_name": "Green Candle",
     "min_state_id": 20799,
-    "max_state_id": 20814,
     "num_states": 16
   },
-  {
-    "name": "Cake with Green Candle",
+  "green_candle_cake": {
+    "display_name": "Cake with Green Candle",
     "min_state_id": 20875,
-    "max_state_id": 20876,
     "num_states": 2
   },
-  {
-    "name": "Green Carpet",
+  "green_carpet": {
+    "display_name": "Green Carpet",
     "min_state_id": 10600,
-    "max_state_id": 10600,
     "num_states": 1
   },
-  {
-    "name": "Green Concrete",
+  "green_concrete": {
+    "display_name": "Green Concrete",
     "min_state_id": 12591,
-    "max_state_id": 12591,
     "num_states": 1
   },
-  {
-    "name": "Green Concrete Powder",
+  "green_concrete_powder": {
+    "display_name": "Green Concrete Powder",
     "min_state_id": 12607,
-    "max_state_id": 12607,
     "num_states": 1
   },
-  {
-    "name": "Green Glazed Terracotta",
+  "green_glazed_terracotta": {
+    "display_name": "Green Glazed Terracotta",
     "min_state_id": 12566,
-    "max_state_id": 12569,
     "num_states": 4
   },
-  {
-    "name": "Green Shulker Box",
+  "green_shulker_box": {
+    "display_name": "Green Shulker Box",
     "min_state_id": 12496,
-    "max_state_id": 12501,
     "num_states": 6
   },
-  {
-    "name": "Green Stained Glass",
+  "green_stained_glass": {
+    "display_name": "Green Stained Glass",
     "min_state_id": 5959,
-    "max_state_id": 5959,
     "num_states": 1
   },
-  {
-    "name": "Green Stained Glass Pane",
+  "green_stained_glass_pane": {
+    "display_name": "Green Stained Glass Pane",
     "min_state_id": 9648,
-    "max_state_id": 9679,
     "num_states": 32
   },
-  {
-    "name": "Green Terracotta",
+  "green_terracotta": {
+    "display_name": "Green Terracotta",
     "min_state_id": 9229,
-    "max_state_id": 9229,
     "num_states": 1
   },
-  {
-    "name": null,
+  "green_wall_banner": {
+    "display_name": null,
     "min_state_id": 10926,
-    "max_state_id": 10929,
     "num_states": 4
   },
-  {
-    "name": "Green Wool",
+  "green_wool": {
+    "display_name": "Green Wool",
     "min_state_id": 2060,
-    "max_state_id": 2060,
     "num_states": 1
   },
-  {
-    "name": "Grindstone",
+  "grindstone": {
+    "display_name": "Grindstone",
     "min_state_id": 18288,
-    "max_state_id": 18299,
     "num_states": 12
   },
-  {
-    "name": "Hanging Roots",
+  "hanging_roots": {
+    "display_name": "Hanging Roots",
     "min_state_id": 22436,
-    "max_state_id": 22437,
     "num_states": 2
   },
-  {
-    "name": "Hay Bale",
+  "hay_block": {
+    "display_name": "Hay Bale",
     "min_state_id": 10584,
-    "max_state_id": 10586,
     "num_states": 3
   },
-  {
-    "name": "Heavy Weighted Pressure Plate",
+  "heavy_weighted_pressure_plate": {
+    "display_name": "Heavy Weighted Pressure Plate",
     "min_state_id": 9019,
-    "max_state_id": 9034,
     "num_states": 16
   },
-  {
-    "name": "Honey Block",
+  "honey_block": {
+    "display_name": "Honey Block",
     "min_state_id": 19295,
-    "max_state_id": 19295,
     "num_states": 1
   },
-  {
-    "name": "Honeycomb Block",
+  "honeycomb_block": {
+    "display_name": "Honeycomb Block",
     "min_state_id": 19296,
-    "max_state_id": 19296,
     "num_states": 1
   },
-  {
-    "name": "Hopper",
+  "hopper": {
+    "display_name": "Hopper",
     "min_state_id": 9085,
-    "max_state_id": 9094,
     "num_states": 10
   },
-  {
-    "name": "Horn Coral",
+  "horn_coral": {
+    "display_name": "Horn Coral",
     "min_state_id": 12681,
-    "max_state_id": 12682,
     "num_states": 2
   },
-  {
-    "name": "Horn Coral Block",
+  "horn_coral_block": {
+    "display_name": "Horn Coral Block",
     "min_state_id": 12662,
-    "max_state_id": 12662,
     "num_states": 1
   },
-  {
-    "name": "Horn Coral Fan",
+  "horn_coral_fan": {
+    "display_name": "Horn Coral Fan",
     "min_state_id": 12701,
-    "max_state_id": 12702,
     "num_states": 2
   },
-  {
-    "name": "Horn Coral Wall Fan",
+  "horn_coral_wall_fan": {
+    "display_name": "Horn Coral Wall Fan",
     "min_state_id": 12775,
-    "max_state_id": 12782,
     "num_states": 8
   },
-  {
-    "name": "Ice",
+  "ice": {
+    "display_name": "Ice",
     "min_state_id": 5780,
-    "max_state_id": 5780,
     "num_states": 1
   },
-  {
-    "name": "Infested Chiseled Stone Bricks",
+  "infested_chiseled_stone_bricks": {
+    "display_name": "Infested Chiseled Stone Bricks",
     "min_state_id": 6549,
-    "max_state_id": 6549,
     "num_states": 1
   },
-  {
-    "name": "Infested Cobblestone",
+  "infested_cobblestone": {
+    "display_name": "Infested Cobblestone",
     "min_state_id": 6545,
-    "max_state_id": 6545,
     "num_states": 1
   },
-  {
-    "name": "Infested Cracked Stone Bricks",
+  "infested_cracked_stone_bricks": {
+    "display_name": "Infested Cracked Stone Bricks",
     "min_state_id": 6548,
-    "max_state_id": 6548,
     "num_states": 1
   },
-  {
-    "name": "Infested Deepslate",
+  "infested_deepslate": {
+    "display_name": "Infested Deepslate",
     "min_state_id": 24090,
-    "max_state_id": 24092,
     "num_states": 3
   },
-  {
-    "name": "Infested Mossy Stone Bricks",
+  "infested_mossy_stone_bricks": {
+    "display_name": "Infested Mossy Stone Bricks",
     "min_state_id": 6547,
-    "max_state_id": 6547,
     "num_states": 1
   },
-  {
-    "name": "Infested Stone",
+  "infested_stone": {
+    "display_name": "Infested Stone",
     "min_state_id": 6544,
-    "max_state_id": 6544,
     "num_states": 1
   },
-  {
-    "name": "Infested Stone Bricks",
+  "infested_stone_bricks": {
+    "display_name": "Infested Stone Bricks",
     "min_state_id": 6546,
-    "max_state_id": 6546,
     "num_states": 1
   },
-  {
-    "name": "Iron Bars",
+  "iron_bars": {
+    "display_name": "Iron Bars",
     "min_state_id": 6742,
-    "max_state_id": 6773,
     "num_states": 32
   },
-  {
-    "name": "Block of Iron",
+  "iron_block": {
+    "display_name": "Block of Iron",
     "min_state_id": 2092,
-    "max_state_id": 2092,
     "num_states": 1
   },
-  {
-    "name": "Iron Door",
+  "iron_door": {
+    "display_name": "Iron Door",
     "min_state_id": 5652,
-    "max_state_id": 5715,
     "num_states": 64
   },
-  {
-    "name": "Iron Ore",
+  "iron_ore": {
+    "display_name": "Iron Ore",
     "min_state_id": 125,
-    "max_state_id": 125,
     "num_states": 1
   },
-  {
-    "name": "Iron Trapdoor",
+  "iron_trapdoor": {
+    "display_name": "Iron Trapdoor",
     "min_state_id": 10258,
-    "max_state_id": 10321,
     "num_states": 64
   },
-  {
-    "name": "Jack o'Lantern",
+  "jack_o_lantern": {
+    "display_name": "Jack o'Lantern",
     "min_state_id": 5871,
-    "max_state_id": 5874,
     "num_states": 4
   },
-  {
-    "name": "Jigsaw Block",
+  "jigsaw": {
+    "display_name": "Jigsaw Block",
     "min_state_id": 19210,
-    "max_state_id": 19221,
     "num_states": 12
   },
-  {
-    "name": "Jukebox",
+  "jukebox": {
+    "display_name": "Jukebox",
     "min_state_id": 5815,
-    "max_state_id": 5816,
     "num_states": 2
   },
-  {
-    "name": "Jungle Button",
+  "jungle_button": {
+    "display_name": "Jungle Button",
     "min_state_id": 8683,
-    "max_state_id": 8706,
     "num_states": 24
   },
-  {
-    "name": "Jungle Door",
+  "jungle_door": {
+    "display_name": "Jungle Door",
     "min_state_id": 11809,
-    "max_state_id": 11872,
     "num_states": 64
   },
-  {
-    "name": "Jungle Fence",
+  "jungle_fence": {
+    "display_name": "Jungle Fence",
     "min_state_id": 11489,
-    "max_state_id": 11520,
     "num_states": 32
   },
-  {
-    "name": "Jungle Fence Gate",
+  "jungle_fence_gate": {
+    "display_name": "Jungle Fence Gate",
     "min_state_id": 11233,
-    "max_state_id": 11264,
     "num_states": 32
   },
-  {
-    "name": "Jungle Hanging Sign",
+  "jungle_hanging_sign": {
+    "display_name": "Jungle Hanging Sign",
     "min_state_id": 5154,
-    "max_state_id": 5217,
     "num_states": 64
   },
-  {
-    "name": "Jungle Leaves",
+  "jungle_leaves": {
+    "display_name": "Jungle Leaves",
     "min_state_id": 321,
-    "max_state_id": 348,
     "num_states": 28
   },
-  {
-    "name": "Jungle Log",
+  "jungle_log": {
+    "display_name": "Jungle Log",
     "min_state_id": 139,
-    "max_state_id": 141,
     "num_states": 3
   },
-  {
-    "name": "Jungle Planks",
+  "jungle_planks": {
+    "display_name": "Jungle Planks",
     "min_state_id": 18,
-    "max_state_id": 18,
     "num_states": 1
   },
-  {
-    "name": "Jungle Pressure Plate",
+  "jungle_pressure_plate": {
+    "display_name": "Jungle Pressure Plate",
     "min_state_id": 5722,
-    "max_state_id": 5723,
     "num_states": 2
   },
-  {
-    "name": "Jungle Sapling",
+  "jungle_sapling": {
+    "display_name": "Jungle Sapling",
     "min_state_id": 31,
-    "max_state_id": 32,
     "num_states": 2
   },
-  {
-    "name": "Jungle Sign",
+  "jungle_sign": {
+    "display_name": "Jungle Sign",
     "min_state_id": 4462,
-    "max_state_id": 4493,
     "num_states": 32
   },
-  {
-    "name": "Jungle Slab",
+  "jungle_slab": {
+    "display_name": "Jungle Slab",
     "min_state_id": 11039,
-    "max_state_id": 11044,
     "num_states": 6
   },
-  {
-    "name": "Jungle Stairs",
+  "jungle_stairs": {
+    "display_name": "Jungle Stairs",
     "min_state_id": 7826,
-    "max_state_id": 7905,
     "num_states": 80
   },
-  {
-    "name": "Jungle Trapdoor",
+  "jungle_trapdoor": {
+    "display_name": "Jungle Trapdoor",
     "min_state_id": 6154,
-    "max_state_id": 6217,
     "num_states": 64
   },
-  {
-    "name": "Jungle Wall Hanging Sign",
+  "jungle_wall_hanging_sign": {
+    "display_name": "Jungle Wall Hanging Sign",
     "min_state_id": 5578,
-    "max_state_id": 5585,
     "num_states": 8
   },
-  {
-    "name": "Jungle Wall Sign",
+  "jungle_wall_sign": {
+    "display_name": "Jungle Wall Sign",
     "min_state_id": 4802,
-    "max_state_id": 4809,
     "num_states": 8
   },
-  {
-    "name": "Jungle Wood",
+  "jungle_wood": {
+    "display_name": "Jungle Wood",
     "min_state_id": 198,
-    "max_state_id": 200,
     "num_states": 3
   },
-  {
-    "name": "Kelp",
+  "kelp": {
+    "display_name": "Kelp",
     "min_state_id": 12610,
-    "max_state_id": 12635,
     "num_states": 26
   },
-  {
-    "name": "Kelp Plant",
+  "kelp_plant": {
+    "display_name": "Kelp Plant",
     "min_state_id": 12636,
-    "max_state_id": 12636,
     "num_states": 1
   },
-  {
-    "name": "Ladder",
+  "ladder": {
+    "display_name": "Ladder",
     "min_state_id": 4654,
-    "max_state_id": 4661,
     "num_states": 8
   },
-  {
-    "name": "Lantern",
+  "lantern": {
+    "display_name": "Lantern",
     "min_state_id": 18353,
-    "max_state_id": 18356,
     "num_states": 4
   },
-  {
-    "name": "Block of Lapis Lazuli",
+  "lapis_block": {
+    "display_name": "Block of Lapis Lazuli",
     "min_state_id": 522,
-    "max_state_id": 522,
     "num_states": 1
   },
-  {
-    "name": "Lapis Lazuli Ore",
+  "lapis_ore": {
+    "display_name": "Lapis Lazuli Ore",
     "min_state_id": 520,
-    "max_state_id": 520,
     "num_states": 1
   },
-  {
-    "name": "Large Amethyst Bud",
+  "large_amethyst_bud": {
+    "display_name": "Large Amethyst Bud",
     "min_state_id": 20895,
-    "max_state_id": 20906,
     "num_states": 12
   },
-  {
-    "name": "Large Fern",
+  "large_fern": {
+    "display_name": "Large Fern",
     "min_state_id": 10616,
-    "max_state_id": 10617,
     "num_states": 2
   },
-  {
-    "name": "Lava",
+  "lava": {
+    "display_name": "Lava",
     "min_state_id": 96,
-    "max_state_id": 111,
     "num_states": 16
   },
-  {
-    "name": "Lava Cauldron",
+  "lava_cauldron": {
+    "display_name": "Lava Cauldron",
     "min_state_id": 7402,
-    "max_state_id": 7402,
     "num_states": 1
   },
-  {
-    "name": "Lectern",
+  "lectern": {
+    "display_name": "Lectern",
     "min_state_id": 18300,
-    "max_state_id": 18315,
     "num_states": 16
   },
-  {
-    "name": "Lever",
+  "lever": {
+    "display_name": "Lever",
     "min_state_id": 5626,
-    "max_state_id": 5649,
     "num_states": 24
   },
-  {
-    "name": "Light",
+  "light": {
+    "display_name": "Light",
     "min_state_id": 10226,
-    "max_state_id": 10257,
     "num_states": 32
   },
-  {
-    "name": "Light Blue Banner",
+  "light_blue_banner": {
+    "display_name": "Light Blue Banner",
     "min_state_id": 10666,
-    "max_state_id": 10681,
     "num_states": 16
   },
-  {
-    "name": "Light Blue Bed",
+  "light_blue_bed": {
+    "display_name": "Light Blue Bed",
     "min_state_id": 1736,
-    "max_state_id": 1751,
     "num_states": 16
   },
-  {
-    "name": "Light Blue Candle",
+  "light_blue_candle": {
+    "display_name": "Light Blue Candle",
     "min_state_id": 20639,
-    "max_state_id": 20654,
     "num_states": 16
   },
-  {
-    "name": "Cake with Light Blue Candle",
+  "light_blue_candle_cake": {
+    "display_name": "Cake with Light Blue Candle",
     "min_state_id": 20855,
-    "max_state_id": 20856,
     "num_states": 2
   },
-  {
-    "name": "Light Blue Carpet",
+  "light_blue_carpet": {
+    "display_name": "Light Blue Carpet",
     "min_state_id": 10590,
-    "max_state_id": 10590,
     "num_states": 1
   },
-  {
-    "name": "Light Blue Concrete",
+  "light_blue_concrete": {
+    "display_name": "Light Blue Concrete",
     "min_state_id": 12581,
-    "max_state_id": 12581,
     "num_states": 1
   },
-  {
-    "name": "Light Blue Concrete Powder",
+  "light_blue_concrete_powder": {
+    "display_name": "Light Blue Concrete Powder",
     "min_state_id": 12597,
-    "max_state_id": 12597,
     "num_states": 1
   },
-  {
-    "name": "Light Blue Glazed Terracotta",
+  "light_blue_glazed_terracotta": {
+    "display_name": "Light Blue Glazed Terracotta",
     "min_state_id": 12526,
-    "max_state_id": 12529,
     "num_states": 4
   },
-  {
-    "name": "Light Blue Shulker Box",
+  "light_blue_shulker_box": {
+    "display_name": "Light Blue Shulker Box",
     "min_state_id": 12436,
-    "max_state_id": 12441,
     "num_states": 6
   },
-  {
-    "name": "Light Blue Stained Glass",
+  "light_blue_stained_glass": {
+    "display_name": "Light Blue Stained Glass",
     "min_state_id": 5949,
-    "max_state_id": 5949,
     "num_states": 1
   },
-  {
-    "name": "Light Blue Stained Glass Pane",
+  "light_blue_stained_glass_pane": {
+    "display_name": "Light Blue Stained Glass Pane",
     "min_state_id": 9328,
-    "max_state_id": 9359,
     "num_states": 32
   },
-  {
-    "name": "Light Blue Terracotta",
+  "light_blue_terracotta": {
+    "display_name": "Light Blue Terracotta",
     "min_state_id": 9219,
-    "max_state_id": 9219,
     "num_states": 1
   },
-  {
-    "name": null,
+  "light_blue_wall_banner": {
+    "display_name": null,
     "min_state_id": 10886,
-    "max_state_id": 10889,
     "num_states": 4
   },
-  {
-    "name": "Light Blue Wool",
+  "light_blue_wool": {
+    "display_name": "Light Blue Wool",
     "min_state_id": 2050,
-    "max_state_id": 2050,
     "num_states": 1
   },
-  {
-    "name": "Light Gray Banner",
+  "light_gray_banner": {
+    "display_name": "Light Gray Banner",
     "min_state_id": 10746,
-    "max_state_id": 10761,
     "num_states": 16
   },
-  {
-    "name": "Light Gray Bed",
+  "light_gray_bed": {
+    "display_name": "Light Gray Bed",
     "min_state_id": 1816,
-    "max_state_id": 1831,
     "num_states": 16
   },
-  {
-    "name": "Light Gray Candle",
+  "light_gray_candle": {
+    "display_name": "Light Gray Candle",
     "min_state_id": 20719,
-    "max_state_id": 20734,
     "num_states": 16
   },
-  {
-    "name": "Cake with Light Gray Candle",
+  "light_gray_candle_cake": {
+    "display_name": "Cake with Light Gray Candle",
     "min_state_id": 20865,
-    "max_state_id": 20866,
     "num_states": 2
   },
-  {
-    "name": "Light Gray Carpet",
+  "light_gray_carpet": {
+    "display_name": "Light Gray Carpet",
     "min_state_id": 10595,
-    "max_state_id": 10595,
     "num_states": 1
   },
-  {
-    "name": "Light Gray Concrete",
+  "light_gray_concrete": {
+    "display_name": "Light Gray Concrete",
     "min_state_id": 12586,
-    "max_state_id": 12586,
     "num_states": 1
   },
-  {
-    "name": "Light Gray Concrete Powder",
+  "light_gray_concrete_powder": {
+    "display_name": "Light Gray Concrete Powder",
     "min_state_id": 12602,
-    "max_state_id": 12602,
     "num_states": 1
   },
-  {
-    "name": "Light Gray Glazed Terracotta",
+  "light_gray_glazed_terracotta": {
+    "display_name": "Light Gray Glazed Terracotta",
     "min_state_id": 12546,
-    "max_state_id": 12549,
     "num_states": 4
   },
-  {
-    "name": "Light Gray Shulker Box",
+  "light_gray_shulker_box": {
+    "display_name": "Light Gray Shulker Box",
     "min_state_id": 12466,
-    "max_state_id": 12471,
     "num_states": 6
   },
-  {
-    "name": "Light Gray Stained Glass",
+  "light_gray_stained_glass": {
+    "display_name": "Light Gray Stained Glass",
     "min_state_id": 5954,
-    "max_state_id": 5954,
     "num_states": 1
   },
-  {
-    "name": "Light Gray Stained Glass Pane",
+  "light_gray_stained_glass_pane": {
+    "display_name": "Light Gray Stained Glass Pane",
     "min_state_id": 9488,
-    "max_state_id": 9519,
     "num_states": 32
   },
-  {
-    "name": "Light Gray Terracotta",
+  "light_gray_terracotta": {
+    "display_name": "Light Gray Terracotta",
     "min_state_id": 9224,
-    "max_state_id": 9224,
     "num_states": 1
   },
-  {
-    "name": null,
+  "light_gray_wall_banner": {
+    "display_name": null,
     "min_state_id": 10906,
-    "max_state_id": 10909,
     "num_states": 4
   },
-  {
-    "name": "Light Gray Wool",
+  "light_gray_wool": {
+    "display_name": "Light Gray Wool",
     "min_state_id": 2055,
-    "max_state_id": 2055,
     "num_states": 1
   },
-  {
-    "name": "Light Weighted Pressure Plate",
+  "light_weighted_pressure_plate": {
+    "display_name": "Light Weighted Pressure Plate",
     "min_state_id": 9003,
-    "max_state_id": 9018,
     "num_states": 16
   },
-  {
-    "name": "Lightning Rod",
+  "lightning_rod": {
+    "display_name": "Lightning Rod",
     "min_state_id": 22260,
-    "max_state_id": 22283,
     "num_states": 24
   },
-  {
-    "name": "Lilac",
+  "lilac": {
+    "display_name": "Lilac",
     "min_state_id": 10608,
-    "max_state_id": 10609,
     "num_states": 2
   },
-  {
-    "name": "Lily of the Valley",
+  "lily_of_the_valley": {
+    "display_name": "Lily of the Valley",
     "min_state_id": 2088,
-    "max_state_id": 2088,
     "num_states": 1
   },
-  {
-    "name": "Lily Pad",
+  "lily_pad": {
+    "display_name": "Lily Pad",
     "min_state_id": 7271,
-    "max_state_id": 7271,
     "num_states": 1
   },
-  {
-    "name": "Lime Banner",
+  "lime_banner": {
+    "display_name": "Lime Banner",
     "min_state_id": 10698,
-    "max_state_id": 10713,
     "num_states": 16
   },
-  {
-    "name": "Lime Bed",
+  "lime_bed": {
+    "display_name": "Lime Bed",
     "min_state_id": 1768,
-    "max_state_id": 1783,
     "num_states": 16
   },
-  {
-    "name": "Lime Candle",
+  "lime_candle": {
+    "display_name": "Lime Candle",
     "min_state_id": 20671,
-    "max_state_id": 20686,
     "num_states": 16
   },
-  {
-    "name": "Cake with Lime Candle",
+  "lime_candle_cake": {
+    "display_name": "Cake with Lime Candle",
     "min_state_id": 20859,
-    "max_state_id": 20860,
     "num_states": 2
   },
-  {
-    "name": "Lime Carpet",
+  "lime_carpet": {
+    "display_name": "Lime Carpet",
     "min_state_id": 10592,
-    "max_state_id": 10592,
     "num_states": 1
   },
-  {
-    "name": "Lime Concrete",
+  "lime_concrete": {
+    "display_name": "Lime Concrete",
     "min_state_id": 12583,
-    "max_state_id": 12583,
     "num_states": 1
   },
-  {
-    "name": "Lime Concrete Powder",
+  "lime_concrete_powder": {
+    "display_name": "Lime Concrete Powder",
     "min_state_id": 12599,
-    "max_state_id": 12599,
     "num_states": 1
   },
-  {
-    "name": "Lime Glazed Terracotta",
+  "lime_glazed_terracotta": {
+    "display_name": "Lime Glazed Terracotta",
     "min_state_id": 12534,
-    "max_state_id": 12537,
     "num_states": 4
   },
-  {
-    "name": "Lime Shulker Box",
+  "lime_shulker_box": {
+    "display_name": "Lime Shulker Box",
     "min_state_id": 12448,
-    "max_state_id": 12453,
     "num_states": 6
   },
-  {
-    "name": "Lime Stained Glass",
+  "lime_stained_glass": {
+    "display_name": "Lime Stained Glass",
     "min_state_id": 5951,
-    "max_state_id": 5951,
     "num_states": 1
   },
-  {
-    "name": "Lime Stained Glass Pane",
+  "lime_stained_glass_pane": {
+    "display_name": "Lime Stained Glass Pane",
     "min_state_id": 9392,
-    "max_state_id": 9423,
     "num_states": 32
   },
-  {
-    "name": "Lime Terracotta",
+  "lime_terracotta": {
+    "display_name": "Lime Terracotta",
     "min_state_id": 9221,
-    "max_state_id": 9221,
     "num_states": 1
   },
-  {
-    "name": null,
+  "lime_wall_banner": {
+    "display_name": null,
     "min_state_id": 10894,
-    "max_state_id": 10897,
     "num_states": 4
   },
-  {
-    "name": "Lime Wool",
+  "lime_wool": {
+    "display_name": "Lime Wool",
     "min_state_id": 2052,
-    "max_state_id": 2052,
     "num_states": 1
   },
-  {
-    "name": "Lodestone",
+  "lodestone": {
+    "display_name": "Lodestone",
     "min_state_id": 19309,
-    "max_state_id": 19309,
     "num_states": 1
   },
-  {
-    "name": "Loom",
+  "loom": {
+    "display_name": "Loom",
     "min_state_id": 18254,
-    "max_state_id": 18257,
     "num_states": 4
   },
-  {
-    "name": "Magenta Banner",
+  "magenta_banner": {
+    "display_name": "Magenta Banner",
     "min_state_id": 10650,
-    "max_state_id": 10665,
     "num_states": 16
   },
-  {
-    "name": "Magenta Bed",
+  "magenta_bed": {
+    "display_name": "Magenta Bed",
     "min_state_id": 1720,
-    "max_state_id": 1735,
     "num_states": 16
   },
-  {
-    "name": "Magenta Candle",
+  "magenta_candle": {
+    "display_name": "Magenta Candle",
     "min_state_id": 20623,
-    "max_state_id": 20638,
     "num_states": 16
   },
-  {
-    "name": "Cake with Magenta Candle",
+  "magenta_candle_cake": {
+    "display_name": "Cake with Magenta Candle",
     "min_state_id": 20853,
-    "max_state_id": 20854,
     "num_states": 2
   },
-  {
-    "name": "Magenta Carpet",
+  "magenta_carpet": {
+    "display_name": "Magenta Carpet",
     "min_state_id": 10589,
-    "max_state_id": 10589,
     "num_states": 1
   },
-  {
-    "name": "Magenta Concrete",
+  "magenta_concrete": {
+    "display_name": "Magenta Concrete",
     "min_state_id": 12580,
-    "max_state_id": 12580,
     "num_states": 1
   },
-  {
-    "name": "Magenta Concrete Powder",
+  "magenta_concrete_powder": {
+    "display_name": "Magenta Concrete Powder",
     "min_state_id": 12596,
-    "max_state_id": 12596,
     "num_states": 1
   },
-  {
-    "name": "Magenta Glazed Terracotta",
+  "magenta_glazed_terracotta": {
+    "display_name": "Magenta Glazed Terracotta",
     "min_state_id": 12522,
-    "max_state_id": 12525,
     "num_states": 4
   },
-  {
-    "name": "Magenta Shulker Box",
+  "magenta_shulker_box": {
+    "display_name": "Magenta Shulker Box",
     "min_state_id": 12430,
-    "max_state_id": 12435,
     "num_states": 6
   },
-  {
-    "name": "Magenta Stained Glass",
+  "magenta_stained_glass": {
+    "display_name": "Magenta Stained Glass",
     "min_state_id": 5948,
-    "max_state_id": 5948,
     "num_states": 1
   },
-  {
-    "name": "Magenta Stained Glass Pane",
+  "magenta_stained_glass_pane": {
+    "display_name": "Magenta Stained Glass Pane",
     "min_state_id": 9296,
-    "max_state_id": 9327,
     "num_states": 32
   },
-  {
-    "name": "Magenta Terracotta",
+  "magenta_terracotta": {
+    "display_name": "Magenta Terracotta",
     "min_state_id": 9218,
-    "max_state_id": 9218,
     "num_states": 1
   },
-  {
-    "name": null,
+  "magenta_wall_banner": {
+    "display_name": null,
     "min_state_id": 10882,
-    "max_state_id": 10885,
     "num_states": 4
   },
-  {
-    "name": "Magenta Wool",
+  "magenta_wool": {
+    "display_name": "Magenta Wool",
     "min_state_id": 2049,
-    "max_state_id": 2049,
     "num_states": 1
   },
-  {
-    "name": "Magma Block",
+  "magma_block": {
+    "display_name": "Magma Block",
     "min_state_id": 12393,
-    "max_state_id": 12393,
     "num_states": 1
   },
-  {
-    "name": "Mangrove Button",
+  "mangrove_button": {
+    "display_name": "Mangrove Button",
     "min_state_id": 8779,
-    "max_state_id": 8802,
     "num_states": 24
   },
-  {
-    "name": "Mangrove Door",
+  "mangrove_door": {
+    "display_name": "Mangrove Door",
     "min_state_id": 12065,
-    "max_state_id": 12128,
     "num_states": 64
   },
-  {
-    "name": "Mangrove Fence",
+  "mangrove_fence": {
+    "display_name": "Mangrove Fence",
     "min_state_id": 11617,
-    "max_state_id": 11648,
     "num_states": 32
   },
-  {
-    "name": "Mangrove Fence Gate",
+  "mangrove_fence_gate": {
+    "display_name": "Mangrove Fence Gate",
     "min_state_id": 11361,
-    "max_state_id": 11392,
     "num_states": 32
   },
-  {
-    "name": "Mangrove Hanging Sign",
+  "mangrove_hanging_sign": {
+    "display_name": "Mangrove Hanging Sign",
     "min_state_id": 5410,
-    "max_state_id": 5473,
     "num_states": 64
   },
-  {
-    "name": "Mangrove Leaves",
+  "mangrove_leaves": {
+    "display_name": "Mangrove Leaves",
     "min_state_id": 433,
-    "max_state_id": 460,
     "num_states": 28
   },
-  {
-    "name": "Mangrove Log",
+  "mangrove_log": {
+    "display_name": "Mangrove Log",
     "min_state_id": 151,
-    "max_state_id": 153,
     "num_states": 3
   },
-  {
-    "name": "Mangrove Planks",
+  "mangrove_planks": {
+    "display_name": "Mangrove Planks",
     "min_state_id": 22,
-    "max_state_id": 22,
     "num_states": 1
   },
-  {
-    "name": "Mangrove Pressure Plate",
+  "mangrove_pressure_plate": {
+    "display_name": "Mangrove Pressure Plate",
     "min_state_id": 5730,
-    "max_state_id": 5731,
     "num_states": 2
   },
-  {
-    "name": "Mangrove Propagule",
+  "mangrove_propagule": {
+    "display_name": "Mangrove Propagule",
     "min_state_id": 39,
-    "max_state_id": 78,
     "num_states": 40
   },
-  {
-    "name": "Mangrove Roots",
+  "mangrove_roots": {
+    "display_name": "Mangrove Roots",
     "min_state_id": 154,
-    "max_state_id": 155,
     "num_states": 2
   },
-  {
-    "name": "Mangrove Sign",
+  "mangrove_sign": {
+    "display_name": "Mangrove Sign",
     "min_state_id": 4526,
-    "max_state_id": 4557,
     "num_states": 32
   },
-  {
-    "name": "Mangrove Slab",
+  "mangrove_slab": {
+    "display_name": "Mangrove Slab",
     "min_state_id": 11063,
-    "max_state_id": 11068,
     "num_states": 6
   },
-  {
-    "name": "Mangrove Stairs",
+  "mangrove_stairs": {
+    "display_name": "Mangrove Stairs",
     "min_state_id": 9984,
-    "max_state_id": 10063,
     "num_states": 80
   },
-  {
-    "name": "Mangrove Trapdoor",
+  "mangrove_trapdoor": {
+    "display_name": "Mangrove Trapdoor",
     "min_state_id": 6410,
-    "max_state_id": 6473,
     "num_states": 64
   },
-  {
-    "name": "Mangrove Wall Hanging Sign",
+  "mangrove_wall_hanging_sign": {
+    "display_name": "Mangrove Wall Hanging Sign",
     "min_state_id": 5594,
-    "max_state_id": 5601,
     "num_states": 8
   },
-  {
-    "name": "Mangrove Wall Sign",
+  "mangrove_wall_sign": {
+    "display_name": "Mangrove Wall Sign",
     "min_state_id": 4818,
-    "max_state_id": 4825,
     "num_states": 8
   },
-  {
-    "name": "Mangrove Wood",
+  "mangrove_wood": {
+    "display_name": "Mangrove Wood",
     "min_state_id": 210,
-    "max_state_id": 212,
     "num_states": 3
   },
-  {
-    "name": "Medium Amethyst Bud",
+  "medium_amethyst_bud": {
+    "display_name": "Medium Amethyst Bud",
     "min_state_id": 20907,
-    "max_state_id": 20918,
     "num_states": 12
   },
-  {
-    "name": "Melon",
+  "melon": {
+    "display_name": "Melon",
     "min_state_id": 6812,
-    "max_state_id": 6812,
     "num_states": 1
   },
-  {
-    "name": "Melon Stem",
+  "melon_stem": {
+    "display_name": "Melon Stem",
     "min_state_id": 6829,
-    "max_state_id": 6836,
     "num_states": 8
   },
-  {
-    "name": "Moss Block",
+  "moss_block": {
+    "display_name": "Moss Block",
     "min_state_id": 22379,
-    "max_state_id": 22379,
     "num_states": 1
   },
-  {
-    "name": "Moss Carpet",
+  "moss_carpet": {
+    "display_name": "Moss Carpet",
     "min_state_id": 22362,
-    "max_state_id": 22362,
     "num_states": 1
   },
-  {
-    "name": "Mossy Cobblestone",
+  "mossy_cobblestone": {
+    "display_name": "Mossy Cobblestone",
     "min_state_id": 2353,
-    "max_state_id": 2353,
     "num_states": 1
   },
-  {
-    "name": "Mossy Cobblestone Slab",
+  "mossy_cobblestone_slab": {
+    "display_name": "Mossy Cobblestone Slab",
     "min_state_id": 13956,
-    "max_state_id": 13961,
     "num_states": 6
   },
-  {
-    "name": "Mossy Cobblestone Stairs",
+  "mossy_cobblestone_stairs": {
+    "display_name": "Mossy Cobblestone Stairs",
     "min_state_id": 13132,
-    "max_state_id": 13211,
     "num_states": 80
   },
-  {
-    "name": "Mossy Cobblestone Wall",
+  "mossy_cobblestone_wall": {
+    "display_name": "Mossy Cobblestone Wall",
     "min_state_id": 8243,
-    "max_state_id": 8566,
     "num_states": 324
   },
-  {
-    "name": "Mossy Stone Brick Slab",
+  "mossy_stone_brick_slab": {
+    "display_name": "Mossy Stone Brick Slab",
     "min_state_id": 13944,
-    "max_state_id": 13949,
     "num_states": 6
   },
-  {
-    "name": "Mossy Stone Brick Stairs",
+  "mossy_stone_brick_stairs": {
+    "display_name": "Mossy Stone Brick Stairs",
     "min_state_id": 12972,
-    "max_state_id": 13051,
     "num_states": 80
   },
-  {
-    "name": "Mossy Stone Brick Wall",
+  "mossy_stone_brick_wall": {
+    "display_name": "Mossy Stone Brick Wall",
     "min_state_id": 14982,
-    "max_state_id": 15305,
     "num_states": 324
   },
-  {
-    "name": "Mossy Stone Bricks",
+  "mossy_stone_bricks": {
+    "display_name": "Mossy Stone Bricks",
     "min_state_id": 6539,
-    "max_state_id": 6539,
     "num_states": 1
   },
-  {
-    "name": "Moving Piston",
+  "moving_piston": {
+    "display_name": "Moving Piston",
     "min_state_id": 2063,
-    "max_state_id": 2074,
     "num_states": 12
   },
-  {
-    "name": "Mud",
+  "mud": {
+    "display_name": "Mud",
     "min_state_id": 22439,
-    "max_state_id": 22439,
     "num_states": 1
   },
-  {
-    "name": "Mud Brick Slab",
+  "mud_brick_slab": {
+    "display_name": "Mud Brick Slab",
     "min_state_id": 11129,
-    "max_state_id": 11134,
     "num_states": 6
   },
-  {
-    "name": "Mud Brick Stairs",
+  "mud_brick_stairs": {
+    "display_name": "Mud Brick Stairs",
     "min_state_id": 7189,
-    "max_state_id": 7268,
     "num_states": 80
   },
-  {
-    "name": "Mud Brick Wall",
+  "mud_brick_wall": {
+    "display_name": "Mud Brick Wall",
     "min_state_id": 15954,
-    "max_state_id": 16277,
     "num_states": 324
   },
-  {
-    "name": "Mud Bricks",
+  "mud_bricks": {
+    "display_name": "Mud Bricks",
     "min_state_id": 6543,
-    "max_state_id": 6543,
     "num_states": 1
   },
-  {
-    "name": "Muddy Mangrove Roots",
+  "muddy_mangrove_roots": {
+    "display_name": "Muddy Mangrove Roots",
     "min_state_id": 156,
-    "max_state_id": 158,
     "num_states": 3
   },
-  {
-    "name": "Mushroom Stem",
+  "mushroom_stem": {
+    "display_name": "Mushroom Stem",
     "min_state_id": 6678,
-    "max_state_id": 6741,
     "num_states": 64
   },
-  {
-    "name": "Mycelium",
+  "mycelium": {
+    "display_name": "Mycelium",
     "min_state_id": 7269,
-    "max_state_id": 7270,
     "num_states": 2
   },
-  {
-    "name": "Nether Brick Fence",
+  "nether_brick_fence": {
+    "display_name": "Nether Brick Fence",
     "min_state_id": 7273,
-    "max_state_id": 7304,
     "num_states": 32
   },
-  {
-    "name": "Nether Brick Slab",
+  "nether_brick_slab": {
+    "display_name": "Nether Brick Slab",
     "min_state_id": 11135,
-    "max_state_id": 11140,
     "num_states": 6
   },
-  {
-    "name": "Nether Brick Stairs",
+  "nether_brick_stairs": {
+    "display_name": "Nether Brick Stairs",
     "min_state_id": 7305,
-    "max_state_id": 7384,
     "num_states": 80
   },
-  {
-    "name": "Nether Brick Wall",
+  "nether_brick_wall": {
+    "display_name": "Nether Brick Wall",
     "min_state_id": 16278,
-    "max_state_id": 16601,
     "num_states": 324
   },
-  {
-    "name": "Nether Bricks",
+  "nether_bricks": {
+    "display_name": "Nether Bricks",
     "min_state_id": 7272,
-    "max_state_id": 7272,
     "num_states": 1
   },
-  {
-    "name": "Nether Gold Ore",
+  "nether_gold_ore": {
+    "display_name": "Nether Gold Ore",
     "min_state_id": 129,
-    "max_state_id": 129,
     "num_states": 1
   },
-  {
-    "name": "Nether Portal",
+  "nether_portal": {
+    "display_name": "Nether Portal",
     "min_state_id": 5865,
-    "max_state_id": 5866,
     "num_states": 2
   },
-  {
-    "name": "Nether Quartz Ore",
+  "nether_quartz_ore": {
+    "display_name": "Nether Quartz Ore",
     "min_state_id": 9084,
-    "max_state_id": 9084,
     "num_states": 1
   },
-  {
-    "name": "Nether Sprouts",
+  "nether_sprouts": {
+    "display_name": "Nether Sprouts",
     "min_state_id": 18445,
-    "max_state_id": 18445,
     "num_states": 1
   },
-  {
-    "name": "Nether Wart",
+  "nether_wart": {
+    "display_name": "Nether Wart",
     "min_state_id": 7385,
-    "max_state_id": 7388,
     "num_states": 4
   },
-  {
-    "name": "Nether Wart Block",
+  "nether_wart_block": {
+    "display_name": "Nether Wart Block",
     "min_state_id": 12394,
-    "max_state_id": 12394,
     "num_states": 1
   },
-  {
-    "name": "Block of Netherite",
+  "netherite_block": {
+    "display_name": "Block of Netherite",
     "min_state_id": 19297,
-    "max_state_id": 19297,
     "num_states": 1
   },
-  {
-    "name": "Netherrack",
+  "netherrack": {
+    "display_name": "Netherrack",
     "min_state_id": 5850,
-    "max_state_id": 5850,
     "num_states": 1
   },
-  {
-    "name": "Note Block",
+  "note_block": {
+    "display_name": "Note Block",
     "min_state_id": 538,
-    "max_state_id": 1687,
     "num_states": 1150
   },
-  {
-    "name": "Oak Button",
+  "oak_button": {
+    "display_name": "Oak Button",
     "min_state_id": 8611,
-    "max_state_id": 8634,
     "num_states": 24
   },
-  {
-    "name": "Oak Door",
+  "oak_door": {
+    "display_name": "Oak Door",
     "min_state_id": 4590,
-    "max_state_id": 4653,
     "num_states": 64
   },
-  {
-    "name": "Oak Fence",
+  "oak_fence": {
+    "display_name": "Oak Fence",
     "min_state_id": 5817,
-    "max_state_id": 5848,
     "num_states": 32
   },
-  {
-    "name": "Oak Fence Gate",
+  "oak_fence_gate": {
+    "display_name": "Oak Fence Gate",
     "min_state_id": 6997,
-    "max_state_id": 7028,
     "num_states": 32
   },
-  {
-    "name": "Oak Hanging Sign",
+  "oak_hanging_sign": {
+    "display_name": "Oak Hanging Sign",
     "min_state_id": 4834,
-    "max_state_id": 4897,
     "num_states": 64
   },
-  {
-    "name": "Oak Leaves",
+  "oak_leaves": {
+    "display_name": "Oak Leaves",
     "min_state_id": 237,
-    "max_state_id": 264,
     "num_states": 28
   },
-  {
-    "name": "Oak Log",
+  "oak_log": {
+    "display_name": "Oak Log",
     "min_state_id": 130,
-    "max_state_id": 132,
     "num_states": 3
   },
-  {
-    "name": "Oak Planks",
+  "oak_planks": {
+    "display_name": "Oak Planks",
     "min_state_id": 15,
-    "max_state_id": 15,
     "num_states": 1
   },
-  {
-    "name": "Oak Pressure Plate",
+  "oak_pressure_plate": {
+    "display_name": "Oak Pressure Plate",
     "min_state_id": 5716,
-    "max_state_id": 5717,
     "num_states": 2
   },
-  {
-    "name": "Oak Sapling",
+  "oak_sapling": {
+    "display_name": "Oak Sapling",
     "min_state_id": 25,
-    "max_state_id": 26,
     "num_states": 2
   },
-  {
-    "name": "Oak Sign",
+  "oak_sign": {
+    "display_name": "Oak Sign",
     "min_state_id": 4302,
-    "max_state_id": 4333,
     "num_states": 32
   },
-  {
-    "name": "Oak Slab",
+  "oak_slab": {
+    "display_name": "Oak Slab",
     "min_state_id": 11021,
-    "max_state_id": 11026,
     "num_states": 6
   },
-  {
-    "name": "Oak Stairs",
+  "oak_stairs": {
+    "display_name": "Oak Stairs",
     "min_state_id": 2874,
-    "max_state_id": 2953,
     "num_states": 80
   },
-  {
-    "name": "Oak Trapdoor",
+  "oak_trapdoor": {
+    "display_name": "Oak Trapdoor",
     "min_state_id": 5962,
-    "max_state_id": 6025,
     "num_states": 64
   },
-  {
-    "name": "Oak Wall Hanging Sign",
+  "oak_wall_hanging_sign": {
+    "display_name": "Oak Wall Hanging Sign",
     "min_state_id": 5538,
-    "max_state_id": 5545,
     "num_states": 8
   },
-  {
-    "name": "Oak Wall Sign",
+  "oak_wall_sign": {
+    "display_name": "Oak Wall Sign",
     "min_state_id": 4762,
-    "max_state_id": 4769,
     "num_states": 8
   },
-  {
-    "name": "Oak Wood",
+  "oak_wood": {
+    "display_name": "Oak Wood",
     "min_state_id": 189,
-    "max_state_id": 191,
     "num_states": 3
   },
-  {
-    "name": "Observer",
+  "observer": {
+    "display_name": "Observer",
     "min_state_id": 12400,
-    "max_state_id": 12411,
     "num_states": 12
   },
-  {
-    "name": "Obsidian",
+  "obsidian": {
+    "display_name": "Obsidian",
     "min_state_id": 2354,
-    "max_state_id": 2354,
     "num_states": 1
   },
-  {
-    "name": "Ochre Froglight",
+  "ochre_froglight": {
+    "display_name": "Ochre Froglight",
     "min_state_id": 24099,
-    "max_state_id": 24101,
     "num_states": 3
   },
-  {
-    "name": "Orange Banner",
+  "orange_banner": {
+    "display_name": "Orange Banner",
     "min_state_id": 10634,
-    "max_state_id": 10649,
     "num_states": 16
   },
-  {
-    "name": "Orange Bed",
+  "orange_bed": {
+    "display_name": "Orange Bed",
     "min_state_id": 1704,
-    "max_state_id": 1719,
     "num_states": 16
   },
-  {
-    "name": "Orange Candle",
+  "orange_candle": {
+    "display_name": "Orange Candle",
     "min_state_id": 20607,
-    "max_state_id": 20622,
     "num_states": 16
   },
-  {
-    "name": "Cake with Orange Candle",
+  "orange_candle_cake": {
+    "display_name": "Cake with Orange Candle",
     "min_state_id": 20851,
-    "max_state_id": 20852,
     "num_states": 2
   },
-  {
-    "name": "Orange Carpet",
+  "orange_carpet": {
+    "display_name": "Orange Carpet",
     "min_state_id": 10588,
-    "max_state_id": 10588,
     "num_states": 1
   },
-  {
-    "name": "Orange Concrete",
+  "orange_concrete": {
+    "display_name": "Orange Concrete",
     "min_state_id": 12579,
-    "max_state_id": 12579,
     "num_states": 1
   },
-  {
-    "name": "Orange Concrete Powder",
+  "orange_concrete_powder": {
+    "display_name": "Orange Concrete Powder",
     "min_state_id": 12595,
-    "max_state_id": 12595,
     "num_states": 1
   },
-  {
-    "name": "Orange Glazed Terracotta",
+  "orange_glazed_terracotta": {
+    "display_name": "Orange Glazed Terracotta",
     "min_state_id": 12518,
-    "max_state_id": 12521,
     "num_states": 4
   },
-  {
-    "name": "Orange Shulker Box",
+  "orange_shulker_box": {
+    "display_name": "Orange Shulker Box",
     "min_state_id": 12424,
-    "max_state_id": 12429,
     "num_states": 6
   },
-  {
-    "name": "Orange Stained Glass",
+  "orange_stained_glass": {
+    "display_name": "Orange Stained Glass",
     "min_state_id": 5947,
-    "max_state_id": 5947,
     "num_states": 1
   },
-  {
-    "name": "Orange Stained Glass Pane",
+  "orange_stained_glass_pane": {
+    "display_name": "Orange Stained Glass Pane",
     "min_state_id": 9264,
-    "max_state_id": 9295,
     "num_states": 32
   },
-  {
-    "name": "Orange Terracotta",
+  "orange_terracotta": {
+    "display_name": "Orange Terracotta",
     "min_state_id": 9217,
-    "max_state_id": 9217,
     "num_states": 1
   },
-  {
-    "name": "Orange Tulip",
+  "orange_tulip": {
+    "display_name": "Orange Tulip",
     "min_state_id": 2082,
-    "max_state_id": 2082,
     "num_states": 1
   },
-  {
-    "name": null,
+  "orange_wall_banner": {
+    "display_name": null,
     "min_state_id": 10878,
-    "max_state_id": 10881,
     "num_states": 4
   },
-  {
-    "name": "Orange Wool",
+  "orange_wool": {
+    "display_name": "Orange Wool",
     "min_state_id": 2048,
-    "max_state_id": 2048,
     "num_states": 1
   },
-  {
-    "name": "Oxeye Daisy",
+  "oxeye_daisy": {
+    "display_name": "Oxeye Daisy",
     "min_state_id": 2085,
-    "max_state_id": 2085,
     "num_states": 1
   },
-  {
-    "name": "Oxidized Copper",
+  "oxidized_copper": {
+    "display_name": "Oxidized Copper",
     "min_state_id": 21554,
-    "max_state_id": 21554,
     "num_states": 1
   },
-  {
-    "name": "Oxidized Cut Copper",
+  "oxidized_cut_copper": {
+    "display_name": "Oxidized Cut Copper",
     "min_state_id": 21560,
-    "max_state_id": 21560,
     "num_states": 1
   },
-  {
-    "name": "Oxidized Cut Copper Slab",
+  "oxidized_cut_copper_slab": {
+    "display_name": "Oxidized Cut Copper Slab",
     "min_state_id": 21884,
-    "max_state_id": 21889,
     "num_states": 6
   },
-  {
-    "name": "Oxidized Cut Copper Stairs",
+  "oxidized_cut_copper_stairs": {
+    "display_name": "Oxidized Cut Copper Stairs",
     "min_state_id": 21564,
-    "max_state_id": 21643,
     "num_states": 80
   },
-  {
-    "name": "Packed Ice",
+  "packed_ice": {
+    "display_name": "Packed Ice",
     "min_state_id": 10605,
-    "max_state_id": 10605,
     "num_states": 1
   },
-  {
-    "name": "Packed Mud",
+  "packed_mud": {
+    "display_name": "Packed Mud",
     "min_state_id": 6542,
-    "max_state_id": 6542,
     "num_states": 1
   },
-  {
-    "name": "Pearlescent Froglight",
+  "pearlescent_froglight": {
+    "display_name": "Pearlescent Froglight",
     "min_state_id": 24105,
-    "max_state_id": 24107,
     "num_states": 3
   },
-  {
-    "name": "Peony",
+  "peony": {
+    "display_name": "Peony",
     "min_state_id": 10612,
-    "max_state_id": 10613,
     "num_states": 2
   },
-  {
-    "name": "Petrified Oak Slab",
+  "petrified_oak_slab": {
+    "display_name": "Petrified Oak Slab",
     "min_state_id": 11105,
-    "max_state_id": 11110,
     "num_states": 6
   },
-  {
-    "name": "Piglin Head",
+  "piglin_head": {
+    "display_name": "Piglin Head",
     "min_state_id": 8947,
-    "max_state_id": 8962,
     "num_states": 16
   },
-  {
-    "name": "Piglin Wall Head",
+  "piglin_wall_head": {
+    "display_name": "Piglin Wall Head",
     "min_state_id": 8963,
-    "max_state_id": 8966,
     "num_states": 4
   },
-  {
-    "name": "Pink Banner",
+  "pink_banner": {
+    "display_name": "Pink Banner",
     "min_state_id": 10714,
-    "max_state_id": 10729,
     "num_states": 16
   },
-  {
-    "name": "Pink Bed",
+  "pink_bed": {
+    "display_name": "Pink Bed",
     "min_state_id": 1784,
-    "max_state_id": 1799,
     "num_states": 16
   },
-  {
-    "name": "Pink Candle",
+  "pink_candle": {
+    "display_name": "Pink Candle",
     "min_state_id": 20687,
-    "max_state_id": 20702,
     "num_states": 16
   },
-  {
-    "name": "Cake with Pink Candle",
+  "pink_candle_cake": {
+    "display_name": "Cake with Pink Candle",
     "min_state_id": 20861,
-    "max_state_id": 20862,
     "num_states": 2
   },
-  {
-    "name": "Pink Carpet",
+  "pink_carpet": {
+    "display_name": "Pink Carpet",
     "min_state_id": 10593,
-    "max_state_id": 10593,
     "num_states": 1
   },
-  {
-    "name": "Pink Concrete",
+  "pink_concrete": {
+    "display_name": "Pink Concrete",
     "min_state_id": 12584,
-    "max_state_id": 12584,
     "num_states": 1
   },
-  {
-    "name": "Pink Concrete Powder",
+  "pink_concrete_powder": {
+    "display_name": "Pink Concrete Powder",
     "min_state_id": 12600,
-    "max_state_id": 12600,
     "num_states": 1
   },
-  {
-    "name": "Pink Glazed Terracotta",
+  "pink_glazed_terracotta": {
+    "display_name": "Pink Glazed Terracotta",
     "min_state_id": 12538,
-    "max_state_id": 12541,
     "num_states": 4
   },
-  {
-    "name": "Pink Petals",
+  "pink_petals": {
+    "display_name": "Pink Petals",
     "min_state_id": 22363,
-    "max_state_id": 22378,
     "num_states": 16
   },
-  {
-    "name": "Pink Shulker Box",
+  "pink_shulker_box": {
+    "display_name": "Pink Shulker Box",
     "min_state_id": 12454,
-    "max_state_id": 12459,
     "num_states": 6
   },
-  {
-    "name": "Pink Stained Glass",
+  "pink_stained_glass": {
+    "display_name": "Pink Stained Glass",
     "min_state_id": 5952,
-    "max_state_id": 5952,
     "num_states": 1
   },
-  {
-    "name": "Pink Stained Glass Pane",
+  "pink_stained_glass_pane": {
+    "display_name": "Pink Stained Glass Pane",
     "min_state_id": 9424,
-    "max_state_id": 9455,
     "num_states": 32
   },
-  {
-    "name": "Pink Terracotta",
+  "pink_terracotta": {
+    "display_name": "Pink Terracotta",
     "min_state_id": 9222,
-    "max_state_id": 9222,
     "num_states": 1
   },
-  {
-    "name": "Pink Tulip",
+  "pink_tulip": {
+    "display_name": "Pink Tulip",
     "min_state_id": 2084,
-    "max_state_id": 2084,
     "num_states": 1
   },
-  {
-    "name": null,
+  "pink_wall_banner": {
+    "display_name": null,
     "min_state_id": 10898,
-    "max_state_id": 10901,
     "num_states": 4
   },
-  {
-    "name": "Pink Wool",
+  "pink_wool": {
+    "display_name": "Pink Wool",
     "min_state_id": 2053,
-    "max_state_id": 2053,
     "num_states": 1
   },
-  {
-    "name": "Piston",
+  "piston": {
+    "display_name": "Piston",
     "min_state_id": 2011,
-    "max_state_id": 2022,
     "num_states": 12
   },
-  {
-    "name": "Piston Head",
+  "piston_head": {
+    "display_name": "Piston Head",
     "min_state_id": 2023,
-    "max_state_id": 2046,
     "num_states": 24
   },
-  {
-    "name": "Pitcher Crop",
+  "pitcher_crop": {
+    "display_name": "Pitcher Crop",
     "min_state_id": 12356,
-    "max_state_id": 12356,
     "num_states": 1
   },
-  {
-    "name": "Pitcher Plant",
+  "pitcher_plant": {
+    "display_name": "Pitcher Plant",
     "min_state_id": 12357,
-    "max_state_id": 12358,
     "num_states": 2
   },
-  {
-    "name": "Player Head",
+  "player_head": {
+    "display_name": "Player Head",
     "min_state_id": 8887,
-    "max_state_id": 8902,
     "num_states": 16
   },
-  {
-    "name": "Player Wall Head",
+  "player_wall_head": {
+    "display_name": "Player Wall Head",
     "min_state_id": 8903,
-    "max_state_id": 8906,
     "num_states": 4
   },
-  {
-    "name": "Podzol",
+  "podzol": {
+    "display_name": "Podzol",
     "min_state_id": 12,
-    "max_state_id": 13,
     "num_states": 2
   },
-  {
-    "name": "Pointed Dripstone",
+  "pointed_dripstone": {
+    "display_name": "Pointed Dripstone",
     "min_state_id": 22284,
-    "max_state_id": 22303,
     "num_states": 20
   },
-  {
-    "name": "Polished Andesite",
+  "polished_andesite": {
+    "display_name": "Polished Andesite",
     "min_state_id": 7,
-    "max_state_id": 7,
     "num_states": 1
   },
-  {
-    "name": "Polished Andesite Slab",
+  "polished_andesite_slab": {
+    "display_name": "Polished Andesite Slab",
     "min_state_id": 13998,
-    "max_state_id": 14003,
     "num_states": 6
   },
-  {
-    "name": "Polished Andesite Stairs",
+  "polished_andesite_stairs": {
+    "display_name": "Polished Andesite Stairs",
     "min_state_id": 13772,
-    "max_state_id": 13851,
     "num_states": 80
   },
-  {
-    "name": "Polished Basalt",
+  "polished_basalt": {
+    "display_name": "Polished Basalt",
     "min_state_id": 5856,
-    "max_state_id": 5858,
     "num_states": 3
   },
-  {
-    "name": "Polished Blackstone",
+  "polished_blackstone": {
+    "display_name": "Polished Blackstone",
     "min_state_id": 19721,
-    "max_state_id": 19721,
     "num_states": 1
   },
-  {
-    "name": "Polished Blackstone Brick Slab",
+  "polished_blackstone_brick_slab": {
+    "display_name": "Polished Blackstone Brick Slab",
     "min_state_id": 19725,
-    "max_state_id": 19730,
     "num_states": 6
   },
-  {
-    "name": "Polished Blackstone Brick Stairs",
+  "polished_blackstone_brick_stairs": {
+    "display_name": "Polished Blackstone Brick Stairs",
     "min_state_id": 19731,
-    "max_state_id": 19810,
     "num_states": 80
   },
-  {
-    "name": "Polished Blackstone Brick Wall",
+  "polished_blackstone_brick_wall": {
+    "display_name": "Polished Blackstone Brick Wall",
     "min_state_id": 19811,
-    "max_state_id": 20134,
     "num_states": 324
   },
-  {
-    "name": "Polished Blackstone Bricks",
+  "polished_blackstone_bricks": {
+    "display_name": "Polished Blackstone Bricks",
     "min_state_id": 19722,
-    "max_state_id": 19722,
     "num_states": 1
   },
-  {
-    "name": "Polished Blackstone Button",
+  "polished_blackstone_button": {
+    "display_name": "Polished Blackstone Button",
     "min_state_id": 20224,
-    "max_state_id": 20247,
     "num_states": 24
   },
-  {
-    "name": "Polished Blackstone Pressure Plate",
+  "polished_blackstone_pressure_plate": {
+    "display_name": "Polished Blackstone Pressure Plate",
     "min_state_id": 20222,
-    "max_state_id": 20223,
     "num_states": 2
   },
-  {
-    "name": "Polished Blackstone Slab",
+  "polished_blackstone_slab": {
+    "display_name": "Polished Blackstone Slab",
     "min_state_id": 20216,
-    "max_state_id": 20221,
     "num_states": 6
   },
-  {
-    "name": "Polished Blackstone Stairs",
+  "polished_blackstone_stairs": {
+    "display_name": "Polished Blackstone Stairs",
     "min_state_id": 20136,
-    "max_state_id": 20215,
     "num_states": 80
   },
-  {
-    "name": "Polished Blackstone Wall",
+  "polished_blackstone_wall": {
+    "display_name": "Polished Blackstone Wall",
     "min_state_id": 20248,
-    "max_state_id": 20571,
     "num_states": 324
   },
-  {
-    "name": "Polished Deepslate",
+  "polished_deepslate": {
+    "display_name": "Polished Deepslate",
     "min_state_id": 22854,
-    "max_state_id": 22854,
     "num_states": 1
   },
-  {
-    "name": "Polished Deepslate Slab",
+  "polished_deepslate_slab": {
+    "display_name": "Polished Deepslate Slab",
     "min_state_id": 22935,
-    "max_state_id": 22940,
     "num_states": 6
   },
-  {
-    "name": "Polished Deepslate Stairs",
+  "polished_deepslate_stairs": {
+    "display_name": "Polished Deepslate Stairs",
     "min_state_id": 22855,
-    "max_state_id": 22934,
     "num_states": 80
   },
-  {
-    "name": "Polished Deepslate Wall",
+  "polished_deepslate_wall": {
+    "display_name": "Polished Deepslate Wall",
     "min_state_id": 22941,
-    "max_state_id": 23264,
     "num_states": 324
   },
-  {
-    "name": "Polished Diorite",
+  "polished_diorite": {
+    "display_name": "Polished Diorite",
     "min_state_id": 5,
-    "max_state_id": 5,
     "num_states": 1
   },
-  {
-    "name": "Polished Diorite Slab",
+  "polished_diorite_slab": {
+    "display_name": "Polished Diorite Slab",
     "min_state_id": 13950,
-    "max_state_id": 13955,
     "num_states": 6
   },
-  {
-    "name": "Polished Diorite Stairs",
+  "polished_diorite_stairs": {
+    "display_name": "Polished Diorite Stairs",
     "min_state_id": 13052,
-    "max_state_id": 13131,
     "num_states": 80
   },
-  {
-    "name": "Polished Granite",
+  "polished_granite": {
+    "display_name": "Polished Granite",
     "min_state_id": 3,
-    "max_state_id": 3,
     "num_states": 1
   },
-  {
-    "name": "Polished Granite Slab",
+  "polished_granite_slab": {
+    "display_name": "Polished Granite Slab",
     "min_state_id": 13932,
-    "max_state_id": 13937,
     "num_states": 6
   },
-  {
-    "name": "Polished Granite Stairs",
+  "polished_granite_stairs": {
+    "display_name": "Polished Granite Stairs",
     "min_state_id": 12812,
-    "max_state_id": 12891,
     "num_states": 80
   },
-  {
-    "name": "Poppy",
+  "poppy": {
+    "display_name": "Poppy",
     "min_state_id": 2077,
-    "max_state_id": 2077,
     "num_states": 1
   },
-  {
-    "name": "Potatoes",
+  "potatoes": {
+    "display_name": "Potatoes",
     "min_state_id": 8603,
-    "max_state_id": 8610,
     "num_states": 8
   },
-  {
-    "name": "Potted Acacia Sapling",
+  "potted_acacia_sapling": {
+    "display_name": "Potted Acacia Sapling",
     "min_state_id": 8573,
-    "max_state_id": 8573,
     "num_states": 1
   },
-  {
-    "name": "Potted Allium",
+  "potted_allium": {
+    "display_name": "Potted Allium",
     "min_state_id": 8581,
-    "max_state_id": 8581,
     "num_states": 1
   },
-  {
-    "name": "Potted Azalea",
+  "potted_azalea_bush": {
+    "display_name": "Potted Azalea",
     "min_state_id": 24097,
-    "max_state_id": 24097,
     "num_states": 1
   },
-  {
-    "name": "Potted Azure Bluet",
+  "potted_azure_bluet": {
+    "display_name": "Potted Azure Bluet",
     "min_state_id": 8582,
-    "max_state_id": 8582,
     "num_states": 1
   },
-  {
-    "name": "Potted Bamboo",
+  "potted_bamboo": {
+    "display_name": "Potted Bamboo",
     "min_state_id": 12807,
-    "max_state_id": 12807,
     "num_states": 1
   },
-  {
-    "name": "Potted Birch Sapling",
+  "potted_birch_sapling": {
+    "display_name": "Potted Birch Sapling",
     "min_state_id": 8571,
-    "max_state_id": 8571,
     "num_states": 1
   },
-  {
-    "name": "Potted Blue Orchid",
+  "potted_blue_orchid": {
+    "display_name": "Potted Blue Orchid",
     "min_state_id": 8580,
-    "max_state_id": 8580,
     "num_states": 1
   },
-  {
-    "name": "Potted Brown Mushroom",
+  "potted_brown_mushroom": {
+    "display_name": "Potted Brown Mushroom",
     "min_state_id": 8592,
-    "max_state_id": 8592,
     "num_states": 1
   },
-  {
-    "name": "Potted Cactus",
+  "potted_cactus": {
+    "display_name": "Potted Cactus",
     "min_state_id": 8594,
-    "max_state_id": 8594,
     "num_states": 1
   },
-  {
-    "name": "Potted Cherry Sapling",
+  "potted_cherry_sapling": {
+    "display_name": "Potted Cherry Sapling",
     "min_state_id": 8574,
-    "max_state_id": 8574,
     "num_states": 1
   },
-  {
-    "name": "Potted Cornflower",
+  "potted_cornflower": {
+    "display_name": "Potted Cornflower",
     "min_state_id": 8588,
-    "max_state_id": 8588,
     "num_states": 1
   },
-  {
-    "name": "Potted Crimson Fungus",
+  "potted_crimson_fungus": {
+    "display_name": "Potted Crimson Fungus",
     "min_state_id": 19305,
-    "max_state_id": 19305,
     "num_states": 1
   },
-  {
-    "name": "Potted Crimson Roots",
+  "potted_crimson_roots": {
+    "display_name": "Potted Crimson Roots",
     "min_state_id": 19307,
-    "max_state_id": 19307,
     "num_states": 1
   },
-  {
-    "name": "Potted Dandelion",
+  "potted_dandelion": {
+    "display_name": "Potted Dandelion",
     "min_state_id": 8578,
-    "max_state_id": 8578,
     "num_states": 1
   },
-  {
-    "name": "Potted Dark Oak Sapling",
+  "potted_dark_oak_sapling": {
+    "display_name": "Potted Dark Oak Sapling",
     "min_state_id": 8575,
-    "max_state_id": 8575,
     "num_states": 1
   },
-  {
-    "name": "Potted Dead Bush",
+  "potted_dead_bush": {
+    "display_name": "Potted Dead Bush",
     "min_state_id": 8593,
-    "max_state_id": 8593,
     "num_states": 1
   },
-  {
-    "name": "Potted Fern",
+  "potted_fern": {
+    "display_name": "Potted Fern",
     "min_state_id": 8577,
-    "max_state_id": 8577,
     "num_states": 1
   },
-  {
-    "name": "Potted Flowering Azalea",
+  "potted_flowering_azalea_bush": {
+    "display_name": "Potted Flowering Azalea",
     "min_state_id": 24098,
-    "max_state_id": 24098,
     "num_states": 1
   },
-  {
-    "name": "Potted Jungle Sapling",
+  "potted_jungle_sapling": {
+    "display_name": "Potted Jungle Sapling",
     "min_state_id": 8572,
-    "max_state_id": 8572,
     "num_states": 1
   },
-  {
-    "name": "Potted Lily of the Valley",
+  "potted_lily_of_the_valley": {
+    "display_name": "Potted Lily of the Valley",
     "min_state_id": 8589,
-    "max_state_id": 8589,
     "num_states": 1
   },
-  {
-    "name": "Potted Mangrove Propagule",
+  "potted_mangrove_propagule": {
+    "display_name": "Potted Mangrove Propagule",
     "min_state_id": 8576,
-    "max_state_id": 8576,
     "num_states": 1
   },
-  {
-    "name": "Potted Oak Sapling",
+  "potted_oak_sapling": {
+    "display_name": "Potted Oak Sapling",
     "min_state_id": 8569,
-    "max_state_id": 8569,
     "num_states": 1
   },
-  {
-    "name": "Potted Orange Tulip",
+  "potted_orange_tulip": {
+    "display_name": "Potted Orange Tulip",
     "min_state_id": 8584,
-    "max_state_id": 8584,
     "num_states": 1
   },
-  {
-    "name": "Potted Oxeye Daisy",
+  "potted_oxeye_daisy": {
+    "display_name": "Potted Oxeye Daisy",
     "min_state_id": 8587,
-    "max_state_id": 8587,
     "num_states": 1
   },
-  {
-    "name": "Potted Pink Tulip",
+  "potted_pink_tulip": {
+    "display_name": "Potted Pink Tulip",
     "min_state_id": 8586,
-    "max_state_id": 8586,
     "num_states": 1
   },
-  {
-    "name": "Potted Poppy",
+  "potted_poppy": {
+    "display_name": "Potted Poppy",
     "min_state_id": 8579,
-    "max_state_id": 8579,
     "num_states": 1
   },
-  {
-    "name": "Potted Red Mushroom",
+  "potted_red_mushroom": {
+    "display_name": "Potted Red Mushroom",
     "min_state_id": 8591,
-    "max_state_id": 8591,
     "num_states": 1
   },
-  {
-    "name": "Potted Red Tulip",
+  "potted_red_tulip": {
+    "display_name": "Potted Red Tulip",
     "min_state_id": 8583,
-    "max_state_id": 8583,
     "num_states": 1
   },
-  {
-    "name": "Potted Spruce Sapling",
+  "potted_spruce_sapling": {
+    "display_name": "Potted Spruce Sapling",
     "min_state_id": 8570,
-    "max_state_id": 8570,
     "num_states": 1
   },
-  {
-    "name": "Potted Torchflower",
+  "potted_torchflower": {
+    "display_name": "Potted Torchflower",
     "min_state_id": 8568,
-    "max_state_id": 8568,
     "num_states": 1
   },
-  {
-    "name": "Potted Warped Fungus",
+  "potted_warped_fungus": {
+    "display_name": "Potted Warped Fungus",
     "min_state_id": 19306,
-    "max_state_id": 19306,
     "num_states": 1
   },
-  {
-    "name": "Potted Warped Roots",
+  "potted_warped_roots": {
+    "display_name": "Potted Warped Roots",
     "min_state_id": 19308,
-    "max_state_id": 19308,
     "num_states": 1
   },
-  {
-    "name": "Potted White Tulip",
+  "potted_white_tulip": {
+    "display_name": "Potted White Tulip",
     "min_state_id": 8585,
-    "max_state_id": 8585,
     "num_states": 1
   },
-  {
-    "name": "Potted Wither Rose",
+  "potted_wither_rose": {
+    "display_name": "Potted Wither Rose",
     "min_state_id": 8590,
-    "max_state_id": 8590,
     "num_states": 1
   },
-  {
-    "name": "Powder Snow",
+  "powder_snow": {
+    "display_name": "Powder Snow",
     "min_state_id": 20934,
-    "max_state_id": 20934,
     "num_states": 1
   },
-  {
-    "name": "Powder Snow Cauldron",
+  "powder_snow_cauldron": {
+    "display_name": "Powder Snow Cauldron",
     "min_state_id": 7403,
-    "max_state_id": 7405,
     "num_states": 3
   },
-  {
-    "name": "Powered Rail",
+  "powered_rail": {
+    "display_name": "Powered Rail",
     "min_state_id": 1944,
-    "max_state_id": 1967,
     "num_states": 24
   },
-  {
-    "name": "Prismarine",
+  "prismarine": {
+    "display_name": "Prismarine",
     "min_state_id": 10322,
-    "max_state_id": 10322,
     "num_states": 1
   },
-  {
-    "name": "Prismarine Brick Slab",
+  "prismarine_brick_slab": {
+    "display_name": "Prismarine Brick Slab",
     "min_state_id": 10571,
-    "max_state_id": 10576,
     "num_states": 6
   },
-  {
-    "name": "Prismarine Brick Stairs",
+  "prismarine_brick_stairs": {
+    "display_name": "Prismarine Brick Stairs",
     "min_state_id": 10405,
-    "max_state_id": 10484,
     "num_states": 80
   },
-  {
-    "name": "Prismarine Bricks",
+  "prismarine_bricks": {
+    "display_name": "Prismarine Bricks",
     "min_state_id": 10323,
-    "max_state_id": 10323,
     "num_states": 1
   },
-  {
-    "name": "Prismarine Slab",
+  "prismarine_slab": {
+    "display_name": "Prismarine Slab",
     "min_state_id": 10565,
-    "max_state_id": 10570,
     "num_states": 6
   },
-  {
-    "name": "Prismarine Stairs",
+  "prismarine_stairs": {
+    "display_name": "Prismarine Stairs",
     "min_state_id": 10325,
-    "max_state_id": 10404,
     "num_states": 80
   },
-  {
-    "name": "Prismarine Wall",
+  "prismarine_wall": {
+    "display_name": "Prismarine Wall",
     "min_state_id": 14334,
-    "max_state_id": 14657,
     "num_states": 324
   },
-  {
-    "name": "Pumpkin",
+  "pumpkin": {
+    "display_name": "Pumpkin",
     "min_state_id": 5849,
-    "max_state_id": 5849,
     "num_states": 1
   },
-  {
-    "name": "Pumpkin Stem",
+  "pumpkin_stem": {
+    "display_name": "Pumpkin Stem",
     "min_state_id": 6821,
-    "max_state_id": 6828,
     "num_states": 8
   },
-  {
-    "name": "Purple Banner",
+  "purple_banner": {
+    "display_name": "Purple Banner",
     "min_state_id": 10778,
-    "max_state_id": 10793,
     "num_states": 16
   },
-  {
-    "name": "Purple Bed",
+  "purple_bed": {
+    "display_name": "Purple Bed",
     "min_state_id": 1848,
-    "max_state_id": 1863,
     "num_states": 16
   },
-  {
-    "name": "Purple Candle",
+  "purple_candle": {
+    "display_name": "Purple Candle",
     "min_state_id": 20751,
-    "max_state_id": 20766,
     "num_states": 16
   },
-  {
-    "name": "Cake with Purple Candle",
+  "purple_candle_cake": {
+    "display_name": "Cake with Purple Candle",
     "min_state_id": 20869,
-    "max_state_id": 20870,
     "num_states": 2
   },
-  {
-    "name": "Purple Carpet",
+  "purple_carpet": {
+    "display_name": "Purple Carpet",
     "min_state_id": 10597,
-    "max_state_id": 10597,
     "num_states": 1
   },
-  {
-    "name": "Purple Concrete",
+  "purple_concrete": {
+    "display_name": "Purple Concrete",
     "min_state_id": 12588,
-    "max_state_id": 12588,
     "num_states": 1
   },
-  {
-    "name": "Purple Concrete Powder",
+  "purple_concrete_powder": {
+    "display_name": "Purple Concrete Powder",
     "min_state_id": 12604,
-    "max_state_id": 12604,
     "num_states": 1
   },
-  {
-    "name": "Purple Glazed Terracotta",
+  "purple_glazed_terracotta": {
+    "display_name": "Purple Glazed Terracotta",
     "min_state_id": 12554,
-    "max_state_id": 12557,
     "num_states": 4
   },
-  {
-    "name": "Purple Shulker Box",
+  "purple_shulker_box": {
+    "display_name": "Purple Shulker Box",
     "min_state_id": 12478,
-    "max_state_id": 12483,
     "num_states": 6
   },
-  {
-    "name": "Purple Stained Glass",
+  "purple_stained_glass": {
+    "display_name": "Purple Stained Glass",
     "min_state_id": 5956,
-    "max_state_id": 5956,
     "num_states": 1
   },
-  {
-    "name": "Purple Stained Glass Pane",
+  "purple_stained_glass_pane": {
+    "display_name": "Purple Stained Glass Pane",
     "min_state_id": 9552,
-    "max_state_id": 9583,
     "num_states": 32
   },
-  {
-    "name": "Purple Terracotta",
+  "purple_terracotta": {
+    "display_name": "Purple Terracotta",
     "min_state_id": 9226,
-    "max_state_id": 9226,
     "num_states": 1
   },
-  {
-    "name": null,
+  "purple_wall_banner": {
+    "display_name": null,
     "min_state_id": 10914,
-    "max_state_id": 10917,
     "num_states": 4
   },
-  {
-    "name": "Purple Wool",
+  "purple_wool": {
+    "display_name": "Purple Wool",
     "min_state_id": 2057,
-    "max_state_id": 2057,
     "num_states": 1
   },
-  {
-    "name": "Purpur Block",
+  "purpur_block": {
+    "display_name": "Purpur Block",
     "min_state_id": 12269,
-    "max_state_id": 12269,
     "num_states": 1
   },
-  {
-    "name": "Purpur Pillar",
+  "purpur_pillar": {
+    "display_name": "Purpur Pillar",
     "min_state_id": 12270,
-    "max_state_id": 12272,
     "num_states": 3
   },
-  {
-    "name": "Purpur Slab",
+  "purpur_slab": {
+    "display_name": "Purpur Slab",
     "min_state_id": 11159,
-    "max_state_id": 11164,
     "num_states": 6
   },
-  {
-    "name": "Purpur Stairs",
+  "purpur_stairs": {
+    "display_name": "Purpur Stairs",
     "min_state_id": 12273,
-    "max_state_id": 12352,
     "num_states": 80
   },
-  {
-    "name": "Block of Quartz",
+  "quartz_block": {
+    "display_name": "Block of Quartz",
     "min_state_id": 9095,
-    "max_state_id": 9095,
     "num_states": 1
   },
-  {
-    "name": "Quartz Bricks",
+  "quartz_bricks": {
+    "display_name": "Quartz Bricks",
     "min_state_id": 20574,
-    "max_state_id": 20574,
     "num_states": 1
   },
-  {
-    "name": "Quartz Pillar",
+  "quartz_pillar": {
+    "display_name": "Quartz Pillar",
     "min_state_id": 9097,
-    "max_state_id": 9099,
     "num_states": 3
   },
-  {
-    "name": "Quartz Slab",
+  "quartz_slab": {
+    "display_name": "Quartz Slab",
     "min_state_id": 11141,
-    "max_state_id": 11146,
     "num_states": 6
   },
-  {
-    "name": "Quartz Stairs",
+  "quartz_stairs": {
+    "display_name": "Quartz Stairs",
     "min_state_id": 9100,
-    "max_state_id": 9179,
     "num_states": 80
   },
-  {
-    "name": "Rail",
+  "rail": {
+    "display_name": "Rail",
     "min_state_id": 4662,
-    "max_state_id": 4681,
     "num_states": 20
   },
-  {
-    "name": "Block of Raw Copper",
+  "raw_copper_block": {
+    "display_name": "Block of Raw Copper",
     "min_state_id": 24095,
-    "max_state_id": 24095,
     "num_states": 1
   },
-  {
-    "name": "Block of Raw Gold",
+  "raw_gold_block": {
+    "display_name": "Block of Raw Gold",
     "min_state_id": 24096,
-    "max_state_id": 24096,
     "num_states": 1
   },
-  {
-    "name": "Block of Raw Iron",
+  "raw_iron_block": {
+    "display_name": "Block of Raw Iron",
     "min_state_id": 24094,
-    "max_state_id": 24094,
     "num_states": 1
   },
-  {
-    "name": "Red Banner",
+  "red_banner": {
+    "display_name": "Red Banner",
     "min_state_id": 10842,
-    "max_state_id": 10857,
     "num_states": 16
   },
-  {
-    "name": "Red Bed",
+  "red_bed": {
+    "display_name": "Red Bed",
     "min_state_id": 1912,
-    "max_state_id": 1927,
     "num_states": 16
   },
-  {
-    "name": "Red Candle",
+  "red_candle": {
+    "display_name": "Red Candle",
     "min_state_id": 20815,
-    "max_state_id": 20830,
     "num_states": 16
   },
-  {
-    "name": "Cake with Red Candle",
+  "red_candle_cake": {
+    "display_name": "Cake with Red Candle",
     "min_state_id": 20877,
-    "max_state_id": 20878,
     "num_states": 2
   },
-  {
-    "name": "Red Carpet",
+  "red_carpet": {
+    "display_name": "Red Carpet",
     "min_state_id": 10601,
-    "max_state_id": 10601,
     "num_states": 1
   },
-  {
-    "name": "Red Concrete",
+  "red_concrete": {
+    "display_name": "Red Concrete",
     "min_state_id": 12592,
-    "max_state_id": 12592,
     "num_states": 1
   },
-  {
-    "name": "Red Concrete Powder",
+  "red_concrete_powder": {
+    "display_name": "Red Concrete Powder",
     "min_state_id": 12608,
-    "max_state_id": 12608,
     "num_states": 1
   },
-  {
-    "name": "Red Glazed Terracotta",
+  "red_glazed_terracotta": {
+    "display_name": "Red Glazed Terracotta",
     "min_state_id": 12570,
-    "max_state_id": 12573,
     "num_states": 4
   },
-  {
-    "name": "Red Mushroom",
+  "red_mushroom": {
+    "display_name": "Red Mushroom",
     "min_state_id": 2090,
-    "max_state_id": 2090,
     "num_states": 1
   },
-  {
-    "name": "Red Mushroom Block",
+  "red_mushroom_block": {
+    "display_name": "Red Mushroom Block",
     "min_state_id": 6614,
-    "max_state_id": 6677,
     "num_states": 64
   },
-  {
-    "name": "Red Nether Brick Slab",
+  "red_nether_brick_slab": {
+    "display_name": "Red Nether Brick Slab",
     "min_state_id": 13992,
-    "max_state_id": 13997,
     "num_states": 6
   },
-  {
-    "name": "Red Nether Brick Stairs",
+  "red_nether_brick_stairs": {
+    "display_name": "Red Nether Brick Stairs",
     "min_state_id": 13692,
-    "max_state_id": 13771,
     "num_states": 80
   },
-  {
-    "name": "Red Nether Brick Wall",
+  "red_nether_brick_wall": {
+    "display_name": "Red Nether Brick Wall",
     "min_state_id": 16926,
-    "max_state_id": 17249,
     "num_states": 324
   },
-  {
-    "name": "Red Nether Bricks",
+  "red_nether_bricks": {
+    "display_name": "Red Nether Bricks",
     "min_state_id": 12395,
-    "max_state_id": 12395,
     "num_states": 1
   },
-  {
-    "name": "Red Sand",
+  "red_sand": {
+    "display_name": "Red Sand",
     "min_state_id": 117,
-    "max_state_id": 117,
     "num_states": 1
   },
-  {
-    "name": "Red Sandstone",
+  "red_sandstone": {
+    "display_name": "Red Sandstone",
     "min_state_id": 10938,
-    "max_state_id": 10938,
     "num_states": 1
   },
-  {
-    "name": "Red Sandstone Slab",
+  "red_sandstone_slab": {
+    "display_name": "Red Sandstone Slab",
     "min_state_id": 11147,
-    "max_state_id": 11152,
     "num_states": 6
   },
-  {
-    "name": "Red Sandstone Stairs",
+  "red_sandstone_stairs": {
+    "display_name": "Red Sandstone Stairs",
     "min_state_id": 10941,
-    "max_state_id": 11020,
     "num_states": 80
   },
-  {
-    "name": "Red Sandstone Wall",
+  "red_sandstone_wall": {
+    "display_name": "Red Sandstone Wall",
     "min_state_id": 14658,
-    "max_state_id": 14981,
     "num_states": 324
   },
-  {
-    "name": "Red Shulker Box",
+  "red_shulker_box": {
+    "display_name": "Red Shulker Box",
     "min_state_id": 12502,
-    "max_state_id": 12507,
     "num_states": 6
   },
-  {
-    "name": "Red Stained Glass",
+  "red_stained_glass": {
+    "display_name": "Red Stained Glass",
     "min_state_id": 5960,
-    "max_state_id": 5960,
     "num_states": 1
   },
-  {
-    "name": "Red Stained Glass Pane",
+  "red_stained_glass_pane": {
+    "display_name": "Red Stained Glass Pane",
     "min_state_id": 9680,
-    "max_state_id": 9711,
     "num_states": 32
   },
-  {
-    "name": "Red Terracotta",
+  "red_terracotta": {
+    "display_name": "Red Terracotta",
     "min_state_id": 9230,
-    "max_state_id": 9230,
     "num_states": 1
   },
-  {
-    "name": "Red Tulip",
+  "red_tulip": {
+    "display_name": "Red Tulip",
     "min_state_id": 2081,
-    "max_state_id": 2081,
     "num_states": 1
   },
-  {
-    "name": null,
+  "red_wall_banner": {
+    "display_name": null,
     "min_state_id": 10930,
-    "max_state_id": 10933,
     "num_states": 4
   },
-  {
-    "name": "Red Wool",
+  "red_wool": {
+    "display_name": "Red Wool",
     "min_state_id": 2061,
-    "max_state_id": 2061,
     "num_states": 1
   },
-  {
-    "name": "Block of Redstone",
+  "redstone_block": {
+    "display_name": "Block of Redstone",
     "min_state_id": 9083,
-    "max_state_id": 9083,
     "num_states": 1
   },
-  {
-    "name": "Redstone Lamp",
+  "redstone_lamp": {
+    "display_name": "Redstone Lamp",
     "min_state_id": 7417,
-    "max_state_id": 7418,
     "num_states": 2
   },
-  {
-    "name": "Redstone Ore",
+  "redstone_ore": {
+    "display_name": "Redstone Ore",
     "min_state_id": 5734,
-    "max_state_id": 5735,
     "num_states": 2
   },
-  {
-    "name": "Redstone Torch",
+  "redstone_torch": {
+    "display_name": "Redstone Torch",
     "min_state_id": 5738,
-    "max_state_id": 5739,
     "num_states": 2
   },
-  {
-    "name": "Redstone Wall Torch",
+  "redstone_wall_torch": {
+    "display_name": "Redstone Wall Torch",
     "min_state_id": 5740,
-    "max_state_id": 5747,
     "num_states": 8
   },
-  {
-    "name": "Redstone Wire",
+  "redstone_wire": {
+    "display_name": "Redstone Wire",
     "min_state_id": 2978,
-    "max_state_id": 4273,
     "num_states": 1296
   },
-  {
-    "name": "Reinforced Deepslate",
+  "reinforced_deepslate": {
+    "display_name": "Reinforced Deepslate",
     "min_state_id": 24109,
-    "max_state_id": 24109,
     "num_states": 1
   },
-  {
-    "name": "Redstone Repeater",
+  "repeater": {
+    "display_name": "Redstone Repeater",
     "min_state_id": 5882,
-    "max_state_id": 5945,
     "num_states": 64
   },
-  {
-    "name": "Repeating Command Block",
+  "repeating_command_block": {
+    "display_name": "Repeating Command Block",
     "min_state_id": 12365,
-    "max_state_id": 12376,
     "num_states": 12
   },
-  {
-    "name": "Respawn Anchor",
+  "respawn_anchor": {
+    "display_name": "Respawn Anchor",
     "min_state_id": 19300,
-    "max_state_id": 19304,
     "num_states": 5
   },
-  {
-    "name": "Rooted Dirt",
+  "rooted_dirt": {
+    "display_name": "Rooted Dirt",
     "min_state_id": 22438,
-    "max_state_id": 22438,
     "num_states": 1
   },
-  {
-    "name": "Rose Bush",
+  "rose_bush": {
+    "display_name": "Rose Bush",
     "min_state_id": 10610,
-    "max_state_id": 10611,
     "num_states": 2
   },
-  {
-    "name": "Sand",
+  "sand": {
+    "display_name": "Sand",
     "min_state_id": 112,
-    "max_state_id": 112,
     "num_states": 1
   },
-  {
-    "name": "Sandstone",
+  "sandstone": {
+    "display_name": "Sandstone",
     "min_state_id": 535,
-    "max_state_id": 535,
     "num_states": 1
   },
-  {
-    "name": "Sandstone Slab",
+  "sandstone_slab": {
+    "display_name": "Sandstone Slab",
     "min_state_id": 11093,
-    "max_state_id": 11098,
     "num_states": 6
   },
-  {
-    "name": "Sandstone Stairs",
+  "sandstone_stairs": {
+    "display_name": "Sandstone Stairs",
     "min_state_id": 7431,
-    "max_state_id": 7510,
     "num_states": 80
   },
-  {
-    "name": "Sandstone Wall",
+  "sandstone_wall": {
+    "display_name": "Sandstone Wall",
     "min_state_id": 17250,
-    "max_state_id": 17573,
     "num_states": 324
   },
-  {
-    "name": "Scaffolding",
+  "scaffolding": {
+    "display_name": "Scaffolding",
     "min_state_id": 18222,
-    "max_state_id": 18253,
     "num_states": 32
   },
-  {
-    "name": "Sculk",
+  "sculk": {
+    "display_name": "Sculk",
     "min_state_id": 21415,
-    "max_state_id": 21415,
     "num_states": 1
   },
-  {
-    "name": "Sculk Catalyst",
+  "sculk_catalyst": {
+    "display_name": "Sculk Catalyst",
     "min_state_id": 21544,
-    "max_state_id": 21545,
     "num_states": 2
   },
-  {
-    "name": "Sculk Sensor",
+  "sculk_sensor": {
+    "display_name": "Sculk Sensor",
     "min_state_id": 20935,
-    "max_state_id": 21030,
     "num_states": 96
   },
-  {
-    "name": "Sculk Shrieker",
+  "sculk_shrieker": {
+    "display_name": "Sculk Shrieker",
     "min_state_id": 21546,
-    "max_state_id": 21553,
     "num_states": 8
   },
-  {
-    "name": "Sculk Vein",
+  "sculk_vein": {
+    "display_name": "Sculk Vein",
     "min_state_id": 21416,
-    "max_state_id": 21543,
     "num_states": 128
   },
-  {
-    "name": "Sea Lantern",
+  "sea_lantern": {
+    "display_name": "Sea Lantern",
     "min_state_id": 10583,
-    "max_state_id": 10583,
     "num_states": 1
   },
-  {
-    "name": "Sea Pickle",
+  "sea_pickle": {
+    "display_name": "Sea Pickle",
     "min_state_id": 12783,
-    "max_state_id": 12790,
     "num_states": 8
   },
-  {
-    "name": "Seagrass",
+  "seagrass": {
+    "display_name": "Seagrass",
     "min_state_id": 2008,
-    "max_state_id": 2008,
     "num_states": 1
   },
-  {
-    "name": "Shroomlight",
+  "shroomlight": {
+    "display_name": "Shroomlight",
     "min_state_id": 18460,
-    "max_state_id": 18460,
     "num_states": 1
   },
-  {
-    "name": "Shulker Box",
+  "shulker_box": {
+    "display_name": "Shulker Box",
     "min_state_id": 12412,
-    "max_state_id": 12417,
     "num_states": 6
   },
-  {
-    "name": "Skeleton Skull",
+  "skeleton_skull": {
+    "display_name": "Skeleton Skull",
     "min_state_id": 8827,
-    "max_state_id": 8842,
     "num_states": 16
   },
-  {
-    "name": "Skeleton Wall Skull",
+  "skeleton_wall_skull": {
+    "display_name": "Skeleton Wall Skull",
     "min_state_id": 8843,
-    "max_state_id": 8846,
     "num_states": 4
   },
-  {
-    "name": "Slime Block",
+  "slime_block": {
+    "display_name": "Slime Block",
     "min_state_id": 10224,
-    "max_state_id": 10224,
     "num_states": 1
   },
-  {
-    "name": "Small Amethyst Bud",
+  "small_amethyst_bud": {
+    "display_name": "Small Amethyst Bud",
     "min_state_id": 20919,
-    "max_state_id": 20930,
     "num_states": 12
   },
-  {
-    "name": "Small Dripleaf",
+  "small_dripleaf": {
+    "display_name": "Small Dripleaf",
     "min_state_id": 22420,
-    "max_state_id": 22435,
     "num_states": 16
   },
-  {
-    "name": "Smithing Table",
+  "smithing_table": {
+    "display_name": "Smithing Table",
     "min_state_id": 18316,
-    "max_state_id": 18316,
     "num_states": 1
   },
-  {
-    "name": "Smoker",
+  "smoker": {
+    "display_name": "Smoker",
     "min_state_id": 18270,
-    "max_state_id": 18277,
     "num_states": 8
   },
-  {
-    "name": "Smooth Basalt",
+  "smooth_basalt": {
+    "display_name": "Smooth Basalt",
     "min_state_id": 24093,
-    "max_state_id": 24093,
     "num_states": 1
   },
-  {
-    "name": "Smooth Quartz Block",
+  "smooth_quartz": {
+    "display_name": "Smooth Quartz Block",
     "min_state_id": 11167,
-    "max_state_id": 11167,
     "num_states": 1
   },
-  {
-    "name": "Smooth Quartz Slab",
+  "smooth_quartz_slab": {
+    "display_name": "Smooth Quartz Slab",
     "min_state_id": 13974,
-    "max_state_id": 13979,
     "num_states": 6
   },
-  {
-    "name": "Smooth Quartz Stairs",
+  "smooth_quartz_stairs": {
+    "display_name": "Smooth Quartz Stairs",
     "min_state_id": 13452,
-    "max_state_id": 13531,
     "num_states": 80
   },
-  {
-    "name": "Smooth Red Sandstone",
+  "smooth_red_sandstone": {
+    "display_name": "Smooth Red Sandstone",
     "min_state_id": 11168,
-    "max_state_id": 11168,
     "num_states": 1
   },
-  {
-    "name": "Smooth Red Sandstone Slab",
+  "smooth_red_sandstone_slab": {
+    "display_name": "Smooth Red Sandstone Slab",
     "min_state_id": 13938,
-    "max_state_id": 13943,
     "num_states": 6
   },
-  {
-    "name": "Smooth Red Sandstone Stairs",
+  "smooth_red_sandstone_stairs": {
+    "display_name": "Smooth Red Sandstone Stairs",
     "min_state_id": 12892,
-    "max_state_id": 12971,
     "num_states": 80
   },
-  {
-    "name": "Smooth Sandstone",
+  "smooth_sandstone": {
+    "display_name": "Smooth Sandstone",
     "min_state_id": 11166,
-    "max_state_id": 11166,
     "num_states": 1
   },
-  {
-    "name": "Smooth Sandstone Slab",
+  "smooth_sandstone_slab": {
+    "display_name": "Smooth Sandstone Slab",
     "min_state_id": 13968,
-    "max_state_id": 13973,
     "num_states": 6
   },
-  {
-    "name": "Smooth Sandstone Stairs",
+  "smooth_sandstone_stairs": {
+    "display_name": "Smooth Sandstone Stairs",
     "min_state_id": 13372,
-    "max_state_id": 13451,
     "num_states": 80
   },
-  {
-    "name": "Smooth Stone",
+  "smooth_stone": {
+    "display_name": "Smooth Stone",
     "min_state_id": 11165,
-    "max_state_id": 11165,
     "num_states": 1
   },
-  {
-    "name": "Smooth Stone Slab",
+  "smooth_stone_slab": {
+    "display_name": "Smooth Stone Slab",
     "min_state_id": 11087,
-    "max_state_id": 11092,
     "num_states": 6
   },
-  {
-    "name": "Sniffer Egg",
+  "sniffer_egg": {
+    "display_name": "Sniffer Egg",
     "min_state_id": 12650,
-    "max_state_id": 12652,
     "num_states": 3
   },
-  {
-    "name": "Snow",
+  "snow": {
+    "display_name": "Snow",
     "min_state_id": 5772,
-    "max_state_id": 5779,
     "num_states": 8
   },
-  {
-    "name": "Snow Block",
+  "snow_block": {
+    "display_name": "Snow Block",
     "min_state_id": 5781,
-    "max_state_id": 5781,
     "num_states": 1
   },
-  {
-    "name": "Soul Campfire",
+  "soul_campfire": {
+    "display_name": "Soul Campfire",
     "min_state_id": 18393,
-    "max_state_id": 18424,
     "num_states": 32
   },
-  {
-    "name": "Soul Fire",
+  "soul_fire": {
+    "display_name": "Soul Fire",
     "min_state_id": 2872,
-    "max_state_id": 2872,
     "num_states": 1
   },
-  {
-    "name": "Soul Lantern",
+  "soul_lantern": {
+    "display_name": "Soul Lantern",
     "min_state_id": 18357,
-    "max_state_id": 18360,
     "num_states": 4
   },
-  {
-    "name": "Soul Sand",
+  "soul_sand": {
+    "display_name": "Soul Sand",
     "min_state_id": 5851,
-    "max_state_id": 5851,
     "num_states": 1
   },
-  {
-    "name": "Soul Soil",
+  "soul_soil": {
+    "display_name": "Soul Soil",
     "min_state_id": 5852,
-    "max_state_id": 5852,
     "num_states": 1
   },
-  {
-    "name": "Soul Torch",
+  "soul_torch": {
+    "display_name": "Soul Torch",
     "min_state_id": 5859,
-    "max_state_id": 5859,
     "num_states": 1
   },
-  {
-    "name": "Soul Wall Torch",
+  "soul_wall_torch": {
+    "display_name": "Soul Wall Torch",
     "min_state_id": 5860,
-    "max_state_id": 5863,
     "num_states": 4
   },
-  {
-    "name": "Monster Spawner",
+  "spawner": {
+    "display_name": "Monster Spawner",
     "min_state_id": 2873,
-    "max_state_id": 2873,
     "num_states": 1
   },
-  {
-    "name": "Sponge",
+  "sponge": {
+    "display_name": "Sponge",
     "min_state_id": 517,
-    "max_state_id": 517,
     "num_states": 1
   },
-  {
-    "name": "Spore Blossom",
+  "spore_blossom": {
+    "display_name": "Spore Blossom",
     "min_state_id": 22359,
-    "max_state_id": 22359,
     "num_states": 1
   },
-  {
-    "name": "Spruce Button",
+  "spruce_button": {
+    "display_name": "Spruce Button",
     "min_state_id": 8635,
-    "max_state_id": 8658,
     "num_states": 24
   },
-  {
-    "name": "Spruce Door",
+  "spruce_door": {
+    "display_name": "Spruce Door",
     "min_state_id": 11681,
-    "max_state_id": 11744,
     "num_states": 64
   },
-  {
-    "name": "Spruce Fence",
+  "spruce_fence": {
+    "display_name": "Spruce Fence",
     "min_state_id": 11425,
-    "max_state_id": 11456,
     "num_states": 32
   },
-  {
-    "name": "Spruce Fence Gate",
+  "spruce_fence_gate": {
+    "display_name": "Spruce Fence Gate",
     "min_state_id": 11169,
-    "max_state_id": 11200,
     "num_states": 32
   },
-  {
-    "name": "Spruce Hanging Sign",
+  "spruce_hanging_sign": {
+    "display_name": "Spruce Hanging Sign",
     "min_state_id": 4898,
-    "max_state_id": 4961,
     "num_states": 64
   },
-  {
-    "name": "Spruce Leaves",
+  "spruce_leaves": {
+    "display_name": "Spruce Leaves",
     "min_state_id": 265,
-    "max_state_id": 292,
     "num_states": 28
   },
-  {
-    "name": "Spruce Log",
+  "spruce_log": {
+    "display_name": "Spruce Log",
     "min_state_id": 133,
-    "max_state_id": 135,
     "num_states": 3
   },
-  {
-    "name": "Spruce Planks",
+  "spruce_planks": {
+    "display_name": "Spruce Planks",
     "min_state_id": 16,
-    "max_state_id": 16,
     "num_states": 1
   },
-  {
-    "name": "Spruce Pressure Plate",
+  "spruce_pressure_plate": {
+    "display_name": "Spruce Pressure Plate",
     "min_state_id": 5718,
-    "max_state_id": 5719,
     "num_states": 2
   },
-  {
-    "name": "Spruce Sapling",
+  "spruce_sapling": {
+    "display_name": "Spruce Sapling",
     "min_state_id": 27,
-    "max_state_id": 28,
     "num_states": 2
   },
-  {
-    "name": "Spruce Sign",
+  "spruce_sign": {
+    "display_name": "Spruce Sign",
     "min_state_id": 4334,
-    "max_state_id": 4365,
     "num_states": 32
   },
-  {
-    "name": "Spruce Slab",
+  "spruce_slab": {
+    "display_name": "Spruce Slab",
     "min_state_id": 11027,
-    "max_state_id": 11032,
     "num_states": 6
   },
-  {
-    "name": "Spruce Stairs",
+  "spruce_stairs": {
+    "display_name": "Spruce Stairs",
     "min_state_id": 7666,
-    "max_state_id": 7745,
     "num_states": 80
   },
-  {
-    "name": "Spruce Trapdoor",
+  "spruce_trapdoor": {
+    "display_name": "Spruce Trapdoor",
     "min_state_id": 6026,
-    "max_state_id": 6089,
     "num_states": 64
   },
-  {
-    "name": "Spruce Wall Hanging Sign",
+  "spruce_wall_hanging_sign": {
+    "display_name": "Spruce Wall Hanging Sign",
     "min_state_id": 5546,
-    "max_state_id": 5553,
     "num_states": 8
   },
-  {
-    "name": "Spruce Wall Sign",
+  "spruce_wall_sign": {
+    "display_name": "Spruce Wall Sign",
     "min_state_id": 4770,
-    "max_state_id": 4777,
     "num_states": 8
   },
-  {
-    "name": "Spruce Wood",
+  "spruce_wood": {
+    "display_name": "Spruce Wood",
     "min_state_id": 192,
-    "max_state_id": 194,
     "num_states": 3
   },
-  {
-    "name": "Sticky Piston",
+  "sticky_piston": {
+    "display_name": "Sticky Piston",
     "min_state_id": 1992,
-    "max_state_id": 2003,
     "num_states": 12
   },
-  {
-    "name": "Stone",
+  "stone": {
+    "display_name": "Stone",
     "min_state_id": 1,
-    "max_state_id": 1,
     "num_states": 1
   },
-  {
-    "name": "Stone Brick Slab",
+  "stone_brick_slab": {
+    "display_name": "Stone Brick Slab",
     "min_state_id": 11123,
-    "max_state_id": 11128,
     "num_states": 6
   },
-  {
-    "name": "Stone Brick Stairs",
+  "stone_brick_stairs": {
+    "display_name": "Stone Brick Stairs",
     "min_state_id": 7109,
-    "max_state_id": 7188,
     "num_states": 80
   },
-  {
-    "name": "Stone Brick Wall",
+  "stone_brick_wall": {
+    "display_name": "Stone Brick Wall",
     "min_state_id": 15630,
-    "max_state_id": 15953,
     "num_states": 324
   },
-  {
-    "name": "Stone Bricks",
+  "stone_bricks": {
+    "display_name": "Stone Bricks",
     "min_state_id": 6538,
-    "max_state_id": 6538,
     "num_states": 1
   },
-  {
-    "name": "Stone Button",
+  "stone_button": {
+    "display_name": "Stone Button",
     "min_state_id": 5748,
-    "max_state_id": 5771,
     "num_states": 24
   },
-  {
-    "name": "Stone Pressure Plate",
+  "stone_pressure_plate": {
+    "display_name": "Stone Pressure Plate",
     "min_state_id": 5650,
-    "max_state_id": 5651,
     "num_states": 2
   },
-  {
-    "name": "Stone Slab",
+  "stone_slab": {
+    "display_name": "Stone Slab",
     "min_state_id": 11081,
-    "max_state_id": 11086,
     "num_states": 6
   },
-  {
-    "name": "Stone Stairs",
+  "stone_stairs": {
+    "display_name": "Stone Stairs",
     "min_state_id": 13292,
-    "max_state_id": 13371,
     "num_states": 80
   },
-  {
-    "name": "Stonecutter",
+  "stonecutter": {
+    "display_name": "Stonecutter",
     "min_state_id": 18317,
-    "max_state_id": 18320,
     "num_states": 4
   },
-  {
-    "name": "Stripped Acacia Log",
+  "stripped_acacia_log": {
+    "display_name": "Stripped Acacia Log",
     "min_state_id": 171,
-    "max_state_id": 173,
     "num_states": 3
   },
-  {
-    "name": "Stripped Acacia Wood",
+  "stripped_acacia_wood": {
+    "display_name": "Stripped Acacia Wood",
     "min_state_id": 225,
-    "max_state_id": 227,
     "num_states": 3
   },
-  {
-    "name": "Block of Stripped Bamboo",
+  "stripped_bamboo_block": {
+    "display_name": "Block of Stripped Bamboo",
     "min_state_id": 186,
-    "max_state_id": 188,
     "num_states": 3
   },
-  {
-    "name": "Stripped Birch Log",
+  "stripped_birch_log": {
+    "display_name": "Stripped Birch Log",
     "min_state_id": 165,
-    "max_state_id": 167,
     "num_states": 3
   },
-  {
-    "name": "Stripped Birch Wood",
+  "stripped_birch_wood": {
+    "display_name": "Stripped Birch Wood",
     "min_state_id": 219,
-    "max_state_id": 221,
     "num_states": 3
   },
-  {
-    "name": "Stripped Cherry Log",
+  "stripped_cherry_log": {
+    "display_name": "Stripped Cherry Log",
     "min_state_id": 174,
-    "max_state_id": 176,
     "num_states": 3
   },
-  {
-    "name": "Stripped Cherry Wood",
+  "stripped_cherry_wood": {
+    "display_name": "Stripped Cherry Wood",
     "min_state_id": 228,
-    "max_state_id": 230,
     "num_states": 3
   },
-  {
-    "name": "Stripped Crimson Hyphae",
+  "stripped_crimson_hyphae": {
+    "display_name": "Stripped Crimson Hyphae",
     "min_state_id": 18455,
-    "max_state_id": 18457,
     "num_states": 3
   },
-  {
-    "name": "Stripped Crimson Stem",
+  "stripped_crimson_stem": {
+    "display_name": "Stripped Crimson Stem",
     "min_state_id": 18449,
-    "max_state_id": 18451,
     "num_states": 3
   },
-  {
-    "name": "Stripped Dark Oak Log",
+  "stripped_dark_oak_log": {
+    "display_name": "Stripped Dark Oak Log",
     "min_state_id": 177,
-    "max_state_id": 179,
     "num_states": 3
   },
-  {
-    "name": "Stripped Dark Oak Wood",
+  "stripped_dark_oak_wood": {
+    "display_name": "Stripped Dark Oak Wood",
     "min_state_id": 231,
-    "max_state_id": 233,
     "num_states": 3
   },
-  {
-    "name": "Stripped Jungle Log",
+  "stripped_jungle_log": {
+    "display_name": "Stripped Jungle Log",
     "min_state_id": 168,
-    "max_state_id": 170,
     "num_states": 3
   },
-  {
-    "name": "Stripped Jungle Wood",
+  "stripped_jungle_wood": {
+    "display_name": "Stripped Jungle Wood",
     "min_state_id": 222,
-    "max_state_id": 224,
     "num_states": 3
   },
-  {
-    "name": "Stripped Mangrove Log",
+  "stripped_mangrove_log": {
+    "display_name": "Stripped Mangrove Log",
     "min_state_id": 183,
-    "max_state_id": 185,
     "num_states": 3
   },
-  {
-    "name": "Stripped Mangrove Wood",
+  "stripped_mangrove_wood": {
+    "display_name": "Stripped Mangrove Wood",
     "min_state_id": 234,
-    "max_state_id": 236,
     "num_states": 3
   },
-  {
-    "name": "Stripped Oak Log",
+  "stripped_oak_log": {
+    "display_name": "Stripped Oak Log",
     "min_state_id": 180,
-    "max_state_id": 182,
     "num_states": 3
   },
-  {
-    "name": "Stripped Oak Wood",
+  "stripped_oak_wood": {
+    "display_name": "Stripped Oak Wood",
     "min_state_id": 213,
-    "max_state_id": 215,
     "num_states": 3
   },
-  {
-    "name": "Stripped Spruce Log",
+  "stripped_spruce_log": {
+    "display_name": "Stripped Spruce Log",
     "min_state_id": 162,
-    "max_state_id": 164,
     "num_states": 3
   },
-  {
-    "name": "Stripped Spruce Wood",
+  "stripped_spruce_wood": {
+    "display_name": "Stripped Spruce Wood",
     "min_state_id": 216,
-    "max_state_id": 218,
     "num_states": 3
   },
-  {
-    "name": "Stripped Warped Hyphae",
+  "stripped_warped_hyphae": {
+    "display_name": "Stripped Warped Hyphae",
     "min_state_id": 18438,
-    "max_state_id": 18440,
     "num_states": 3
   },
-  {
-    "name": "Stripped Warped Stem",
+  "stripped_warped_stem": {
+    "display_name": "Stripped Warped Stem",
     "min_state_id": 18432,
-    "max_state_id": 18434,
     "num_states": 3
   },
-  {
-    "name": "Structure Block",
+  "structure_block": {
+    "display_name": "Structure Block",
     "min_state_id": 19206,
-    "max_state_id": 19209,
     "num_states": 4
   },
-  {
-    "name": "Structure Void",
+  "structure_void": {
+    "display_name": "Structure Void",
     "min_state_id": 12399,
-    "max_state_id": 12399,
     "num_states": 1
   },
-  {
-    "name": "Sugar Cane",
+  "sugar_cane": {
+    "display_name": "Sugar Cane",
     "min_state_id": 5799,
-    "max_state_id": 5814,
     "num_states": 16
   },
-  {
-    "name": "Sunflower",
+  "sunflower": {
+    "display_name": "Sunflower",
     "min_state_id": 10606,
-    "max_state_id": 10607,
     "num_states": 2
   },
-  {
-    "name": "Suspicious Gravel",
+  "suspicious_gravel": {
+    "display_name": "Suspicious Gravel",
     "min_state_id": 119,
-    "max_state_id": 122,
     "num_states": 4
   },
-  {
-    "name": "Suspicious Sand",
+  "suspicious_sand": {
+    "display_name": "Suspicious Sand",
     "min_state_id": 113,
-    "max_state_id": 116,
     "num_states": 4
   },
-  {
-    "name": "Sweet Berry Bush",
+  "sweet_berry_bush": {
+    "display_name": "Sweet Berry Bush",
     "min_state_id": 18425,
-    "max_state_id": 18428,
     "num_states": 4
   },
-  {
-    "name": "Tall Grass",
+  "tall_grass": {
+    "display_name": "Tall Grass",
     "min_state_id": 10614,
-    "max_state_id": 10615,
     "num_states": 2
   },
-  {
-    "name": "Tall Seagrass",
+  "tall_seagrass": {
+    "display_name": "Tall Seagrass",
     "min_state_id": 2009,
-    "max_state_id": 2010,
     "num_states": 2
   },
-  {
-    "name": "Target",
+  "target": {
+    "display_name": "Target",
     "min_state_id": 19231,
-    "max_state_id": 19246,
     "num_states": 16
   },
-  {
-    "name": "Terracotta",
+  "terracotta": {
+    "display_name": "Terracotta",
     "min_state_id": 10603,
-    "max_state_id": 10603,
     "num_states": 1
   },
-  {
-    "name": "Tinted Glass",
+  "tinted_glass": {
+    "display_name": "Tinted Glass",
     "min_state_id": 20933,
-    "max_state_id": 20933,
     "num_states": 1
   },
-  {
-    "name": "TNT",
+  "tnt": {
+    "display_name": "TNT",
     "min_state_id": 2094,
-    "max_state_id": 2095,
     "num_states": 2
   },
-  {
-    "name": "Torch",
+  "torch": {
+    "display_name": "Torch",
     "min_state_id": 2355,
-    "max_state_id": 2355,
     "num_states": 1
   },
-  {
-    "name": "Torchflower",
+  "torchflower": {
+    "display_name": "Torchflower",
     "min_state_id": 2076,
-    "max_state_id": 2076,
     "num_states": 1
   },
-  {
-    "name": "Torchflower Crop",
+  "torchflower_crop": {
+    "display_name": "Torchflower Crop",
     "min_state_id": 12354,
-    "max_state_id": 12355,
     "num_states": 2
   },
-  {
-    "name": "Trapped Chest",
+  "trapped_chest": {
+    "display_name": "Trapped Chest",
     "min_state_id": 8979,
-    "max_state_id": 9002,
     "num_states": 24
   },
-  {
-    "name": "Tripwire",
+  "tripwire": {
+    "display_name": "Tripwire",
     "min_state_id": 7537,
-    "max_state_id": 7664,
     "num_states": 128
   },
-  {
-    "name": "Tripwire Hook",
+  "tripwire_hook": {
+    "display_name": "Tripwire Hook",
     "min_state_id": 7521,
-    "max_state_id": 7536,
     "num_states": 16
   },
-  {
-    "name": "Tube Coral",
+  "tube_coral": {
+    "display_name": "Tube Coral",
     "min_state_id": 12673,
-    "max_state_id": 12674,
     "num_states": 2
   },
-  {
-    "name": "Tube Coral Block",
+  "tube_coral_block": {
+    "display_name": "Tube Coral Block",
     "min_state_id": 12658,
-    "max_state_id": 12658,
     "num_states": 1
   },
-  {
-    "name": "Tube Coral Fan",
+  "tube_coral_fan": {
+    "display_name": "Tube Coral Fan",
     "min_state_id": 12693,
-    "max_state_id": 12694,
     "num_states": 2
   },
-  {
-    "name": "Tube Coral Wall Fan",
+  "tube_coral_wall_fan": {
+    "display_name": "Tube Coral Wall Fan",
     "min_state_id": 12743,
-    "max_state_id": 12750,
     "num_states": 8
   },
-  {
-    "name": "Tuff",
+  "tuff": {
+    "display_name": "Tuff",
     "min_state_id": 20931,
-    "max_state_id": 20931,
     "num_states": 1
   },
-  {
-    "name": "Turtle Egg",
+  "turtle_egg": {
+    "display_name": "Turtle Egg",
     "min_state_id": 12638,
-    "max_state_id": 12649,
     "num_states": 12
   },
-  {
-    "name": "Twisting Vines",
+  "twisting_vines": {
+    "display_name": "Twisting Vines",
     "min_state_id": 18488,
-    "max_state_id": 18513,
     "num_states": 26
   },
-  {
-    "name": "Twisting Vines Plant",
+  "twisting_vines_plant": {
+    "display_name": "Twisting Vines Plant",
     "min_state_id": 18514,
-    "max_state_id": 18514,
     "num_states": 1
   },
-  {
-    "name": "Verdant Froglight",
+  "verdant_froglight": {
+    "display_name": "Verdant Froglight",
     "min_state_id": 24102,
-    "max_state_id": 24104,
     "num_states": 3
   },
-  {
-    "name": "Vines",
+  "vine": {
+    "display_name": "Vines",
     "min_state_id": 6837,
-    "max_state_id": 6868,
     "num_states": 32
   },
-  {
-    "name": "Void Air",
+  "void_air": {
+    "display_name": "Void Air",
     "min_state_id": 12808,
-    "max_state_id": 12808,
     "num_states": 1
   },
-  {
-    "name": "Wall Torch",
+  "wall_torch": {
+    "display_name": "Wall Torch",
     "min_state_id": 2356,
-    "max_state_id": 2359,
     "num_states": 4
   },
-  {
-    "name": "Warped Button",
+  "warped_button": {
+    "display_name": "Warped Button",
     "min_state_id": 18974,
-    "max_state_id": 18997,
     "num_states": 24
   },
-  {
-    "name": "Warped Door",
+  "warped_door": {
+    "display_name": "Warped Door",
     "min_state_id": 19062,
-    "max_state_id": 19125,
     "num_states": 64
   },
-  {
-    "name": "Warped Fence",
+  "warped_fence": {
+    "display_name": "Warped Fence",
     "min_state_id": 18566,
-    "max_state_id": 18597,
     "num_states": 32
   },
-  {
-    "name": "Warped Fence Gate",
+  "warped_fence_gate": {
+    "display_name": "Warped Fence Gate",
     "min_state_id": 18758,
-    "max_state_id": 18789,
     "num_states": 32
   },
-  {
-    "name": "Warped Fungus",
+  "warped_fungus": {
+    "display_name": "Warped Fungus",
     "min_state_id": 18442,
-    "max_state_id": 18442,
     "num_states": 1
   },
-  {
-    "name": "Warped Hanging Sign",
+  "warped_hanging_sign": {
+    "display_name": "Warped Hanging Sign",
     "min_state_id": 5346,
-    "max_state_id": 5409,
     "num_states": 64
   },
-  {
-    "name": "Warped Hyphae",
+  "warped_hyphae": {
+    "display_name": "Warped Hyphae",
     "min_state_id": 18435,
-    "max_state_id": 18437,
     "num_states": 3
   },
-  {
-    "name": "Warped Nylium",
+  "warped_nylium": {
+    "display_name": "Warped Nylium",
     "min_state_id": 18441,
-    "max_state_id": 18441,
     "num_states": 1
   },
-  {
-    "name": "Warped Planks",
+  "warped_planks": {
+    "display_name": "Warped Planks",
     "min_state_id": 18517,
-    "max_state_id": 18517,
     "num_states": 1
   },
-  {
-    "name": "Warped Pressure Plate",
+  "warped_pressure_plate": {
+    "display_name": "Warped Pressure Plate",
     "min_state_id": 18532,
-    "max_state_id": 18533,
     "num_states": 2
   },
-  {
-    "name": "Warped Roots",
+  "warped_roots": {
+    "display_name": "Warped Roots",
     "min_state_id": 18444,
-    "max_state_id": 18444,
     "num_states": 1
   },
-  {
-    "name": "Warped Sign",
+  "warped_sign": {
+    "display_name": "Warped Sign",
     "min_state_id": 19158,
-    "max_state_id": 19189,
     "num_states": 32
   },
-  {
-    "name": "Warped Slab",
+  "warped_slab": {
+    "display_name": "Warped Slab",
     "min_state_id": 18524,
-    "max_state_id": 18529,
     "num_states": 6
   },
-  {
-    "name": "Warped Stairs",
+  "warped_stairs": {
+    "display_name": "Warped Stairs",
     "min_state_id": 18870,
-    "max_state_id": 18949,
     "num_states": 80
   },
-  {
-    "name": "Warped Stem",
+  "warped_stem": {
+    "display_name": "Warped Stem",
     "min_state_id": 18429,
-    "max_state_id": 18431,
     "num_states": 3
   },
-  {
-    "name": "Warped Trapdoor",
+  "warped_trapdoor": {
+    "display_name": "Warped Trapdoor",
     "min_state_id": 18662,
-    "max_state_id": 18725,
     "num_states": 64
   },
-  {
-    "name": "Warped Wall Hanging Sign",
+  "warped_wall_hanging_sign": {
+    "display_name": "Warped Wall Hanging Sign",
     "min_state_id": 5610,
-    "max_state_id": 5617,
     "num_states": 8
   },
-  {
-    "name": "Warped Wall Sign",
+  "warped_wall_sign": {
+    "display_name": "Warped Wall Sign",
     "min_state_id": 19198,
-    "max_state_id": 19205,
     "num_states": 8
   },
-  {
-    "name": "Warped Wart Block",
+  "warped_wart_block": {
+    "display_name": "Warped Wart Block",
     "min_state_id": 18443,
-    "max_state_id": 18443,
     "num_states": 1
   },
-  {
-    "name": "Water",
+  "water": {
+    "display_name": "Water",
     "min_state_id": 80,
-    "max_state_id": 95,
     "num_states": 16
   },
-  {
-    "name": "Water Cauldron",
+  "water_cauldron": {
+    "display_name": "Water Cauldron",
     "min_state_id": 7399,
-    "max_state_id": 7401,
     "num_states": 3
   },
-  {
-    "name": "Waxed Block of Copper",
+  "waxed_copper_block": {
+    "display_name": "Waxed Block of Copper",
     "min_state_id": 21908,
-    "max_state_id": 21908,
     "num_states": 1
   },
-  {
-    "name": "Waxed Cut Copper",
+  "waxed_cut_copper": {
+    "display_name": "Waxed Cut Copper",
     "min_state_id": 21915,
-    "max_state_id": 21915,
     "num_states": 1
   },
-  {
-    "name": "Waxed Cut Copper Slab",
+  "waxed_cut_copper_slab": {
+    "display_name": "Waxed Cut Copper Slab",
     "min_state_id": 22254,
-    "max_state_id": 22259,
     "num_states": 6
   },
-  {
-    "name": "Waxed Cut Copper Stairs",
+  "waxed_cut_copper_stairs": {
+    "display_name": "Waxed Cut Copper Stairs",
     "min_state_id": 22156,
-    "max_state_id": 22235,
     "num_states": 80
   },
-  {
-    "name": "Waxed Exposed Copper",
+  "waxed_exposed_copper": {
+    "display_name": "Waxed Exposed Copper",
     "min_state_id": 21910,
-    "max_state_id": 21910,
     "num_states": 1
   },
-  {
-    "name": "Waxed Exposed Cut Copper",
+  "waxed_exposed_cut_copper": {
+    "display_name": "Waxed Exposed Cut Copper",
     "min_state_id": 21914,
-    "max_state_id": 21914,
     "num_states": 1
   },
-  {
-    "name": "Waxed Exposed Cut Copper Slab",
+  "waxed_exposed_cut_copper_slab": {
+    "display_name": "Waxed Exposed Cut Copper Slab",
     "min_state_id": 22248,
-    "max_state_id": 22253,
     "num_states": 6
   },
-  {
-    "name": "Waxed Exposed Cut Copper Stairs",
+  "waxed_exposed_cut_copper_stairs": {
+    "display_name": "Waxed Exposed Cut Copper Stairs",
     "min_state_id": 22076,
-    "max_state_id": 22155,
     "num_states": 80
   },
-  {
-    "name": "Waxed Oxidized Copper",
+  "waxed_oxidized_copper": {
+    "display_name": "Waxed Oxidized Copper",
     "min_state_id": 21911,
-    "max_state_id": 21911,
     "num_states": 1
   },
-  {
-    "name": "Waxed Oxidized Cut Copper",
+  "waxed_oxidized_cut_copper": {
+    "display_name": "Waxed Oxidized Cut Copper",
     "min_state_id": 21912,
-    "max_state_id": 21912,
     "num_states": 1
   },
-  {
-    "name": "Waxed Oxidized Cut Copper Slab",
+  "waxed_oxidized_cut_copper_slab": {
+    "display_name": "Waxed Oxidized Cut Copper Slab",
     "min_state_id": 22236,
-    "max_state_id": 22241,
     "num_states": 6
   },
-  {
-    "name": "Waxed Oxidized Cut Copper Stairs",
+  "waxed_oxidized_cut_copper_stairs": {
+    "display_name": "Waxed Oxidized Cut Copper Stairs",
     "min_state_id": 21916,
-    "max_state_id": 21995,
     "num_states": 80
   },
-  {
-    "name": "Waxed Weathered Copper",
+  "waxed_weathered_copper": {
+    "display_name": "Waxed Weathered Copper",
     "min_state_id": 21909,
-    "max_state_id": 21909,
     "num_states": 1
   },
-  {
-    "name": "Waxed Weathered Cut Copper",
+  "waxed_weathered_cut_copper": {
+    "display_name": "Waxed Weathered Cut Copper",
     "min_state_id": 21913,
-    "max_state_id": 21913,
     "num_states": 1
   },
-  {
-    "name": "Waxed Weathered Cut Copper Slab",
+  "waxed_weathered_cut_copper_slab": {
+    "display_name": "Waxed Weathered Cut Copper Slab",
     "min_state_id": 22242,
-    "max_state_id": 22247,
     "num_states": 6
   },
-  {
-    "name": "Waxed Weathered Cut Copper Stairs",
+  "waxed_weathered_cut_copper_stairs": {
+    "display_name": "Waxed Weathered Cut Copper Stairs",
     "min_state_id": 21996,
-    "max_state_id": 22075,
     "num_states": 80
   },
-  {
-    "name": "Weathered Copper",
+  "weathered_copper": {
+    "display_name": "Weathered Copper",
     "min_state_id": 21555,
-    "max_state_id": 21555,
     "num_states": 1
   },
-  {
-    "name": "Weathered Cut Copper",
+  "weathered_cut_copper": {
+    "display_name": "Weathered Cut Copper",
     "min_state_id": 21561,
-    "max_state_id": 21561,
     "num_states": 1
   },
-  {
-    "name": "Weathered Cut Copper Slab",
+  "weathered_cut_copper_slab": {
+    "display_name": "Weathered Cut Copper Slab",
     "min_state_id": 21890,
-    "max_state_id": 21895,
     "num_states": 6
   },
-  {
-    "name": "Weathered Cut Copper Stairs",
+  "weathered_cut_copper_stairs": {
+    "display_name": "Weathered Cut Copper Stairs",
     "min_state_id": 21644,
-    "max_state_id": 21723,
     "num_states": 80
   },
-  {
-    "name": "Weeping Vines",
+  "weeping_vines": {
+    "display_name": "Weeping Vines",
     "min_state_id": 18461,
-    "max_state_id": 18486,
     "num_states": 26
   },
-  {
-    "name": "Weeping Vines Plant",
+  "weeping_vines_plant": {
+    "display_name": "Weeping Vines Plant",
     "min_state_id": 18487,
-    "max_state_id": 18487,
     "num_states": 1
   },
-  {
-    "name": "Wet Sponge",
+  "wet_sponge": {
+    "display_name": "Wet Sponge",
     "min_state_id": 518,
-    "max_state_id": 518,
     "num_states": 1
   },
-  {
-    "name": "Wheat Crops",
+  "wheat": {
+    "display_name": "Wheat Crops",
     "min_state_id": 4278,
-    "max_state_id": 4285,
     "num_states": 8
   },
-  {
-    "name": "White Banner",
+  "white_banner": {
+    "display_name": "White Banner",
     "min_state_id": 10618,
-    "max_state_id": 10633,
     "num_states": 16
   },
-  {
-    "name": "White Bed",
+  "white_bed": {
+    "display_name": "White Bed",
     "min_state_id": 1688,
-    "max_state_id": 1703,
     "num_states": 16
   },
-  {
-    "name": "White Candle",
+  "white_candle": {
+    "display_name": "White Candle",
     "min_state_id": 20591,
-    "max_state_id": 20606,
     "num_states": 16
   },
-  {
-    "name": "Cake with White Candle",
+  "white_candle_cake": {
+    "display_name": "Cake with White Candle",
     "min_state_id": 20849,
-    "max_state_id": 20850,
     "num_states": 2
   },
-  {
-    "name": "White Carpet",
+  "white_carpet": {
+    "display_name": "White Carpet",
     "min_state_id": 10587,
-    "max_state_id": 10587,
     "num_states": 1
   },
-  {
-    "name": "White Concrete",
+  "white_concrete": {
+    "display_name": "White Concrete",
     "min_state_id": 12578,
-    "max_state_id": 12578,
     "num_states": 1
   },
-  {
-    "name": "White Concrete Powder",
+  "white_concrete_powder": {
+    "display_name": "White Concrete Powder",
     "min_state_id": 12594,
-    "max_state_id": 12594,
     "num_states": 1
   },
-  {
-    "name": "White Glazed Terracotta",
+  "white_glazed_terracotta": {
+    "display_name": "White Glazed Terracotta",
     "min_state_id": 12514,
-    "max_state_id": 12517,
     "num_states": 4
   },
-  {
-    "name": "White Shulker Box",
+  "white_shulker_box": {
+    "display_name": "White Shulker Box",
     "min_state_id": 12418,
-    "max_state_id": 12423,
     "num_states": 6
   },
-  {
-    "name": "White Stained Glass",
+  "white_stained_glass": {
+    "display_name": "White Stained Glass",
     "min_state_id": 5946,
-    "max_state_id": 5946,
     "num_states": 1
   },
-  {
-    "name": "White Stained Glass Pane",
+  "white_stained_glass_pane": {
+    "display_name": "White Stained Glass Pane",
     "min_state_id": 9232,
-    "max_state_id": 9263,
     "num_states": 32
   },
-  {
-    "name": "White Terracotta",
+  "white_terracotta": {
+    "display_name": "White Terracotta",
     "min_state_id": 9216,
-    "max_state_id": 9216,
     "num_states": 1
   },
-  {
-    "name": "White Tulip",
+  "white_tulip": {
+    "display_name": "White Tulip",
     "min_state_id": 2083,
-    "max_state_id": 2083,
     "num_states": 1
   },
-  {
-    "name": null,
+  "white_wall_banner": {
+    "display_name": null,
     "min_state_id": 10874,
-    "max_state_id": 10877,
     "num_states": 4
   },
-  {
-    "name": "White Wool",
+  "white_wool": {
+    "display_name": "White Wool",
     "min_state_id": 2047,
-    "max_state_id": 2047,
     "num_states": 1
   },
-  {
-    "name": "Wither Rose",
+  "wither_rose": {
+    "display_name": "Wither Rose",
     "min_state_id": 2087,
-    "max_state_id": 2087,
     "num_states": 1
   },
-  {
-    "name": "Wither Skeleton Skull",
+  "wither_skeleton_skull": {
+    "display_name": "Wither Skeleton Skull",
     "min_state_id": 8847,
-    "max_state_id": 8862,
     "num_states": 16
   },
-  {
-    "name": "Wither Skeleton Wall Skull",
+  "wither_skeleton_wall_skull": {
+    "display_name": "Wither Skeleton Wall Skull",
     "min_state_id": 8863,
-    "max_state_id": 8866,
     "num_states": 4
   },
-  {
-    "name": "Yellow Banner",
+  "yellow_banner": {
+    "display_name": "Yellow Banner",
     "min_state_id": 10682,
-    "max_state_id": 10697,
     "num_states": 16
   },
-  {
-    "name": "Yellow Bed",
+  "yellow_bed": {
+    "display_name": "Yellow Bed",
     "min_state_id": 1752,
-    "max_state_id": 1767,
     "num_states": 16
   },
-  {
-    "name": "Yellow Candle",
+  "yellow_candle": {
+    "display_name": "Yellow Candle",
     "min_state_id": 20655,
-    "max_state_id": 20670,
     "num_states": 16
   },
-  {
-    "name": "Cake with Yellow Candle",
+  "yellow_candle_cake": {
+    "display_name": "Cake with Yellow Candle",
     "min_state_id": 20857,
-    "max_state_id": 20858,
     "num_states": 2
   },
-  {
-    "name": "Yellow Carpet",
+  "yellow_carpet": {
+    "display_name": "Yellow Carpet",
     "min_state_id": 10591,
-    "max_state_id": 10591,
     "num_states": 1
   },
-  {
-    "name": "Yellow Concrete",
+  "yellow_concrete": {
+    "display_name": "Yellow Concrete",
     "min_state_id": 12582,
-    "max_state_id": 12582,
     "num_states": 1
   },
-  {
-    "name": "Yellow Concrete Powder",
+  "yellow_concrete_powder": {
+    "display_name": "Yellow Concrete Powder",
     "min_state_id": 12598,
-    "max_state_id": 12598,
     "num_states": 1
   },
-  {
-    "name": "Yellow Glazed Terracotta",
+  "yellow_glazed_terracotta": {
+    "display_name": "Yellow Glazed Terracotta",
     "min_state_id": 12530,
-    "max_state_id": 12533,
     "num_states": 4
   },
-  {
-    "name": "Yellow Shulker Box",
+  "yellow_shulker_box": {
+    "display_name": "Yellow Shulker Box",
     "min_state_id": 12442,
-    "max_state_id": 12447,
     "num_states": 6
   },
-  {
-    "name": "Yellow Stained Glass",
+  "yellow_stained_glass": {
+    "display_name": "Yellow Stained Glass",
     "min_state_id": 5950,
-    "max_state_id": 5950,
     "num_states": 1
   },
-  {
-    "name": "Yellow Stained Glass Pane",
+  "yellow_stained_glass_pane": {
+    "display_name": "Yellow Stained Glass Pane",
     "min_state_id": 9360,
-    "max_state_id": 9391,
     "num_states": 32
   },
-  {
-    "name": "Yellow Terracotta",
+  "yellow_terracotta": {
+    "display_name": "Yellow Terracotta",
     "min_state_id": 9220,
-    "max_state_id": 9220,
     "num_states": 1
   },
-  {
-    "name": null,
+  "yellow_wall_banner": {
+    "display_name": null,
     "min_state_id": 10890,
-    "max_state_id": 10893,
     "num_states": 4
   },
-  {
-    "name": "Yellow Wool",
+  "yellow_wool": {
+    "display_name": "Yellow Wool",
     "min_state_id": 2051,
-    "max_state_id": 2051,
     "num_states": 1
   },
-  {
-    "name": "Zombie Head",
+  "zombie_head": {
+    "display_name": "Zombie Head",
     "min_state_id": 8867,
-    "max_state_id": 8882,
     "num_states": 16
   },
-  {
-    "name": "Zombie Wall Head",
+  "zombie_wall_head": {
+    "display_name": "Zombie Wall Head",
     "min_state_id": 8883,
-    "max_state_id": 8886,
     "num_states": 4
   }
-]
+}

@@ -1,10 +1,11 @@
 use std::collections::HashMap;
+use std::fs;
 use std::io::Cursor;
 use std::net::{IpAddr, Ipv4Addr, SocketAddr};
 use std::sync::Arc;
 use std::time::{Duration, Instant};
-use std::{fs, string, vec};
 
+use bracket_noise::prelude::{FastNoise, FractalType, NoiseType};
 use fastnbt::nbt;
 use lazy_static::lazy_static;
 use log::{debug, info};
@@ -20,22 +21,32 @@ use net::packets::{IncomingPacket, OutgoingPacket, ReadPacket};
 use state::ConnectionState;
 
 use crate::config::Config;
+use crate::get_config;
 use crate::server::net::packets::WritePacket;
-use crate::server::types::{
-    EntityMetadata, EntityMetadataField, Gamemode, PlayerActions, Position, Uuid,
-};
+use crate::server::types::{Block, Chunk, ChunkSection, Gamemode, PlayerActions, Position, Uuid};
 
 pub mod net;
 mod state;
+#[allow(dead_code, unused_imports)]
 pub mod types;
 
 lazy_static! {
     pub static ref REGISTRY_CODEC: Vec<u8> = fs::read("registry_codec.nbt").unwrap_or_default();
-    pub static ref DEFAULT_CHUNK_DATA: Vec<u8> = get_chunk_data(9);
-    pub static ref HASHED_SEED: i64 = digest("69").as_bytes().get_i64();
+    pub static ref SEED: i64 = 0;
+    pub static ref NOISE: FastNoise = {
+        let mut noise: FastNoise = FastNoise::seeded(*SEED as u64);
+        noise.set_noise_type(NoiseType::PerlinFractal);
+        noise.set_fractal_type(FractalType::FBM);
+        noise.set_fractal_octaves(5);
+        noise.set_fractal_gain(0.6);
+        noise.set_fractal_lacunarity(2.0);
+        noise.set_frequency(2.0);
+        noise
+    };
+    pub static ref HASHED_SEED: i64 = digest(&SEED.to_be_bytes()).as_bytes().get_i64();
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Copy, Debug)]
 enum Event {
     PlayerJoin(i32),
     PlayerMove(i32, i16, i16, i16),
@@ -54,12 +65,12 @@ struct Player {
     pub on_ground: bool,
 }
 
-type ChunkData = HashMap<(i32, i32), Vec<u8>>;
+type ChunkData = HashMap<(i32, i32), Chunk>;
 type PlayerData = HashMap<i32, Player>;
 
 #[allow(dead_code)]
 pub async fn start() {
-    let config: Config = Config::default();
+    let config: Config = get_config();
     let port: u16 = config.port;
     let listener: TcpListener = TcpListener::bind(format!("127.0.0.1:{}", port))
         .await
@@ -67,9 +78,9 @@ pub async fn start() {
     info!("Started server on localhost:{}", port);
 
     let mut chunk_data: ChunkData = HashMap::new();
-    for x in -16..17 {
-        for z in -16..17 {
-            chunk_data.insert((x, z), DEFAULT_CHUNK_DATA.clone());
+    for x in -16..=16 {
+        for z in -16..=16 {
+            chunk_data.insert((x, z), generate_chunk(x, z));
         }
     }
     let config: Arc<Mutex<Config>> = Arc::new(Mutex::new(config));
@@ -77,6 +88,8 @@ pub async fn start() {
     let entity_ids: Arc<Mutex<Vec<i32>>> = Arc::new(Mutex::new(vec![]));
     let player_data: Arc<Mutex<PlayerData>> = Arc::new(Mutex::new(HashMap::new()));
     let events: Arc<Mutex<Vec<Event>>> = Arc::new(Mutex::new(vec![]));
+
+    info!("The server is ready!");
 
     loop {
         if let Ok((connection, _)) = listener.accept().await {
@@ -101,13 +114,17 @@ async fn handle_connection(
     player_data: Arc<Mutex<PlayerData>>,
     events: Arc<Mutex<Vec<Event>>>,
 ) {
+    // TODO: Move everything besides play out of the loop
+    //? split the stream?
+    //? Read packets directly from the connection (and spawn a task to send keep alive packets for now)?
+
     // let (read_half, write_half) = connection.split();
     // let (mut read_half, mut write_half) = (BufReader::new(read_half), BufWriter::new(write_half));
 
     let timeout: u64 = 5;
     let entity_id: i32 = gen_entity_id(entity_ids.clone()).await;
 
-    let mut tick_interval: Interval = interval(Duration::from_millis(1));
+    let mut tick_interval: Interval = interval(Duration::from_nanos(1));
     let mut playstate_tick: u128 = 0;
     let mut state: ConnectionState = ConnectionState::Handshake;
     let mut last_timeout: Instant = Instant::now();
@@ -115,7 +132,7 @@ async fn handle_connection(
         id: entity_id,
         name: "".to_string(),
         x: 8.0,
-        y: 0.0,
+        y: 320.0,
         z: 8.0,
         yaw: 0.0,
         pitch: 0.0,
@@ -123,8 +140,7 @@ async fn handle_connection(
     };
     let mut event_index: usize = events.lock().await.len();
 
-    // let mut frame: u32 = 0;
-    let mut armor_stand_eids: Vec<i32> = vec![];
+    let mut tick_times: Vec<Duration> = vec![];
 
     // Infinite connection
     'conn: loop {
@@ -275,8 +291,8 @@ async fn handle_connection(
                                 chunk_x: 0,
                                 chunk_z: 0,
                             });
-                            for x in -16..17 {
-                                for z in -16..17 {
+                            for x in -16..=16 {
+                                for z in -16..=16 {
                                     packets.push(ChunkDataAndUpdateLight {
                                         chunk_x: x,
                                         chunk_z: z,
@@ -286,7 +302,7 @@ async fn handle_connection(
                                             .await
                                             .get(&(x, z))
                                             .cloned()
-                                            .unwrap_or(DEFAULT_CHUNK_DATA.clone()),
+                                            .unwrap_or_else(|| generate_chunk(x, z)),
                                         block_entities: vec![],
                                         sky_light_mask: vec![],
                                         block_light_mask: vec![],
@@ -298,7 +314,7 @@ async fn handle_connection(
                                 }
                             }
                             packets.push(SetDefaultSpawnPosition {
-                                location: Position { x: 8, y: 0, z: 8 },
+                                location: Position { x: 8, y: 320, z: 8 },
                                 angle: 0.0,
                             });
                             packets.push(SynchronizePlayerPosition {
@@ -435,86 +451,9 @@ async fn handle_connection(
             Err(_) => (),
         }
 
-        {
-            let start: Instant = Instant::now();
-            const START: u128 = 2000;
-            if playstate_tick == START {
-                let mut packets: Vec<OutgoingPacket> = vec![];
-                for x in 0..10 {
-                    for y in 0..10 {
-                        for z in 0..10 {
-                            use OutgoingPacket::*;
-                            let eid: i32 = gen_entity_id(entity_ids.clone()).await;
-                            armor_stand_eids.push(eid);
-                            packets.push(SpawnEntity {
-                                entity_id: eid,
-                                entity_uuid: Uuid(uuid::Uuid::new_v4().as_u128()),
-                                entity_type: 2,
-                                x: x as f64,
-                                y: y as f64,
-                                z: z as f64,
-                                pitch: 0.0,
-                                yaw: 0.0,
-                                head_yaw: 0.0,
-                                data: 0,
-                                velocity_x: 0,
-                                velocity_y: 0,
-                                velocity_z: 0,
-                            });
-                        }
-                    }
-                }
-                connection.write_packets(packets).await;
-            } else if playstate_tick > START {
-                let mut packets: Vec<OutgoingPacket> =
-                    Vec::with_capacity(armor_stand_eids.len() * 2);
-
-                {
-                    let start: Instant = Instant::now();
-                    for eid in armor_stand_eids.clone() {
-                        use EntityMetadataField::*;
-                        use OutgoingPacket::*;
-                        if playstate_tick % 2 == 0 {
-                            packets.push(SetEntityMetadata {
-                                entity_id: eid,
-                                metadata: EntityMetadata(vec![
-                                    (0, Byte(0x20 | 0x40)),
-                                    (5, Boolean(true)),
-                                ]),
-                            });
-                            packets.push(SetEquipment {
-                                entity_id: eid,
-                                equipment: vec![(5, Some((637, 1, nbt!({}))))],
-                            });
-                        } else {
-                            packets.push(SetEntityMetadata {
-                                entity_id: eid,
-                                metadata: EntityMetadata(vec![
-                                    (0, Byte(0x20 | 0x01)),
-                                    (5, Boolean(true)),
-                                ]),
-                            });
-                            packets.push(SetEquipment {
-                                entity_id: eid,
-                                equipment: vec![(5, Some((77, 1, nbt!({}))))],
-                            });
-                        }
-                    }
-                    debug!("Packet construction time: {:?}", start.elapsed());
-                }
-
-                {
-                    let start: Instant = Instant::now();
-                    connection.write_packets(packets).await;
-                    debug!("Packet write time: {:?}", start.elapsed());
-                }
-            }
-            debug!("Total armor stand time: {:?}", start.elapsed());
-        }
-
         // Handle events
         let mut packets: Vec<OutgoingPacket> = vec![];
-        if let Some(event) = events.lock().await.iter().skip(event_index).next() {
+        if let Some(event) = events.lock().await.iter().nth(event_index) {
             event_index += 1;
 
             use Event::*;
@@ -534,7 +473,6 @@ async fn handle_connection(
                                         name: p.name.to_string(),
                                         properties: vec![],
                                     },
-                                    // UpdateLatency { ping: 0 },
                                     UpdateListed { listed: true },
                                 ],
                             )],
@@ -581,8 +519,7 @@ async fn handle_connection(
 
         connection.write_packets(packets).await;
 
-        debug!("Total tick time: {:?}", start.elapsed());
-        debug!("");
+        tick_times.push(start.elapsed());
     }
 
     events.lock().await.push(Event::PlayerQuit(entity_id));
@@ -596,33 +533,19 @@ async fn handle_connection(
     }
 
     debug!("Connection with {} closed", player.name);
+    debug!(
+        "Average tick time: {:?}μs",
+        tick_times.iter().map(|d| d.as_micros()).sum::<u128>() as f64 / tick_times.len() as f64
+    );
 }
 
-#[no_mangle]
-pub async fn bench() {
-    let mut buf: Vec<u8> = vec![];
-    buf.write_packet(OutgoingPacket::LoginPlay {
-        entity_id: 0,
-        is_hardcore: false,
-        gamemode: Gamemode::Creative,
-        previous_gamemode: None,
-        dimension_names: vec!["minecraft:overworld".to_string()],
-        registry_codec: REGISTRY_CODEC.clone(),
-        dimension_type: "minecraft:overworld".to_string(),
-        dimension_name: "minecraft:overworld".to_string(),
-        hashed_seed: *HASHED_SEED,
-        max_players: 20,
-        view_distance: 16,
-        simulation_distance: 12,
-        reduced_debug_info: false,
-        enable_respawn_screen: true,
-        is_debug: false,
-        is_flat: true,
-        death_location: None,
-        portal_cooldown: 0,
-    })
-    .await;
-    debug!("{:?}", buf);
+#[allow(dead_code)]
+pub async fn test() {
+    let chunk: Chunk = generate_chunk(0, 0);
+    debug!("{:?}", chunk.to_bytes().await);
+    // for chunk_section in chunk.chunk_sections {
+    //     debug!("{:?}", chunk_section.to_bytes().await);
+    // }
 
     // let mut times: Vec<Duration> = vec![];
 
@@ -668,7 +591,7 @@ pub async fn bench() {
     // );
 }
 
-/// Get a unique entity identifier
+/// Generate a unique entity identifier
 async fn gen_entity_id(entity_ids: Arc<Mutex<Vec<i32>>>) -> i32 {
     let mut entity_id: i32 = entity_ids.lock().await.len() as i32;
     while entity_ids.lock().await.contains(&entity_id) {
@@ -679,208 +602,39 @@ async fn gen_entity_id(entity_ids: Arc<Mutex<Vec<i32>>>) -> i32 {
 }
 
 #[allow(dead_code)]
-fn get_peer_address(stream: &TcpStream) -> string::String {
+fn get_peer_address(stream: &TcpStream) -> String {
     stream
         .peer_addr()
         .unwrap_or(SocketAddr::new(IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0)), 0))
         .to_string()
 }
 
-/// Returns a solid chunk section of `block_state_id`.
-/// The highest empty block is at y level 0.
-pub fn get_chunk_data(block_state_id: u8) -> Vec<u8> {
-    vec![
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        16,
-        0,
-        0,
-        block_state_id,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        56,
-        0,
-    ]
+pub fn generate_chunk(x: i32, z: i32) -> Chunk {
+    use Block::*;
+    let mut chunk_sections: Vec<ChunkSection> = vec![];
+    for section_y in 0..24 {
+        let mut chunk_section: ChunkSection = ChunkSection { blocks: vec![] };
+        for block_y in 0..16 {
+            for block_z in 0..16 {
+                for block_x in 0..16 {
+                    let y: i32 = section_y * 16 + block_y;
+                    if (y as f32)
+                        < 64.0
+                            + 256.0
+                            + ((NOISE.get_noise(
+                                ((x * 16 + block_x) as f32) / 1000.0,
+                                ((z * 16 + block_z) as f32) / 1000.0,
+                            ) + 1.0)
+                                * 32.0)
+                    {
+                        chunk_section.blocks.push(Stone);
+                    } else {
+                        chunk_section.blocks.push(Air);
+                    }
+                }
+            }
+        }
+        chunk_sections.push(chunk_section);
+    }
+    Chunk { chunk_sections }
 }

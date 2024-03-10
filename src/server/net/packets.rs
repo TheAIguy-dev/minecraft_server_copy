@@ -1,11 +1,9 @@
-use std::time::{Duration, Instant};
 use std::{collections::VecDeque, fmt::Display};
 
 use fastnbt::Value;
-use log::debug;
 use tokio::io::{AsyncRead, AsyncReadExt, AsyncWrite, AsyncWriteExt};
 
-use crate::server::types::WriteString;
+use crate::server::types::{Chunk, WriteString};
 use crate::server::{
     state::ConnectionState,
     types::{
@@ -111,7 +109,7 @@ pub trait ReadPacket: AsyncRead + Unpin + Sized {
                     next_state: self.read_varint().await,
                 },
                 (ConnectionState::Status, 0x00) => StatusRequest,
-                (ConnectionState::Ping | ConnectionState::Status, 0x01) => PingRequest {
+                (ConnectionState::Status, 0x01) => PingRequest {
                     payload: self.read_i64().await.unwrap_or_default(),
                 },
                 (ConnectionState::Login, 0x00) => {
@@ -216,7 +214,7 @@ pub enum OutgoingPacket {
         chunk_x: i32,
         chunk_z: i32,
         heightmaps: Value,
-        data: Vec<u8>,
+        data: Chunk,
         block_entities: Vec<(u8, u16, i32, Value)>,
         sky_light_mask: Vec<i64>,
         block_light_mask: Vec<i64>,
@@ -434,6 +432,7 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 block_light_arrays,
             } => (0x24, {
                 let heightmaps: Vec<u8> = fastnbt::to_bytes(&heightmaps).unwrap_or_default();
+                let data: Vec<u8> = data.to_bytes().await;
                 let block_entities: Vec<u8> = {
                     let mut d: Vec<Vec<u8>> = Vec::with_capacity(block_entities.len());
                     for (xz, y, t, data) in block_entities {
@@ -447,6 +446,7 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                     }
                     d.concat()
                 };
+
                 let mut d: Vec<u8> = Vec::with_capacity(
                     4 + 4
                         + heightmaps.len()
@@ -810,22 +810,22 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
             return;
         }
 
-        let mut times: Vec<Duration> = vec![];
+        // let mut times: Vec<Duration> = vec![];
         let mut packets: VecDeque<OutgoingPacket> = VecDeque::from(packets);
         for _ in 0..packets.len().div_ceil(4096) {
             self.write_packet(OutgoingPacket::BundleDelimiter).await;
             for _ in 0..4096.min(packets.len()) {
-                let start: Instant = Instant::now();
+                // let start: Instant = Instant::now();
                 self.write_packet(packets.pop_front().unwrap()).await;
-                times.push(start.elapsed());
+                // times.push(start.elapsed());
             }
             self.write_packet(OutgoingPacket::BundleDelimiter).await;
         }
-        debug!(
-            "Average packet send time: {:?}ns",
-            // "Average packet write time: {:?}µs",
-            times.iter().map(|d| d.as_nanos()).sum::<u128>() as f64 / times.len() as f64
-        );
+        // debug!(
+        //     "Average packet send time: {:?}ns",
+        //     // "Average packet write time: {:?}µs",
+        //     times.iter().map(|d| d.as_nanos()).sum::<u128>() as f64 / times.len() as f64
+        // );
     }
 
     async fn write_packets_nonbundling(&mut self, packets: Vec<OutgoingPacket>) {

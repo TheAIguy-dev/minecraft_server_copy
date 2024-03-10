@@ -1,10 +1,5 @@
-use super::VarInt;
-
 pub enum Palette {
-    SingleValued(VarInt),
-    Indirect {
-        length: VarInt,
-        palette: Vec<VarInt>,
-    },
-    Direct,
+    SingleValued(i32),
+    Indirect(u8, Vec<i32>, Vec<i64>),
+    Direct(u8, Vec<i64>),
 }

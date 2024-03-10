@@ -5,6 +5,8 @@ edition = "2021"
 
 [dependencies]
 base64 = "0.22.0"
+bounded-integer = {version = "0.5.7", features = ["types"]}
+bracket-noise = "0.8.7"
 byteorder = "1.5.0"
 chrono = "0.4.34"
 confy = "0.6.1"

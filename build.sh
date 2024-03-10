@@ -19,7 +19,7 @@ cargo fmt
 
 case "$1" in
     d | debug | "")
-        cargo run
+        cargo run "${@:2}"
         ;;
     r | release)
         read -p "What to name the release? (default Test) " NAME

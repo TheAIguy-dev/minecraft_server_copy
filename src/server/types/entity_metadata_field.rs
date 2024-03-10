@@ -2,6 +2,8 @@ use std::string;
 
 use fastnbt::Value;
 
+use crate::server::types::{WriteVarInt, WriteVarLong};
+
 use super::{Position, String, Uuid, VarInt, VarLong};
 
 #[derive(Debug)]
@@ -22,8 +24,8 @@ pub enum EntityMetadataField {
     OptUUID(Option<Uuid>),
     BlockID(i32),
     OptBlockID(Option<i32>),
-    NBT(Value),
-    Particle, // TODO
+    Nbt(Value),
+    Particle,
     VillagerData(i32, i32, i32),
     OptVarInt(Option<i32>),
     Pose(i32),
@@ -40,8 +42,18 @@ impl EntityMetadataField {
         use EntityMetadataField as EMF;
         match self {
             EMF::Byte(byte) => vec![0, *byte],
-            EMF::VarInt(varint) => vec![&[1][..], &VarInt(*varint).to_bytes().await].concat(),
-            EMF::VarLong(varlong) => vec![&[2][..], &VarLong(*varlong).to_bytes().await].concat(),
+            EMF::VarInt(varint) => {
+                let mut d: Vec<u8> = Vec::with_capacity(6);
+                d.push(1);
+                d.write_varint(*varint).await;
+                d
+            }
+            EMF::VarLong(varlong) => {
+                let mut d: Vec<u8> = Vec::with_capacity(11);
+                d.push(2);
+                d.write_varlong(*varlong).await;
+                d
+            },
             EMF::Boolean(bool) => vec![8, *bool as u8],
             _ => todo!(),
         }
