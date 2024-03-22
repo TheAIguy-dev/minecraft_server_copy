@@ -6889,4 +6889,9 @@ impl Block {
             } => 24119u16 + !cracked as u16 * 8 + *facing as u16 * 2 + !waterlogged as u16,
         }
     }
+
+    pub fn is_empty(&self) -> bool {
+        use Block::*;
+        matches!(self, Air | VoidAir | CaveAir)
+    }
 }

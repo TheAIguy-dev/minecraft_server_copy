@@ -1,6 +1,8 @@
 use serde_derive::{Deserialize, Serialize};
 use serde_with::skip_serializing_none;
 
+use crate::PROTOCOL_VERSION;
+
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Config {
     pub port: u16,
@@ -35,7 +37,7 @@ impl Default for Version {
     fn default() -> Self {
         Self {
             name: "Unnamed Server Software in Rust 1.20.1".to_string(),
-            protocol: 763,
+            protocol: PROTOCOL_VERSION,
         }
     }
 }

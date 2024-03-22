@@ -10,8 +10,39 @@ pub struct ChunkSection {
     // TODO: pub biomes: Vec<Biome>,
 }
 impl ChunkSection {
+    pub fn get_block(&self, x: i32, y: i32, z: i32) -> Option<&Block> {
+        self.blocks
+            .get(((x & 15) + (z & 15) * 16 + (y & 15) * 256) as usize)
+    }
+
+    pub fn is_empty(&self, x: i32, y: i32, z: i32) -> bool {
+        self.get_block(x, y, z).unwrap_or(&Block::Air).is_empty()
+    }
+
+    pub fn max_height_at(&self, x: i32, z: i32) -> Option<i32> {
+        for y in (0..16).rev() {
+            if let Some(block) = self.get_block(x, y, z) {
+                if !block.is_empty() {
+                    return Some(y);
+                }
+            }
+        }
+        None
+    }
+
+    pub fn get_highest_block_at(&self, x: i32, z: i32) -> Option<&Block> {
+        for y in (0..16).rev() {
+            if let Some(block) = self.get_block(x, y, z) {
+                return Some(block);
+            }
+        }
+        None
+    }
+
     pub async fn to_bytes(&self) -> Vec<u8> {
         const AIR_STATE_ID: u16 = 0;
+        const VOID_AIR_STATE_ID: u16 = 12817;
+        const CAVE_AIR_STATE_ID: u16 = 12818;
 
         let mut block_count: u16 = 0;
         let mut blocks: Vec<u16> = self
@@ -21,7 +52,7 @@ impl ChunkSection {
             .map(|b| {
                 let sid: u16 = b.get_state_id();
                 // TODO: check if this is faster than filtering non-air blocks
-                if sid != AIR_STATE_ID {
+                if sid != AIR_STATE_ID && sid != VOID_AIR_STATE_ID && sid != CAVE_AIR_STATE_ID {
                     block_count += 1;
                 }
                 sid

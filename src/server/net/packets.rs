@@ -1,9 +1,10 @@
 use std::{collections::VecDeque, fmt::Display};
 
 use fastnbt::Value;
+use log::debug;
 use tokio::io::{AsyncRead, AsyncReadExt, AsyncWrite, AsyncWriteExt};
 
-use crate::server::types::{Chunk, WriteString};
+use crate::server::types::{Chunk, InteractionType, WriteString};
 use crate::server::{
     state::ConnectionState,
     types::{
@@ -36,6 +37,14 @@ pub enum IncomingPacket {
     LoginStart {
         name: String,
         player_uuid: Option<u128>,
+    },
+    /// Packet ID: 0x10
+    Interact {
+        entity_id: i32,
+        interaction_type: InteractionType,
+        target_pos: Option<(f32, f32, f32)>,
+        hand: Option<i32>,
+        sneaking: bool,
     },
     /// Packet ID: 0x12
     KeepAlive {
@@ -81,6 +90,7 @@ impl Display for IncomingPacket {
                 StatusRequest => "StatusRequest",
                 PingRequest { .. } => "PingRequest",
                 LoginStart { .. } => "LoginStart",
+                Interact { .. } => "Interact",
                 KeepAlive { .. } => "KeepAlive",
                 SetPlayerPosition { .. } => "SetPlayerPosition",
                 SetPlayerPositionAndRotation { .. } => "SetPlayerPositionAndRotation",
@@ -99,67 +109,101 @@ pub trait ReadPacket: AsyncRead + Unpin + Sized {
         }
         let id: i32 = self.read_varint().await;
 
-        {
-            use IncomingPacket::*;
-            match (state, id) {
-                (ConnectionState::Handshake, 0x00) => Handshake {
-                    protocol_version: self.read_varint().await,
-                    server_address: self.read_string().await,
-                    server_port: self.read_u16().await.unwrap_or_default(),
-                    next_state: self.read_varint().await,
-                },
-                (ConnectionState::Status, 0x00) => StatusRequest,
-                (ConnectionState::Status, 0x01) => PingRequest {
-                    payload: self.read_i64().await.unwrap_or_default(),
-                },
-                (ConnectionState::Login, 0x00) => {
-                    let name: String = self.read_string().await;
-                    let has_player_uuid: bool = self.read_u8().await.unwrap_or_default() != 0;
-                    LoginStart {
-                        name,
-                        player_uuid: match has_player_uuid {
-                            true => Some(self.read_u128().await.unwrap_or_default()),
-                            false => None,
-                        },
+        use IncomingPacket::*;
+        match (state, id) {
+            (ConnectionState::Handshake, 0x00) => Handshake {
+                protocol_version: self.read_varint().await,
+                server_address: self.read_string().await,
+                server_port: self.read_u16().await.unwrap_or_default(),
+                next_state: self.read_varint().await,
+            },
+            (ConnectionState::Status, 0x00) => StatusRequest,
+            (ConnectionState::Status, 0x01) => PingRequest {
+                payload: self.read_i64().await.unwrap_or_default(),
+            },
+            (ConnectionState::Login, 0x00) => {
+                let name: String = self.read_string().await;
+                let has_player_uuid: bool = self.read_u8().await.unwrap_or_default() != 0;
+                LoginStart {
+                    name,
+                    player_uuid: match has_player_uuid {
+                        true => Some(self.read_u128().await.unwrap_or_default()),
+                        false => None,
+                    },
+                }
+            }
+            (ConnectionState::Play, 0x10) => {
+                debug!("Interact");
+                let entity_id: i32 = self.read_varint().await;
+                let interaction_type: InteractionType = match self.read_varint().await {
+                    0 => InteractionType::Interact,
+                    1 => InteractionType::Attack,
+                    2 => InteractionType::InteractAt,
+                    _ => InteractionType::Interact,
+                };
+
+                let target_pos: Option<(f32, f32, f32)> = match interaction_type {
+                    InteractionType::InteractAt => Some((
+                        self.read_f32().await.unwrap_or_default(),
+                        self.read_f32().await.unwrap_or_default(),
+                        self.read_f32().await.unwrap_or_default(),
+                    )),
+                    _ => None,
+                };
+
+                let hand: Option<i32> = match interaction_type {
+                    InteractionType::Interact | InteractionType::InteractAt => {
+                        Some(self.read_varint().await)
                     }
+                    _ => None,
+                };
+
+                Interact {
+                    entity_id,
+                    interaction_type,
+                    target_pos,
+                    hand,
+                    sneaking: self.read_u8().await.unwrap_or_default() != 0,
                 }
-                (ConnectionState::Play, 0x12) => KeepAlive {
-                    keep_alive_id: self.read_i64().await.unwrap_or_default(),
-                },
-                (ConnectionState::Play, 0x14) => SetPlayerPosition {
-                    x: self.read_f64().await.unwrap_or_default(),
-                    y: self.read_f64().await.unwrap_or_default(),
-                    z: self.read_f64().await.unwrap_or_default(),
-                    on_ground: self.read_u8().await.unwrap_or_default() != 0,
-                },
-                (ConnectionState::Play, 0x15) => SetPlayerPositionAndRotation {
-                    x: self.read_f64().await.unwrap_or_default(),
-                    y: self.read_f64().await.unwrap_or_default(),
-                    z: self.read_f64().await.unwrap_or_default(),
-                    yaw: self.read_f32().await.unwrap_or_default(),
-                    pitch: self.read_f32().await.unwrap_or_default(),
-                    on_ground: self.read_u8().await.unwrap_or_default() != 0,
-                },
-                (ConnectionState::Play, 0x16) => SetPlayerRotation {
-                    yaw: self.read_f32().await.unwrap_or_default(),
-                    pitch: self.read_f32().await.unwrap_or_default(),
-                    on_ground: self.read_u8().await.unwrap_or_default() != 0,
-                },
-                (ConnectionState::Play, 0x17) => SetPlayerOnGround {
-                    on_ground: self.read_u8().await.unwrap_or_default() != 0,
-                },
-                (_, _) => {
-                    let mut data: Vec<u8> =
-                        vec![0; length as usize - vec![0; 5].write_varint(id).await];
-                    self.read_exact(&mut data).await.unwrap_or_default();
-                    Unknown { data }
-                }
+            }
+            (ConnectionState::Play, 0x12) => KeepAlive {
+                keep_alive_id: self.read_i64().await.unwrap_or_default(),
+            },
+            (ConnectionState::Play, 0x14) => SetPlayerPosition {
+                x: self.read_f64().await.unwrap_or_default(),
+                y: self.read_f64().await.unwrap_or_default(),
+                z: self.read_f64().await.unwrap_or_default(),
+                on_ground: self.read_u8().await.unwrap_or_default() != 0,
+            },
+            (ConnectionState::Play, 0x15) => SetPlayerPositionAndRotation {
+                x: self.read_f64().await.unwrap_or_default(),
+                y: self.read_f64().await.unwrap_or_default(),
+                z: self.read_f64().await.unwrap_or_default(),
+                yaw: self.read_f32().await.unwrap_or_default(),
+                pitch: self.read_f32().await.unwrap_or_default(),
+                on_ground: self.read_u8().await.unwrap_or_default() != 0,
+            },
+            (ConnectionState::Play, 0x16) => SetPlayerRotation {
+                yaw: self.read_f32().await.unwrap_or_default(),
+                pitch: self.read_f32().await.unwrap_or_default(),
+                on_ground: self.read_u8().await.unwrap_or_default() != 0,
+            },
+            (ConnectionState::Play, 0x17) => SetPlayerOnGround {
+                on_ground: self.read_u8().await.unwrap_or_default() != 0,
+            },
+            (_, _) => {
+                let mut data: Vec<u8> =
+                    vec![0; length as usize - vec![0; 5].write_varint(id).await];
+                self.read_exact(&mut data).await.unwrap_or_default();
+                Unknown { data }
             }
         }
     }
 }
 
 impl<T: AsyncRead + Unpin> ReadPacket for T {}
+
+type Slot = Option<(i32, i8, Value)>;
 
 #[derive(Debug)]
 #[allow(dead_code)]
@@ -199,6 +243,13 @@ pub enum OutgoingPacket {
         z: f64,
         yaw: f32,
         pitch: f32,
+    },
+    /// Packet ID: 0x12
+    SetContainerContent {
+        window_id: u8,
+        state_id: i32,
+        slot_data: Vec<Slot>,
+        carried_item: Slot,
     },
     /// Packet ID: 0x1B
     DisguisedChatMessage {
@@ -269,6 +320,12 @@ pub enum OutgoingPacket {
         pitch: f32,
         on_ground: bool,
     },
+    /// Packet ID: 0x30
+    OpenScreen {
+        window_id: i32,
+        window_type: i32,
+        window_title: String,
+    },
     /// Packet ID: 0x3A
     PlayerInfoUpdate {
         actions: u8,
@@ -300,7 +357,7 @@ pub enum OutgoingPacket {
     /// Packet ID: 0x55
     SetEquipment {
         entity_id: i32,
-        equipment: Vec<(u8, Option<(i32, i8, Value)>)>,
+        equipment: Vec<(u8, Slot)>,
     },
     /// Packet ID: 0x65
     SetTabListHeaderAndFooter { header: String, footer: String },
@@ -390,6 +447,29 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 d.extend_from_slice(&z.to_be_bytes());
                 d.push(Angle::from_deg(yaw).to_angle());
                 d.push(Angle::from_deg(pitch).to_angle());
+                d
+            }),
+            SetContainerContent {
+                window_id,
+                state_id,
+                mut slot_data,
+                carried_item,
+            } => (0x12, {
+                let mut d: Vec<u8> = Vec::with_capacity(1 + 5 + 1 + slot_data.len() + 1);
+                d.push(window_id);
+                d.write_varint(state_id).await;
+                d.write_varint(slot_data.len() as i32).await;
+                slot_data.push(carried_item);
+                for slot in slot_data {
+                    d.push(slot.is_some() as u8);
+                    if let Some((id, count, nbt)) = slot {
+                        let nbt: Vec<u8> = fastnbt::to_bytes(&nbt).unwrap_or_default();
+                        d.reserve(5 + 1 + nbt.len());
+                        d.write_varint(id).await;
+                        d.push(count as u8);
+                        d.extend_from_slice(&nbt);
+                    }
+                }
                 d
             }),
             DisguisedChatMessage {
@@ -617,6 +697,17 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 d.push(on_ground as u8);
                 d
             }),
+            OpenScreen {
+                window_id,
+                window_type,
+                window_title,
+            } => (0x30, {
+                let mut d: Vec<u8> = Vec::with_capacity(5 + 5 + 5 + window_title.len());
+                d.write_varint(window_id).await;
+                d.write_varint(window_type as i32).await;
+                d.write_string(&window_title).await;
+                d
+            }),
             SynchronizePlayerPosition {
                 x,
                 y,
@@ -708,17 +799,14 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 let mut d: Vec<u8> = Vec::with_capacity(6);
                 d.write_varint(entity_id).await;
                 for (slot, item) in equipment {
-                    d.reserve(1);
                     d.push(slot);
+                    d.push(item.is_some() as u8);
                     if let Some((id, count, nbt)) = item {
                         let nbt: Vec<u8> = fastnbt::to_bytes(&nbt).unwrap_or_default();
                         d.reserve(5 + 1 + nbt.len());
-                        d.push(1);
                         d.write_varint(id).await;
                         d.push(count as u8);
                         d.extend_from_slice(&nbt);
-                    } else {
-                        d.push(0);
                     }
                 }
                 d
@@ -830,7 +918,7 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
 
     async fn write_packets_nonbundling(&mut self, packets: Vec<OutgoingPacket>) {
         for packet in packets {
-            self.write_packet(packet);
+            self.write_packet(packet).await;
         }
     }
 }

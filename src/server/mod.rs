@@ -5,7 +5,7 @@ use std::net::{IpAddr, Ipv4Addr, SocketAddr};
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 
-use bracket_noise::prelude::{FastNoise, FractalType, NoiseType};
+use bracket_noise::prelude::{FastNoise, NoiseType};
 use fastnbt::nbt;
 use lazy_static::lazy_static;
 use log::{debug, info};
@@ -23,7 +23,9 @@ use state::ConnectionState;
 use crate::config::Config;
 use crate::get_config;
 use crate::server::net::packets::WritePacket;
-use crate::server::types::{Block, Chunk, ChunkSection, Gamemode, PlayerActions, Position, Uuid};
+use crate::server::types::{
+    Block, Chunk, ChunkSection, Dimension, Gamemode, PlayerActions, Position, Uuid, I0_15,
+};
 
 pub mod net;
 mod state;
@@ -36,16 +38,13 @@ lazy_static! {
     pub static ref NOISE: FastNoise = {
         let mut noise: FastNoise = FastNoise::seeded(*SEED as u64);
         noise.set_noise_type(NoiseType::PerlinFractal);
-        noise.set_fractal_type(FractalType::FBM);
-        noise.set_fractal_octaves(5);
-        noise.set_fractal_gain(0.6);
-        noise.set_fractal_lacunarity(2.0);
-        noise.set_frequency(2.0);
+        noise.set_frequency(0.005);
         noise
     };
     pub static ref HASHED_SEED: i64 = digest(&SEED.to_be_bytes()).as_bytes().get_i64();
 }
 
+#[allow(clippy::enum_variant_names)]
 #[derive(Clone, Copy, Debug)]
 enum Event {
     PlayerJoin(i32),
@@ -64,12 +63,30 @@ struct Player {
     pub pitch: f32,
     pub on_ground: bool,
 }
+impl Player {
+    pub fn get_block(&self) -> (i32, i32, i32) {
+        (
+            self.x.floor() as i32,
+            self.y.floor() as i32,
+            self.z.floor() as i32,
+        )
+    }
+
+    pub fn get_chunk(&self) -> (i32, i32) {
+        (
+            (self.x / 16.0).floor() as i32,
+            (self.z / 16.0).floor() as i32,
+        )
+    }
+}
 
 type ChunkData = HashMap<(i32, i32), Chunk>;
 type PlayerData = HashMap<i32, Player>;
 
 #[allow(dead_code)]
 pub async fn start() {
+    let start: Instant = Instant::now();
+
     let config: Config = get_config();
     let port: u16 = config.port;
     let listener: TcpListener = TcpListener::bind(format!("127.0.0.1:{}", port))
@@ -89,7 +106,7 @@ pub async fn start() {
     let player_data: Arc<Mutex<PlayerData>> = Arc::new(Mutex::new(HashMap::new()));
     let events: Arc<Mutex<Vec<Event>>> = Arc::new(Mutex::new(vec![]));
 
-    info!("The server is ready!");
+    info!("The server is ready ({:?})", start.elapsed());
 
     loop {
         if let Ok((connection, _)) = listener.accept().await {
@@ -115,7 +132,7 @@ async fn handle_connection(
     events: Arc<Mutex<Vec<Event>>>,
 ) {
     // TODO: Move everything besides play out of the loop
-    //? split the stream?
+    //? Split the stream in halves?
     //? Read packets directly from the connection (and spawn a task to send keep alive packets for now)?
 
     // let (read_half, write_half) = connection.split();
@@ -139,6 +156,7 @@ async fn handle_connection(
         on_ground: true,
     };
     let mut event_index: usize = events.lock().await.len();
+    let mut center_chunk: (i32, i32) = (0, 0);
 
     let mut tick_times: Vec<Duration> = vec![];
 
@@ -152,7 +170,8 @@ async fn handle_connection(
         if state == ConnectionState::Play {
             // debug!("Playstate tick #{playstate_tick} of player {}", player.name);
             playstate_tick += 1;
-            if playstate_tick % 1000 == 0 {
+            if playstate_tick % 1_000_000 == 0 {
+                // debug!("Sending keep alive");
                 connection
                     .write_packet(OutgoingPacket::KeepAlive {
                         keep_alive_id: random(),
@@ -162,19 +181,25 @@ async fn handle_connection(
         }
 
         // Check timeout
-        if Instant::now().duration_since(last_timeout).as_secs() > timeout {
+        if last_timeout.elapsed().as_secs() > timeout {
+            debug!("Timed out");
             break 'conn;
         }
+
+        let mut moved: bool = false;
 
         // Get all incoming data
         let mut incoming: Cursor<Vec<u8>> = Cursor::new(vec![]);
         let mut buf: [u8; 1] = [0];
         match connection.try_read(&mut buf) {
-            Ok(0) => break 'conn,
+            Ok(0) => {
+                debug!("Connection closed");
+                break 'conn;
+            }
             Ok(_) => {
                 incoming.get_mut().extend_from_slice(&buf);
                 loop {
-                    let mut buf: [u8; 1024] = [0; 1024];
+                    let mut buf: [u8; 4096] = [0; 4096];
                     let n: usize = connection.try_read(&mut buf).unwrap_or_default();
                     if n == 0 {
                         break;
@@ -196,7 +221,8 @@ async fn handle_connection(
 
                     use IncomingPacket::*;
                     match packet {
-                        Unknown { .. } => break,
+                        Unknown { data } if data.is_empty() => break,
+                        Unknown { .. } => continue,
                         Handshake {
                             protocol_version: _,
                             server_address: _,
@@ -207,11 +233,13 @@ async fn handle_connection(
                             state = match next_state {
                                 0x01 => ConnectionState::Status,
                                 0x02 => ConnectionState::Login,
-                                _ => break 'conn,
+                                _ => {
+                                    debug!("Invalid state");
+                                    break 'conn;
+                                }
                             }
                         }
                         StatusRequest {} => {
-                            last_timeout = Instant::now();
                             connection
                                 .write_packet(OutgoingPacket::StatusResponse {
                                     json_response: serde_json::to_string(
@@ -220,15 +248,18 @@ async fn handle_connection(
                                     .unwrap_or_default(),
                                 })
                                 .await;
+                            last_timeout = Instant::now();
                         }
                         PingRequest { payload } => {
                             connection
                                 .write_packet(OutgoingPacket::PingResponse { payload })
                                 .await;
+                            debug!("Ping request");
                             break 'conn;
                         }
                         LoginStart { name, .. } => {
-                            let mut player_data = player_data.lock().await;
+                            let mut player_data: MutexGuard<'_, HashMap<i32, Player>> =
+                                player_data.lock().await;
 
                             config.lock().await.status.players.online += 1;
                             events.lock().await.push(Event::PlayerJoin(entity_id));
@@ -236,7 +267,6 @@ async fn handle_connection(
                             player.name = name;
                             player_data.insert(entity_id, player.clone());
                             state = ConnectionState::Play;
-                            last_timeout = Instant::now();
 
                             connection
                                 .write_packet(OutgoingPacket::LoginSuccess {
@@ -247,8 +277,8 @@ async fn handle_connection(
 
                             use OutgoingPacket::*;
                             use PlayerActions::*;
-                            let mut packets: Vec<OutgoingPacket> =
-                                Vec::with_capacity(256 + player_data.len() - 1 + 9);
+                            let mut packets: Vec<OutgoingPacket> = vec![];
+
                             packets.push(LoginPlay {
                                 entity_id: player.id,
                                 is_hardcore: false,
@@ -291,26 +321,25 @@ async fn handle_connection(
                                 chunk_x: 0,
                                 chunk_z: 0,
                             });
-                            for x in -16..=16 {
-                                for z in -16..=16 {
-                                    packets.push(ChunkDataAndUpdateLight {
-                                        chunk_x: x,
-                                        chunk_z: z,
-                                        heightmaps: nbt!({}),
-                                        data: chunk_data
-                                            .lock()
-                                            .await
-                                            .get(&(x, z))
-                                            .cloned()
-                                            .unwrap_or_else(|| generate_chunk(x, z)),
-                                        block_entities: vec![],
-                                        sky_light_mask: vec![],
-                                        block_light_mask: vec![],
-                                        empty_sky_light_mask: vec![],
-                                        empty_block_light_mask: vec![],
-                                        sky_light_arrays: vec![],
-                                        block_light_arrays: vec![],
-                                    })
+                            {
+                                let chunk_data = chunk_data.lock().await;
+                                for x in -16..=16 {
+                                    for z in -16..=16 {
+                                        center_chunk = (0, 0);
+                                        packets.push(ChunkDataAndUpdateLight {
+                                            chunk_x: x,
+                                            chunk_z: z,
+                                            heightmaps: nbt!({}),
+                                            data: chunk_data.get(&(x, z)).cloned().unwrap(),
+                                            block_entities: vec![],
+                                            sky_light_mask: vec![],
+                                            block_light_mask: vec![],
+                                            empty_sky_light_mask: vec![],
+                                            empty_block_light_mask: vec![],
+                                            sky_light_arrays: vec![],
+                                            block_light_arrays: vec![],
+                                        });
+                                    }
                                 }
                             }
                             packets.push(SetDefaultSpawnPosition {
@@ -374,21 +403,42 @@ async fn handle_connection(
                             }
 
                             connection.write_packets(packets).await;
-                        }
-                        KeepAlive { .. } => {
+
                             last_timeout = Instant::now();
                         }
-                        SetPlayerPosition { x, y, z, on_ground } => {
+                        Interact { entity_id, .. } => {
+                            let (x, _, z) = player.get_block();
+                            let y: f64 = chunk_data
+                                .lock()
+                                .await
+                                .get(&player.get_chunk())
+                                .unwrap()
+                                .max_height_at(x, z)
+                                .unwrap_or(319) as f64;
                             events.lock().await.push(Event::PlayerMove(
                                 entity_id,
-                                ((x * 32.0 - player.x * 32.0) * 128.0) as i16,
+                                0,
                                 ((y * 32.0 - player.y * 32.0) * 128.0) as i16,
-                                ((z * 32.0 - player.z * 32.0) * 128.0) as i16,
+                                0,
                             ));
-
-                            (player.x, player.y, player.z, player.on_ground) = (x, y, z, on_ground);
-                            player_data.lock().await.insert(entity_id, player.clone());
+                            connection
+                                .write_packet(OutgoingPacket::SynchronizePlayerPosition {
+                                    x: player.x,
+                                    y,
+                                    z: player.z,
+                                    yaw: player.yaw,
+                                    pitch: player.pitch,
+                                    flags: 0,
+                                    teleport_id: 0,
+                                })
+                                .await;
+                            last_timeout = Instant::now();
                         }
+                        KeepAlive { .. } => {
+                            // debug!("Keep alive received");
+                            last_timeout = Instant::now();
+                        }
+                        SetPlayerPosition { .. } => {}
                         SetPlayerPositionAndRotation {
                             x,
                             y,
@@ -404,6 +454,7 @@ async fn handle_connection(
                                 ((z * 32.0 - player.z * 32.0) * 128.0) as i16,
                             ));
 
+                            moved = true;
                             yaw = yaw.rem_euclid(360.0);
                             if yaw > 180.0 {
                                 yaw -= 360.0;
@@ -451,6 +502,65 @@ async fn handle_connection(
             Err(_) => (),
         }
 
+        // if playstate_tick % 1_000_000 == 0 {
+        //     let block: (i32, i32, i32) = player.get_block();
+        //     let chunk: (i32, i32) = player.get_chunk();
+        //     let chunk_data: MutexGuard<'_, HashMap<(i32, i32), Chunk>> = chunk_data.lock().await;
+        //     debug!(
+        //         "Highest block at {:?} is y={:?}",
+        //         block,
+        //         chunk_data
+        //             .get(&chunk)
+        //             .unwrap()
+        //             .max_height_at(block.0, block.1)
+        //     );
+        // }
+
+        if moved {
+            let new_center_chunk: (i32, i32) = (player.x as i32 / 16, player.z as i32 / 16);
+
+            connection
+                .write_packet(OutgoingPacket::SetCenterChunk {
+                    chunk_x: new_center_chunk.0,
+                    chunk_z: new_center_chunk.1,
+                })
+                .await;
+
+            let mut chunk_data: MutexGuard<'_, HashMap<(i32, i32), Chunk>> =
+                chunk_data.lock().await;
+
+            for x in -16 + new_center_chunk.0..=16 + new_center_chunk.0 {
+                for z in -16 + new_center_chunk.1..=16 + new_center_chunk.1 {
+                    if !((-16 + center_chunk.0..=16 + center_chunk.0).contains(&x)
+                        && (-16 + center_chunk.1..=16 + center_chunk.1).contains(&z))
+                    {
+                        connection
+                            .write_packet(OutgoingPacket::ChunkDataAndUpdateLight {
+                                chunk_x: x,
+                                chunk_z: z,
+                                heightmaps: nbt!({}),
+                                data: chunk_data.get(&(x, z)).cloned().unwrap_or_else(|| {
+                                    let chunk: Chunk = generate_chunk(x, z);
+                                    chunk_data.insert((x, z), chunk.clone());
+                                    chunk
+                                }),
+                                block_entities: vec![],
+                                sky_light_mask: vec![],
+                                block_light_mask: vec![],
+                                empty_sky_light_mask: vec![],
+                                empty_block_light_mask: vec![],
+                                sky_light_arrays: vec![],
+                                block_light_arrays: vec![],
+                            })
+                            .await;
+                        last_timeout = Instant::now();
+                    }
+                }
+            }
+
+            center_chunk = new_center_chunk;
+        }
+
         // Handle events
         let mut packets: Vec<OutgoingPacket> = vec![];
         if let Some(event) = events.lock().await.iter().nth(event_index) {
@@ -489,10 +599,7 @@ async fn handle_connection(
                     }
                 }
                 PlayerMove(eid, dx, dy, dz) if *eid != entity_id => {
-                    let pd: MutexGuard<'_, HashMap<i32, Player>> = player_data.lock().await;
-                    let p: Option<&Player> = pd.get(eid);
-                    if p.is_some() {
-                        let p = p.unwrap();
+                    if let Some(p) = player_data.lock().await.get(eid) {
                         packets.push(UpdateEntityPositionAndRotation {
                             entity_id: p.id,
                             dx: *dx,
@@ -539,13 +646,12 @@ async fn handle_connection(
     );
 }
 
-#[allow(dead_code)]
 pub async fn test() {
-    let chunk: Chunk = generate_chunk(0, 0);
-    debug!("{:?}", chunk.to_bytes().await);
-    // for chunk_section in chunk.chunk_sections {
-    //     debug!("{:?}", chunk_section.to_bytes().await);
-    // }
+    let chunk_section: ChunkSection = ChunkSection {
+        blocks: vec![Block::Stone],
+    };
+
+    debug!("{:?}", chunk_section.to_bytes().await);
 
     // let mut times: Vec<Duration> = vec![];
 
@@ -591,7 +697,7 @@ pub async fn test() {
     // );
 }
 
-/// Generate a unique entity identifier
+/// Generate a unique entity id
 async fn gen_entity_id(entity_ids: Arc<Mutex<Vec<i32>>>) -> i32 {
     let mut entity_id: i32 = entity_ids.lock().await.len() as i32;
     while entity_ids.lock().await.contains(&entity_id) {
@@ -611,30 +717,41 @@ fn get_peer_address(stream: &TcpStream) -> String {
 
 pub fn generate_chunk(x: i32, z: i32) -> Chunk {
     use Block::*;
-    let mut chunk_sections: Vec<ChunkSection> = vec![];
+    let mut chunk: Chunk = Chunk {
+        dimension: Dimension::Overworld,
+        chunk_sections: vec![],
+    };
+
+    // for _ in 0..4 {
+    //     chunk.chunk_sections.push(ChunkSection {
+    //         blocks: vec![Stone; 4096],
+    //     });
+    // }
+
     for section_y in 0..24 {
         let mut chunk_section: ChunkSection = ChunkSection { blocks: vec![] };
+
         for block_y in 0..16 {
             for block_z in 0..16 {
                 for block_x in 0..16 {
-                    let y: i32 = section_y * 16 + block_y;
+                    let y: i32 = section_y * 16 + block_y - 64;
                     if (y as f32)
-                        < 64.0
-                            + 256.0
-                            + ((NOISE.get_noise(
-                                ((x * 16 + block_x) as f32) / 1000.0,
-                                ((z * 16 + block_z) as f32) / 1000.0,
-                            ) + 1.0)
-                                * 32.0)
+                        < 96.0
+                            + NOISE.get_noise((x * 16 + block_x) as f32, (z * 16 + block_z) as f32)
+                                * 128.0
                     {
                         chunk_section.blocks.push(Stone);
+                    } else if y < 63 {
+                        chunk_section.blocks.push(Water { level: I0_15::MAX });
                     } else {
                         chunk_section.blocks.push(Air);
                     }
                 }
             }
         }
-        chunk_sections.push(chunk_section);
+        chunk.chunk_sections.push(chunk_section);
     }
-    Chunk { chunk_sections }
+
+    debug!("Generated chunk {x} {z}");
+    chunk
 }

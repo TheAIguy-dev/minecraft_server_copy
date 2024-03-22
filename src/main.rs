@@ -7,7 +7,6 @@ use std::{env, fs};
 use base64::{engine::general_purpose, Engine};
 use chrono::Local;
 use env_logger::Builder;
-use lazy_static::lazy_static;
 use log::{debug, info, warn, LevelFilter};
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net::TcpStream;
@@ -74,9 +73,7 @@ async fn client() {
     }
 }
 
-lazy_static! {
-    pub static ref PROTOCOL_VERSION: i32 = 763;
-}
+static PROTOCOL_VERSION: u16 = 763;
 
 pub fn get_config() -> Config {
     let mut config: Config =

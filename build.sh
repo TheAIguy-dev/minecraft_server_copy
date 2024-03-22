@@ -55,7 +55,17 @@ case "$1" in
             echo "============ SPEEDY ============"
             ls -sh "./releases/$NAME/Speed/" | pprint
             echo "================================"
+
+
+            cp -r "./releases/$NAME/Speed" "./releases/$NAME/Speed (compressed)"
+            upx --best -q "./releases/$NAME/Speed (compressed)/linux" "./releases/$NAME/Speed (compressed)/windows.exe" > "/dev/null"
+
+            echo
+            echo "====== SPEED (COMPRESSED) ======"
+            ls -sh "./releases/$NAME/Speed (compressed)/" | pprint
+            echo "================================"
         fi
+
         # Optimize for size
         if [ "$PROFILE" == "2" ] || [ "$PROFILE" == "3" ]; then
             mkdir "./releases/$NAME/Size"
@@ -70,6 +80,7 @@ case "$1" in
             ls -sh "./releases/$NAME/Size/" | pprint
             echo "================================"
 
+
             cp -r "./releases/$NAME/Size" "./releases/$NAME/Size (agressive)"
             upx --best -q "./releases/$NAME/Size (agressive)/linux" "./releases/$NAME/Size (agressive)/windows.exe" > "/dev/null"
 
@@ -77,7 +88,6 @@ case "$1" in
             echo "======= SIZE (AGRESSIVE) ======="
             ls -sh "./releases/$NAME/Size (agressive)/" | pprint
             echo "================================"
-
         fi
 
         end=`date +%s.%N`
