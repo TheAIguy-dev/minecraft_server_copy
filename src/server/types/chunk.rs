@@ -1,7 +1,3 @@
-use log::debug;
-
-use crate::server::types::WriteVarInt;
-
 use super::{Block, ChunkSection, Dimension};
 
 #[derive(Clone, Debug)]

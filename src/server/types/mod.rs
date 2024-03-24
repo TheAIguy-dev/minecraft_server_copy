@@ -1,11 +1,4 @@
-macro_rules! import_all {
-    ($($x:ident),+) => {
-        $(
-            pub mod $x;
-            pub use $x::*;
-        )*
-    };
-}
+use crate::server::util::import_all;
 
 import_all!(
     angle,

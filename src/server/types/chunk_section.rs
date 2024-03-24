@@ -1,7 +1,4 @@
-use log::debug;
-
-use super::Block;
-use crate::server::types::WriteVarInt;
+use super::{Block, WriteVarInt};
 
 #[derive(Clone, Debug)]
 pub struct ChunkSection {

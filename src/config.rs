@@ -1,7 +1,28 @@
+use std::fs;
+
+use base64::{engine::general_purpose, Engine};
+use log::warn;
 use serde_derive::{Deserialize, Serialize};
 use serde_with::skip_serializing_none;
 
 use crate::PROTOCOL_VERSION;
+
+pub fn get_config() -> Config {
+    let mut config: Config =
+        confy::load_path("config.toml").expect("Something went wrong when loading config.");
+
+    if let Some(favicon_file) = config.status.favicon {
+        if let Ok(favicon_binary) = &fs::read(favicon_file) {
+            let favicon_base64: String = general_purpose::STANDARD.encode(favicon_binary);
+            config.status.favicon = Some("data:image/png;base64,".to_string() + &favicon_base64);
+        } else {
+            warn!("Could not load favicon!");
+            config.status.favicon = None;
+        }
+    }
+
+    config
+}
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Config {

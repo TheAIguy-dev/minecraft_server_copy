@@ -1,10 +1,6 @@
-use std::string;
-
 use fastnbt::Value;
 
-use crate::server::types::{WriteVarInt, WriteVarLong};
-
-use super::{Position, String, Uuid, VarInt, VarLong};
+use super::{Position, String, Uuid, WriteVarInt, WriteVarLong};
 
 #[derive(Debug)]
 pub enum EntityMetadataField {
@@ -53,7 +49,7 @@ impl EntityMetadataField {
                 d.push(2);
                 d.write_varlong(*varlong).await;
                 d
-            },
+            }
             EMF::Boolean(bool) => vec![8, *bool as u8],
             _ => todo!(),
         }
