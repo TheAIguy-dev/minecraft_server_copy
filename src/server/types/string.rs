@@ -1,39 +1,40 @@
-use std::string;
+use std::{collections::VecDeque, string};
 
-use tokio::io::{AsyncRead, AsyncReadExt, AsyncWrite, AsyncWriteExt};
+use eyre::{ensure, Context, Result};
+use itertools::Itertools;
 
 use super::{ReadVarInt, WriteVarInt};
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct String(pub string::String);
-
 impl String {
-    pub async fn to_bytes(&self) -> Vec<u8> {
-        let mut buf: Vec<u8> = Vec::with_capacity(self.0.len() + 5);
-        buf.write_varint(self.0.len() as i32).await;
-        buf.extend_from_slice(self.0.as_bytes());
+    pub fn to_bytes(&self) -> Vec<u8> {
+        let mut buf: Vec<u8> = Vec::with_capacity(5 + self.0.len());
+        buf.write_string(&self.0);
         buf
     }
 }
 
 pub trait ReadString {
-    async fn read_string(&mut self) -> string::String;
+    fn read_string(&mut self) -> Result<string::String>;
 }
-impl<T: AsyncRead + Unpin> ReadString for T {
-    async fn read_string(&mut self) -> string::String {
-        let len: usize = self.read_varint().await as usize;
-        let mut bytes: Vec<u8> = vec![0; len];
-        self.read_exact(&mut bytes).await.unwrap_or_default();
-        string::String::from_utf8(bytes).unwrap_or_default()
+impl ReadString for VecDeque<u8> {
+    fn read_string(&mut self) -> Result<string::String> {
+        let len: usize = self.read_varint()? as usize;
+        ensure!(len <= self.len(), "Out of bounds");
+        let bytes: Vec<u8> = self.drain(..len).collect_vec();
+        string::String::from_utf8(bytes).wrap_err("Invalid UTF-8")
     }
 }
 
 pub trait WriteString {
-    async fn write_string(&mut self, value: &str) -> usize;
+    fn write_string(&mut self, value: &str) -> usize;
 }
-impl<T: AsyncWrite + Unpin> WriteString for T {
-    async fn write_string(&mut self, value: &str) -> usize {
-        self.write_varint(value.len() as i32).await;
-        self.write(value.as_bytes()).await.unwrap_or_default()
+impl WriteString for Vec<u8> {
+    fn write_string(&mut self, value: &str) -> usize {
+        let bytes_written: usize = self.write_varint(value.len() as i32);
+        let bytes: &[u8] = value.as_bytes();
+        self.extend_from_slice(bytes);
+        bytes_written + bytes.len()
     }
 }

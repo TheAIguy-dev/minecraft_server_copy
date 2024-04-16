@@ -8,25 +8,30 @@ base64 = "0.22.0"
 bounded-integer = {version = "0.5.7", features = ["types"]}
 bracket-noise = "0.8.7"
 byteorder = "1.5.0"
-chrono = "0.4.34"
+chrono = "0.4.37"
+color-eyre = "0.6.3"
 confy = "0.6.1"
-enum_stringify = "0.4.0"
-env_logger = "0.11.2"
+enum_stringify = "0.4.1"
+env_logger = "0.11.3"
+eyre = "0.6.12"
 fastnbt = "2.5.0"
 itertools = "0.12.1"
 lazy_static = "1.4.0"
 leb128 = "0.2.5"
 log = "0.4.21"
 md5 = "0.7.0"
+paste = "1.0.14"
 rand = "0.8.5"
 serde = "1.0.197"
 serde_derive = "1.0.197"
-serde_json = "1.0.114"
-serde_with = "3.6.1"
+serde_json = "1.0.115"
+serde_with = "3.7.0"
 sha256 = "1.5.0"
-tokio = { version = "1.36.0", features = ["full"] }
+strum_macros = "0.26.2"
+thiserror = "1.0.58"
+tokio = { version = "1.37.0", features = ["full"] }
 tokio-util = { version = "0.7.10", features = ["full"] }
-uuid = { version = "1.7.0", features = ["v4"] }
+uuid = { version = "1.8.0", features = ["v4"] }
 
 [profile.release]
 strip = true

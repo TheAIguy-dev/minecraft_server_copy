@@ -1,30 +1,39 @@
-use std::fs;
+use std::collections::{HashMap, HashSet};
 use std::time::Instant;
+use std::{fs, time::Duration};
 
 use bracket_noise::prelude::{FastNoise, NoiseType};
+use eyre::{eyre, Context, Result};
 use lazy_static::lazy_static;
-use log::info;
+use log::{debug, info};
 use sha256::digest;
 
+use tokio::sync::mpsc::error::TryRecvError;
+use tokio::time::Interval;
 use tokio::{
     self,
     net::TcpListener,
     sync::mpsc::{self, UnboundedReceiver, UnboundedSender},
+    time::interval,
 };
 use tokio_util::bytes::Buf;
 
+use crate::server::net::packets::OutgoingPacket;
 use crate::{
     config::{get_config, Config},
-    server::net::connections::{accept_connections, data_distributor},
     SEED,
 };
-
-use self::net::connections::{
-    ConnectionStateWrapper, IncomingPacketWrapper, OutgoingPacketWrapper,
+use net::connection::{
+    accept_connections, data_distributor, ConnectionStateWrapper, IncomingPacketWrapper,
+    OutgoingPacketWrapper,
 };
 
+use self::net::connection::Connection;
+use self::net::packets::IncomingPacket;
+use self::state::ConnectionState;
+
 pub mod net;
-mod state;
+pub mod state;
 #[allow(dead_code)]
 pub mod types;
 pub mod util;
@@ -50,7 +59,7 @@ lazy_static! {
 
 // #[derive(Clone, Debug)]
 // struct Player {
-//     id: i32,
+//     pub entity_id: i32,
 //     pub name: String,
 //     pub x: f64,
 //     pub y: f64,
@@ -67,7 +76,7 @@ lazy_static! {
 //             self.z.floor() as i32,
 //         )
 //     }
-//
+
 //     pub fn get_chunk(&self) -> (i32, i32) {
 //         (
 //             (self.x / 16.0).floor() as i32,
@@ -80,13 +89,13 @@ lazy_static! {
 // type ChunkData = HashMap<(i32, i32), Chunk>;
 
 #[allow(dead_code)]
-pub async fn start() {
+pub async fn start() -> Result<()> {
     let start: Instant = Instant::now();
 
     let config: Config = get_config();
     let listener: TcpListener = TcpListener::bind(format!("127.0.0.1:{}", config.port))
         .await
-        .unwrap_or_else(|_| panic!("Could not start server on port {}", config.port));
+        .wrap_err_with(|| format!("Could not start server on port {}", config.port))?;
     info!("Starting server on localhost:{}", config.port);
 
     // let mut chunk_data: ChunkData = HashMap::new();
@@ -113,17 +122,153 @@ pub async fn start() {
 
     info!("Done ({:?})!", start.elapsed());
     run(
+        config,
         state_sender,
         incoming_packet_receiver,
         outgoing_packet_sender,
     )
-    .await;
+    .await?;
+
+    Ok(())
 }
 
 async fn run(
+    config: Config,
     state_sender: UnboundedSender<ConnectionStateWrapper>,
-    incoming_packet_receiver: UnboundedReceiver<IncomingPacketWrapper>,
+    mut incoming_packet_receiver: UnboundedReceiver<IncomingPacketWrapper>,
     outgoing_packet_sender: UnboundedSender<OutgoingPacketWrapper>,
-) {
-    todo!()
+) -> Result<()> {
+    let mut tick: Interval = interval(Duration::from_millis(50));
+    let mut connections: HashMap<i32, Connection> = HashMap::new();
+    // let mut players: HashMap<i32, Player> = HashMap::new();
+
+    loop {
+        tick.tick().await;
+        let mut drop_connections: HashSet<i32> = HashSet::new();
+
+        // let mut packets: HashMap<i32, Vec<IncomingPacket>> = HashMap::new();
+
+        // Handle incoming packets
+        loop {
+            use IncomingPacket::*;
+            match incoming_packet_receiver.try_recv() {
+                // Receive outgoing packet
+                Ok(IncomingPacketWrapper { conn_id, packet }) => {
+                    if connections.get(&conn_id).is_none() {
+                        connections.insert(conn_id, Connection::default());
+                    }
+                    let connection: &mut Connection = connections.get_mut(&conn_id).unwrap();
+
+                    debug!("{packet}");
+
+                    match packet {
+                        Handshake {
+                            protocol_version: _,
+                            server_address: _,
+                            server_port: _,
+                            next_state,
+                        } => {
+                            // Verify state
+                            if connection.state != ConnectionState::Handshake {
+                                drop_connections.insert(conn_id);
+                                continue;
+                            }
+
+                            debug!("[MAIN] Received handshake");
+
+                            // Transition to the next state
+                            let state: ConnectionState = match next_state {
+                                0x01 => ConnectionState::Status,
+                                0x02 => ConnectionState::Login,
+                                // Drop the connection if the state is invalid
+                                _ => {
+                                    drop_connection(&outgoing_packet_sender, conn_id)?;
+                                    continue;
+                                }
+                            };
+
+                            connection.last_timeout = Instant::now();
+                            connection.state = state;
+
+                            debug!("[MAIN] Sending state {state}");
+
+                            // Update state
+                            state_sender.send(ConnectionStateWrapper { conn_id, state })?;
+
+                            debug!("[MAIN] Sent state");
+                        }
+                        StatusRequest => {
+                            // Verify state
+                            if connection.state != ConnectionState::Status {
+                                drop_connections.insert(conn_id);
+                                continue;
+                            }
+
+                            connection.last_timeout = Instant::now();
+
+                            // Send status
+                            outgoing_packet_sender.send(OutgoingPacketWrapper {
+                                conn_id,
+                                packet: OutgoingPacket::StatusResponse {
+                                    json_response: serde_json::to_string(&config.status)
+                                        .unwrap_or_default(),
+                                },
+                            })?;
+                        }
+                        PingRequest { payload } => {
+                            // Verify state
+                            if connection.state != ConnectionState::Status {
+                                drop_connections.insert(conn_id);
+                                continue;
+                            }
+
+                            // Send ping response
+                            outgoing_packet_sender.send(OutgoingPacketWrapper {
+                                conn_id,
+                                packet: OutgoingPacket::PingResponse { payload },
+                            })?;
+
+                            // Drop the connection
+                            outgoing_packet_sender.send(OutgoingPacketWrapper {
+                                conn_id,
+                                packet: OutgoingPacket::Drop,
+                            })?;
+                        }
+                        _ => {}
+                    }
+                }
+
+                // No more outgoing packets
+                Err(TryRecvError::Empty) => break,
+
+                // Channel closed
+                Err(TryRecvError::Disconnected) => {
+                    return Err(eyre!("Outgoing packet channel closed"));
+                }
+            }
+        }
+
+        // Drop connections
+        for (&conn_id, connection) in &mut connections {
+            if connection.last_timeout.elapsed() > Duration::from_secs(5) {
+                drop_connections.insert(conn_id);
+            }
+        }
+        for conn_id in drop_connections {
+            // debug!("Dropping connection {conn_id}");
+            drop_connection(&outgoing_packet_sender, conn_id)?;
+            connections.remove(&conn_id);
+        }
+    }
+}
+
+fn drop_connection(
+    outgoing_packet_sender: &UnboundedSender<OutgoingPacketWrapper>,
+    conn_id: i32,
+) -> Result<()> {
+    outgoing_packet_sender.send(OutgoingPacketWrapper {
+        conn_id,
+        packet: OutgoingPacket::Drop,
+    })?;
+    Ok(())
 }

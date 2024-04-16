@@ -2,7 +2,7 @@ use bounded_integer::BoundedU8;
 
 // State ids are verified
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum Facing {
     North,
@@ -13,7 +13,7 @@ pub enum Facing {
     Down,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum HorizontalFacing {
     North,
@@ -22,7 +22,7 @@ pub enum HorizontalFacing {
     East,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum HopperFacing {
     Down,
@@ -32,7 +32,7 @@ pub enum HopperFacing {
     East,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum Face {
     Floor,
@@ -40,21 +40,21 @@ pub enum Face {
     Ceiling,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum Half {
     Top,
     Bottom,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum DoorHinge {
     Left,
     Right,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum Axis {
     X,
@@ -62,7 +62,7 @@ pub enum Axis {
     Z,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum SlabType {
     Top,
@@ -70,7 +70,7 @@ pub enum SlabType {
     Double,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum StairsShape {
     Straight,
@@ -80,7 +80,7 @@ pub enum StairsShape {
     OuterRight,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum RailShape {
     NorthSouth,
@@ -95,7 +95,7 @@ pub enum RailShape {
     NorthEast,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum RedstoneRailShape {
     NorthSouth,
@@ -106,7 +106,7 @@ pub enum RedstoneRailShape {
     AscendingSouth,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum WallConnection {
     None,
@@ -114,7 +114,7 @@ pub enum WallConnection {
     Tall,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum BambooLeaves {
     None,
@@ -122,7 +122,7 @@ pub enum BambooLeaves {
     Large,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum BellAttachment {
     Floor,
@@ -131,7 +131,7 @@ pub enum BellAttachment {
     DoubleWall,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum DripleafTilt {
     None,
@@ -140,14 +140,14 @@ pub enum DripleafTilt {
     Full,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum BedPart {
     Head,
     Foot,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum SculkSensorPhase {
     Inactive,
@@ -155,7 +155,7 @@ pub enum SculkSensorPhase {
     Cooldown,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum ChestType {
     Single,
@@ -163,14 +163,14 @@ pub enum ChestType {
     Right,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum ComparatorMode {
     Compare,
     Subtract,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum JigsawOrientation {
     DownEast,
@@ -187,21 +187,21 @@ pub enum JigsawOrientation {
     SouthUp,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum PistonType {
     Normal,
     Sticky,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum HorizontalAxis {
     X,
     Z,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum NoteBlockInstrument {
     Harp,
@@ -229,14 +229,14 @@ pub enum NoteBlockInstrument {
     CustomHead,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum PointedDripstoneDirection {
     Up,
     Down,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum PointedDripstoneThickness {
     TipMerge,
@@ -246,7 +246,7 @@ pub enum PointedDripstoneThickness {
     Base,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum RedstoneWireConnection {
     Up,
@@ -254,7 +254,7 @@ pub enum RedstoneWireConnection {
     None,
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum StructureBlockMode {
     Save,

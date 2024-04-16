@@ -1,5 +1,10 @@
-use std::collections::{HashMap, HashSet};
+use std::{
+    collections::{HashMap, HashSet},
+    time::Instant,
+};
 
+use eyre::{eyre, Context, Result};
+use log::debug;
 use tokio::{
     self,
     net::{
@@ -29,19 +34,40 @@ pub struct ConnectionStateWrapper {
     pub state: ConnectionState,
 }
 
-pub struct PlayerConnection {
+pub struct _Connection {
     pub state_sender: watch::Sender<ConnectionState>,
     pub incoming_packet_receiver: mpsc::UnboundedReceiver<IncomingPacket>,
     pub outgoing_packet_sender: mpsc::UnboundedSender<OutgoingPacket>,
 }
 
+pub struct Connection {
+    pub last_timeout: Instant,
+    pub state: ConnectionState,
+}
+impl Connection {
+    pub fn from_state(state: ConnectionState) -> Self {
+        Self {
+            last_timeout: Instant::now(),
+            state,
+        }
+    }
+}
+impl Default for Connection {
+    fn default() -> Self {
+        Self {
+            last_timeout: Instant::now(),
+            state: ConnectionState::default(),
+        }
+    }
+}
+
 pub async fn data_distributor(
-    mut connection_receiver: mpsc::UnboundedReceiver<PlayerConnection>,
+    mut connection_receiver: mpsc::UnboundedReceiver<_Connection>,
     mut state_receiver: mpsc::UnboundedReceiver<ConnectionStateWrapper>,
     incoming_packet_sender: mpsc::UnboundedSender<IncomingPacketWrapper>,
     mut outgoing_packet_receiver: mpsc::UnboundedReceiver<OutgoingPacketWrapper>,
-) {
-    let mut connections: HashMap<i32, PlayerConnection> = HashMap::new();
+) -> Result<()> {
+    let mut connections: HashMap<i32, _Connection> = HashMap::new();
 
     loop {
         // Receive new connections
@@ -56,7 +82,7 @@ pub async fn data_distributor(
                 Err(TryRecvError::Empty) => break,
 
                 // Channel closed
-                Err(TryRecvError::Disconnected) => return,
+                Err(TryRecvError::Disconnected) => return Err(eyre!("Connection channel closed")),
             }
         }
 
@@ -65,14 +91,10 @@ pub async fn data_distributor(
             match state_receiver.try_recv() {
                 // Send state
                 Ok(state) => {
-                    if connections
-                        .get(&state.conn_id)
-                        .unwrap()
-                        .state_sender
-                        .send(state.state)
-                        .is_err()
-                    {
-                        connections.remove(&state.conn_id);
+                    if let Some(connection) = connections.get(&state.conn_id) {
+                        if connection.state_sender.send(state.state).is_err() {
+                            connections.remove(&state.conn_id);
+                        }
                     }
                 }
 
@@ -81,7 +103,7 @@ pub async fn data_distributor(
 
                 // Channel closed
                 Err(TryRecvError::Disconnected) => {
-                    return;
+                    return Err(eyre!("State channel closed"));
                 }
             }
         }
@@ -93,12 +115,10 @@ pub async fn data_distributor(
                 match connection.incoming_packet_receiver.try_recv() {
                     // Receive incoming packet
                     Ok(packet) => {
-                        if incoming_packet_sender
+                        debug!("[DATA_DISTRIBUTOR] Sending {packet}");
+                        incoming_packet_sender
                             .send(IncomingPacketWrapper { conn_id, packet })
-                            .is_err()
-                        {
-                            return;
-                        }
+                            .context("Incoming packet channel closed")?
                     }
 
                     // No more incoming packets
@@ -106,6 +126,7 @@ pub async fn data_distributor(
 
                     // Connection closed
                     Err(TryRecvError::Disconnected) => {
+                        debug!("[DATA_DISTRIBUTOR] Incoming packet channel closed");
                         disconnected.insert(conn_id);
                         break;
                     }
@@ -113,6 +134,7 @@ pub async fn data_distributor(
             }
         }
         for conn_id in disconnected {
+            debug!("[DATA_DISTRIBUTOR] Removing {conn_id}");
             connections.remove(&conn_id);
         }
 
@@ -121,14 +143,15 @@ pub async fn data_distributor(
             match outgoing_packet_receiver.try_recv() {
                 // Send outgoing packet
                 Ok(packet) => {
-                    if connections
-                        .get(&packet.conn_id)
-                        .unwrap()
-                        .outgoing_packet_sender
-                        .send(packet.packet)
-                        .is_err()
-                    {
-                        connections.remove(&packet.conn_id);
+                    if let Some(connection) = connections.get(&packet.conn_id) {
+                        if packet.packet == OutgoingPacket::Drop
+                            || connection
+                                .outgoing_packet_sender
+                                .send(packet.packet)
+                                .is_err()
+                        {
+                            connections.remove(&packet.conn_id);
+                        }
                     }
                 }
 
@@ -137,7 +160,7 @@ pub async fn data_distributor(
 
                 // Channel closed
                 Err(TryRecvError::Disconnected) => {
-                    return;
+                    return Err(eyre!("Outgoing packet channel closed"));
                 }
             }
         }
@@ -146,8 +169,8 @@ pub async fn data_distributor(
 
 pub async fn accept_connections(
     listener: TcpListener,
-    connection_sender: mpsc::UnboundedSender<PlayerConnection>,
-) {
+    connection_sender: mpsc::UnboundedSender<_Connection>,
+) -> Result<()> {
     loop {
         if let Ok((stream, _)) = listener.accept().await {
             let (read_half, write_half) = stream.into_split();
@@ -156,6 +179,8 @@ pub async fn accept_connections(
             let (incoming_packet_sender, incoming_packet_receiver) = mpsc::unbounded_channel();
             let (outgoing_packet_sender, outgoing_packet_receiver) = mpsc::unbounded_channel();
 
+            state_sender.send(ConnectionState::Handshake)?;
+
             spawn(read_packets(
                 read_half,
                 state_receiver,
@@ -163,16 +188,13 @@ pub async fn accept_connections(
             ));
             spawn(write_packets(write_half, outgoing_packet_receiver));
 
-            if connection_sender
-                .send(PlayerConnection {
+            connection_sender
+                .send(_Connection {
                     state_sender,
                     incoming_packet_receiver,
                     outgoing_packet_sender,
                 })
-                .is_err()
-            {
-                break;
-            }
+                .context("Connection channel closed")?;
         }
     }
 }
@@ -181,30 +203,55 @@ pub async fn read_packets(
     mut read_half: OwnedReadHalf,
     mut state_receiver: watch::Receiver<ConnectionState>,
     incoming_packet_sender: mpsc::UnboundedSender<IncomingPacket>,
-) {
-    let mut state: ConnectionState = *state_receiver.borrow_and_update();
+) -> Result<()> {
+    let mut state: ConnectionState = *state_receiver.borrow();
+    // while let Ok(()) = state_receiver.changed().await {
     loop {
-        if let Ok(has_changed) = state_receiver.has_changed() {
-            if has_changed {
+        // debug!("Reading, state {state}");
+
+        if state != ConnectionState::Play {
+            debug!("[READ_PACKETS] State not play, waiting for new state");
+            if let Ok(()) = state_receiver.changed().await {
+                // if has_changed {
                 state = *state_receiver.borrow_and_update();
+            } else {
+                break;
             }
+            debug!("[READ_PACKETS] Received state {state}");
         } else {
-            break;
+            if let Ok(has_changed) = state_receiver.has_changed() {
+                if has_changed {
+                    state = *state_receiver.borrow_and_update();
+                }
+            } else {
+                break;
+            }
         }
 
-        let packet: IncomingPacket = read_half.read_packet(&state).await;
+        debug!("[READ_PACKETS] Starting read with state {state}");
+        let packet: IncomingPacket = read_half.read_packet(&state).await?;
+        debug!("[READ_PACKETS] Received packet {packet}");
 
-        if incoming_packet_sender.send(packet).is_err() {
+        debug!(
+            "[READ_PACKETS] Is channel closed: {}",
+            incoming_packet_sender.is_closed()
+        );
+        if let Err(e) = incoming_packet_sender.send(packet) {
+            debug!("[READ_PACKETS] Unable to send packet to channel: {e}");
             break;
         }
     }
+
+    Ok(())
 }
 
 pub async fn write_packets(
     mut write_half: OwnedWriteHalf,
     mut outgoing_packet_receiver: mpsc::UnboundedReceiver<OutgoingPacket>,
-) {
+) -> Result<()> {
     while let Some(packet) = outgoing_packet_receiver.recv().await {
-        write_half.write_packet(packet).await;
+        write_half.write_packet(packet).await?;
     }
+
+    Ok(())
 }

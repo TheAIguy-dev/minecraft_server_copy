@@ -1,4 +1,4 @@
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct Uuid(pub u128);
 impl Uuid {
     pub fn offline(name: String) -> Self {
@@ -8,11 +8,10 @@ impl Uuid {
         Self(uuid::Uuid::from_bytes(hash).as_u128())
     }
 
-    pub fn to_bytes(&self) -> [u8; 16] {
+    pub fn to_bytes(self) -> [u8; 16] {
         self.0.to_be_bytes()
     }
 }
-
 impl Default for Uuid {
     /// Generated from "OfflinePlayer:default"
     fn default() -> Self {

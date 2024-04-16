@@ -1,16 +1,21 @@
+use eyre::{ensure, ContextCompat, Result};
+use paste::paste;
 use rand::{
     distributions::{Distribution, Standard},
     random,
 };
-use std::net::{IpAddr, Ipv4Addr, SocketAddr};
 use std::sync::Arc;
 use std::{collections::HashMap, hash::Hash};
+use std::{
+    collections::VecDeque,
+    net::{IpAddr, Ipv4Addr, SocketAddr},
+};
 
 use log::debug;
 use tokio::net::TcpStream;
 use tokio::sync::Mutex;
 
-use super::types::{Block, Chunk, ChunkSection, Dimension};
+use super::types::{leb128::Error::*, Block, Chunk, ChunkSection, Dimension};
 
 pub fn gen_unique_key<T, U>(hash_map: &HashMap<T, U>) -> T
 where
@@ -97,3 +102,79 @@ macro_rules! import_all {
     };
 }
 pub(crate) use import_all;
+
+macro_rules! read_type {
+    ($x:ty) => {
+        paste! {
+            fn [<read_ $x>](&mut self) -> Result<$x>;
+        }
+    };
+}
+macro_rules! read_int_impl {
+    ($x:ty) => {
+        paste! {
+            fn [<read_ $x>](&mut self) -> Result<$x> {
+                ensure!($x::BITS as usize / 8 <= self.len(), EndOfFile);
+                let mut result: $x = 0;
+                for _ in 0..$x::BITS / 8 - 1 {
+                    result |= self.pop_front().context(EndOfFile)? as $x;
+                    result <<= 8;
+                }
+                result |= self.pop_front().context(EndOfFile)? as $x;
+                Ok(result)
+            }
+        }
+    };
+}
+pub trait ReadExt {
+    read_type!(u8);
+    read_type!(u16);
+    read_type!(u32);
+    read_type!(u64);
+    read_type!(u128);
+    read_type!(i8);
+    read_type!(i16);
+    read_type!(i32);
+    read_type!(i64);
+    read_type!(i128);
+    read_type!(f32);
+    read_type!(f64);
+}
+impl ReadExt for VecDeque<u8> {
+    fn read_u8(&mut self) -> Result<u8> {
+        ensure!(!self.is_empty(), EndOfFile);
+        self.pop_front().context(EndOfFile)
+    }
+    read_int_impl!(u16);
+    read_int_impl!(u32);
+    read_int_impl!(u64);
+    read_int_impl!(u128);
+    fn read_i8(&mut self) -> Result<i8> {
+        ensure!(!self.is_empty(), EndOfFile);
+        Ok(self.pop_front().context(EndOfFile)? as i8)
+    }
+    read_int_impl!(i16);
+    read_int_impl!(i32);
+    read_int_impl!(i64);
+    read_int_impl!(i128);
+    fn read_f32(&mut self) -> Result<f32> {
+        ensure!(4 <= self.len(), EndOfFile);
+        let mut result: u32 = 0;
+        for _ in 0..3 {
+            result |= self.pop_front().context(EndOfFile)? as u32;
+            result <<= 8;
+        }
+        result |= self.pop_front().context(EndOfFile)? as u32;
+        Ok(f32::from_bits(result))
+    }
+    fn read_f64(&mut self) -> Result<f64> {
+        ensure!(8 <= self.len(), EndOfFile);
+        let mut result: u64 = 0;
+        for _ in 0..7 {
+            result |= self.pop_front().context(EndOfFile)? as u64;
+            result <<= 8;
+        }
+        result |= self.pop_front().context(EndOfFile)? as u64;
+        Ok(f64::from_bits(result))
+    }
+}

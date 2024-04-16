@@ -9,7 +9,7 @@ use super::{
 
 // TODO: Write macros to avoid repeating code
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u16)]
 #[allow(clippy::enum_variant_names)]
 pub enum Block {

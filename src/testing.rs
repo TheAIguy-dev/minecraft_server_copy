@@ -1,13 +1,15 @@
 use log::debug;
 
-use crate::server::types::{Block, ChunkSection};
+use crate::server::net::packets::OutgoingPacket;
 
 pub async fn test() {
-    let chunk_section: ChunkSection = ChunkSection {
-        blocks: vec![Block::Stone],
-    };
+    debug!("{}", std::mem::size_of::<OutgoingPacket>());
 
-    debug!("{:?}", chunk_section.to_bytes().await);
+    // let chunk_section: ChunkSection = ChunkSection {
+    //     blocks: vec![Block::Stone],
+    // };
+
+    // debug!("{:?}", chunk_section.to_bytes());
 }
 
 // #[allow(dead_code)]

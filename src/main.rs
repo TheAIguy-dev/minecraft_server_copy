@@ -1,9 +1,12 @@
 #![forbid(unsafe_code)]
 #![recursion_limit = "256"]
 
+// Very important
+#[allow(dead_code)]
+static HEROBRINE: &str = "herobrine";
+
 mod client;
 mod config;
-mod leb128_async;
 mod server;
 mod testing;
 
@@ -12,6 +15,7 @@ use std::io::Write;
 
 use chrono::Local;
 use env_logger::Builder;
+use eyre::Result;
 use log::{debug, LevelFilter};
 
 #[cfg(test)]
@@ -21,7 +25,7 @@ static PROTOCOL_VERSION: u16 = 763;
 const SEED: i64 = 0;
 
 #[tokio::main]
-async fn main() {
+async fn main() -> Result<()> {
     Builder::new()
         .format(|buf, record| {
             writeln!(
@@ -40,13 +44,15 @@ async fn main() {
 
     match args.get(1).map(|s: &String| s.as_str()) {
         Some("" | "server") | None => {
-            server::start().await;
+            server::start().await?;
 
             testing::test().await;
         }
         Some("client") => {
-            client::start().await;
+            client::start().await?;
         }
         _ => panic!("Invalid arguments"),
     }
+
+    Ok(())
 }

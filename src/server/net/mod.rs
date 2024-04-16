@@ -1,2 +1,2 @@
-pub mod connections;
+pub mod connection;
 pub mod packets;

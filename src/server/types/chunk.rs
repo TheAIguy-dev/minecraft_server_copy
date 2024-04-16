@@ -1,6 +1,6 @@
 use super::{Block, ChunkSection, Dimension};
 
-#[derive(Clone, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Chunk {
     pub dimension: Dimension,
     pub chunk_sections: Vec<ChunkSection>,
@@ -38,7 +38,7 @@ impl Chunk {
         None
     }
 
-    pub async fn to_bytes(&self) -> Vec<u8> {
+    pub fn to_bytes(&self) -> Vec<u8> {
         let mut d: Vec<u8> = Vec::with_capacity(24);
         let chunk_sections = match self.dimension {
             Dimension::Overworld => 24,
@@ -50,8 +50,7 @@ impl Chunk {
                     .chunk_sections
                     .get(i)
                     .unwrap_or(&ChunkSection { blocks: vec![] })
-                    .to_bytes()
-                    .await,
+                    .to_bytes(),
             );
         }
         d // TODO: check if this is faster than concatenating

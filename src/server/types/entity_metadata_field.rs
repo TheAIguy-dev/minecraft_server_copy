@@ -2,7 +2,7 @@ use fastnbt::Value;
 
 use super::{Position, String, Uuid, WriteVarInt, WriteVarLong};
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Clone)]
 pub enum EntityMetadataField {
     Byte(u8),
     VarInt(i32),
@@ -34,20 +34,20 @@ pub enum EntityMetadataField {
     Quaternion(f32, f32, f32, f32),
 }
 impl EntityMetadataField {
-    pub async fn to_bytes(&self) -> Vec<u8> {
+    pub fn to_bytes(&self) -> Vec<u8> {
         use EntityMetadataField as EMF;
         match self {
             EMF::Byte(byte) => vec![0, *byte],
             EMF::VarInt(varint) => {
-                let mut d: Vec<u8> = Vec::with_capacity(6);
+                let mut d: Vec<u8> = Vec::with_capacity(1 + 5);
                 d.push(1);
-                d.write_varint(*varint).await;
+                d.write_varint(*varint);
                 d
             }
             EMF::VarLong(varlong) => {
-                let mut d: Vec<u8> = Vec::with_capacity(11);
+                let mut d: Vec<u8> = Vec::with_capacity(1 + 10);
                 d.push(2);
-                d.write_varlong(*varlong).await;
+                d.write_varlong(*varlong);
                 d
             }
             EMF::Boolean(bool) => vec![8, *bool as u8],

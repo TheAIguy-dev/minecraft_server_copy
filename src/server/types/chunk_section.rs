@@ -1,6 +1,6 @@
-use super::{Block, WriteVarInt};
+use super::{leb128::WriteVarInt, Block};
 
-#[derive(Clone, Debug)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ChunkSection {
     //? Maybe place size restriction: [Block; 4096]
     pub blocks: Vec<Block>,
@@ -36,7 +36,7 @@ impl ChunkSection {
         None
     }
 
-    pub async fn to_bytes(&self) -> Vec<u8> {
+    pub fn to_bytes(&self) -> Vec<u8> {
         const AIR_STATE_ID: u16 = 0;
         const VOID_AIR_STATE_ID: u16 = 12817;
         const CAVE_AIR_STATE_ID: u16 = 12818;
@@ -76,7 +76,7 @@ impl ChunkSection {
             0 => {
                 let mut d: Vec<u8> = Vec::with_capacity(1 + 3 + 1);
                 d.push(0);
-                d.write_varint(blocks[0] as i32).await;
+                d.write_varint(blocks[0] as i32);
                 d.push(0);
                 d
             }
@@ -84,7 +84,7 @@ impl ChunkSection {
                 let palette: Vec<u8> = {
                     let mut d: Vec<u8> = Vec::with_capacity(3 + unique_blocks.len() * 3);
                     for block in &unique_blocks {
-                        d.write_varint(*block as i32).await;
+                        d.write_varint(*block as i32);
                     }
                     d
                 };
@@ -111,9 +111,9 @@ impl ChunkSection {
 
                 let mut d: Vec<u8> = Vec::with_capacity(1 + 5 + palette.len() + 2 + data.len());
                 d.push(bpe);
-                d.write_varint(unique_blocks.len() as i32).await;
+                d.write_varint(unique_blocks.len() as i32);
                 d.extend_from_slice(&palette);
-                d.write_varint(data_length as i32).await;
+                d.write_varint(data_length as i32);
                 d.extend_from_slice(&data);
                 d
             }
@@ -136,7 +136,7 @@ impl ChunkSection {
 
                 let mut d: Vec<u8> = Vec::with_capacity(1 + 2 + data.len());
                 d.push(bpe);
-                d.write_varint(data_length as i32).await;
+                d.write_varint(data_length as i32);
                 d.extend_from_slice(&data);
                 d
             }
@@ -145,8 +145,8 @@ impl ChunkSection {
         let biomes: Vec<u8> = {
             let mut d: Vec<u8> = Vec::with_capacity(1 + 3 + 1);
             d.push(0);
-            d.write_varint(56).await;
-            d.write_varint(0).await;
+            d.write_varint(56);
+            d.write_varint(0);
             d
         };
 

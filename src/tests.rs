@@ -1,7 +1,7 @@
 use crate::server::types::{WriteVarInt, WriteVarLong};
 
-#[tokio::test]
-async fn test_varint() {
+#[test]
+fn test_varint() {
     let values: Vec<i32> = vec![
         0,
         1,
@@ -30,13 +30,13 @@ async fn test_varint() {
     ];
     for i in 0..values.len() {
         let mut buf: Vec<u8> = vec![];
-        buf.write_varint(values[i]).await;
+        buf.write_varint(values[i]);
         assert_eq!(buf, results[i], "test #{}", i);
     }
 }
 
-#[tokio::test]
-async fn test_varlong() {
+#[test]
+fn test_varlong() {
     let values: Vec<i64> = vec![
         0,
         1,
@@ -65,7 +65,7 @@ async fn test_varlong() {
     ];
     for i in 0..values.len() {
         let mut buf: Vec<u8> = vec![];
-        buf.write_varlong(values[i]).await;
+        buf.write_varlong(values[i]);
         assert_eq!(buf, results[i], "test #{}", i);
     }
 }
