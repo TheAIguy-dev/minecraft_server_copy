@@ -4,77 +4,96 @@ use rand::{
     distributions::{Distribution, Standard},
     random,
 };
-use std::sync::Arc;
 use std::{collections::HashMap, hash::Hash};
 use std::{
     collections::VecDeque,
     net::{IpAddr, Ipv4Addr, SocketAddr},
 };
+use std::{
+    sync::Arc,
+    time::{Duration, Instant},
+};
+use thiserror::Error;
 
 use log::debug;
 use tokio::net::TcpStream;
 use tokio::sync::Mutex;
 
-use super::types::{leb128::Error::*, Block, Chunk, ChunkSection, Dimension};
+use super::types::{Block, Chunk, ChunkSection, Dimension};
 
-pub fn gen_unique_key<T, U>(hash_map: &HashMap<T, U>) -> T
+pub trait GenUniqueKey<T> {
+    fn gen_unique_key(&self) -> T;
+}
+impl<K, V> GenUniqueKey<K> for HashMap<K, V>
 where
-    T: Eq + Hash,
-    Standard: Distribution<T>,
+    K: Eq + Hash,
+    Standard: Distribution<K>,
 {
-    let mut key: T = random();
+    fn gen_unique_key(&self) -> K {
+        let mut key: K = random();
 
-    while hash_map.contains_key(&key) {
-        key = random();
+        while self.contains_key(&key) {
+            key = random();
+        }
+
+        key
     }
+}
 
-    key
+pub fn get_chunk(chunks: &mut HashMap<(i32, i32), Chunk>, x: i32, z: i32) -> Chunk {
+    match chunks.get(&(x, z)) {
+        Some(chunk) => chunk.clone(),
+        None => {
+            let chunk = generate_chunk(x, z);
+            chunks.insert((x, z), chunk.clone());
+            chunk
+        }
+    }
 }
 
 pub fn generate_chunk(x: i32, z: i32) -> Chunk {
     use Block::*;
     let mut chunk: Chunk = Chunk {
         dimension: Dimension::Overworld,
-        chunk_sections: vec![],
+        chunk_sections: Vec::with_capacity(24),
     };
 
-    let mut chunk_section: ChunkSection = ChunkSection { blocks: vec![] };
-    for _ in 0..256 {
-        chunk_section.blocks.push(Bedrock);
-    }
-    for _ in 0..512 {
-        chunk_section.blocks.push(Dirt);
-    }
-    for _ in 0..256 {
-        chunk_section.blocks.push(GrassBlock { snowy: false });
-    }
-    chunk.chunk_sections.push(chunk_section);
+    for section_y in 0..24 {
+        let mut chunk_section: ChunkSection = ChunkSection {
+            blocks: Vec::with_capacity(4096),
+        };
+        let mut push_layer = |block: Block| {
+            for _ in 0..256 {
+                chunk_section.blocks.push(block);
+            }
+        };
 
-    // for section_y in 0..24 {
-    //     let mut chunk_section: ChunkSection = ChunkSection { blocks: vec![] };
-    //     for block_y in 0..16 {
-    //         for block_z in 0..16 {
-    //             for block_x in 0..16 {
-    //                 let y: i32 = section_y * 16 + block_y - 64;
-    //                 if (y as f32)
-    //                     < 96.0
-    //                         + NOISE.get_noise((x * 16 + block_x) as f32, (z * 16 + block_z) as f32)
-    //                             * 128.0
-    //                 {
-    //                     chunk_section.blocks.push(Stone);
-    //                 } else if y < 63 {
-    //                     chunk_section.blocks.push(Water { level: I0_15::MAX });
-    //                 } else {
-    //                     chunk_section.blocks.push(Air);
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     chunk.chunk_sections.push(chunk_section);
-    // }
+        for block_y in 0..16 {
+            let y: i32 = section_y * 16 + block_y - 64;
+            if y == -64 {
+                push_layer(Bedrock);
+            } else if (-63..60).contains(&y) {
+                push_layer(Stone);
+            } else if (60..64).contains(&y) {
+                push_layer(Dirt);
+            } else if y == 64 {
+                push_layer(GrassBlock { snowy: false });
+            }
+        }
+        chunk.chunk_sections.push(chunk_section);
+    }
 
     debug!("Generated chunk {x} {z}");
     chunk
+}
+
+/// Normalizes the yaw to be between -180 and 180 degrees.
+pub fn normalize_yaw(yaw: f32) -> f32 {
+    let mut yaw = yaw.rem_euclid(360.0);
+    if yaw > 180.0 {
+        yaw -= 360.0;
+    }
+    yaw
 }
 
 async fn gen_entity_id(entity_ids: Arc<Mutex<Vec<i32>>>) -> i32 {
@@ -103,6 +122,15 @@ macro_rules! import_all {
 }
 pub(crate) use import_all;
 
+#[derive(Error, Debug)]
+pub enum ReadError {
+    #[error("The value being read is larger than expected.")]
+    Overflow,
+    #[error("The end of the buffer was reached.")]
+    EndOfFile,
+}
+
+use ReadError::*;
 macro_rules! read_type {
     ($x:ty) => {
         paste! {
@@ -126,6 +154,7 @@ macro_rules! read_int_impl {
         }
     };
 }
+/// Not gud
 pub trait ReadExt {
     read_type!(u8);
     read_type!(u16);
@@ -177,4 +206,9 @@ impl ReadExt for VecDeque<u8> {
         result |= self.pop_front().context(EndOfFile)? as u64;
         Ok(f64::from_bits(result))
     }
+}
+
+pub struct Interval {
+    period: Duration,
+    last_tick: Instant,
 }

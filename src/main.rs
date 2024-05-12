@@ -1,8 +1,9 @@
-#![forbid(unsafe_code)]
+// #![forbid(unsafe_code)]
 #![recursion_limit = "256"]
 
+// #![allow(unused)]
+
 // Very important
-#[allow(dead_code)]
 static HEROBRINE: &str = "herobrine";
 
 mod client;
@@ -22,10 +23,11 @@ use log::{debug, LevelFilter};
 mod tests;
 
 static PROTOCOL_VERSION: u16 = 763;
-const SEED: i64 = 0;
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    color_eyre::install()?;
+
     Builder::new()
         .format(|buf, record| {
             writeln!(
@@ -44,13 +46,14 @@ async fn main() -> Result<()> {
 
     match args.get(1).map(|s: &String| s.as_str()) {
         Some("" | "server") | None => {
-            server::start().await?;
+            // server::start().await?;
 
-            testing::test().await;
+            testing::test().await?;
         }
         Some("client") => {
             client::start().await?;
         }
+        Some("herobrine") => println!("{HEROBRINE}"),
         _ => panic!("Invalid arguments"),
     }
 

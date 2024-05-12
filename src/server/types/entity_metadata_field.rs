@@ -51,7 +51,7 @@ impl EntityMetadataField {
                 d
             }
             EMF::Boolean(bool) => vec![8, *bool as u8],
-            _ => todo!(),
+            _ => todo!(), // TODO
         }
     }
 }

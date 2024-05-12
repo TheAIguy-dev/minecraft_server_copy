@@ -25,14 +25,14 @@ pub async fn start() -> Result<()> {
     handshake_packet.write_string(address);
     handshake_packet.extend_from_slice(&port.to_be_bytes());
     handshake_packet.write_varint(2);
-    prefix_with_length(&mut handshake_packet).await;
+    prefix_with_length(&mut handshake_packet);
     connection.write_all(&handshake_packet).await?;
 
     let mut login_start_packet: Vec<u8> = vec![];
     handshake_packet.write_varint(0);
     handshake_packet.write_string("tester");
     handshake_packet.write_varint(0);
-    prefix_with_length(&mut login_start_packet).await;
+    prefix_with_length(&mut login_start_packet);
     connection.write_all(&login_start_packet).await?;
 
     debug!("All packets sent");

@@ -1,4 +1,6 @@
-use crate::server::types::{WriteVarInt, WriteVarLong};
+use std::collections::VecDeque;
+
+use crate::server::types::{ReadVarInt, WriteVarInt, WriteVarLong};
 
 #[test]
 fn test_varint() {
@@ -31,7 +33,13 @@ fn test_varint() {
     for i in 0..values.len() {
         let mut buf: Vec<u8> = vec![];
         buf.write_varint(values[i]);
-        assert_eq!(buf, results[i], "test #{}", i);
+        assert_eq!(buf, results[i], "write test #{}", i);
+        assert_eq!(
+            values[i],
+            VecDeque::from(buf).read_varint().unwrap(),
+            "read test #{}",
+            i
+        );
     }
 }
 

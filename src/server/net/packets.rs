@@ -2,15 +2,15 @@ use std::collections::VecDeque;
 
 use eyre::Result;
 use fastnbt::Value;
+use log::debug;
 use strum_macros::Display;
 use tokio::io::{AsyncRead, AsyncReadExt, AsyncWrite, AsyncWriteExt};
 
 use crate::server::{
     state::ConnectionState,
     types::{
-        self, Angle, AsyncReadVarInt, AsyncWriteVarInt, Chunk, EntityMetadata, Gamemode,
-        InteractionType, PlayerInfoUpdateActions, Position, ReadString, ReadVarInt, Uuid,
-        WriteString, WriteVarInt,
+        self, Angle, AsyncReadVarInt, Chunk, EntityMetadata, Gamemode, InteractionType,
+        PlayerInfoUpdateActions, Position, ReadString, ReadVarInt, Uuid, WriteString, WriteVarInt,
     },
     util::ReadExt,
 };
@@ -20,6 +20,7 @@ type Slot = Option<(i32, i8, Value)>;
 #[allow(dead_code)]
 #[derive(Display)]
 pub enum IncomingPacket {
+    // TODO: Disconnect
     Unknown {
         data: Vec<u8>,
     },
@@ -87,6 +88,34 @@ pub enum IncomingPacket {
         action_id: i32,
         jump_boost: i32,
     },
+    /// Packet ID: 0x2F
+    SwingArm {
+        hand: i32,
+    },
+    /// Packet ID: 0x32
+    UseItem {
+        hand: i32,
+        sequence: i32,
+    },
+}
+impl IncomingPacket {
+    pub fn sent_state(&self) -> ConnectionState {
+        use IncomingPacket::*;
+        match self {
+            Handshake { .. } => ConnectionState::Handshake,
+            StatusRequest { .. } | PingRequest { .. } => ConnectionState::Status,
+            LoginStart { .. } => ConnectionState::Login,
+            _ => ConnectionState::Play,
+        }
+    }
+
+    pub fn can_change_state(&self) -> bool {
+        use IncomingPacket::*;
+        matches!(
+            self,
+            Handshake { .. } | PingRequest { .. } | LoginStart { .. }
+        )
+    }
 }
 pub trait ReadPacket: AsyncRead + Unpin + Sized {
     async fn read_packet(&mut self, state: &ConnectionState) -> Result<IncomingPacket> {
@@ -183,19 +212,29 @@ pub trait ReadPacket: AsyncRead + Unpin + Sized {
                 action_id: buf.read_varint()?,
                 jump_boost: buf.read_varint()?,
             },
-            (_, _) => Unknown {
-                data: Vec::from(buf),
+            (ConnectionState::Play, 0x2F) => SwingArm {
+                hand: buf.read_varint()?,
             },
+            (ConnectionState::Play, 0x32) => UseItem {
+                hand: buf.read_varint()?,
+                sequence: buf.read_varint()?,
+            },
+            (_, _) => {
+                debug!("Unknown packet, state={state} id={id:#04x}");
+                Unknown {
+                    data: Vec::from(buf),
+                }
+            }
         })
     }
 }
 impl<T: AsyncRead + Unpin> ReadPacket for T {}
 
-#[derive(Debug, PartialEq)]
+#[derive(Display, Debug, PartialEq)]
 #[allow(dead_code)]
 pub enum OutgoingPacket {
-    /// This packet is used to drop the connection, thus it doesn't have a packet ID.
-    Drop,
+    /// This packet is used internally to indicate that the connection should be closed.
+    Disconnect,
     /// Packet ID: 0x00
     StatusResponse { json_response: String },
     /// Packet ID: 0x00
@@ -238,6 +277,13 @@ pub enum OutgoingPacket {
         state_id: i32,
         slot_data: Vec<Slot>,
         carried_item: Slot,
+    },
+    /// Packet ID: 0x14
+    SetContainerSlot {
+        window_id: u8,
+        state_id: i32,
+        slot: i16,
+        slot_data: Slot,
     },
     /// Packet ID: 0x1B
     DisguisedChatMessage {
@@ -368,7 +414,7 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
     async fn write_packet(&mut self, packet: OutgoingPacket) -> Result<()> {
         use OutgoingPacket::*;
         let (id, mut data) = match packet {
-            Drop => return Ok(()),
+            Disconnect => return Ok(()),
             StatusResponse { json_response } => (0x00, types::String(json_response).to_bytes()),
             DisconnectLogin { reason } => (0x00, types::String(reason).to_bytes()),
             BundleDelimiter => (0x00, vec![]),
@@ -437,7 +483,8 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                 mut slot_data,
                 carried_item,
             } => (0x12, {
-                let mut d: Vec<u8> = Vec::with_capacity(1 + 5 + 1 + slot_data.len() + 1);
+                let mut d: Vec<u8> =
+                    Vec::with_capacity(1 + 5 + 1 + slot_data.len() * (1 + 5 + 1 + 4) + 1);
                 d.push(window_id);
                 d.write_varint(state_id);
                 d.write_varint(slot_data.len() as i32);
@@ -451,6 +498,27 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
                         d.push(count as u8);
                         d.extend_from_slice(&nbt);
                     }
+                }
+                d
+            }),
+            SetContainerSlot {
+                window_id,
+                state_id,
+                slot,
+                slot_data,
+            } => (0x14, {
+                let mut d: Vec<u8> = Vec::with_capacity(1 + 5 + 2 + (1 + 5 + 1 + 4));
+                d.push(window_id);
+                d.write_varint(state_id);
+                d.push((slot >> 8) as u8);
+                d.push(slot as u8);
+                d.push(slot_data.is_some() as u8);
+                if let Some((id, count, nbt)) = slot_data {
+                    let nbt: Vec<u8> = fastnbt::to_bytes(&nbt)?;
+                    d.reserve(5 + 1 + nbt.len());
+                    d.write_varint(id);
+                    d.push(count as u8);
+                    d.extend_from_slice(&nbt);
                 }
                 d
             }),
@@ -860,44 +928,44 @@ pub trait WritePacket: AsyncWrite + Unpin + Sized {
         // };
         let bytes_written: usize = data.write_varint(id);
         data.rotate_right(bytes_written);
-        self.async_write_varint(data.len() as i32).await?;
+        prefix_with_length(&mut data);
         self.write_all(&data).await?;
 
         Ok(())
     }
 
-    async fn bundle_write_packets(&mut self, packets: Vec<OutgoingPacket>) -> Result<()> {
-        // let mut times: Vec<Duration> = vec![];
-        let mut packets: VecDeque<OutgoingPacket> = VecDeque::from(packets);
-        for _ in 0..packets.len().div_ceil(4096) {
-            self.write_packet(OutgoingPacket::BundleDelimiter).await?;
-            for _ in 0..4096.min(packets.len()) {
-                // let start: Instant = Instant::now();
-                self.write_packet(packets.pop_front().unwrap()).await?;
-                // times.push(start.elapsed());
-            }
-            self.write_packet(OutgoingPacket::BundleDelimiter).await?;
-        }
-        // debug!(
-        //     "Average packet send time: {:?}ns",
-        //     // "Average packet write time: {:?}µs",
-        //     times.iter().map(|d| d.as_nanos()).sum::<u128>() as f64 / times.len() as f64
-        // );
+    // async fn bundle_write_packets(&mut self, packets: Vec<OutgoingPacket>) -> Result<()> {
+    //     // let mut times: Vec<Duration> = vec![];
+    //     let mut packets: VecDeque<OutgoingPacket> = VecDeque::from(packets);
+    //     for _ in 0..packets.len().div_ceil(4096) {
+    //         self.write_packet(OutgoingPacket::BundleDelimiter).await?;
+    //         for _ in 0..4096.min(packets.len()) {
+    //             // let start: Instant = Instant::now();
+    //             self.write_packet(packets.pop_front().unwrap()).await?;
+    //             // times.push(start.elapsed());
+    //         }
+    //         self.write_packet(OutgoingPacket::BundleDelimiter).await?;
+    //     }
+    //     // debug!(
+    //     //     "Average packet send time: {:?}ns",
+    //     //     // "Average packet write time: {:?}µs",
+    //     //     times.iter().map(|d| d.as_nanos()).sum::<u128>() as f64 / times.len() as f64
+    //     // );
 
-        Ok(())
-    }
+    //     Ok(())
+    // }
 
-    async fn write_packets(&mut self, packets: Vec<OutgoingPacket>) -> Result<()> {
-        for packet in packets {
-            self.write_packet(packet).await?;
-        }
+    // async fn write_packets(&mut self, packets: Vec<OutgoingPacket>) -> Result<()> {
+    //     for packet in packets {
+    //         self.write_packet(packet).await?;
+    //     }
 
-        Ok(())
-    }
+    //     Ok(())
+    // }
 }
 impl<T: AsyncWrite + Unpin + Sized> WritePacket for T {}
 
-pub async fn prefix_with_length(packet: &mut Vec<u8>) {
+pub fn prefix_with_length(packet: &mut Vec<u8>) {
     let len_bytes: usize = packet.write_varint(packet.len() as i32);
     packet.rotate_right(len_bytes);
 }

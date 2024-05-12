@@ -5,7 +5,7 @@ pub enum Dimension {
     End,
 }
 impl Dimension {
-    pub fn chunk_section_n(&self) -> i32 {
+    pub fn chunk_section_count(&self) -> i32 {
         match self {
             Self::Overworld => 24,
             _ => 16,

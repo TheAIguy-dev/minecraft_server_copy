@@ -1,7 +1,9 @@
 use strum_macros::Display;
 
-#[derive(Display, Debug, PartialEq, Eq, Clone, Copy, Default)]
+#[derive(Display, Default, Clone, Copy, PartialEq, Eq)]
 pub enum ConnectionState {
+    /// This state indicates that the connection should be closed.
+    Disconnect,
     #[default]
     Handshake,
     Status,

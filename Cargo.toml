@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+arrayref = "0.3.7"
 base64 = "0.22.0"
 bounded-integer = {version = "0.5.7", features = ["types"]}
 bracket-noise = "0.8.7"
@@ -20,6 +21,7 @@ lazy_static = "1.4.0"
 leb128 = "0.2.5"
 log = "0.4.21"
 md5 = "0.7.0"
+num-traits = "0.2.19"
 paste = "1.0.14"
 rand = "0.8.5"
 serde = "1.0.197"

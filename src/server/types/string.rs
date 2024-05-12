@@ -3,6 +3,8 @@ use std::{collections::VecDeque, string};
 use eyre::{ensure, Context, Result};
 use itertools::Itertools;
 
+use crate::server::util::ReadError;
+
 use super::{ReadVarInt, WriteVarInt};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -21,7 +23,7 @@ pub trait ReadString {
 impl ReadString for VecDeque<u8> {
     fn read_string(&mut self) -> Result<string::String> {
         let len: usize = self.read_varint()? as usize;
-        ensure!(len <= self.len(), "Out of bounds");
+        ensure!(len <= self.len(), ReadError::EndOfFile);
         let bytes: Vec<u8> = self.drain(..len).collect_vec();
         string::String::from_utf8(bytes).wrap_err("Invalid UTF-8")
     }

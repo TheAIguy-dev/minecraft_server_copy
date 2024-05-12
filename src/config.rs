@@ -65,8 +65,8 @@ impl Default for Version {
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Players {
-    pub max: u32,
-    pub online: u32,
+    pub max: i32,
+    pub online: i32,
     pub sample: Option<Vec<Player>>,
 }
 impl Default for Players {

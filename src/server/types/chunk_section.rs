@@ -7,16 +7,16 @@ pub struct ChunkSection {
     // TODO: pub biomes: Vec<Biome>,
 }
 impl ChunkSection {
-    pub fn get_block(&self, x: i32, y: i32, z: i32) -> Option<&Block> {
+    pub fn get_block(&self, x: u8, y: u8, z: u8) -> Option<&Block> {
         self.blocks
-            .get(((x & 15) + (z & 15) * 16 + (y & 15) * 256) as usize)
+            .get((x as usize & 0xF) + (z as usize & 0xF) * 16 + (y as usize & 0xF) * 256)
     }
 
-    pub fn is_empty(&self, x: i32, y: i32, z: i32) -> bool {
+    pub fn is_empty(&self, x: u8, y: u8, z: u8) -> bool {
         self.get_block(x, y, z).unwrap_or(&Block::Air).is_empty()
     }
 
-    pub fn max_height_at(&self, x: i32, z: i32) -> Option<i32> {
+    pub fn max_height_at(&self, x: u8, z: u8) -> Option<u8> {
         for y in (0..16).rev() {
             if let Some(block) = self.get_block(x, y, z) {
                 if !block.is_empty() {
@@ -27,7 +27,7 @@ impl ChunkSection {
         None
     }
 
-    pub fn get_highest_block_at(&self, x: i32, z: i32) -> Option<&Block> {
+    pub fn get_highest_block_at(&self, x: u8, z: u8) -> Option<&Block> {
         for y in (0..16).rev() {
             if let Some(block) = self.get_block(x, y, z) {
                 return Some(block);
